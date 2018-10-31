@@ -1,4 +1,3 @@
-import requests
 {{?data.allHeaders.length}}headers = {
 {{~data.allHeaders :p:index}}  '{{=p.name}}': {{=p.exampleValues.json}}{{?index < data.allHeaders.length-1}},{{?}}
 {{~}}}
