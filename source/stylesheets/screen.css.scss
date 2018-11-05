@@ -78,7 +78,7 @@ html, body {
     margin-bottom: $logo-margin;
   }
 
-  &>.search {
+  & > .search {
     position: relative;
 
     input {
@@ -133,7 +133,6 @@ html, body {
     }
   }
 
-
   // The Table of Contents is composed of multiple nested
   // unordered lists.  These styles remove the default
   // styling of an unordered list because it is ugly.
@@ -179,7 +178,7 @@ html, body {
     margin-top: 1em;
     border-top: 1px dashed $nav-footer-border-color;
 
-    li,a {
+    li, a {
       color: $nav-text;
       text-decoration: none;
     }
@@ -238,10 +237,13 @@ html, body {
 
   transition: left 0.3s ease-in-out;
 
-  &:hover { opacity: 1; }
-  &.open {left: $nav-width}
+  &:hover {
+    opacity: 1;
+  }
+  &.open {
+    left: $nav-width
+  }
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // PAGE LAYOUT AND CODE SAMPLE BACKGROUND
@@ -283,7 +285,7 @@ html, body {
   font-weight: bold;
   a {
     display: block;
-    float:left;
+    float: left;
     color: $lang-select-text;
     text-decoration: none;
     padding: 0 10px;
@@ -326,7 +328,7 @@ html, body {
     clear: both;
   }
 
-  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+  & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > p, & > table, & > ul, & > ol, & > aside, & > dl {
     margin-right: $examples-width;
     padding: 0 $main-padding;
     box-sizing: border-box;
@@ -335,13 +337,13 @@ html, body {
     @extend %left-col;
   }
 
-  &>ul, &>ol {
+  & > ul, & > ol {
     padding-left: $main-padding + 15px;
   }
 
   // the div is the tocify hidden div for placeholding stuff
-  &>h1, &>h2, &>div {
-    clear:both;
+  & > h1, & > h2, & > div {
+    clear: both;
   }
 
   h1 {
@@ -399,7 +401,7 @@ html, body {
   table {
     margin-bottom: 1em;
     overflow: auto;
-    th,td {
+    th, td {
       text-align: left;
       vertical-align: top;
       line-height: 1.6;
@@ -422,12 +424,12 @@ html, body {
       border-bottom: 1px solid #ccc;
     }
 
-    tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,4.2%);
+    tr:nth-child(odd) > td {
+      background-color: lighten($main-bg, 4.2%);
     }
 
-    tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
+    tr:nth-child(even) > td {
+      background-color: lighten($main-bg, 2.4%);
     }
   }
 
@@ -449,14 +451,14 @@ html, body {
   }
 
   code {
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(0, 0, 0, 0.05);
     padding: 3px;
     border-radius: 3px;
     @extend %break-words;
     @extend %code-font;
   }
 
-  pre>code {
+  pre > code {
     background-color: transparent;
     padding: 0;
   }
@@ -518,14 +520,16 @@ html, body {
     margin: 0;
     width: $examples-width;
 
-    float:right;
-    clear:right;
+    float: right;
+    clear: right;
 
     box-sizing: border-box;
 
     @extend %right-col;
 
-    &>p { margin: 0; }
+    & > p {
+      margin: 0;
+    }
 
     a {
       color: #fff;
@@ -542,7 +546,7 @@ html, body {
   }
 
   blockquote {
-    &>p {
+    & > p {
       background-color: $code-annotation-bg;
       padding: $code-annotation-padding 2em;
       color: #eee;
@@ -612,4 +616,140 @@ html, body {
 
 .highlight, .highlight .w {
   background-color: $code-bg;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// DOMOTZ STYLES
+////////////////////////////////////////////////////////////////////////////////
+.content {
+
+  > p {
+    > code {
+      background: #333333;
+      color: #FFFFFF;
+      border-radius: 7px;
+      padding: 20px;
+      margin-bottom: 5px;
+      margin-right: 52%;
+      display: block;
+    }
+  }
+
+  .dmt-code-block {
+    background: #333333;
+    margin-left: 24px;
+    margin-right: 52%;
+    padding: 20px;
+    border-radius: 7px;
+    color: #cccccc;
+
+    code {
+      padding: 0;
+      background: transparent;
+      margin-right: 0;
+    }
+
+    .dmt-command {
+      color: #FFFFFF;
+    }
+    .dmt-url {
+      color: #65B042;
+    }
+  }
+}
+
+.toc-wrapper {
+  background: #f5f5f5;
+
+  .logo {
+    background: #222C38;
+  }
+
+  > .search input {
+    background: #4c8eca;
+    border: 0;
+    padding: 6px 0 6px 30px;
+    box-sizing: border-box;
+    margin: 10px 5px;
+    width: 220px;
+    outline: none;
+    color: #fff;
+    border-radius: 3px;
+
+    &::-webkit-input-placeholder {
+      color: #fff;
+      font-size: 14px;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+      color: #fff;
+      font-size: 14px;
+    }
+
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: #fff;
+      font-size: 14px;
+    }
+
+    &:-ms-input-placeholder {
+      color: #fff;
+      font-size: 14px;
+    }
+  }
+
+  .toc-link {
+    &.active {
+      background: transparent;
+    }
+  }
+
+  #toc {
+    > li {
+      margin-bottom: 5px;
+
+      > a {
+        background-color: #4c8eca;
+        color: #fff;
+        text-transform: uppercase;
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .toc-list-h2 {
+        background: transparent;
+        > li {
+          > a {
+            color: #4c8eca;
+
+            &.active {
+              color: #294056;
+            }
+          }
+
+          &:hover {
+            background: #fff;
+            > a {
+              color: #7186A3;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .toc-footer {
+    display: none;
+  }
+
+  .search-results {
+    background: transparent;
+
+    > li {
+      color: #4c8eca;
+
+      > a {
+        color: #4c8eca;
+      }
+    }
+  }
 }

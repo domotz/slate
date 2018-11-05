@@ -14,6 +14,7 @@ options.search = true;
 options.codeSamples = true;
 options.templateCallback = function(templateName,stage,data) { return data };
 options.sample = true; // set false by --raw
+// options.language_tabs = [];
 
 
 fetch(`https://${apiDefBaseUrl}/public-api/v1/meta/open-api-definition`, {method: 'GET',})
