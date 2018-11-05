@@ -2,7 +2,6 @@
 
 <p class="dmt-code-block">
 <code>
-# You can also use wget <br />
 <span class="dmt-command">curl -X {{=data.methodUpper}}</span> <span class="dmt-url">{{=data.url}}{{=data.requiredQueryString}}{{?data.allHeaders.length}} \{{?}}
 {{~data.allHeaders :p:index}}  -H '{{=p.name}}: {{=p.exampleValues.object}}'{{?index < data.allHeaders.length-1}} \{{?}}
 {{~}}

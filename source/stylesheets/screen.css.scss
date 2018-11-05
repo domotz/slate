@@ -630,7 +630,7 @@ html, body {
       border-radius: 7px;
       padding: 20px;
       margin-bottom: 5px;
-      margin-right: 52%;
+      margin-right: 0;
       display: block;
     }
   }
@@ -651,6 +651,9 @@ html, body {
 
     .dmt-command {
       color: #FFFFFF;
+    }
+    .dmt-comment {
+      color: #CCCCCC;
     }
     .dmt-url {
       color: #65B042;

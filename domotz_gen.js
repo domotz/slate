@@ -14,7 +14,7 @@ options.search = true;
 options.codeSamples = true;
 options.templateCallback = function(templateName,stage,data) { return data };
 options.sample = true; // set false by --raw
-// options.language_tabs = [];
+options.language_tabs = [{ "shell": "Curl" },{ "javascript": "JavaScript" }, { "javascript--nodejs": "Node.JS" }, { "python": "Python" }, { "ruby": "Ruby" }, { "go": "Go" }];
 
 
 fetch(`https://${apiDefBaseUrl}/public-api/v1/meta/open-api-definition`, {method: 'GET',})
