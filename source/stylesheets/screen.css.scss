@@ -756,3 +756,14 @@ html, body {
     }
   }
 }
+
+#nav-button {
+  background: #4c8eca;
+  padding: 5px;
+  top: 5px;
+  opacity: 0.95;
+
+  > span {
+    background: transparent;
+  }
+}
