@@ -82,7 +82,7 @@ Base URLs:
 }}
 
 {{~ blocks :block}}
-{{? block.title }}*{{= block.title}}*{{= '\n\n'}}{{?}}
+{{? block.title }}{{= block.title}}{{= '\n\n'}}{{?}}
 {{? block.externalDocs}}
 <a href="{{=block.externalDocs.url}}">{{=block.externalDocs.description||'External documentation'}}</a>
 {{?}}
