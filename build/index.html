@@ -2,6 +2,7 @@
 <!doctype html>
 <html>
   <head>
+    <link href="images/favicon.ico" rel="icon" type="image/ico" />
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -232,10 +233,10 @@
             <a href="#Domotz-Public-API-assets" class="toc-h1 toc-link" data-title="assets">assets</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#listusertypes" class="toc-h2 toc-link" data-title="listUserTypes">listUserTypes</a>
+                    <a href="#listdevicebasetypes" class="toc-h2 toc-link" data-title="listDeviceBaseTypes">listDeviceBaseTypes</a>
                   </li>
                   <li>
-                    <a href="#listdetectedtypes" class="toc-h2 toc-link" data-title="listDetectedTypes">listDetectedTypes</a>
+                    <a href="#listdevicedetectedtypes" class="toc-h2 toc-link" data-title="listDeviceDetectedTypes">listDeviceDetectedTypes</a>
                   </li>
               </ul>
           </li>
@@ -408,8 +409,8 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </ul>
 
 <h1 id="Domotz-Public-API-assets">assets</h1>
-<h2 id='listusertypes'>listUserTypes</h2>
-<p><a id="opIdlistUserTypes"></a></p>
+<h2 id='listdevicebasetypes'>listDeviceBaseTypes</h2>
+<p><a id="opIdlistDeviceBaseTypes"></a></p>
 
 <blockquote>
 <p>Code samples</p>
@@ -506,7 +507,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /type/device/base</code></span></p>
 
-<p>Return the device types list</p>
+<p>Returns the device types list</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -522,7 +523,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<h3 id="listusertypes-responses">Responses</h3>
+<h3 id="listdevicebasetypes-responses">Responses</h3>
 
 <table><thead>
 <tr>
@@ -540,7 +541,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </tr>
 </tbody></table>
 
-<h3 id="listusertypes-responseschema">Response Schema</h3>
+<h3 id="listdevicebasetypes-responseschema">Response Schema</h3>
 
 <p>Status Code <strong>200</strong></p>
 
@@ -583,8 +584,8 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <td>A human-readable short description of the type</td>
 </tr>
 </tbody></table>
-<h2 id='listdetectedtypes'>listDetectedTypes</h2>
-<p><a id="opIdlistDetectedTypes"></a></p>
+<h2 id='listdevicedetectedtypes'>listDeviceDetectedTypes</h2>
+<p><a id="opIdlistDeviceDetectedTypes"></a></p>
 
 <blockquote>
 <p>Code samples</p>
@@ -681,7 +682,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /type/device/detected</code></span></p>
 
-<p>Return the detected device types list</p>
+<p>Returns the detected device types list</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -700,7 +701,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<h3 id="listdetectedtypes-responses">Responses</h3>
+<h3 id="listdevicedetectedtypes-responses">Responses</h3>
 
 <table><thead>
 <tr>
@@ -718,7 +719,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </tr>
 </tbody></table>
 
-<h3 id="listdetectedtypes-responseschema">Response Schema</h3>
+<h3 id="listdevicedetectedtypes-responseschema">Response Schema</h3>
 
 <p>Status Code <strong>200</strong></p>
 
@@ -1016,7 +1017,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/device/{device_id}</code></span></p>
 
-<p>Gets all the devices of an agent</p>
+<p>Returns the details of a devices</p>
 
 <h3>Curl</h3>
 
@@ -1064,7 +1065,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1384,7 +1385,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/device</code></span></p>
 
-<p>Gets all the devices of an agent</p>
+<p>Returns all the devices of an agent</p>
 
 <h3>Curl</h3>
 
@@ -1426,7 +1427,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2278,7 +2279,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent</code></span></p>
 
-<p>Return the agents list</p>
+<p>Returns the agents list</p>
 
 <h3>Curl</h3>
 
@@ -2341,7 +2342,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2351,10 +2352,10 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
     </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="w">
+      </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2365,7 +2366,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"access_right"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OWNED"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"api_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -2706,7 +2707,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}</code></span></p>
 
-<p>Return the details of an agent</p>
+<p>Returns the details of an agent</p>
 
 <h3>Curl</h3>
 
@@ -2747,7 +2748,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2757,10 +2758,10 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="w">
+    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2771,7 +2772,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"access_right"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OWNED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"api_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -3175,7 +3176,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3352,7 +3353,7 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mi">0</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -3414,7 +3415,7 @@ download and in upload.</p>
 <p><a id="schemaexternalipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3439,7 +3440,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3611,7 +3612,7 @@ download and in upload.</p>
 <p><a id="schemaagentbase"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3621,10 +3622,10 @@ download and in upload.</p>
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="w">
+    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3635,7 +3636,7 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"access_right"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OWNED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"api_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -3856,7 +3857,7 @@ download and in upload.</p>
 <p><a id="schemaconnectionsession"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -3920,7 +3921,7 @@ download and in upload.</p>
 <p><a id="schemalocalipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3945,7 +3946,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"hw_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4055,7 +4056,7 @@ download and in upload.</p>
 
 <p><a id="schemanetworkspeedsample"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">0</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -4123,7 +4124,7 @@ download and in upload.</p>
 <p><a id="schemaabstractdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4311,7 +4312,7 @@ download and in upload.</p>
 <p><a id="schemadummydevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4493,7 +4494,7 @@ download and in upload.</p>
 <p><a id="schemaagentdetail"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4503,10 +4504,10 @@ download and in upload.</p>
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="w">
+    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4517,7 +4518,7 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"access_right"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OWNED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"api_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -4599,7 +4600,7 @@ download and in upload.</p>
 <p><a id="schemasubnetipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4624,7 +4625,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4714,7 +4715,7 @@ download and in upload.</p>
 <p><a id="schemaipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4739,7 +4740,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T10:11:32Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-21T12:54:15Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
