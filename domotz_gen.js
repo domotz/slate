@@ -1,7 +1,7 @@
 const converter = require('widdershins');
 const fs = require('fs');
 const fetch = require('node-fetch');
-const apiDefBaseUrl = 'api-eu-west-1-cell-1.domotz.com';
+const apiDefBaseUrl = 'api.domotz.de';
 const apiDefDocUrl = 'your-domotz-api-endpoint';
 
 let options = {};
