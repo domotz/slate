@@ -224,7 +224,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#Domotz-Public-API" class="toc-h1 toc-link" data-title="Domotz Public API v0.2.0b Beta">Domotz Public API v0.2.0b Beta</a>
+            <a href="#Domotz-Public-API" class="toc-h1 toc-link" data-title="Domotz Public API v0.3.0">Domotz Public API v0.3.0</a>
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
@@ -236,7 +236,13 @@
                     <a href="#getagentstatushistory" class="toc-h2 toc-link" data-title="getAgentStatusHistory">getAgentStatusHistory</a>
                   </li>
                   <li>
+                    <a href="#getagentrtdstats" class="toc-h2 toc-link" data-title="getAgentRTDStats">getAgentRTDStats</a>
+                  </li>
+                  <li>
                     <a href="#getdevicestatushistory" class="toc-h2 toc-link" data-title="getDeviceStatusHistory">getDeviceStatusHistory</a>
+                  </li>
+                  <li>
+                    <a href="#getdevicertdhistory" class="toc-h2 toc-link" data-title="getDeviceRTDHistory">getDeviceRTDHistory</a>
                   </li>
                   <li>
                     <a href="#getspeedtesthistory" class="toc-h2 toc-link" data-title="getSpeedTestHistory">getSpeedTestHistory</a>
@@ -327,10 +333,10 @@
                     <a href="#tocSdevicehistoryevent" class="toc-h2 toc-link" data-title="DeviceHistoryEvent">DeviceHistoryEvent</a>
                   </li>
                   <li>
-                    <a href="#tocSdetecteddevicetype" class="toc-h2 toc-link" data-title="DetectedDeviceType">DetectedDeviceType</a>
+                    <a href="#tocSapiusageinformation" class="toc-h2 toc-link" data-title="APIUsageInformation">APIUsageInformation</a>
                   </li>
                   <li>
-                    <a href="#tocSdeviceconnection" class="toc-h2 toc-link" data-title="DeviceConnection">DeviceConnection</a>
+                    <a href="#tocSdetecteddevicetype" class="toc-h2 toc-link" data-title="DetectedDeviceType">DetectedDeviceType</a>
                   </li>
                   <li>
                     <a href="#tocSdevicebasetype" class="toc-h2 toc-link" data-title="DeviceBaseType">DeviceBaseType</a>
@@ -348,19 +354,22 @@
                     <a href="#tocSnetworkspeedsample" class="toc-h2 toc-link" data-title="NetworkSpeedSample">NetworkSpeedSample</a>
                   </li>
                   <li>
+                    <a href="#tocSagenthistoryevent" class="toc-h2 toc-link" data-title="AgentHistoryEvent">AgentHistoryEvent</a>
+                  </li>
+                  <li>
                     <a href="#tocSdevicedetails" class="toc-h2 toc-link" data-title="DeviceDetails">DeviceDetails</a>
                   </li>
                   <li>
                     <a href="#tocSabstractdevice" class="toc-h2 toc-link" data-title="AbstractDevice">AbstractDevice</a>
                   </li>
                   <li>
-                    <a href="#tocSapiusageinformation" class="toc-h2 toc-link" data-title="APIUsageInformation">APIUsageInformation</a>
+                    <a href="#tocSdevicertdhistorysample" class="toc-h2 toc-link" data-title="DeviceRTDHistorySample">DeviceRTDHistorySample</a>
                   </li>
                   <li>
                     <a href="#tocSdummydevice" class="toc-h2 toc-link" data-title="DummyDevice">DummyDevice</a>
                   </li>
                   <li>
-                    <a href="#tocSagenthistoryevent" class="toc-h2 toc-link" data-title="AgentHistoryEvent">AgentHistoryEvent</a>
+                    <a href="#tocSdevicertdstatistics" class="toc-h2 toc-link" data-title="DeviceRTDStatistics">DeviceRTDStatistics</a>
                   </li>
                   <li>
                     <a href="#tocSagentdetail" class="toc-h2 toc-link" data-title="AgentDetail">AgentDetail</a>
@@ -383,7 +392,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="Domotz-Public-API">Domotz Public API v0.2.0b Beta</h1>
+        <h1 id="Domotz-Public-API">Domotz Public API v0.3.0</h1>
 
 <blockquote>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
@@ -566,7 +575,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONNECTION_RECOVERED"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -642,6 +651,241 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <tr>
 <td>type</td>
 <td>DOWN</td>
+</tr>
+</tbody></table>
+<h2 id='getagentrtdstats'>getAgentRTDStats</h2>
+<p><a id="opIdgetAgentRTDStats"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/rtd <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"Accept"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>GET /agent/{agent_id}/device/rtd</code></span></p>
+
+<p>Returns the Round Trip Delay statistics for all devices monitored by the agent. The aggregate values of <em>avg_min</em>, <em>avg_max</em>, <em>avg_median</em> help to understand the baseline response time of a device in a weekly time frame, while <em>latest_median</em> helps detecting a possible deviation from the baseline</p>
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentrtdstats-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"latest_sent_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latest_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latest_median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_max"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latest_lost_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avg_min"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h3 id="getagentrtdstats-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>Devices RTD Statistics</td>
+<td>Inline</td>
+</tr>
+</tbody></table>
+
+<h3 id="getagentrtdstats-responseschema">Response Schema</h3>
+
+<p>Status Code <strong>200</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>[<a href="#schemadevicertdstatistics">DeviceRTDStatistics</a>]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» latest_sent_packet_count</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The number of sent packets of the latest collection sample</td>
+</tr>
+<tr>
+<td>» latest_timestamp</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>The timestamp of the latest update</td>
+</tr>
+<tr>
+<td>» latest_median</td>
+<td>string</td>
+<td>false</td>
+<td>The median value of the latest collection sample</td>
+</tr>
+<tr>
+<td>» avg_max</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» avg_median</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» latest_lost_packet_count</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The number of lost packets of the latest collection sample</td>
+</tr>
+<tr>
+<td>» avg_min</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» device_id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>none</td>
 </tr>
 </tbody></table>
 <h2 id='getdevicestatushistory'>getDeviceStatusHistory</h2>
@@ -775,6 +1019,13 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <td>Agent ID</td>
 </tr>
 <tr>
+<td>device_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Device ID</td>
+</tr>
+<tr>
 <td>from</td>
 <td>query</td>
 <td>string(date-time)</td>
@@ -797,7 +1048,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP_CHANGE"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"new_ip"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -899,6 +1150,234 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <tr>
 <td>type</td>
 <td>DOWN</td>
+</tr>
+</tbody></table>
+<h2 id='getdevicertdhistory'>getDeviceRTDHistory</h2>
+<p><a id="opIdgetDeviceRTDHistory"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/history/rtd <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"Accept"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>GET /agent/{agent_id}/device/{device_id}/history/rtd</code></span></p>
+
+<p>Returns the Round Trip Delay history for the device. Each item represents the statistical aggregate of a set of Round Trip Delay measurements</p>
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getdevicertdhistory-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Device ID</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"min"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sent_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lost_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h3 id="getdevicertdhistory-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>Device RTD History</td>
+<td>Inline</td>
+</tr>
+</tbody></table>
+
+<h3 id="getdevicertdhistory-responseschema">Response Schema</h3>
+
+<p>Status Code <strong>200</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>[<a href="#schemadevicertdhistorysample">DeviceRTDHistorySample</a>]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» min</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» max</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» median</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» sent_packet_count</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» timestamp</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>The time the sample was reported to Domotz</td>
+</tr>
+<tr>
+<td>» lost_packet_count</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>none</td>
 </tr>
 </tbody></table>
 <h2 id='getspeedtesthistory'>getSpeedTestHistory</h2>
@@ -1055,7 +1534,7 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mi">0</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -1220,10 +1699,10 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"vital"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1264,6 +1743,12 @@ download and in upload.</p>
 <td>[A device type, either set by the user or as identified by the Domotz system]</td>
 </tr>
 <tr>
+<td>» label</td>
+<td>string</td>
+<td>false</td>
+<td>A human-readable short description of the type</td>
+</tr>
+<tr>
 <td>» identifier</td>
 <td>string</td>
 <td>false</td>
@@ -1280,12 +1765,6 @@ download and in upload.</p>
 <td>integer(int32)</td>
 <td>false</td>
 <td>An unique identifier of the type, referred in the <code>Device</code> entity</td>
-</tr>
-<tr>
-<td>» label</td>
-<td>string</td>
-<td>false</td>
-<td>A human-readable short description of the type</td>
 </tr>
 </tbody></table>
 <h2 id='listdevicedetectedtypes'>listDeviceDetectedTypes</h2>
@@ -1395,13 +1874,13 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"capabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1442,10 +1921,10 @@ download and in upload.</p>
 <td>[A device type, detected by the Domotz device identification feature]</td>
 </tr>
 <tr>
-<td>» type_id</td>
-<td>integer(int32)</td>
+<td>» label</td>
+<td>string</td>
 <td>false</td>
-<td>The corresponding <code>device type</code></td>
+<td>A human-readable short description of the type</td>
 </tr>
 <tr>
 <td>» identifier</td>
@@ -1466,10 +1945,10 @@ download and in upload.</p>
 <td>The features of the device</td>
 </tr>
 <tr>
-<td>» label</td>
-<td>string</td>
+<td>» type_id</td>
+<td>integer(int32)</td>
 <td>false</td>
-<td>A human-readable short description of the type</td>
+<td>The corresponding <code>device type</code></td>
 </tr>
 </tbody></table>
 
@@ -1581,14 +2060,14 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"concurrent_allowed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"by_resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"daily_usage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"by_ip"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"daily_usage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"by_ip"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"by_resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
@@ -1769,17 +2248,8 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1787,6 +2257,15 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1817,6 +2296,14 @@ download and in upload.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>importance</td>
+<td>VITAL</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>FLOATING</td>
+</tr>
+<tr>
 <td>protocol</td>
 <td>IP</td>
 </tr>
@@ -1827,14 +2314,6 @@ download and in upload.</p>
 <tr>
 <td>protocol</td>
 <td>IP_EXTERNAL</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>VITAL</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>FLOATING</td>
 </tr>
 <tr>
 <td>status</td>
@@ -2131,17 +2610,8 @@ download and in upload.</p>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -2149,6 +2619,15 @@ download and in upload.</p>
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -2180,6 +2659,14 @@ download and in upload.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>importance</td>
+<td>VITAL</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>FLOATING</td>
+</tr>
+<tr>
 <td>protocol</td>
 <td>IP</td>
 </tr>
@@ -2190,14 +2677,6 @@ download and in upload.</p>
 <tr>
 <td>protocol</td>
 <td>IP_EXTERNAL</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>VITAL</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>FLOATING</td>
 </tr>
 <tr>
 <td>status</td>
@@ -3046,20 +3525,22 @@ download and in upload.</p>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"package"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="w">
+      </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3070,15 +3551,13 @@ download and in upload.</p>
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"access_right"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OWNED"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"api_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"granting_user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -3137,6 +3616,24 @@ download and in upload.</p>
 <td>none</td>
 </tr>
 <tr>
+<td>» display_name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» creation_time</td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
 <td>» version</td>
 <td>object</td>
 <td>false</td>
@@ -3152,12 +3649,6 @@ download and in upload.</p>
 <td>»» package</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» display_name</td>
-<td>string</td>
-<td>true</td>
 <td>none</td>
 </tr>
 <tr>
@@ -3239,12 +3730,6 @@ download and in upload.</p>
 <td>none</td>
 </tr>
 <tr>
-<td>» creation_time</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
 <td>» access_right</td>
 <td>object</td>
 <td>false</td>
@@ -3272,12 +3757,6 @@ download and in upload.</p>
 <td>»»» name</td>
 <td>string(email)</td>
 <td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»» id</td>
-<td>integer(int32)</td>
-<td>true</td>
 <td>none</td>
 </tr>
 </tbody></table>
@@ -3452,20 +3931,22 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"package"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="w">
+    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3476,7 +3957,6 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"access_right"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OWNED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"api_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -3484,7 +3964,6 @@ download and in upload.</p>
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
@@ -3540,11 +4019,7 @@ download and in upload.</p>
 <span class="p">})</span>
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="s1">'{
-  "protocol": "http",
-  "port": 0,
-  "allowed_ip": "string"
-}'</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="s1">'false'</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
   <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
@@ -3624,11 +4099,7 @@ download and in upload.</p>
 <blockquote>
 <p>Body parameter</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"allowed_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="kc">false</span><span class="w">
 </span></code></pre>
 <h3>Curl</h3>
 
@@ -3668,13 +4139,6 @@ download and in upload.</p>
 <td>true</td>
 <td>Device ID</td>
 </tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td><a href="#schemadeviceconnection">DeviceConnection</a></td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
 
 <blockquote>
@@ -3683,11 +4147,8 @@ download and in upload.</p>
 <p>201 Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"allowed_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3714,17 +4175,8 @@ download and in upload.</p>
 <p><a id="schemaexternalipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -3732,6 +4184,15 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"grace_period"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3739,7 +4200,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3807,7 +4268,7 @@ download and in upload.</p>
 
 <p><a id="schemadevicehistoryevent"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP_CHANGE"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"new_ip"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3884,21 +4345,36 @@ download and in upload.</p>
 </tr>
 </tbody></table>
 
-<h2 id="tocSdetecteddevicetype">DetectedDeviceType</h2>
+<h2 id="tocSapiusageinformation">APIUsageInformation</h2>
 
-<p><a id="schemadetecteddevicetype"></a></p>
+<p><a id="schemaapiusageinformation"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"capabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"string"</span><span class="w">
+  </span><span class="s2">"concurrent_allowed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"daily_usage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"by_ip"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="s2">"by_resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"daily_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"by_key"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>A device type, detected by the Domotz device identification feature</p>
+<p>Information about Domotz API current usage and usage limits</p>
 <h3 id='properties-3'>Properties</h3>
 <table><thead>
 <tr>
@@ -3909,10 +4385,114 @@ download and in upload.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>type_id</td>
+<td>concurrent_allowed</td>
 <td>integer(int32)</td>
 <td>false</td>
-<td>The corresponding <code>device type</code></td>
+<td>Number of allowed calls to the API in a minute.</td>
+</tr>
+<tr>
+<td>daily_usage</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>Number of API call performed in the last 24 hours.</td>
+</tr>
+<tr>
+<td>by_ip</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» count</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The number of calls originated from that IP address</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>string</td>
+<td>false</td>
+<td>The IP address</td>
+</tr>
+<tr>
+<td>by_resource</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» count</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The number of calls for the resource</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>string</td>
+<td>false</td>
+<td>The base resource name</td>
+</tr>
+<tr>
+<td>daily_limit</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>Number of allowed calls to the API in a 24 hours span.</td>
+</tr>
+<tr>
+<td>by_key</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» count</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The number of calls done using this key in the last 24 hours</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>string</td>
+<td>false</td>
+<td>The mnemonic API key name</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The ID of the API key</td>
+</tr>
+</tbody></table>
+
+<h2 id="tocSdetecteddevicetype">DetectedDeviceType</h2>
+
+<p><a id="schemadetecteddevicetype"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"capabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>A device type, detected by the Domotz device identification feature</p>
+<h3 id='properties-4'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>false</td>
+<td>A human-readable short description of the type</td>
 </tr>
 <tr>
 <td>identifier</td>
@@ -3933,68 +4513,10 @@ download and in upload.</p>
 <td>The features of the device</td>
 </tr>
 <tr>
-<td>label</td>
-<td>string</td>
-<td>false</td>
-<td>A human-readable short description of the type</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSdeviceconnection">DeviceConnection</h2>
-
-<p><a id="schemadeviceconnection"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"allowed_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre><h3 id='properties-4'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>protocol</td>
-<td>string</td>
-<td>true</td>
-<td>The protocol wrapped by the connection:          * <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the  device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy).  * <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates wil be securely forwarded to the requested <code>port</code> of the device.</td>
-</tr>
-<tr>
-<td>port</td>
+<td>type_id</td>
 <td>integer(int32)</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>allowed_ip</td>
-<td>string</td>
-<td>true</td>
-<td>The only public IP address allowed to access the connection.          It will be impossible to use the connection from other IP addresses.          You can use <code>0.0.0.0</code> to allow access from any IP - For <code>http</code> abd <code>https</code> it is safe, since if you keep the connection link secret nobody will access the device. For <code>tcp</code> it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device&#39;s tcp port as if it was in the agent&#39;s network.</td>
-</tr>
-</tbody></table>
-<h4 id='enumerated-values-8'>Enumerated Values</h4>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>protocol</td>
-<td>http</td>
-</tr>
-<tr>
-<td>protocol</td>
-<td>https</td>
-</tr>
-<tr>
-<td>protocol</td>
-<td>tcp</td>
+<td>false</td>
+<td>The corresponding <code>device type</code></td>
 </tr>
 </tbody></table>
 
@@ -4002,10 +4524,10 @@ download and in upload.</p>
 
 <p><a id="schemadevicebasetype"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"vital"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -4019,6 +4541,12 @@ download and in upload.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>false</td>
+<td>A human-readable short description of the type</td>
+</tr>
 <tr>
 <td>identifier</td>
 <td>string</td>
@@ -4037,12 +4565,6 @@ download and in upload.</p>
 <td>false</td>
 <td>An unique identifier of the type, referred in the <code>Device</code> entity</td>
 </tr>
-<tr>
-<td>label</td>
-<td>string</td>
-<td>false</td>
-<td>A human-readable short description of the type</td>
-</tr>
 </tbody></table>
 
 <h2 id="tocSagentbase">AgentBase</h2>
@@ -4050,20 +4572,22 @@ download and in upload.</p>
 <p><a id="schemaagentbase"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"package"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="w">
+    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4074,15 +4598,13 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"access_right"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OWNED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"api_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"granting_user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><h3 id='properties-6'>Properties</h3>
@@ -4113,6 +4635,24 @@ download and in upload.</p>
 <td>none</td>
 </tr>
 <tr>
+<td>display_name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>creation_time</td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
 <td>version</td>
 <td>object</td>
 <td>false</td>
@@ -4128,12 +4668,6 @@ download and in upload.</p>
 <td>» package</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>display_name</td>
-<td>string</td>
-<td>true</td>
 <td>none</td>
 </tr>
 <tr>
@@ -4215,12 +4749,6 @@ download and in upload.</p>
 <td>none</td>
 </tr>
 <tr>
-<td>creation_time</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
 <td>access_right</td>
 <td>object</td>
 <td>false</td>
@@ -4250,14 +4778,8 @@ download and in upload.</p>
 <td>false</td>
 <td>none</td>
 </tr>
-<tr>
-<td>» id</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
-<h4 id='enumerated-values-9'>Enumerated Values</h4>
+<h4 id='enumerated-values-8'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -4294,11 +4816,8 @@ download and in upload.</p>
 
 <p><a id="schemaconnectionsession"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"allowed_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -4362,17 +4881,8 @@ download and in upload.</p>
 <p><a id="schemalocalipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4380,6 +4890,15 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"grace_period"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -4387,7 +4906,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"hw_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4497,7 +5016,7 @@ download and in upload.</p>
 
 <p><a id="schemanetworkspeedsample"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">0</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -4529,6 +5048,61 @@ download and in upload.</p>
 </tr>
 </tbody></table>
 
+<h2 id="tocSagenthistoryevent">AgentHistoryEvent</h2>
+
+<p><a id="schemaagenthistoryevent"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONNECTION_RECOVERED"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='properties-10'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>The time the sample was reported to Domotz</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>true</td>
+<td>The agent event type</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-9'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>CONNECTION_RECOVERED</td>
+</tr>
+<tr>
+<td>type</td>
+<td>CONNECTION_LOST</td>
+</tr>
+<tr>
+<td>type</td>
+<td>UP</td>
+</tr>
+<tr>
+<td>type</td>
+<td>DOWN</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocSdevicedetails">DeviceDetails</h2>
 
 <p><a id="schemadevicedetails"></a></p>
@@ -4537,7 +5111,7 @@ download and in upload.</p>
   </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-10'>Properties</h3>
+</span></code></pre><h3 id='properties-11'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4565,17 +5139,8 @@ download and in upload.</p>
 <p><a id="schemaabstractdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4583,12 +5148,21 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 <p>Base abstract class for all devices</p>
-<h3 id='properties-11'>Properties</h3>
+<h3 id='properties-12'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4610,38 +5184,8 @@ download and in upload.</p>
 <td>none</td>
 </tr>
 <tr>
-<td>protocol</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
 <td>importance</td>
 <td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>type</td>
-<td>object</td>
-<td>false</td>
-<td>The device type, if recognised by domotz</td>
-</tr>
-<tr>
-<td>» detected_id</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» id</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>details</td>
-<td><a href="#schemadevicedetails">DeviceDetails</a></td>
 <td>false</td>
 <td>none</td>
 </tr>
@@ -4682,6 +5226,36 @@ download and in upload.</p>
 <td>In a clustered configuration, the main device id</td>
 </tr>
 <tr>
+<td>details</td>
+<td><a href="#schemadevicedetails">DeviceDetails</a></td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>type</td>
+<td>object</td>
+<td>false</td>
+<td>The device type, if recognised by domotz</td>
+</tr>
+<tr>
+<td>» detected_id</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
 <td>id</td>
 <td>integer(int32)</td>
 <td>true</td>
@@ -4696,6 +5270,14 @@ download and in upload.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>importance</td>
+<td>VITAL</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>FLOATING</td>
+</tr>
+<tr>
 <td>protocol</td>
 <td>IP</td>
 </tr>
@@ -4707,47 +5289,21 @@ download and in upload.</p>
 <td>protocol</td>
 <td>IP_EXTERNAL</td>
 </tr>
-<tr>
-<td>importance</td>
-<td>VITAL</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>FLOATING</td>
-</tr>
 </tbody></table>
 
-<h2 id="tocSapiusageinformation">APIUsageInformation</h2>
+<h2 id="tocSdevicertdhistorysample">DeviceRTDHistorySample</h2>
 
-<p><a id="schemaapiusageinformation"></a></p>
+<p><a id="schemadevicertdhistorysample"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"concurrent_allowed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"by_resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"daily_usage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"by_ip"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"daily_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"by_key"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"min"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sent_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lost_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre>
-<p>Information about Domotz API current usage and usage limits</p>
-<h3 id='properties-12'>Properties</h3>
+</span></code></pre><h3 id='properties-13'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4757,82 +5313,40 @@ download and in upload.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>concurrent_allowed</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>Number of allowed calls to the API in a minute.</td>
-</tr>
-<tr>
-<td>by_resource</td>
-<td>[object]</td>
+<td>min</td>
+<td>string</td>
 <td>false</td>
 <td>none</td>
 </tr>
 <tr>
-<td>» count</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>The number of calls for the resource</td>
-</tr>
-<tr>
-<td>» name</td>
+<td>max</td>
 <td>string</td>
-<td>false</td>
-<td>The base resource name</td>
-</tr>
-<tr>
-<td>daily_usage</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>Number of API call performed in the last 24 hours.</td>
-</tr>
-<tr>
-<td>by_ip</td>
-<td>[object]</td>
 <td>false</td>
 <td>none</td>
 </tr>
 <tr>
-<td>» count</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>The number of calls originated from that IP address</td>
-</tr>
-<tr>
-<td>» name</td>
+<td>median</td>
 <td>string</td>
-<td>false</td>
-<td>The IP address</td>
-</tr>
-<tr>
-<td>daily_limit</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>Number of allowed calls to the API in a 24 hours span.</td>
-</tr>
-<tr>
-<td>by_key</td>
-<td>[object]</td>
 <td>false</td>
 <td>none</td>
 </tr>
 <tr>
-<td>» count</td>
+<td>sent_packet_count</td>
 <td>integer(int32)</td>
 <td>false</td>
-<td>The number of calls done using this key in the last 24 hours</td>
+<td>none</td>
 </tr>
 <tr>
-<td>» name</td>
-<td>string</td>
-<td>false</td>
-<td>The mnemonic API key name</td>
+<td>timestamp</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>The time the sample was reported to Domotz</td>
 </tr>
 <tr>
-<td>» id</td>
+<td>lost_packet_count</td>
 <td>integer(int32)</td>
 <td>false</td>
-<td>The ID of the API key</td>
+<td>none</td>
 </tr>
 </tbody></table>
 
@@ -4841,17 +5355,8 @@ download and in upload.</p>
 <p><a id="schemadummydevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4859,10 +5364,19 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-13'>Properties</h3>
+</span></code></pre><h3 id='properties-14'>Properties</h3>
 <p>allOf</p>
 
 <table><thead>
@@ -4899,15 +5413,21 @@ download and in upload.</p>
 </tr>
 </tbody></table>
 
-<h2 id="tocSagenthistoryevent">AgentHistoryEvent</h2>
+<h2 id="tocSdevicertdstatistics">DeviceRTDStatistics</h2>
 
-<p><a id="schemaagenthistoryevent"></a></p>
+<p><a id="schemadevicertdstatistics"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONNECTION_RECOVERED"</span><span class="w">
+  </span><span class="s2">"latest_sent_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"latest_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"latest_median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"avg_max"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"avg_median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"latest_lost_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"avg_min"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-14'>Properties</h3>
+</span></code></pre><h3 id='properties-15'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4917,40 +5437,52 @@ download and in upload.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>timestamp</td>
+<td>latest_sent_packet_count</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The number of sent packets of the latest collection sample</td>
+</tr>
+<tr>
+<td>latest_timestamp</td>
 <td>string(date-time)</td>
 <td>true</td>
-<td>The time the sample was reported to Domotz</td>
+<td>The timestamp of the latest update</td>
 </tr>
 <tr>
-<td>type</td>
+<td>latest_median</td>
 <td>string</td>
+<td>false</td>
+<td>The median value of the latest collection sample</td>
+</tr>
+<tr>
+<td>avg_max</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>avg_median</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>latest_lost_packet_count</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The number of lost packets of the latest collection sample</td>
+</tr>
+<tr>
+<td>avg_min</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>integer(int32)</td>
 <td>true</td>
-<td>The agent event type</td>
-</tr>
-</tbody></table>
-<h4 id='enumerated-values-11'>Enumerated Values</h4>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>type</td>
-<td>CONNECTION_RECOVERED</td>
-</tr>
-<tr>
-<td>type</td>
-<td>CONNECTION_LOST</td>
-</tr>
-<tr>
-<td>type</td>
-<td>UP</td>
-</tr>
-<tr>
-<td>type</td>
-<td>DOWN</td>
+<td>none</td>
 </tr>
 </tbody></table>
 
@@ -4959,20 +5491,22 @@ download and in upload.</p>
 <p><a id="schemaagentdetail"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"package"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="w">
+    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4983,7 +5517,6 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"access_right"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OWNED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"api_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -4991,7 +5524,6 @@ download and in upload.</p>
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
@@ -4999,7 +5531,7 @@ download and in upload.</p>
   </span><span class="s2">"listen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-15'>Properties</h3>
+</span></code></pre><h3 id='properties-16'>Properties</h3>
 <p>allOf</p>
 
 <table><thead>
@@ -5065,17 +5597,8 @@ download and in upload.</p>
 <p><a id="schemasubnetipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5083,6 +5606,15 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"grace_period"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5090,7 +5622,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5102,7 +5634,7 @@ download and in upload.</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-16'>Properties</h3>
+</span></code></pre><h3 id='properties-17'>Properties</h3>
 <p>allOf</p>
 
 <table><thead>
@@ -5180,17 +5712,8 @@ download and in upload.</p>
 <p><a id="schemaipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5198,6 +5721,15 @@ download and in upload.</p>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"detected_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"grace_period"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5205,12 +5737,12 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T18:16:51Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T14:37:09Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-17'>Properties</h3>
+</span></code></pre><h3 id='properties-18'>Properties</h3>
 <p>allOf</p>
 
 <table><thead>
@@ -5288,7 +5820,7 @@ download and in upload.</p>
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-12'>Enumerated Values</h4>
+<h4 id='enumerated-values-11'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -5317,7 +5849,7 @@ download and in upload.</p>
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-18'>Properties</h3>
+</span></code></pre><h3 id='properties-19'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>

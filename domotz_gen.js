@@ -27,4 +27,6 @@ fetch(`https://${apiDefBaseUrl}/public-api/v1/meta/open-api-definition`, {method
         fs.writeFileSync("source/index.html.md", str);
       });
     });
-  });
+  }).catch(function (err) {
+  console.log("error getting open api definition " + err.toString());
+});
