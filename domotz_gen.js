@@ -1,8 +1,8 @@
 const converter = require('widdershins');
 const fs = require('fs');
 const fetch = require('node-fetch');
-const apiDefBaseUrl = 'api.domotz.de';
-const apiDefDocUrl = 'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/';
+const apiDefBaseUrl = 'api-staging-eu-central-1-cell-1.domotz.co';
+const apiDefDocUrl = 'your-domotz-api-endpoint';
 
 let options = {};
 options.user_templates = './domotz_templates';

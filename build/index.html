@@ -402,12 +402,12 @@
 
 <p>Get your API Key and Base URL from the Domotz Portal or contact us.</p>
 
-<p>The Domotz Public API uses standard HTTP response codes, authentication, and verbs. JSON format is used in responses and accepted for request bodies. All date-time formats are expressed as yyyy-mm-ddThh:mm:ss.</p>
+<p>The Domotz Public API uses standard HTTP response codes, authentication, and verbs. JSON format is used in responses and accepted for request bodies. All date-time formats are expressed as yyyy-mm-ddThh:mm:ss. Date-time must be expressed in UTC. Specification of different TimeZones are not allowed.</p>
 
 <p>Base URLs:</p>
 
 <ul>
-<li><a href="https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1//public-api/v1/">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1//public-api/v1/</a></li>
+<li><a href="your-domotz-api-endpoint/public-api/v1/">your-domotz-api-endpoint/public-api/v1/</a></li>
 </ul>
 
 <p><a href="https://www.domotz.com/terms-and-conditions/">Terms of service</a>
@@ -428,7 +428,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/history/network/event <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/history/network/event <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -439,7 +439,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/event'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -456,7 +456,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/event'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -473,7 +473,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/event'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -487,7 +487,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/event'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -509,7 +509,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/event"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -526,7 +526,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/event \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -575,7 +575,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONNECTION_RECOVERED"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -659,7 +659,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/rtd <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/rtd <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -670,7 +670,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -687,7 +687,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -704,7 +704,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -718,7 +718,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -740,7 +740,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/rtd"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -757,7 +757,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/rtd \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -793,7 +793,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"latest_sent_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latest_median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_max"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"avg_median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -894,7 +894,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/history/network/event <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/history/network/event <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -905,7 +905,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -922,7 +922,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -939,7 +939,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -953,7 +953,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -975,7 +975,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -992,7 +992,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1048,7 +1048,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP_CHANGE"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"new_ip"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1158,7 +1158,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/history/rtd <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/history/rtd <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -1169,7 +1169,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -1186,7 +1186,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -1203,7 +1203,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -1217,7 +1217,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -1239,7 +1239,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -1256,7 +1256,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1316,7 +1316,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
     </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sent_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"lost_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -1400,7 +1400,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/history/network/speed <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/history/network/speed <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -1411,7 +1411,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/speed'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -1428,7 +1428,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/speed'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -1445,7 +1445,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/speed'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -1459,7 +1459,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/speed'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -1481,7 +1481,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a> </p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/speed"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -1499,7 +1499,7 @@ download and in upload.</p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/history/network/speed \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1548,7 +1548,7 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mi">0</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -1612,7 +1612,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/base <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/type/device/base <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -1623,7 +1623,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/base'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/type/device/base'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -1640,7 +1640,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/base'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/type/device/base'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -1657,7 +1657,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/base'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/type/device/base'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -1671,7 +1671,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/base'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/type/device/base'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -1693,7 +1693,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/base"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/type/device/base"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -1787,7 +1787,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/detected <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/type/device/detected <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -1798,7 +1798,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/detected'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/type/device/detected'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -1815,7 +1815,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/detected'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/type/device/detected'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -1832,7 +1832,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/detected'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/type/device/detected'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -1846,7 +1846,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/detected'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/type/device/detected'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -1868,7 +1868,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/type/device/detected"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/type/device/detected"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -1973,7 +1973,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/meta/usage <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/meta/usage <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -1984,7 +1984,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/meta/usage'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/meta/usage'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -2001,7 +2001,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/meta/usage'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/meta/usage'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -2018,7 +2018,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/meta/usage'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/meta/usage'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -2032,7 +2032,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/meta/usage'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/meta/usage'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -2054,7 +2054,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/meta/usage"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/meta/usage"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -2122,7 +2122,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span> <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -2133,7 +2133,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -2150,7 +2150,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -2167,7 +2167,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -2181,7 +2181,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -2203,7 +2203,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -2220,7 +2220,7 @@ download and in upload.</p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id} \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2262,7 +2262,7 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2348,7 +2348,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -2357,7 +2357,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'delete'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -2373,7 +2373,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'DELETE'</span><span class="p">,</span>
 
@@ -2389,7 +2389,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -2402,7 +2402,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -2423,7 +2423,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -2440,7 +2440,7 @@ download and in upload.</p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -2490,7 +2490,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -2501,7 +2501,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -2518,7 +2518,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -2535,7 +2535,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -2549,7 +2549,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -2571,7 +2571,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -2588,7 +2588,7 @@ download and in upload.</p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2624,7 +2624,7 @@ download and in upload.</p>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2711,7 +2711,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X PUT https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/<span class="o">{</span>field<span class="o">}</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X PUT your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/<span class="o">{</span>field<span class="o">}</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -2722,7 +2722,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/{field}'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field}'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'put'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -2739,7 +2739,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/{field}'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field}'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'PUT'</span><span class="p">,</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
@@ -2756,7 +2756,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/{field}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -2770,7 +2770,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">put</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/{field}'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">put</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field}'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -2792,7 +2792,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/{field}"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field}"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -2814,7 +2814,7 @@ download and in upload.</p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/{field} \
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field} \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2924,7 +2924,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/multimedia/camera/snapshot <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/multimedia/camera/snapshot <span class="se">\</span>
   -H <span class="s1">'Accept: image/*'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -2935,7 +2935,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -2952,7 +2952,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -2969,7 +2969,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -2983,7 +2983,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -3005,7 +3005,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -3022,7 +3022,7 @@ download and in upload.</p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot \
   -H 'Accept: image/*' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3088,7 +3088,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/user <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -3099,7 +3099,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/user'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/user'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -3116,7 +3116,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/user'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/user'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -3133,7 +3133,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/user'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/user'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -3147,7 +3147,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/user'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/user'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -3169,7 +3169,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/user"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/user"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -3217,7 +3217,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X HEAD https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X HEAD your-domotz-api-endpoint/public-api/v1/agent <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -3226,7 +3226,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'head'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -3242,7 +3242,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'HEAD'</span><span class="p">,</span>
 
@@ -3258,7 +3258,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -3271,7 +3271,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">head</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">head</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -3292,7 +3292,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"HEAD"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"HEAD"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -3309,7 +3309,7 @@ download and in upload.</p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent \
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -3384,7 +3384,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -3395,7 +3395,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -3412,7 +3412,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -3429,7 +3429,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -3443,7 +3443,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -3465,7 +3465,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -3482,7 +3482,7 @@ download and in upload.</p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3539,11 +3539,11 @@ download and in upload.</p>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -3551,10 +3551,10 @@ download and in upload.</p>
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="w">
+      </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3812,7 +3812,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span> <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -3823,7 +3823,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -3840,7 +3840,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -3857,7 +3857,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -3871,7 +3871,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -3893,7 +3893,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -3910,7 +3910,7 @@ download and in upload.</p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id} \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3945,11 +3945,11 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -3957,10 +3957,10 @@ download and in upload.</p>
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="w">
+    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4010,7 +4010,7 @@ download and in upload.</p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/connection <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST your-domotz-api-endpoint/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/connection <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
@@ -4023,7 +4023,7 @@ download and in upload.</p>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/connection'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -4041,7 +4041,7 @@ download and in upload.</p>
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/connection'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
@@ -4059,7 +4059,7 @@ download and in upload.</p>
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/connection'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -4074,7 +4074,7 @@ download and in upload.</p>
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/connection'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -4097,7 +4097,7 @@ download and in upload.</p>
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/connection"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -4119,7 +4119,7 @@ download and in upload.</p>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">https://api-staging-eu-central-1-cell-1.domotz.co/public-api/v1/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
@@ -4162,7 +4162,7 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4189,7 +4189,7 @@ download and in upload.</p>
 <p><a id="schemaexternalipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -4214,7 +4214,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4282,7 +4282,7 @@ download and in upload.</p>
 
 <p><a id="schemadevicehistoryevent"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP_CHANGE"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"new_ip"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4586,11 +4586,11 @@ download and in upload.</p>
 <p><a id="schemaagentbase"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4598,10 +4598,10 @@ download and in upload.</p>
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="w">
+    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4831,7 +4831,7 @@ download and in upload.</p>
 <p><a id="schemaconnectionsession"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -4895,7 +4895,7 @@ download and in upload.</p>
 <p><a id="schemalocalipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -4920,7 +4920,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"hw_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5030,7 +5030,7 @@ download and in upload.</p>
 
 <p><a id="schemanetworkspeedsample"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mi">0</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -5066,7 +5066,7 @@ download and in upload.</p>
 
 <p><a id="schemaagenthistoryevent"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONNECTION_RECOVERED"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -5153,7 +5153,7 @@ download and in upload.</p>
 <p><a id="schemaabstractdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5313,7 +5313,7 @@ download and in upload.</p>
   </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"sent_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"lost_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -5369,7 +5369,7 @@ download and in upload.</p>
 <p><a id="schemadummydevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5432,7 +5432,7 @@ download and in upload.</p>
 <p><a id="schemadevicertdstatistics"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"latest_sent_packet_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"latest_median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"avg_max"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"avg_median"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5505,11 +5505,11 @@ download and in upload.</p>
 <p><a id="schemaagentdetail"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5517,10 +5517,10 @@ download and in upload.</p>
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="w">
+    </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5611,7 +5611,7 @@ download and in upload.</p>
 <p><a id="schemasubnetipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5636,7 +5636,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5726,7 +5726,7 @@ download and in upload.</p>
 <p><a id="schemaipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5751,7 +5751,7 @@ download and in upload.</p>
   </span><span class="s2">"ip_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T15:59:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T16:28:33Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"agent_reachable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
