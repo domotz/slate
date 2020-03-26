@@ -40,3 +40,5 @@
 {{?}}
 
 {{#def.responses}}
+
+{{#def.callbacks}}
