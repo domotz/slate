@@ -12,7 +12,6 @@ test/tmp
 test/version_tmp
 tmp
 *.DS_STORE
-build/
 .cache
 .vagrant
 .sass-cache
@@ -22,3 +21,5 @@ build/
 _yardoc
 doc/
 .idea/
+
+*open_api.json

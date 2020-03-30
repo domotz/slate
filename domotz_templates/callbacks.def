@@ -1,0 +1,51 @@
+{{? data.operation.callbacks}}
+
+<div class="content well">
+
+<h3> Webhook Events </h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Method</th>
+      <th>Schema</th>
+      <th>Expected Reply</th>
+    </tr>
+  </thead>
+<tbody>
+
+
+{{ for (var c in data.operation.callbacks) { }}
+
+{{ var callback = data.operation.callbacks[c]; }}
+
+{{ for (var e in callback) { }}
+
+{{ var exp = callback[e]; }}
+
+{{ for (var m in exp) { }}
+
+
+{{ ref = exp[m]['requestBody']['content']['application/json']['schema']['x-widdershins-oldRef'].replace('#/components/schemas/', ''); }}
+{{ link = "#tocS" + ref.toLowerCase(); }}
+
+<tr>
+<td>{{=c}}</td>
+<td>POST</td>
+<td><a href="{{= link}}" data-title="{{= ref }}">{{= ref }}</a></td>
+<td>201</td>
+</tr>
+
+
+{{ } /* of methods */ }}
+
+{{ } /* of expressions */ }}
+
+{{ } /* of callbacks */ }}
+
+</tbody>
+</table>
+
+</div>
+{{?}}
