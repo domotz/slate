@@ -192,18 +192,18 @@ Returns the agents list
       },
       "status": "OWNED"
     },
-    "creation_time": "2020-05-05T17:18:56Z",
+    "creation_time": "2020-05-14T10:32:42Z",
     "display_name": "string",
     "id": 0,
     "licence": {
-      "activation_time": "2020-05-05T17:18:56Z",
+      "activation_time": "2020-05-14T10:32:42Z",
       "bound_mac_address": "string",
       "code": "string",
-      "expiration_time": "2020-05-05T17:18:56Z",
+      "expiration_time": "2020-05-14T10:32:42Z",
       "id": 0
     },
     "status": {
-      "last_change": "2020-05-05T17:18:56Z",
+      "last_change": "2020-05-14T10:32:42Z",
       "value": "ONLINE"
     },
     "team": {
@@ -701,18 +701,18 @@ Returns the details of an agent
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-05T17:18:56Z",
+  "creation_time": "2020-05-14T10:32:42Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-05T17:18:56Z",
+    "activation_time": "2020-05-14T10:32:42Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-05T17:18:56Z",
+    "expiration_time": "2020-05-14T10:32:42Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-05T17:18:56Z",
+    "last_change": "2020-05-14T10:32:42Z",
     "value": "ONLINE"
   },
   "team": {
@@ -1184,7 +1184,7 @@ Returns all the devices of an agent
       "zone": "string"
     },
     "display_name": "string",
-    "first_seen_on": "2020-05-05T17:18:56Z",
+    "first_seen_on": "2020-05-14T10:32:42Z",
     "id": 0,
     "importance": "VITAL",
     "main_id": 0,
@@ -1517,7 +1517,7 @@ Returns the details of a device
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-05T17:18:56Z",
+  "first_seen_on": "2020-05-14T10:32:42Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -2627,7 +2627,7 @@ Returns the Round Trip Delay statistics for all devices monitored by the agent. 
     "latest_lost_packet_count": 0,
     "latest_median": "string",
     "latest_sent_packet_count": 0,
-    "timestamp": "2020-05-05T17:18:56Z"
+    "timestamp": "2020-05-14T10:32:42Z"
   }
 ]
 ```
@@ -2808,7 +2808,7 @@ Returns the time series of the state changes of the device
         "string"
       ]
     },
-    "timestamp": "2020-05-05T17:18:56Z",
+    "timestamp": "2020-05-14T10:32:42Z",
     "type": "IP_CHANGE"
   }
 ]
@@ -2993,7 +2993,7 @@ Returns the Round Trip Delay history for the device. Each item represents the st
     "median": "string",
     "min": "string",
     "sent_packet_count": 0,
-    "timestamp": "2020-05-05T17:18:56Z"
+    "timestamp": "2020-05-14T10:32:42Z"
   }
 ]
 ```
@@ -3163,7 +3163,7 @@ Returns the time series of the state changes of the agent
 ```json
 [
   {
-    "timestamp": "2020-05-05T17:18:56Z",
+    "timestamp": "2020-05-14T10:32:42Z",
     "type": "CONNECTION_RECOVERED"
   }
 ]
@@ -3340,7 +3340,7 @@ download and in upload.
 ```json
 [
   {
-    "timestamp": "2020-05-05T17:18:56Z",
+    "timestamp": "2020-05-14T10:32:42Z",
     "values": [
       0
     ]
@@ -3492,7 +3492,7 @@ func main() {
 
 <span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/connection`</span>
 
-Establishes a direct secure connection to the `device`
+Establishes a direct secure connection to the `device` Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption </a> endpoint
 
 > Body parameter
 
@@ -3532,7 +3532,7 @@ Establishes a direct secure connection to the `device`
 ```json
 {
   "allowed_ip": "string",
-  "expiration": "2020-05-05T17:18:56Z",
+  "expiration": "2020-05-14T10:32:42Z",
   "id": 0,
   "link": "string",
   "port": 0,
@@ -3694,7 +3694,7 @@ Retrieves the list of configured SNMP Domotz Eyes
   {
     "category": "OTHER",
     "id": 0,
-    "last_update": "2020-05-05T17:18:56Z",
+    "last_update": "2020-05-14T10:32:42Z",
     "latest_value": "string",
     "name": "string",
     "oid": "string",
@@ -4180,7 +4180,7 @@ Retrieves the list of configured TCP Domotz Eyes
 [
   {
     "id": 0,
-    "last_update": "2020-05-05T17:18:56Z",
+    "last_update": "2020-05-14T10:32:42Z",
     "port": 0,
     "status": "UP"
   }
@@ -6656,7 +6656,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-05T17:18:56Z",
+  "first_seen_on": "2020-05-14T10:32:42Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -6726,18 +6726,18 @@ Returns the User information
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-05T17:18:56Z",
+  "creation_time": "2020-05-14T10:32:42Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-05T17:18:56Z",
+    "activation_time": "2020-05-14T10:32:42Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-05T17:18:56Z",
+    "expiration_time": "2020-05-14T10:32:42Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-05T17:18:56Z",
+    "last_change": "2020-05-14T10:32:42Z",
     "value": "ONLINE"
   },
   "team": {
@@ -6813,18 +6813,18 @@ Returns the User information
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-05T17:18:56Z",
+  "creation_time": "2020-05-14T10:32:42Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-05T17:18:56Z",
+    "activation_time": "2020-05-14T10:32:42Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-05T17:18:56Z",
+    "expiration_time": "2020-05-14T10:32:42Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-05T17:18:56Z",
+    "last_change": "2020-05-14T10:32:42Z",
     "value": "ONLINE"
   },
   "team": {
@@ -6873,7 +6873,7 @@ Returns the User information
 
 ```json
 {
-  "timestamp": "2020-05-05T17:18:56Z",
+  "timestamp": "2020-05-14T10:32:42Z",
   "type": "CONNECTION_RECOVERED"
 }
 
@@ -6911,7 +6911,7 @@ Returns the User information
     ]
   },
   "name": "agent_security_issue",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -6958,7 +6958,7 @@ Returns the User information
     }
   },
   "name": "agent_speed_test",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7000,7 +7000,7 @@ Returns the User information
     "value": "UP"
   },
   "name": "agent_status",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7116,7 +7116,7 @@ Returns the User information
 ```json
 {
   "allowed_ip": "string",
-  "expiration": "2020-05-05T17:18:56Z",
+  "expiration": "2020-05-14T10:32:42Z",
   "id": 0,
   "link": "string",
   "port": 0,
@@ -7209,7 +7209,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_configuration_change",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7243,7 +7243,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_configuration_misalignment",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7348,7 +7348,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "agent_device_discovery",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7382,7 +7382,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_heartbeat_lost",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7419,7 +7419,7 @@ Returns the User information
       "string"
     ]
   },
-  "timestamp": "2020-05-05T17:18:56Z",
+  "timestamp": "2020-05-14T10:32:42Z",
   "type": "IP_CHANGE"
 }
 
@@ -7461,7 +7461,7 @@ Returns the User information
     ]
   },
   "name": "device_ip_change",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7520,7 +7520,7 @@ Returns the User information
   "median": "string",
   "min": "string",
   "sent_packet_count": 0,
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7556,7 +7556,7 @@ Returns the User information
     }
   },
   "name": "device_rtd",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7601,7 +7601,7 @@ Returns the User information
   "latest_lost_packet_count": 0,
   "latest_median": "string",
   "latest_sent_packet_count": 0,
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7632,7 +7632,7 @@ Returns the User information
     "value": "string"
   },
   "name": "device_snmp",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7688,7 +7688,7 @@ Returns the User information
     "value": "UP"
   },
   "name": "device_status",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7731,7 +7731,7 @@ Returns the User information
     ]
   },
   "name": "device_tcp",
-  "timestamp": "2020-05-05T17:18:56Z"
+  "timestamp": "2020-05-14T10:32:42Z"
 }
 
 ```
@@ -7801,7 +7801,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-05T17:18:56Z",
+  "first_seen_on": "2020-05-14T10:32:42Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7848,7 +7848,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-05T17:18:56Z",
+  "first_seen_on": "2020-05-14T10:32:42Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7868,7 +7868,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-05T17:18:56Z",
+  "last_status_change": "2020-05-14T10:32:42Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -7911,7 +7911,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-05T17:18:56Z",
+  "first_seen_on": "2020-05-14T10:32:42Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7931,7 +7931,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-05T17:18:56Z",
+  "last_status_change": "2020-05-14T10:32:42Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string"
@@ -7983,7 +7983,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-05T17:18:56Z",
+  "first_seen_on": "2020-05-14T10:32:42Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -8003,7 +8003,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-05T17:18:56Z",
+  "last_status_change": "2020-05-14T10:32:42Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -8050,7 +8050,7 @@ Returns the User information
 
 ```json
 {
-  "timestamp": "2020-05-05T17:18:56Z",
+  "timestamp": "2020-05-14T10:32:42Z",
   "values": [
     0
   ]
@@ -8076,7 +8076,7 @@ Returns the User information
 {
   "category": "OTHER",
   "id": 0,
-  "last_update": "2020-05-05T17:18:56Z",
+  "last_update": "2020-05-14T10:32:42Z",
   "latest_value": "string",
   "name": "string",
   "oid": "string",
@@ -8166,7 +8166,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-05T17:18:56Z",
+  "first_seen_on": "2020-05-14T10:32:42Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -8186,7 +8186,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-05T17:18:56Z",
+  "last_status_change": "2020-05-14T10:32:42Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -8228,7 +8228,7 @@ Returns the User information
 ```json
 {
   "id": 0,
-  "last_update": "2020-05-05T17:18:56Z",
+  "last_update": "2020-05-14T10:32:42Z",
   "port": 0,
   "status": "UP"
 }
