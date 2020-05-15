@@ -192,18 +192,18 @@ Returns the agents list
       },
       "status": "OWNED"
     },
-    "creation_time": "2020-05-14T10:32:42Z",
+    "creation_time": "2020-05-15T14:10:15Z",
     "display_name": "string",
     "id": 0,
     "licence": {
-      "activation_time": "2020-05-14T10:32:42Z",
+      "activation_time": "2020-05-15T14:10:15Z",
       "bound_mac_address": "string",
       "code": "string",
-      "expiration_time": "2020-05-14T10:32:42Z",
+      "expiration_time": "2020-05-15T14:10:15Z",
       "id": 0
     },
     "status": {
-      "last_change": "2020-05-14T10:32:42Z",
+      "last_change": "2020-05-15T14:10:15Z",
       "value": "ONLINE"
     },
     "team": {
@@ -701,18 +701,18 @@ Returns the details of an agent
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-14T10:32:42Z",
+  "creation_time": "2020-05-15T14:10:15Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-14T10:32:42Z",
+    "activation_time": "2020-05-15T14:10:15Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-14T10:32:42Z",
+    "expiration_time": "2020-05-15T14:10:15Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-14T10:32:42Z",
+    "last_change": "2020-05-15T14:10:15Z",
     "value": "ONLINE"
   },
   "team": {
@@ -1184,7 +1184,7 @@ Returns all the devices of an agent
       "zone": "string"
     },
     "display_name": "string",
-    "first_seen_on": "2020-05-14T10:32:42Z",
+    "first_seen_on": "2020-05-15T14:10:15Z",
     "id": 0,
     "importance": "VITAL",
     "main_id": 0,
@@ -1517,7 +1517,7 @@ Returns the details of a device
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-14T10:32:42Z",
+  "first_seen_on": "2020-05-15T14:10:15Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -2627,7 +2627,7 @@ Returns the Round Trip Delay statistics for all devices monitored by the agent. 
     "latest_lost_packet_count": 0,
     "latest_median": "string",
     "latest_sent_packet_count": 0,
-    "timestamp": "2020-05-14T10:32:42Z"
+    "timestamp": "2020-05-15T14:10:15Z"
   }
 ]
 ```
@@ -2808,7 +2808,7 @@ Returns the time series of the state changes of the device
         "string"
       ]
     },
-    "timestamp": "2020-05-14T10:32:42Z",
+    "timestamp": "2020-05-15T14:10:15Z",
     "type": "IP_CHANGE"
   }
 ]
@@ -2993,7 +2993,7 @@ Returns the Round Trip Delay history for the device. Each item represents the st
     "median": "string",
     "min": "string",
     "sent_packet_count": 0,
-    "timestamp": "2020-05-14T10:32:42Z"
+    "timestamp": "2020-05-15T14:10:15Z"
   }
 ]
 ```
@@ -3163,7 +3163,7 @@ Returns the time series of the state changes of the agent
 ```json
 [
   {
-    "timestamp": "2020-05-14T10:32:42Z",
+    "timestamp": "2020-05-15T14:10:15Z",
     "type": "CONNECTION_RECOVERED"
   }
 ]
@@ -3340,7 +3340,7 @@ download and in upload.
 ```json
 [
   {
-    "timestamp": "2020-05-14T10:32:42Z",
+    "timestamp": "2020-05-15T14:10:15Z",
     "values": [
       0
     ]
@@ -3492,7 +3492,7 @@ func main() {
 
 <span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/connection`</span>
 
-Establishes a direct secure connection to the `device` Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption </a> endpoint
+Establishes a direct secure connection to the `device` Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
 
 > Body parameter
 
@@ -3532,7 +3532,7 @@ Establishes a direct secure connection to the `device` Current consumption and c
 ```json
 {
   "allowed_ip": "string",
-  "expiration": "2020-05-14T10:32:42Z",
+  "expiration": "2020-05-15T14:10:15Z",
   "id": 0,
   "link": "string",
   "port": 0,
@@ -3694,7 +3694,7 @@ Retrieves the list of configured SNMP Domotz Eyes
   {
     "category": "OTHER",
     "id": 0,
-    "last_update": "2020-05-14T10:32:42Z",
+    "last_update": "2020-05-15T14:10:15Z",
     "latest_value": "string",
     "name": "string",
     "oid": "string",
@@ -4180,7 +4180,7 @@ Retrieves the list of configured TCP Domotz Eyes
 [
   {
     "id": 0,
-    "last_update": "2020-05-14T10:32:42Z",
+    "last_update": "2020-05-15T14:10:15Z",
     "port": 0,
     "status": "UP"
   }
@@ -4778,7 +4778,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot`</span>
 
-Take a snapshot of the camera.
+Take a snapshot of the camera. Internally, a device connection is established.Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
 
 <h3>Curl</h3>
 
@@ -4808,6 +4808,605 @@ Take a snapshot of the camera.
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A binary image|string|
+
+<h1 id="domotz-public-api-company">company</h1>
+
+## moveAgent
+
+<a id="opIdmoveAgent"></a>
+
+> Code samples
+
+```shell
+curl -X PUT http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+{
+  method: 'PUT',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/ownership/team/{team_id}`</span>
+
+Moves an agent under the control of a different team
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="moveagent-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|team_id|path|integer(int32)|true|Team ID|
+
+<h3 id="moveagent-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## listAreas
+
+<a id="opIdlistAreas"></a>
+
+> Code samples
+
+```shell
+curl -X GET http://172.17.0.1:9080/public-api/v1/area \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'http://172.17.0.1:9080/public-api/v1/area',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('http://172.17.0.1:9080/public-api/v1/area',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('http://172.17.0.1:9080/public-api/v1/area', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/area',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/area", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /area`</span>
+
+Returns all the areas of a Company
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+```
+
+<h3 id="listareas-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of all the areas in the User's Company|Inline|
+
+<h3 id="listareas-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Area](#schemaarea)]|false|[Represents an area of the Company]|
+|» id|integer(int32)|true|The identifier of the Area|
+|» name|string|true|The name of the Area|
+
+## listTeams
+
+<a id="opIdlistTeams"></a>
+
+> Code samples
+
+```shell
+curl -X GET http://172.17.0.1:9080/public-api/v1/area/{area_id}/team \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('http://172.17.0.1:9080/public-api/v1/area/{area_id}/team', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/area/{area_id}/team", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /area/{area_id}/team`</span>
+
+Returns all the teams of an Area
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+```
+
+<h3 id="listteams-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of all the teams in a Company Area's|Inline|
+
+<h3 id="listteams-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Team](#schemateam)]|false|[Represents a team of the Company]|
+|» id|integer(int32)|true|The identifier of the Team|
+|» name|string|true|The name of the Team|
+
+## createTeam
+
+<a id="opIdcreateTeam"></a>
+
+> Code samples
+
+```shell
+curl -X POST http://172.17.0.1:9080/public-api/v1/area/{area_id}/team \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "leader": {
+    "details": {
+      "display_name": "string"
+    },
+    "name": "string",
+    "password": "string"
+  },
+  "name": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('http://172.17.0.1:9080/public-api/v1/area/{area_id}/team', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/area/{area_id}/team", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /area/{area_id}/team`</span>
+
+Creates a new Team
+
+> Body parameter
+
+```json
+{
+  "leader": {
+    "details": {
+      "display_name": "string"
+    },
+    "name": "string",
+    "password": "string"
+  },
+  "name": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/area/{area_id}/team \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createteam-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|area_id|path|integer(int32)|true|Area ID|
+|body|body|[TeamCreation](#schemateamcreation)|true|none|
+
+<h3 id="createteam-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
 
 <h1 id="domotz-public-api-alert-profiles">alert profiles</h1>
 
@@ -6656,7 +7255,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-14T10:32:42Z",
+  "first_seen_on": "2020-05-15T14:10:15Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -6726,18 +7325,18 @@ Returns the User information
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-14T10:32:42Z",
+  "creation_time": "2020-05-15T14:10:15Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-14T10:32:42Z",
+    "activation_time": "2020-05-15T14:10:15Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-14T10:32:42Z",
+    "expiration_time": "2020-05-15T14:10:15Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-14T10:32:42Z",
+    "last_change": "2020-05-15T14:10:15Z",
     "value": "ONLINE"
   },
   "team": {
@@ -6813,18 +7412,18 @@ Returns the User information
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-14T10:32:42Z",
+  "creation_time": "2020-05-15T14:10:15Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-14T10:32:42Z",
+    "activation_time": "2020-05-15T14:10:15Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-14T10:32:42Z",
+    "expiration_time": "2020-05-15T14:10:15Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-14T10:32:42Z",
+    "last_change": "2020-05-15T14:10:15Z",
     "value": "ONLINE"
   },
   "team": {
@@ -6873,7 +7472,7 @@ Returns the User information
 
 ```json
 {
-  "timestamp": "2020-05-14T10:32:42Z",
+  "timestamp": "2020-05-15T14:10:15Z",
   "type": "CONNECTION_RECOVERED"
 }
 
@@ -6911,7 +7510,7 @@ Returns the User information
     ]
   },
   "name": "agent_security_issue",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -6958,7 +7557,7 @@ Returns the User information
     }
   },
   "name": "agent_speed_test",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7000,7 +7599,7 @@ Returns the User information
     "value": "UP"
   },
   "name": "agent_status",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7090,6 +7689,27 @@ Returns the User information
 |alert_profile_id|integer(int32)|true|The id of the alert profile|
 |device_id|integer(int32)|true|none|
 
+<h2 id="tocSarea">Area</h2>
+
+<a id="schemaarea"></a>
+
+```json
+{
+  "id": 0,
+  "name": "string"
+}
+
+```
+
+*Represents an area of the Company*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|id|integer(int32)|true|The identifier of the Area|
+|name|string|true|The name of the Area|
+
 <h2 id="tocSconnectionconsumption">ConnectionConsumption</h2>
 
 <a id="schemaconnectionconsumption"></a>
@@ -7116,7 +7736,7 @@ Returns the User information
 ```json
 {
   "allowed_ip": "string",
-  "expiration": "2020-05-14T10:32:42Z",
+  "expiration": "2020-05-15T14:10:15Z",
   "id": 0,
   "link": "string",
   "port": 0,
@@ -7209,7 +7829,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_configuration_change",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7243,7 +7863,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_configuration_misalignment",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7348,7 +7968,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "agent_device_discovery",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7382,7 +8002,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_heartbeat_lost",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7419,7 +8039,7 @@ Returns the User information
       "string"
     ]
   },
-  "timestamp": "2020-05-14T10:32:42Z",
+  "timestamp": "2020-05-15T14:10:15Z",
   "type": "IP_CHANGE"
 }
 
@@ -7461,7 +8081,7 @@ Returns the User information
     ]
   },
   "name": "device_ip_change",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7520,7 +8140,7 @@ Returns the User information
   "median": "string",
   "min": "string",
   "sent_packet_count": 0,
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7556,7 +8176,7 @@ Returns the User information
     }
   },
   "name": "device_rtd",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7601,7 +8221,7 @@ Returns the User information
   "latest_lost_packet_count": 0,
   "latest_median": "string",
   "latest_sent_packet_count": 0,
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7632,7 +8252,7 @@ Returns the User information
     "value": "string"
   },
   "name": "device_snmp",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7688,7 +8308,7 @@ Returns the User information
     "value": "UP"
   },
   "name": "device_status",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7731,7 +8351,7 @@ Returns the User information
     ]
   },
   "name": "device_tcp",
-  "timestamp": "2020-05-14T10:32:42Z"
+  "timestamp": "2020-05-15T14:10:15Z"
 }
 
 ```
@@ -7801,7 +8421,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-14T10:32:42Z",
+  "first_seen_on": "2020-05-15T14:10:15Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7848,7 +8468,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-14T10:32:42Z",
+  "first_seen_on": "2020-05-15T14:10:15Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7868,7 +8488,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-14T10:32:42Z",
+  "last_status_change": "2020-05-15T14:10:15Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -7911,7 +8531,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-14T10:32:42Z",
+  "first_seen_on": "2020-05-15T14:10:15Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7931,7 +8551,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-14T10:32:42Z",
+  "last_status_change": "2020-05-15T14:10:15Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string"
@@ -7983,7 +8603,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-14T10:32:42Z",
+  "first_seen_on": "2020-05-15T14:10:15Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -8003,7 +8623,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-14T10:32:42Z",
+  "last_status_change": "2020-05-15T14:10:15Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -8050,7 +8670,7 @@ Returns the User information
 
 ```json
 {
-  "timestamp": "2020-05-14T10:32:42Z",
+  "timestamp": "2020-05-15T14:10:15Z",
   "values": [
     0
   ]
@@ -8076,7 +8696,7 @@ Returns the User information
 {
   "category": "OTHER",
   "id": 0,
-  "last_update": "2020-05-14T10:32:42Z",
+  "last_update": "2020-05-15T14:10:15Z",
   "latest_value": "string",
   "name": "string",
   "oid": "string",
@@ -8166,7 +8786,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-14T10:32:42Z",
+  "first_seen_on": "2020-05-15T14:10:15Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -8186,7 +8806,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-14T10:32:42Z",
+  "last_status_change": "2020-05-15T14:10:15Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -8228,7 +8848,7 @@ Returns the User information
 ```json
 {
   "id": 0,
-  "last_update": "2020-05-14T10:32:42Z",
+  "last_update": "2020-05-15T14:10:15Z",
   "port": 0,
   "status": "UP"
 }
@@ -8271,6 +8891,58 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |port|integer(int32)|true|The port number|
+
+<h2 id="tocSteam">Team</h2>
+
+<a id="schemateam"></a>
+
+```json
+{
+  "id": 0,
+  "name": "string"
+}
+
+```
+
+*Represents a team of the Company*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|id|integer(int32)|true|The identifier of the Team|
+|name|string|true|The name of the Team|
+
+<h2 id="tocSteamcreation">TeamCreation</h2>
+
+<a id="schemateamcreation"></a>
+
+```json
+{
+  "leader": {
+    "details": {
+      "display_name": "string"
+    },
+    "name": "string",
+    "password": "string"
+  },
+  "name": "string"
+}
+
+```
+
+*Team Creation under specified Area*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|leader|object|true|The Team Leader|
+|» details|object|true|The Team Leader's details|
+|»» display_name|string|true|The Team Leader's display name|
+|» name|string|true|The Team Leader's name|
+|» password|string|true|The Team Leader's password|
+|name|string|true|The Team's name|
 
 <h2 id="tocSuser">User</h2>
 
