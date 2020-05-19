@@ -6,6 +6,8 @@ const childProcess = require('child_process');
 const apiDefBaseUrl = 'https://api-staging-eu-central-1-cell-1.domotz.co';
 // const apiDefBaseUrl = 'https://api.domotz.de';
 // const apiDefBaseUrl = 'http://172.17.0.1:8888';
+// const apiDefBaseUrl = 'http://192.168.77.5:8888';
+
 const apiDefDocUrl = 'your-domotz-api-endpoint';
 var stringify = require('json-stable-stringify');
 const tmpFile = '/tmp/domotz_api.json';
