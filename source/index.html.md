@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.0.0-dev</h1>
+<h1 id="domotz-public-api">Domotz Public API v0.8.1</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -27,7 +27,7 @@ The Domotz Public API uses standard HTTP response codes, authentication, and ver
 
 Base URLs:
 
-* <a href="http://172.17.0.1:9080/public-api/v1/">http://172.17.0.1:9080/public-api/v1/</a>
+* <a href="your-domotz-api-endpoint/public-api/v1/">your-domotz-api-endpoint/public-api/v1/</a>
 
 <a href="https://www.domotz.com/terms-and-conditions/">Terms of service</a>
 Email: <a href="mailto:support@domotz.com">API Support</a> 
@@ -46,7 +46,7 @@ Email: <a href="mailto:support@domotz.com">API Support</a>
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -60,7 +60,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent',
   method: 'get',
 
   headers: headers,
@@ -80,7 +80,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent',
+fetch('your-domotz-api-endpoint/public-api/v1/agent',
 {
   method: 'GET',
 
@@ -101,7 +101,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent', params={
 
 }, headers = headers)
 
@@ -118,7 +118,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent',
   params: {
   }, headers: headers
 
@@ -143,7 +143,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -161,7 +161,7 @@ Returns the agents list
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -192,18 +192,18 @@ Returns the agents list
       },
       "status": "OWNED"
     },
-    "creation_time": "2020-05-04T14:46:34Z",
+    "creation_time": "2020-05-19T08:56:16Z",
     "display_name": "string",
     "id": 0,
     "licence": {
-      "activation_time": "2020-05-04T14:46:34Z",
+      "activation_time": "2020-05-19T08:56:16Z",
       "bound_mac_address": "string",
       "code": "string",
-      "expiration_time": "2020-05-04T14:46:34Z",
+      "expiration_time": "2020-05-19T08:56:16Z",
       "id": 0
     },
     "status": {
-      "last_change": "2020-05-04T14:46:34Z",
+      "last_change": "2020-05-19T08:56:16Z",
       "value": "ONLINE"
     },
     "team": {
@@ -282,7 +282,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X HEAD http://172.17.0.1:9080/public-api/v1/agent \
+curl -X HEAD your-domotz-api-endpoint/public-api/v1/agent \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -294,7 +294,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent',
   method: 'head',
 
   headers: headers,
@@ -313,7 +313,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent',
+fetch('your-domotz-api-endpoint/public-api/v1/agent',
 {
   method: 'HEAD',
 
@@ -333,7 +333,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.head('http://172.17.0.1:9080/public-api/v1/agent', params={
+r = requests.head('your-domotz-api-endpoint/public-api/v1/agent', params={
 
 }, headers = headers)
 
@@ -349,7 +349,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.head 'http://172.17.0.1:9080/public-api/v1/agent',
+result = RestClient.head 'your-domotz-api-endpoint/public-api/v1/agent',
   params: {
   }, headers: headers
 
@@ -373,7 +373,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("HEAD", "http://172.17.0.1:9080/public-api/v1/agent", data)
+    req, err := http.NewRequest("HEAD", "your-domotz-api-endpoint/public-api/v1/agent", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -391,7 +391,7 @@ Counts the agents
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent \
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -424,7 +424,7 @@ Counts the agents
 > Code samples
 
 ```shell
-curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id} \
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -436,7 +436,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}',
   method: 'delete',
 
   headers: headers,
@@ -455,7 +455,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}',
 {
   method: 'DELETE',
 
@@ -475,7 +475,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}', params={
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}', params={
 
 }, headers = headers)
 
@@ -491,7 +491,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}',
   params: {
   }, headers: headers
 
@@ -515,7 +515,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}", data)
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -533,7 +533,7 @@ Deletes an agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -559,7 +559,7 @@ Deletes an agent
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id} \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -573,7 +573,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}',
   method: 'get',
 
   headers: headers,
@@ -593,7 +593,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}',
 {
   method: 'GET',
 
@@ -614,7 +614,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}', params={
 
 }, headers = headers)
 
@@ -631,7 +631,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}',
   params: {
   }, headers: headers
 
@@ -656,7 +656,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -674,7 +674,7 @@ Returns the details of an agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id} \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -701,18 +701,18 @@ Returns the details of an agent
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-04T14:46:34Z",
+  "creation_time": "2020-05-19T08:56:16Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-04T14:46:34Z",
+    "activation_time": "2020-05-19T08:56:16Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-04T14:46:34Z",
+    "expiration_time": "2020-05-19T08:56:16Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-04T14:46:34Z",
+    "last_change": "2020-05-19T08:56:16Z",
     "value": "ONLINE"
   },
   "team": {
@@ -742,6 +742,159 @@ Returns the details of an agent
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The agent|[AgentDetail](#schemaagentdetail)|
 
+## getConnectionConsumption
+
+<a id="opIdgetConnectionConsumption"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/connection/consumption`</span>
+
+Get the connection consumption on the given agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getconnectionconsumption-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "current": 0,
+  "limit": 0
+}
+```
+
+<h3 id="getconnectionconsumption-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[ConnectionConsumption](#schemaconnectionconsumption)|
+
 <h1 id="domotz-public-api-device">device</h1>
 
 ## deleteDownDevices
@@ -751,7 +904,7 @@ Returns the details of an agent
 > Code samples
 
 ```shell
-curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device \
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -763,7 +916,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device',
   method: 'delete',
 
   headers: headers,
@@ -782,7 +935,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device',
 {
   method: 'DELETE',
 
@@ -802,7 +955,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device', params={
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device', params={
 
 }, headers = headers)
 
@@ -818,7 +971,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device',
   params: {
   }, headers: headers
 
@@ -842,7 +995,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device", data)
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -860,7 +1013,7 @@ Deletes all the DOWN devices of *IP* protocol
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -886,7 +1039,7 @@ Deletes all the DOWN devices of *IP* protocol
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -900,7 +1053,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device',
   method: 'get',
 
   headers: headers,
@@ -920,7 +1073,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device',
 {
   method: 'GET',
 
@@ -941,7 +1094,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device', params={
 
 }, headers = headers)
 
@@ -958,7 +1111,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device',
   params: {
   }, headers: headers
 
@@ -983,7 +1136,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1001,7 +1154,7 @@ Returns all the devices of an agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1031,7 +1184,7 @@ Returns all the devices of an agent
       "zone": "string"
     },
     "display_name": "string",
-    "first_seen_on": "2020-05-04T14:46:34Z",
+    "first_seen_on": "2020-05-19T08:56:16Z",
     "id": 0,
     "importance": "VITAL",
     "main_id": 0,
@@ -1084,7 +1237,7 @@ Returns all the devices of an agent
 > Code samples
 
 ```shell
-curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id} \
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -1096,7 +1249,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}',
   method: 'delete',
 
   headers: headers,
@@ -1115,7 +1268,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}',
 {
   method: 'DELETE',
 
@@ -1135,7 +1288,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}', params={
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}', params={
 
 }, headers = headers)
 
@@ -1151,7 +1304,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}',
   params: {
   }, headers: headers
 
@@ -1175,7 +1328,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}", data)
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1193,7 +1346,7 @@ Deletes a device, whether ONLINE, OFFLINE or DOWN . If a device  is deleted whil
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -1220,7 +1373,7 @@ Deletes a device, whether ONLINE, OFFLINE or DOWN . If a device  is deleted whil
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id} \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1234,7 +1387,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}',
   method: 'get',
 
   headers: headers,
@@ -1254,7 +1407,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}',
 {
   method: 'GET',
 
@@ -1275,7 +1428,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}', params={
 
 }, headers = headers)
 
@@ -1292,7 +1445,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}',
   params: {
   }, headers: headers
 
@@ -1317,7 +1470,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1335,7 +1488,7 @@ Returns the details of a device
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id} \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1364,7 +1517,7 @@ Returns the details of a device
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-04T14:46:34Z",
+  "first_seen_on": "2020-05-19T08:56:16Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -1416,7 +1569,7 @@ Returns the details of a device
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1430,7 +1583,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
   method: 'get',
 
   headers: headers,
@@ -1450,7 +1603,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
 {
   method: 'GET',
 
@@ -1471,7 +1624,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power', params={
 
 }, headers = headers)
 
@@ -1488,7 +1641,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
   params: {
   }, headers: headers
 
@@ -1513,7 +1666,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1531,7 +1684,7 @@ Returns the power management actions available on the device at the current mome
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1572,7 +1725,7 @@ Returns the power management actions available on the device at the current mome
 > Code samples
 
 ```shell
-curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field} \
+curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -1584,7 +1737,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
   method: 'post',
 
   headers: headers,
@@ -1603,7 +1756,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
 {
   method: 'POST',
 
@@ -1623,7 +1776,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}', params={
+r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}', params={
 
 }, headers = headers)
 
@@ -1639,7 +1792,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
   params: {
   }, headers: headers
 
@@ -1663,7 +1816,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}", data)
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1681,7 +1834,7 @@ Performs the action on the device, according to the specified {<b> field </b>} v
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field} \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -1718,7 +1871,7 @@ Performs the action on the device, according to the specified {<b> field </b>} v
 > Code samples
 
 ```shell
-curl -X PUT http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials \
+curl -X PUT your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/credentials \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1732,7 +1885,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
   method: 'put',
 
   headers: headers,
@@ -1755,7 +1908,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
 {
   method: 'PUT',
   body: inputBody,
@@ -1776,7 +1929,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.put('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials', params={
+r = requests.put('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/credentials', params={
 
 }, headers = headers)
 
@@ -1793,7 +1946,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.put 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
+result = RestClient.put 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
   params: {
   }, headers: headers
 
@@ -1818,7 +1971,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("PUT", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials", data)
+    req, err := http.NewRequest("PUT", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/credentials", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1845,7 +1998,7 @@ Sets the device credentials to perform extended discovery. This operation will a
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials \
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/credentials \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1874,7 +2027,7 @@ Sets the device credentials to perform extended discovery. This operation will a
 > Code samples
 
 ```shell
-curl -X PUT http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community \
+curl -X PUT your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1888,7 +2041,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
   method: 'put',
 
   headers: headers,
@@ -1911,7 +2064,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
 {
   method: 'PUT',
   body: inputBody,
@@ -1932,7 +2085,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.put('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community', params={
+r = requests.put('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community', params={
 
 }, headers = headers)
 
@@ -1949,7 +2102,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.put 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
+result = RestClient.put 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
   params: {
   }, headers: headers
 
@@ -1974,7 +2127,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("PUT", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community", data)
+    req, err := http.NewRequest("PUT", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2001,7 +2154,7 @@ Saves a snmp community (read, optionally write) on device
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community \
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2030,7 +2183,7 @@ Saves a snmp community (read, optionally write) on device
 > Code samples
 
 ```shell
-curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility \
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/visibility \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -2042,7 +2195,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
   method: 'delete',
 
   headers: headers,
@@ -2061,7 +2214,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
 {
   method: 'DELETE',
 
@@ -2081,7 +2234,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility', params={
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/visibility', params={
 
 }, headers = headers)
 
@@ -2097,7 +2250,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
   params: {
   }, headers: headers
 
@@ -2121,7 +2274,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility", data)
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/visibility", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2139,7 +2292,7 @@ Hides a device (available only on DOWN devices)
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/visibility \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -2166,7 +2319,7 @@ Hides a device (available only on DOWN devices)
 > Code samples
 
 ```shell
-curl -X PUT http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field} \
+curl -X PUT your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field} \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2180,7 +2333,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
   method: 'put',
 
   headers: headers,
@@ -2200,7 +2353,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
 {
   method: 'PUT',
   body: inputBody,
@@ -2221,7 +2374,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.put('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field}', params={
+r = requests.put('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field}', params={
 
 }, headers = headers)
 
@@ -2238,7 +2391,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.put 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
+result = RestClient.put 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
   params: {
   }, headers: headers
 
@@ -2263,7 +2416,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("PUT", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field}", data)
+    req, err := http.NewRequest("PUT", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2287,7 +2440,7 @@ Changes a field of the device or one of its details
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field} \
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/{field} \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2331,7 +2484,7 @@ Changes a field of the device or one of its details
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2345,7 +2498,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd',
   method: 'get',
 
   headers: headers,
@@ -2365,7 +2518,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd',
 {
   method: 'GET',
 
@@ -2386,7 +2539,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd', params={
 
 }, headers = headers)
 
@@ -2403,7 +2556,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd',
   params: {
   }, headers: headers
 
@@ -2428,7 +2581,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2446,7 +2599,7 @@ Returns the Round Trip Delay statistics for all devices monitored by the agent. 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/rtd \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2474,7 +2627,7 @@ Returns the Round Trip Delay statistics for all devices monitored by the agent. 
     "latest_lost_packet_count": 0,
     "latest_median": "string",
     "latest_sent_packet_count": 0,
-    "timestamp": "2020-05-04T14:46:34Z"
+    "timestamp": "2020-05-19T08:56:16Z"
   }
 ]
 ```
@@ -2508,7 +2661,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2522,7 +2675,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
   method: 'get',
 
   headers: headers,
@@ -2542,7 +2695,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
 {
   method: 'GET',
 
@@ -2563,7 +2716,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event', params={
 
 }, headers = headers)
 
@@ -2580,7 +2733,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
   params: {
   }, headers: headers
 
@@ -2605,7 +2758,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2623,7 +2776,7 @@ Returns the time series of the state changes of the device
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2655,7 +2808,7 @@ Returns the time series of the state changes of the device
         "string"
       ]
     },
-    "timestamp": "2020-05-04T14:46:34Z",
+    "timestamp": "2020-05-19T08:56:16Z",
     "type": "IP_CHANGE"
   }
 ]
@@ -2696,7 +2849,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2710,7 +2863,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
   method: 'get',
 
   headers: headers,
@@ -2730,7 +2883,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
 {
   method: 'GET',
 
@@ -2751,7 +2904,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd', params={
 
 }, headers = headers)
 
@@ -2768,7 +2921,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
   params: {
   }, headers: headers
 
@@ -2793,7 +2946,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2811,7 +2964,7 @@ Returns the Round Trip Delay history for the device. Each item represents the st
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2840,7 +2993,7 @@ Returns the Round Trip Delay history for the device. Each item represents the st
     "median": "string",
     "min": "string",
     "sent_packet_count": 0,
-    "timestamp": "2020-05-04T14:46:34Z"
+    "timestamp": "2020-05-19T08:56:16Z"
   }
 ]
 ```
@@ -2872,7 +3025,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2886,7 +3039,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event',
   method: 'get',
 
   headers: headers,
@@ -2906,7 +3059,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event',
 {
   method: 'GET',
 
@@ -2927,7 +3080,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event', params={
 
 }, headers = headers)
 
@@ -2944,7 +3097,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event',
   params: {
   }, headers: headers
 
@@ -2969,7 +3122,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2987,7 +3140,7 @@ Returns the time series of the state changes of the agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/event \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3010,7 +3163,7 @@ Returns the time series of the state changes of the agent
 ```json
 [
   {
-    "timestamp": "2020-05-04T14:46:34Z",
+    "timestamp": "2020-05-19T08:56:16Z",
     "type": "CONNECTION_RECOVERED"
   }
 ]
@@ -3048,7 +3201,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3062,7 +3215,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed',
   method: 'get',
 
   headers: headers,
@@ -3082,7 +3235,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed',
 {
   method: 'GET',
 
@@ -3103,7 +3256,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed', params={
 
 }, headers = headers)
 
@@ -3120,7 +3273,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed',
   params: {
   }, headers: headers
 
@@ -3145,7 +3298,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3164,7 +3317,7 @@ download and in upload.
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/history/network/speed \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3187,7 +3340,7 @@ download and in upload.
 ```json
 [
   {
-    "timestamp": "2020-05-04T14:46:34Z",
+    "timestamp": "2020-05-19T08:56:16Z",
     "values": [
       0
     ]
@@ -3220,7 +3373,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
+curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
@@ -3236,7 +3389,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
   method: 'post',
 
   headers: headers,
@@ -3261,7 +3414,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
 {
   method: 'POST',
   body: inputBody,
@@ -3283,7 +3436,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection', params={
+r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection', params={
 
 }, headers = headers)
 
@@ -3301,7 +3454,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
   params: {
   }, headers: headers
 
@@ -3327,7 +3480,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection", data)
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3339,7 +3492,7 @@ func main() {
 
 <span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/connection`</span>
 
-Establishes a direct secure connection to the `device`
+Establishes a direct secure connection to the `device` Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
 
 > Body parameter
 
@@ -3355,7 +3508,7 @@ Establishes a direct secure connection to the `device`
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
@@ -3379,7 +3532,7 @@ Establishes a direct secure connection to the `device`
 ```json
 {
   "allowed_ip": "string",
-  "expiration": "2020-05-04T14:46:34Z",
+  "expiration": "2020-05-19T08:56:16Z",
   "id": 0,
   "link": "string",
   "port": 0,
@@ -3402,7 +3555,7 @@ Establishes a direct secure connection to the `device`
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3416,7 +3569,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
   method: 'get',
 
   headers: headers,
@@ -3436,7 +3589,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
 {
   method: 'GET',
 
@@ -3457,7 +3610,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp', params={
 
 }, headers = headers)
 
@@ -3474,7 +3627,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
   params: {
   }, headers: headers
 
@@ -3499,7 +3652,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3517,7 +3670,7 @@ Retrieves the list of configured SNMP Domotz Eyes
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3541,7 +3694,7 @@ Retrieves the list of configured SNMP Domotz Eyes
   {
     "category": "OTHER",
     "id": 0,
-    "last_update": "2020-05-04T14:46:34Z",
+    "last_update": "2020-05-19T08:56:16Z",
     "latest_value": "string",
     "name": "string",
     "oid": "string",
@@ -3592,7 +3745,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
+curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3606,7 +3759,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
   method: 'post',
 
   headers: headers,
@@ -3631,7 +3784,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
 {
   method: 'POST',
   body: inputBody,
@@ -3652,7 +3805,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp', params={
+r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp', params={
 
 }, headers = headers)
 
@@ -3669,7 +3822,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
   params: {
   }, headers: headers
 
@@ -3694,7 +3847,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp", data)
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3723,7 +3876,7 @@ Creates a new SNMP Domotz Eyes
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3752,7 +3905,7 @@ Creates a new SNMP Domotz Eyes
 > Code samples
 
 ```shell
-curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id} \
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -3764,7 +3917,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
   method: 'delete',
 
   headers: headers,
@@ -3783,7 +3936,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
 {
   method: 'DELETE',
 
@@ -3803,7 +3956,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}', params={
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}', params={
 
 }, headers = headers)
 
@@ -3819,7 +3972,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
   params: {
   }, headers: headers
 
@@ -3843,7 +3996,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}", data)
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3861,7 +4014,7 @@ Deletes the SNMP Domotz Eye
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -3889,7 +4042,7 @@ Deletes the SNMP Domotz Eye
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3903,7 +4056,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
   method: 'get',
 
   headers: headers,
@@ -3923,7 +4076,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
 {
   method: 'GET',
 
@@ -3944,7 +4097,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp', params={
 
 }, headers = headers)
 
@@ -3961,7 +4114,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
   params: {
   }, headers: headers
 
@@ -3986,7 +4139,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4004,7 +4157,7 @@ Retrieves the list of configured TCP Domotz Eyes
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4027,7 +4180,7 @@ Retrieves the list of configured TCP Domotz Eyes
 [
   {
     "id": 0,
-    "last_update": "2020-05-04T14:46:34Z",
+    "last_update": "2020-05-19T08:56:16Z",
     "port": 0,
     "status": "UP"
   }
@@ -4066,7 +4219,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4080,7 +4233,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
   method: 'post',
 
   headers: headers,
@@ -4102,7 +4255,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
 {
   method: 'POST',
   body: inputBody,
@@ -4123,7 +4276,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp', params={
+r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp', params={
 
 }, headers = headers)
 
@@ -4140,7 +4293,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
   params: {
   }, headers: headers
 
@@ -4165,7 +4318,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp", data)
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4191,7 +4344,7 @@ Creates a new TCP Domotz Eyes
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4220,7 +4373,7 @@ Creates a new TCP Domotz Eyes
 > Code samples
 
 ```shell
-curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id} \
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -4232,7 +4385,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
   method: 'delete',
 
   headers: headers,
@@ -4251,7 +4404,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
 {
   method: 'DELETE',
 
@@ -4271,7 +4424,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}', params={
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}', params={
 
 }, headers = headers)
 
@@ -4287,7 +4440,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
   params: {
   }, headers: headers
 
@@ -4311,7 +4464,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}", data)
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4329,7 +4482,7 @@ Deletes the TCP Domotz Eye
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -4357,7 +4510,7 @@ Deletes the TCP Domotz Eye
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4371,7 +4524,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics',
   method: 'get',
 
   headers: headers,
@@ -4391,7 +4544,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics',
 {
   method: 'GET',
 
@@ -4412,7 +4565,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics', params={
 
 }, headers = headers)
 
@@ -4429,7 +4582,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics',
   params: {
   }, headers: headers
 
@@ -4454,7 +4607,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4472,7 +4625,7 @@ Retrieves information about Domotz Eyes usage and limits
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4516,7 +4669,7 @@ Retrieves information about Domotz Eyes usage and limits
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot \
   -H 'Accept: image/*' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4530,7 +4683,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
   method: 'get',
 
   headers: headers,
@@ -4550,7 +4703,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
 {
   method: 'GET',
 
@@ -4571,7 +4724,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot', params={
 
 }, headers = headers)
 
@@ -4588,7 +4741,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
   params: {
   }, headers: headers
 
@@ -4613,7 +4766,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4625,13 +4778,13 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot`</span>
 
-Take a snapshot of the camera.
+Take a snapshot of the camera. Internally, a device connection is established.Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
 
 <h3>Curl</h3>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot \
   -H 'Accept: image/*' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4656,16 +4809,152 @@ Take a snapshot of the camera.
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A binary image|string|
 
-<h1 id="domotz-public-api-alert-profiles">alert profiles</h1>
+<h1 id="domotz-public-api-company">company</h1>
 
-## getAgentAlertProfile
+## moveAgent
 
-<a id="opIdgetAgentAlertProfile"></a>
+<a id="opIdmoveAgent"></a>
 
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id} \
+curl -X PUT your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+{
+  method: 'PUT',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/ownership/team/{team_id}`</span>
+
+Moves an agent under the control of a different team
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="moveagent-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|team_id|path|integer(int32)|true|Team ID|
+
+<h3 id="moveagent-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## listAreas
+
+<a id="opIdlistAreas"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/area \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4679,7 +4968,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/area',
   method: 'get',
 
   headers: headers,
@@ -4699,7 +4988,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/area',
 {
   method: 'GET',
 
@@ -4720,7 +5009,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/area', params={
 
 }, headers = headers)
 
@@ -4737,7 +5026,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/area',
   params: {
   }, headers: headers
 
@@ -4762,7 +5051,470 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/area", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /area`</span>
+
+Returns all the areas of a Company
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+```
+
+<h3 id="listareas-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of all the areas in the User's Company|Inline|
+
+<h3 id="listareas-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Area](#schemaarea)]|false|[Represents an area of the Company]|
+|» id|integer(int32)|true|The identifier of the Area|
+|» name|string|true|The name of the Area|
+
+## listTeams
+
+<a id="opIdlistTeams"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/area/{area_id}/team \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/area/{area_id}/team', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/area/{area_id}/team", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /area/{area_id}/team`</span>
+
+Returns all the teams of an Area
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+```
+
+<h3 id="listteams-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of all the teams in a Company Area's|Inline|
+
+<h3 id="listteams-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Team](#schemateam)]|false|[Represents a team of the Company]|
+|» id|integer(int32)|true|The identifier of the Team|
+|» name|string|true|The name of the Team|
+
+## createTeam
+
+<a id="opIdcreateTeam"></a>
+
+> Code samples
+
+```shell
+curl -X POST your-domotz-api-endpoint/public-api/v1/area/{area_id}/team \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "leader": {
+    "details": {
+      "display_name": "string"
+    },
+    "name": "string",
+    "password": "string"
+  },
+  "name": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('your-domotz-api-endpoint/public-api/v1/area/{area_id}/team', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/area/{area_id}/team", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /area/{area_id}/team`</span>
+
+Creates a new Team
+
+> Body parameter
+
+```json
+{
+  "leader": {
+    "details": {
+      "display_name": "string"
+    },
+    "name": "string",
+    "password": "string"
+  },
+  "name": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/area/{area_id}/team \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createteam-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|area_id|path|integer(int32)|true|Area ID|
+|body|body|[TeamCreation](#schemateamcreation)|true|none|
+
+<h3 id="createteam-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
+<h1 id="domotz-public-api-alert-profiles">alert profiles</h1>
+
+## getAgentAlertProfile
+
+<a id="opIdgetAgentAlertProfile"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id} \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4780,7 +5532,7 @@ Get the alert profile bindings of an agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id} \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4829,7 +5581,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device \
+curl -X GET your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}/device \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4843,7 +5595,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
+  url: 'your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
   method: 'get',
 
   headers: headers,
@@ -4863,7 +5615,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
+fetch('your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
 {
   method: 'GET',
 
@@ -4884,7 +5636,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}/device', params={
 
 }, headers = headers)
 
@@ -4901,7 +5653,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
   params: {
   }, headers: headers
 
@@ -4926,7 +5678,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}/device", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4944,7 +5696,7 @@ Get the alert profile bindings of the devices of an agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/alert-profile/binding/agent/{agent_id}/device \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4995,7 +5747,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X DELETE http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -5007,7 +5759,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
   method: 'delete',
 
   headers: headers,
@@ -5026,7 +5778,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
 {
   method: 'DELETE',
 
@@ -5046,7 +5798,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}', params={
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}', params={
 
 }, headers = headers)
 
@@ -5062,7 +5814,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
   params: {
   }, headers: headers
 
@@ -5086,7 +5838,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}", data)
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5104,7 +5856,7 @@ Unbind an alert profile from an agent.
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -5131,7 +5883,7 @@ Unbind an alert profile from an agent.
 > Code samples
 
 ```shell
-curl -X POST http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
+curl -X POST your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -5143,7 +5895,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
   method: 'post',
 
   headers: headers,
@@ -5162,7 +5914,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
 {
   method: 'POST',
 
@@ -5182,7 +5934,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}', params={
+r = requests.post('your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}', params={
 
 }, headers = headers)
 
@@ -5198,7 +5950,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
   params: {
   }, headers: headers
 
@@ -5222,7 +5974,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}", data)
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5240,7 +5992,7 @@ Bind an alert profile to an agent. After binding, a webhook will be sent to the 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -5315,7 +6067,7 @@ Bind an alert profile to an agent. After binding, a webhook will be sent to the 
 > Code samples
 
 ```shell
-curl -X DELETE http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -5327,7 +6079,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
   method: 'delete',
 
   headers: headers,
@@ -5346,7 +6098,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
 {
   method: 'DELETE',
 
@@ -5366,7 +6118,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}', params={
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}', params={
 
 }, headers = headers)
 
@@ -5382,7 +6134,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
   params: {
   }, headers: headers
 
@@ -5406,7 +6158,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}", data)
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5424,7 +6176,7 @@ Unbind an alert profile from a device
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -5452,7 +6204,7 @@ Unbind an alert profile from a device
 > Code samples
 
 ```shell
-curl -X POST http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
+curl -X POST your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -5464,7 +6216,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+  url: 'your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
   method: 'post',
 
   headers: headers,
@@ -5483,7 +6235,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+fetch('your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
 {
   method: 'POST',
 
@@ -5503,7 +6255,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}', params={
+r = requests.post('your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}', params={
 
 }, headers = headers)
 
@@ -5519,7 +6271,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
   params: {
   }, headers: headers
 
@@ -5543,7 +6295,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}", data)
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5561,7 +6313,7 @@ Bind an alert profile to a device. After binding, a webhook will be sent to the 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -5665,7 +6417,7 @@ Bind an alert profile to a device. After binding, a webhook will be sent to the 
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile \
+curl -X GET your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5679,7 +6431,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile',
+  url: 'your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile',
   method: 'get',
 
   headers: headers,
@@ -5699,7 +6451,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile',
+fetch('your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile',
 {
   method: 'GET',
 
@@ -5720,7 +6472,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile', params={
 
 }, headers = headers)
 
@@ -5737,7 +6489,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile',
   params: {
   }, headers: headers
 
@@ -5762,7 +6514,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5780,7 +6532,7 @@ Returns the list of configured alert profiles. You can configure alert profiles 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5842,7 +6594,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/meta/usage \
+curl -X GET your-domotz-api-endpoint/public-api/v1/meta/usage \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5856,7 +6608,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/meta/usage',
+  url: 'your-domotz-api-endpoint/public-api/v1/meta/usage',
   method: 'get',
 
   headers: headers,
@@ -5876,7 +6628,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/meta/usage',
+fetch('your-domotz-api-endpoint/public-api/v1/meta/usage',
 {
   method: 'GET',
 
@@ -5897,7 +6649,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/meta/usage', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/meta/usage', params={
 
 }, headers = headers)
 
@@ -5914,7 +6666,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/meta/usage',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/meta/usage',
   params: {
   }, headers: headers
 
@@ -5939,7 +6691,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/meta/usage", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/meta/usage", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5999,7 +6751,7 @@ Retrieves information about API usage and limits
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/type/device/base \
+curl -X GET your-domotz-api-endpoint/public-api/v1/type/device/base \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6013,7 +6765,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/type/device/base',
+  url: 'your-domotz-api-endpoint/public-api/v1/type/device/base',
   method: 'get',
 
   headers: headers,
@@ -6033,7 +6785,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/type/device/base',
+fetch('your-domotz-api-endpoint/public-api/v1/type/device/base',
 {
   method: 'GET',
 
@@ -6054,7 +6806,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/type/device/base', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/type/device/base', params={
 
 }, headers = headers)
 
@@ -6071,7 +6823,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/type/device/base',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/type/device/base',
   params: {
   }, headers: headers
 
@@ -6096,7 +6848,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/type/device/base", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/type/device/base", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6150,7 +6902,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/type/device/detected \
+curl -X GET your-domotz-api-endpoint/public-api/v1/type/device/detected \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6164,7 +6916,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/type/device/detected',
+  url: 'your-domotz-api-endpoint/public-api/v1/type/device/detected',
   method: 'get',
 
   headers: headers,
@@ -6184,7 +6936,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/type/device/detected',
+fetch('your-domotz-api-endpoint/public-api/v1/type/device/detected',
 {
   method: 'GET',
 
@@ -6205,7 +6957,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/type/device/detected', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/type/device/detected', params={
 
 }, headers = headers)
 
@@ -6222,7 +6974,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/type/device/detected',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/type/device/detected',
   params: {
   }, headers: headers
 
@@ -6247,7 +6999,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/type/device/detected", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/type/device/detected", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6307,7 +7059,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET http://172.17.0.1:9080/public-api/v1/user \
+curl -X GET your-domotz-api-endpoint/public-api/v1/user \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6321,7 +7073,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'http://172.17.0.1:9080/public-api/v1/user',
+  url: 'your-domotz-api-endpoint/public-api/v1/user',
   method: 'get',
 
   headers: headers,
@@ -6341,7 +7093,7 @@ const headers = {
 
 };
 
-fetch('http://172.17.0.1:9080/public-api/v1/user',
+fetch('your-domotz-api-endpoint/public-api/v1/user',
 {
   method: 'GET',
 
@@ -6362,7 +7114,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('http://172.17.0.1:9080/public-api/v1/user', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/user', params={
 
 }, headers = headers)
 
@@ -6379,7 +7131,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/user',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/user',
   params: {
   }, headers: headers
 
@@ -6404,7 +7156,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/user", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/user", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6503,7 +7255,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-04T14:46:34Z",
+  "first_seen_on": "2020-05-19T08:56:16Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -6573,18 +7325,18 @@ Returns the User information
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-04T14:46:34Z",
+  "creation_time": "2020-05-19T08:56:16Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-04T14:46:34Z",
+    "activation_time": "2020-05-19T08:56:16Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-04T14:46:34Z",
+    "expiration_time": "2020-05-19T08:56:16Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-04T14:46:34Z",
+    "last_change": "2020-05-19T08:56:16Z",
     "value": "ONLINE"
   },
   "team": {
@@ -6660,18 +7412,18 @@ Returns the User information
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-04T14:46:34Z",
+  "creation_time": "2020-05-19T08:56:16Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-04T14:46:34Z",
+    "activation_time": "2020-05-19T08:56:16Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-04T14:46:34Z",
+    "expiration_time": "2020-05-19T08:56:16Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-04T14:46:34Z",
+    "last_change": "2020-05-19T08:56:16Z",
     "value": "ONLINE"
   },
   "team": {
@@ -6720,7 +7472,7 @@ Returns the User information
 
 ```json
 {
-  "timestamp": "2020-05-04T14:46:34Z",
+  "timestamp": "2020-05-19T08:56:16Z",
   "type": "CONNECTION_RECOVERED"
 }
 
@@ -6758,7 +7510,7 @@ Returns the User information
     ]
   },
   "name": "agent_security_issue",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -6805,7 +7557,7 @@ Returns the User information
     }
   },
   "name": "agent_speed_test",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -6847,7 +7599,7 @@ Returns the User information
     "value": "UP"
   },
   "name": "agent_status",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -6937,6 +7689,46 @@ Returns the User information
 |alert_profile_id|integer(int32)|true|The id of the alert profile|
 |device_id|integer(int32)|true|none|
 
+<h2 id="tocSarea">Area</h2>
+
+<a id="schemaarea"></a>
+
+```json
+{
+  "id": 0,
+  "name": "string"
+}
+
+```
+
+*Represents an area of the Company*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|id|integer(int32)|true|The identifier of the Area|
+|name|string|true|The name of the Area|
+
+<h2 id="tocSconnectionconsumption">ConnectionConsumption</h2>
+
+<a id="schemaconnectionconsumption"></a>
+
+```json
+{
+  "current": 0,
+  "limit": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|current|integer(int32)|true|Current connection consumption (bytes)|
+|limit|integer(int32)|true|Maximum connection consumption (bytes)|
+
 <h2 id="tocSconnectionsession">ConnectionSession</h2>
 
 <a id="schemaconnectionsession"></a>
@@ -6944,7 +7736,7 @@ Returns the User information
 ```json
 {
   "allowed_ip": "string",
-  "expiration": "2020-05-04T14:46:34Z",
+  "expiration": "2020-05-19T08:56:16Z",
   "id": 0,
   "link": "string",
   "port": 0,
@@ -7037,7 +7829,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_configuration_change",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7071,7 +7863,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_configuration_misalignment",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7176,7 +7968,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "agent_device_discovery",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7210,7 +8002,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_heartbeat_lost",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7247,7 +8039,7 @@ Returns the User information
       "string"
     ]
   },
-  "timestamp": "2020-05-04T14:46:34Z",
+  "timestamp": "2020-05-19T08:56:16Z",
   "type": "IP_CHANGE"
 }
 
@@ -7289,7 +8081,7 @@ Returns the User information
     ]
   },
   "name": "device_ip_change",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7348,7 +8140,7 @@ Returns the User information
   "median": "string",
   "min": "string",
   "sent_packet_count": 0,
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7384,7 +8176,7 @@ Returns the User information
     }
   },
   "name": "device_rtd",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7429,7 +8221,7 @@ Returns the User information
   "latest_lost_packet_count": 0,
   "latest_median": "string",
   "latest_sent_packet_count": 0,
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7460,7 +8252,7 @@ Returns the User information
     "value": "string"
   },
   "name": "device_snmp",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7516,7 +8308,7 @@ Returns the User information
     "value": "UP"
   },
   "name": "device_status",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7559,7 +8351,7 @@ Returns the User information
     ]
   },
   "name": "device_tcp",
-  "timestamp": "2020-05-04T14:46:34Z"
+  "timestamp": "2020-05-19T08:56:16Z"
 }
 
 ```
@@ -7629,7 +8421,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-04T14:46:34Z",
+  "first_seen_on": "2020-05-19T08:56:16Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7676,7 +8468,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-04T14:46:34Z",
+  "first_seen_on": "2020-05-19T08:56:16Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7696,7 +8488,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-04T14:46:34Z",
+  "last_status_change": "2020-05-19T08:56:16Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -7739,7 +8531,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-04T14:46:34Z",
+  "first_seen_on": "2020-05-19T08:56:16Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7759,7 +8551,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-04T14:46:34Z",
+  "last_status_change": "2020-05-19T08:56:16Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string"
@@ -7811,7 +8603,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-04T14:46:34Z",
+  "first_seen_on": "2020-05-19T08:56:16Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7831,7 +8623,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-04T14:46:34Z",
+  "last_status_change": "2020-05-19T08:56:16Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -7878,7 +8670,7 @@ Returns the User information
 
 ```json
 {
-  "timestamp": "2020-05-04T14:46:34Z",
+  "timestamp": "2020-05-19T08:56:16Z",
   "values": [
     0
   ]
@@ -7904,7 +8696,7 @@ Returns the User information
 {
   "category": "OTHER",
   "id": 0,
-  "last_update": "2020-05-04T14:46:34Z",
+  "last_update": "2020-05-19T08:56:16Z",
   "latest_value": "string",
   "name": "string",
   "oid": "string",
@@ -7994,7 +8786,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-04T14:46:34Z",
+  "first_seen_on": "2020-05-19T08:56:16Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -8014,7 +8806,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-04T14:46:34Z",
+  "last_status_change": "2020-05-19T08:56:16Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -8056,7 +8848,7 @@ Returns the User information
 ```json
 {
   "id": 0,
-  "last_update": "2020-05-04T14:46:34Z",
+  "last_update": "2020-05-19T08:56:16Z",
   "port": 0,
   "status": "UP"
 }
@@ -8099,6 +8891,58 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |port|integer(int32)|true|The port number|
+
+<h2 id="tocSteam">Team</h2>
+
+<a id="schemateam"></a>
+
+```json
+{
+  "id": 0,
+  "name": "string"
+}
+
+```
+
+*Represents a team of the Company*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|id|integer(int32)|true|The identifier of the Team|
+|name|string|true|The name of the Team|
+
+<h2 id="tocSteamcreation">TeamCreation</h2>
+
+<a id="schemateamcreation"></a>
+
+```json
+{
+  "leader": {
+    "details": {
+      "display_name": "string"
+    },
+    "name": "string",
+    "password": "string"
+  },
+  "name": "string"
+}
+
+```
+
+*Team Creation under specified Area*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|leader|object|true|The Team Leader|
+|» details|object|true|The Team Leader's details|
+|»» display_name|string|true|The Team Leader's display name|
+|» name|string|true|The Team Leader's name|
+|» password|string|true|The Team Leader's password|
+|name|string|true|The Team's name|
 
 <h2 id="tocSuser">User</h2>
 
