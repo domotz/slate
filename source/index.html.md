@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v0.8.1</h1>
+<h1 id="domotz-public-api">Domotz Public API v0.8.2</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -192,18 +192,18 @@ Returns the agents list
       },
       "status": "OWNED"
     },
-    "creation_time": "2020-05-19T08:56:16Z",
+    "creation_time": "2019-08-24T14:15:22Z",
     "display_name": "string",
     "id": 0,
     "licence": {
-      "activation_time": "2020-05-19T08:56:16Z",
+      "activation_time": "2019-08-24T14:15:22Z",
       "bound_mac_address": "string",
       "code": "string",
-      "expiration_time": "2020-05-19T08:56:16Z",
+      "expiration_time": "2019-08-24T14:15:22Z",
       "id": 0
     },
     "status": {
-      "last_change": "2020-05-19T08:56:16Z",
+      "last_change": "2019-08-24T14:15:22Z",
       "value": "ONLINE"
     },
     "team": {
@@ -701,18 +701,18 @@ Returns the details of an agent
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-19T08:56:16Z",
+  "creation_time": "2019-08-24T14:15:22Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-19T08:56:16Z",
+    "activation_time": "2019-08-24T14:15:22Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-19T08:56:16Z",
+    "expiration_time": "2019-08-24T14:15:22Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-19T08:56:16Z",
+    "last_change": "2019-08-24T14:15:22Z",
     "value": "ONLINE"
   },
   "team": {
@@ -1184,7 +1184,7 @@ Returns all the devices of an agent
       "zone": "string"
     },
     "display_name": "string",
-    "first_seen_on": "2020-05-19T08:56:16Z",
+    "first_seen_on": "2019-08-24T14:15:22Z",
     "id": 0,
     "importance": "VITAL",
     "main_id": 0,
@@ -1517,7 +1517,7 @@ Returns the details of a device
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-19T08:56:16Z",
+  "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -1678,7 +1678,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/action/power`</span>
 
-Returns the power management actions available on the device at the current moment. See <a href='#schemadevicepoweraction'> DevicePowerAction </a> schema for further details.
+Returns the power management actions available on the device at the current moment.See <a href='#schemadevicepoweraction'> DevicePowerAction </a> schema for further details.
 
 <h3>Curl</h3>
 
@@ -1855,8 +1855,8 @@ Performs the action on the device, according to the specified {<b> field </b>} v
 |---|---|
 |field|on|
 |field|off|
-|field|software-reboot|
 |field|cycle|
+|field|software-reboot|
 
 <h3 id="poweractionondevice-responses">Responses</h3>
 
@@ -2020,6 +2020,334 @@ Sets the device credentials to perform extended discovery. This operation will a
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## getSNMPAuthentication
+
+<a id="opIdgetSNMPAuthentication"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/snmp-authentication`</span>
+
+Retrieves the SNMP authentication info
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getsnmpauthentication-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "authentication_key": "string",
+  "authentication_protocol": "MD5",
+  "encryption_key": "string",
+  "encryption_protocol": "DES",
+  "snmp_read_community": "string",
+  "snmp_write_community": "string",
+  "username": "string",
+  "version": "V2"
+}
+```
+
+<h3 id="getsnmpauthentication-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The SNMP authentication info for the device|[SNMPDomotzAuthentication](#schemasnmpdomotzauthentication)|
+
+## setSNMPAuthentication
+
+<a id="opIdsetSNMPAuthentication"></a>
+
+> Code samples
+
+```shell
+curl -X PUT your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "authentication_key": "string",
+  "authentication_protocol": "MD5",
+  "encryption_key": "string",
+  "encryption_protocol": "DES",
+  "snmp_read_community": "string",
+  "snmp_write_community": "string",
+  "username": "string",
+  "version": "V2"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/device/{device_id}/snmp-authentication`</span>
+
+Sets the SNMP authentication info. <ul><li>_snmp_read_community_ and _snmp_write_community_ are  relevant only for _V1_ and _V2_. </li><li>_V3_NO_AUTH_ requires a valid _username_. </li><li>_V3_AUTH_NO_PRIV_ requires _username_, _authentication_protocol_ and _authentication_key_. </li><li>_V3_AUTH_PRIV_ requires _username_, _authentication_protocol_, _authentication_key_, _encryption_protocol_ and _encryption_key_.</li></ul>
+
+> Body parameter
+
+```json
+{
+  "authentication_key": "string",
+  "authentication_protocol": "MD5",
+  "encryption_key": "string",
+  "encryption_protocol": "DES",
+  "snmp_read_community": "string",
+  "snmp_write_community": "string",
+  "username": "string",
+  "version": "V2"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="setsnmpauthentication-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|body|body|[SNMPDomotzAuthentication](#schemasnmpdomotzauthentication)|true|none|
+
+<h3 id="setsnmpauthentication-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 ## setSnmpCommunity
 
 <a id="opIdsetSnmpCommunity"></a>
@@ -2139,7 +2467,7 @@ func main() {
 
 <span class='dmt-method'>`PUT /agent/{agent_id}/device/{device_id}/snmp-community`</span>
 
-Saves a snmp community (read, optionally write) on device
+Saves a snmp community (read, optionally write) on device. _Deprecated_, please use <a href='#setsnmpauthentication'> setSNMPAuthentication </a>
 
 > Body parameter
 
@@ -2461,13 +2789,13 @@ Changes a field of the device or one of its details
 
 |Parameter|Value|
 |---|---|
-|field|user_data/vendor|
-|field|details/zone|
 |field|importance|
-|field|details/room|
-|field|user_data/name|
-|field|user_data/type|
 |field|user_data/model|
+|field|user_data/type|
+|field|user_data/name|
+|field|user_data/vendor|
+|field|details/room|
+|field|details/zone|
 
 <h3 id="editdevice-responses">Responses</h3>
 
@@ -2627,7 +2955,7 @@ Returns the Round Trip Delay statistics for all devices monitored by the agent. 
     "latest_lost_packet_count": 0,
     "latest_median": "string",
     "latest_sent_packet_count": 0,
-    "timestamp": "2020-05-19T08:56:16Z"
+    "timestamp": "2019-08-24T14:15:22Z"
   }
 ]
 ```
@@ -2808,7 +3136,7 @@ Returns the time series of the state changes of the device
         "string"
       ]
     },
-    "timestamp": "2020-05-19T08:56:16Z",
+    "timestamp": "2019-08-24T14:15:22Z",
     "type": "IP_CHANGE"
   }
 ]
@@ -2993,7 +3321,7 @@ Returns the Round Trip Delay history for the device. Each item represents the st
     "median": "string",
     "min": "string",
     "sent_packet_count": 0,
-    "timestamp": "2020-05-19T08:56:16Z"
+    "timestamp": "2019-08-24T14:15:22Z"
   }
 ]
 ```
@@ -3163,7 +3491,7 @@ Returns the time series of the state changes of the agent
 ```json
 [
   {
-    "timestamp": "2020-05-19T08:56:16Z",
+    "timestamp": "2019-08-24T14:15:22Z",
     "type": "CONNECTION_RECOVERED"
   }
 ]
@@ -3340,7 +3668,7 @@ download and in upload.
 ```json
 [
   {
-    "timestamp": "2020-05-19T08:56:16Z",
+    "timestamp": "2019-08-24T14:15:22Z",
     "values": [
       0
     ]
@@ -3532,7 +3860,7 @@ Establishes a direct secure connection to the `device` Current consumption and c
 ```json
 {
   "allowed_ip": "string",
-  "expiration": "2020-05-19T08:56:16Z",
+  "expiration": "2019-08-24T14:15:22Z",
   "id": 0,
   "link": "string",
   "port": 0,
@@ -3694,7 +4022,7 @@ Retrieves the list of configured SNMP Domotz Eyes
   {
     "category": "OTHER",
     "id": 0,
-    "last_update": "2020-05-19T08:56:16Z",
+    "last_update": "2019-08-24T14:15:22Z",
     "latest_value": "string",
     "name": "string",
     "oid": "string",
@@ -4180,7 +4508,7 @@ Retrieves the list of configured TCP Domotz Eyes
 [
   {
     "id": 0,
-    "last_update": "2020-05-19T08:56:16Z",
+    "last_update": "2019-08-24T14:15:22Z",
     "port": 0,
     "status": "UP"
   }
@@ -5212,6 +5540,24 @@ func main() {
 
 Returns all the teams of an Area
 
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/area/{area_id}/team \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listteams-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|area_id|path|integer(int32)|true|Area ID|
+
 > Example responses
 
 > 200 Response
@@ -5545,7 +5891,6 @@ Get the alert profile bindings of an agent
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
-|alert_profile_id|path|integer(int32)|true|Profile ID|
 
 > Example responses
 
@@ -5709,7 +6054,6 @@ Get the alert profile bindings of the devices of an agent
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
-|alert_profile_id|path|integer(int32)|true|Profile ID|
 
 > Example responses
 
@@ -7255,7 +7599,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-19T08:56:16Z",
+  "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -7281,7 +7625,11 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |authentication_status|string|false|When defined the device requires authentication info to perform extended discovery <ul> <li> *REQUIRED*: the device requires authentication, extended discovery is locked </li><li> *PENDING*: credentials have been submitted but not verified yet </li><li> *WRONG_CREDENTIALS*: device authentication failed </li><li> *AUTHENTICATED*: device authentication succeeded </li></ul>|
-|details|[DeviceDetails](#schemadevicedetails)|false|none|
+|details|object|false|DeviceDetails|
+|» room|string|false|none|
+|» snmp_read_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
+|» snmp_write_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
+|» zone|string|false|none|
 |display_name|string|true|none|
 |first_seen_on|string(date-time)|false|none|
 |id|integer(int32)|true|none|
@@ -7325,18 +7673,18 @@ Returns the User information
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-19T08:56:16Z",
+  "creation_time": "2019-08-24T14:15:22Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-19T08:56:16Z",
+    "activation_time": "2019-08-24T14:15:22Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-19T08:56:16Z",
+    "expiration_time": "2019-08-24T14:15:22Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-19T08:56:16Z",
+    "last_change": "2019-08-24T14:15:22Z",
     "value": "ONLINE"
   },
   "team": {
@@ -7412,18 +7760,18 @@ Returns the User information
     },
     "status": "OWNED"
   },
-  "creation_time": "2020-05-19T08:56:16Z",
+  "creation_time": "2019-08-24T14:15:22Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2020-05-19T08:56:16Z",
+    "activation_time": "2019-08-24T14:15:22Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2020-05-19T08:56:16Z",
+    "expiration_time": "2019-08-24T14:15:22Z",
     "id": 0
   },
   "status": {
-    "last_change": "2020-05-19T08:56:16Z",
+    "last_change": "2019-08-24T14:15:22Z",
     "value": "ONLINE"
   },
   "team": {
@@ -7472,7 +7820,7 @@ Returns the User information
 
 ```json
 {
-  "timestamp": "2020-05-19T08:56:16Z",
+  "timestamp": "2019-08-24T14:15:22Z",
   "type": "CONNECTION_RECOVERED"
 }
 
@@ -7510,7 +7858,7 @@ Returns the User information
     ]
   },
   "name": "agent_security_issue",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -7557,7 +7905,7 @@ Returns the User information
     }
   },
   "name": "agent_speed_test",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -7599,7 +7947,7 @@ Returns the User information
     "value": "UP"
   },
   "name": "agent_status",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -7736,7 +8084,7 @@ Returns the User information
 ```json
 {
   "allowed_ip": "string",
-  "expiration": "2020-05-19T08:56:16Z",
+  "expiration": "2019-08-24T14:15:22Z",
   "id": 0,
   "link": "string",
   "port": 0,
@@ -7829,7 +8177,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_configuration_change",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -7863,7 +8211,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_configuration_misalignment",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -7934,29 +8282,6 @@ Returns the User information
 |password|string|true|password|
 |username|string|true|username|
 
-<h2 id="tocSdevicedetails">DeviceDetails</h2>
-
-<a id="schemadevicedetails"></a>
-
-```json
-{
-  "room": "string",
-  "snmp_read_community": "string",
-  "snmp_write_community": "string",
-  "zone": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Description|
-|---|---|---|---|---|
-|room|string|false|none|
-|snmp_read_community|string|false|none|
-|snmp_write_community|string|false|none|
-|zone|string|false|none|
-
 <h2 id="tocSdevicediscoveryevent">DeviceDiscoveryEvent</h2>
 
 <a id="schemadevicediscoveryevent"></a>
@@ -7968,7 +8293,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "agent_device_discovery",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -8002,7 +8327,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_heartbeat_lost",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -8039,7 +8364,7 @@ Returns the User information
       "string"
     ]
   },
-  "timestamp": "2020-05-19T08:56:16Z",
+  "timestamp": "2019-08-24T14:15:22Z",
   "type": "IP_CHANGE"
 }
 
@@ -8081,7 +8406,7 @@ Returns the User information
     ]
   },
   "name": "device_ip_change",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -8140,7 +8465,7 @@ Returns the User information
   "median": "string",
   "min": "string",
   "sent_packet_count": 0,
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -8176,7 +8501,7 @@ Returns the User information
     }
   },
   "name": "device_rtd",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -8221,7 +8546,7 @@ Returns the User information
   "latest_lost_packet_count": 0,
   "latest_median": "string",
   "latest_sent_packet_count": 0,
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -8252,7 +8577,7 @@ Returns the User information
     "value": "string"
   },
   "name": "device_snmp",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -8308,7 +8633,7 @@ Returns the User information
     "value": "UP"
   },
   "name": "device_status",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -8351,7 +8676,7 @@ Returns the User information
     ]
   },
   "name": "device_tcp",
-  "timestamp": "2020-05-19T08:56:16Z"
+  "timestamp": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -8421,7 +8746,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-19T08:56:16Z",
+  "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -8468,7 +8793,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-19T08:56:16Z",
+  "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -8488,7 +8813,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-19T08:56:16Z",
+  "last_status_change": "2019-08-24T14:15:22Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -8531,7 +8856,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-19T08:56:16Z",
+  "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -8551,7 +8876,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-19T08:56:16Z",
+  "last_status_change": "2019-08-24T14:15:22Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string"
@@ -8603,7 +8928,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-19T08:56:16Z",
+  "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -8623,7 +8948,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-19T08:56:16Z",
+  "last_status_change": "2019-08-24T14:15:22Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -8670,7 +8995,7 @@ Returns the User information
 
 ```json
 {
-  "timestamp": "2020-05-19T08:56:16Z",
+  "timestamp": "2019-08-24T14:15:22Z",
   "values": [
     0
   ]
@@ -8688,6 +9013,53 @@ Returns the User information
 |timestamp|string(date-time)|false|The time the sample was reported to Domotz|
 |values|[integer]|false|A pair of values: the download and upload speed, in Bit Per Seconds (bps), as measured by the Agent|
 
+<h2 id="tocSsnmpdomotzauthentication">SNMPDomotzAuthentication</h2>
+
+<a id="schemasnmpdomotzauthentication"></a>
+
+```json
+{
+  "authentication_key": "string",
+  "authentication_protocol": "MD5",
+  "encryption_key": "string",
+  "encryption_protocol": "DES",
+  "snmp_read_community": "string",
+  "snmp_write_community": "string",
+  "username": "string",
+  "version": "V2"
+}
+
+```
+
+*The SNMP authentication setting of a device*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|authentication_key|string|false|none|
+|authentication_protocol|string|false|The SNMP authentication protocol|
+|encryption_key|string|false|none|
+|encryption_protocol|string|false|The SNMP encryption protocol|
+|snmp_read_community|string|false|none|
+|snmp_write_community|string|false|none|
+|username|string|false|none|
+|version|string|true|The configured SNMP version|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|authentication_protocol|MD5|
+|authentication_protocol|SHA|
+|encryption_protocol|DES|
+|encryption_protocol|AES|
+|version|V2|
+|version|V1|
+|version|V3_AUTH_PRIV|
+|version|V3_NO_AUTH|
+|version|V3_AUTH_NO_PRIV|
+
 <h2 id="tocSsnmpdomotzeye">SNMPDomotzEye</h2>
 
 <a id="schemasnmpdomotzeye"></a>
@@ -8696,7 +9068,7 @@ Returns the User information
 {
   "category": "OTHER",
   "id": 0,
-  "last_update": "2020-05-19T08:56:16Z",
+  "last_update": "2019-08-24T14:15:22Z",
   "latest_value": "string",
   "name": "string",
   "oid": "string",
@@ -8786,7 +9158,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2020-05-19T08:56:16Z",
+  "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -8806,7 +9178,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2020-05-19T08:56:16Z",
+  "last_status_change": "2019-08-24T14:15:22Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -8848,7 +9220,7 @@ Returns the User information
 ```json
 {
   "id": 0,
-  "last_update": "2020-05-19T08:56:16Z",
+  "last_update": "2019-08-24T14:15:22Z",
   "port": 0,
   "status": "UP"
 }
