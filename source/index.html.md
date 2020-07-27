@@ -25,9 +25,9 @@ Get your API Key and Base URL from the Domotz Portal or contact us.
 
 The Domotz Public API uses standard HTTP response codes, authentication, and verbs. JSON format is used in responses and accepted for request bodies. All date-time formats are expressed as yyyy-mm-ddThh:mm:ss. Date-time must be expressed in UTC. Specification of different TimeZones are not allowed.
 
+### Domotz Webhook
 It is possible to subscribe to events happening on the Domotz platform, both at an Agent level and Device level, through the usage of Webhooks.
 
-### Domotz Webhook
 Please refer to the [user-guide](https://domotzpro.tome.host/tc/13736/d/) on the usage of the Webhook as a possible contact channel to receive notification of events and how to create a Shared Alert Profile. Moreover, refer to [getAlertProfiles](#getalertprofiles), [bindAlertProfileToAgent](#bindalertprofiletoagent) and [bindAlertProfileToDevice](#bindalertprofiletodevice) on how to retrieve the list of Shared Alert Profiles and bind to Agents and Devices respectively. In those same sections you also have the list of all the possible Webhook events and references to the Schemas.
 
 Base URLs:
