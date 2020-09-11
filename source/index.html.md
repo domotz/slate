@@ -4368,6 +4368,175 @@ Deletes the SNMP Domotz Eye
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## getEyesSNMPHistory
+
+<a id="opIdgetEyesSNMPHistory"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history`</span>
+
+Returns the time series of the SNMP Domotz Eyes collected samples
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="geteyessnmphistory-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
+|to|query|string(date-time)|false|The end time of the time series. Default value is now|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "timestamp": "2019-08-24T14:15:22Z",
+    "value": "string"
+  }
+]
+```
+
+<h3 id="geteyessnmphistory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of SNMP Domotz Eyes samples|Inline|
+
+<h3 id="geteyessnmphistory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceEyesSNMPHistorySample](#schemadeviceeyessnmphistorysample)]|false|none|
+|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+|» value|string|true|none|
+
 ## listEyesTCP
 
 <a id="opIdlistEyesTCP"></a>
@@ -8320,6 +8489,25 @@ Returns the User information
 |Property|Value|
 |---|---|
 |name|agent_device_discovery|
+
+<h2 id="tocSdeviceeyessnmphistorysample">DeviceEyesSNMPHistorySample</h2>
+
+<a id="schemadeviceeyessnmphistorysample"></a>
+
+```json
+{
+  "timestamp": "2019-08-24T14:15:22Z",
+  "value": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+|value|string|true|none|
 
 <h2 id="tocSdeviceheartbeatlostevent">DeviceHeartbeatLostEvent</h2>
 
