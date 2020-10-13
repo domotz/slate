@@ -48,7 +48,7 @@ options.language_tabs = [
 fetch(`${apiDefBaseUrl}/public-api/v1/meta/open-api-definition`, {method: 'GET',})
   .then(function (res) {
     res.json().then(function (s) {
-      let data = JSON.parse(stringify(s).replace(apiDefBaseUrl, apiDefDocUrl));
+      let data = JSON.parse(stringify(s));
       converter.convert(data, options, function (err, str) {
         fs.writeFileSync("source/index.html.md", str);
         if (validationError) {
