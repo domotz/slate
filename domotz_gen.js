@@ -2,13 +2,12 @@ const converter = require('widdershins');
 const fs = require('fs');
 const fetch = require('node-fetch');
 const childProcess = require('child_process');
-// const apiDefBaseUrl = 'https://api-testing-eu-central-1-cell-1.domotz.nl';
-const apiDefBaseUrl = 'https://api-staging-eu-central-1-cell-1.domotz.co';
+const apiDefBaseUrl = 'https://api-testing-eu-central-1-cell-1.domotz.nl';
+// const apiDefBaseUrl = 'https://api-staging-eu-central-1-cell-1.domotz.co';
 // const apiDefBaseUrl = 'https://api.domotz.de';
 // const apiDefBaseUrl = 'http://172.17.0.1:8888';
 // const apiDefBaseUrl = 'http://192.168.77.5:8888';
 
-const apiDefDocUrl = 'your-domotz-api-endpoint';
 var stringify = require('json-stable-stringify');
 const tmpFile = '/tmp/domotz_api.json';
 
@@ -22,7 +21,7 @@ try {
 } catch (e) {
   validationError = true;
 }
-
+let apiDefDocUrl = '{baseURL}'
 
 let options = {};
 options.user_templates = './domotz_templates';
@@ -48,7 +47,7 @@ options.language_tabs = [
 fetch(`${apiDefBaseUrl}/public-api/v1/meta/open-api-definition`, {method: 'GET',})
   .then(function (res) {
     res.json().then(function (s) {
-      let data = JSON.parse(stringify(s));
+      let data = JSON.parse(stringify(s).replace(apiDefBaseUrl, apiDefDocUrl));
       converter.convert(data, options, function (err, str) {
         fs.writeFileSync("source/index.html.md", str);
         if (validationError) {
