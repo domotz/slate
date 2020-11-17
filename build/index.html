@@ -10995,7 +10995,7 @@ download and in upload.</p>
 <td>protocol</td>
 <td>string</td>
 <td>true</td>
-<td>The protocol wrapped by the connection:  </br>- <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates will be securely forwarded to the requested <code>port</code> of the device.</td>
+<td>The protocol wrapped by the connection:  </br>- <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates will be securely forwarded to the requested <code>port</code> of the device.  </br>- <em>ssh</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- <em>rdp</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.</td>
 </tr>
 </tbody></table>
 <h4 id='enumerated-values-16'>Enumerated Values</h4>
@@ -11016,6 +11016,14 @@ download and in upload.</p>
 <tr>
 <td>protocol</td>
 <td>tcp</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>ssh</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>rdp</td>
 </tr>
 </tbody></table>
 
@@ -11290,7 +11298,7 @@ download and in upload.</p>
 <td>protocol</td>
 <td>string</td>
 <td>true</td>
-<td>The protocol wrapped by the connection:  </br>- <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates will be securely forwarded to the requested <code>port</code> of the device.</td>
+<td>The protocol wrapped by the connection:  </br>- <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates will be securely forwarded to the requested <code>port</code> of the device.  </br>- <em>ssh</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- <em>rdp</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.</td>
 </tr>
 </tbody></table>
 <h4 id='enumerated-values-19'>Enumerated Values</h4>
@@ -11311,6 +11319,14 @@ download and in upload.</p>
 <tr>
 <td>protocol</td>
 <td>tcp</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>ssh</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>rdp</td>
 </tr>
 </tbody></table>
 
