@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v0.8.2</h1>
+<h1 id="domotz-public-api">Domotz Public API v0.8.3</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -24,6 +24,10 @@ headingLevel: 2
 Use the "API Key Endpoint" which you can retrieve from the Domotz Portal as the Base URL for your API calls.
 
 The Domotz Public API uses standard HTTP response codes, authentication, and verbs. JSON format is used in responses and accepted for request bodies. All date-time formats are expressed as yyyy-mm-ddThh:mm:ss. Date-time must be expressed in UTC. Specification of different TimeZones are not allowed.
+
+### Agent Activation API Key
+
+This special API Key can be used only for the Activation of new Domotz Agents as specified in [User Guide](https://help.domotz.com/user-guide/agent-activation-via-command-line/).
 
 ### Domotz Webhook
 It is possible to subscribe to events happening on the Domotz platform, both at an Agent level and Device level, through the usage of Webhooks.
