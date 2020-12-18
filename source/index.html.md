@@ -4364,9 +4364,9 @@ Deletes the SNMP Domotz Eye
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
-## listEyeSNMPTriggerFunction
+## listEyesSNMPTriggerFunction
 
-<a id="opIdlistEyeSNMPTriggerFunction"></a>
+<a id="opIdlistEyesSNMPTriggerFunction"></a>
 
 > Code samples
 
@@ -4494,7 +4494,7 @@ Retrieves the list of functions for the SNMP trigger Domotz Eyes
 </code>
 </p>
 
-<h3 id="listeyesnmptriggerfunction-parameters">Parameters</h3>
+<h3 id="listeyessnmptriggerfunction-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -4517,13 +4517,13 @@ Retrieves the list of functions for the SNMP trigger Domotz Eyes
 ]
 ```
 
-<h3 id="listeyesnmptriggerfunction-responses">Responses</h3>
+<h3 id="listeyessnmptriggerfunction-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of functions exploitable for the sensor|Inline|
 
-<h3 id="listeyesnmptriggerfunction-responseschema">Response Schema</h3>
+<h3 id="listeyessnmptriggerfunction-responseschema">Response Schema</h3>
 
 Status Code **200**
 
@@ -4711,9 +4711,9 @@ Status Code **200**
 |» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
 |» value|string|true|none|
 
-## listEyeSNMPTrigger
+## listEyesSNMPTrigger
 
-<a id="opIdlistEyeSNMPTrigger"></a>
+<a id="opIdlistEyesSNMPTrigger"></a>
 
 > Code samples
 
@@ -4841,7 +4841,7 @@ Retrieves the list of triggers for the SNMP Sensor
 </code>
 </p>
 
-<h3 id="listeyesnmptrigger-parameters">Parameters</h3>
+<h3 id="listeyessnmptrigger-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -4866,19 +4866,18 @@ Retrieves the list of triggers for the SNMP Sensor
     "name": "string",
     "operands": [
       "string"
-    ],
-    "sensor_id": 0
+    ]
   }
 ]
 ```
 
-<h3 id="listeyesnmptrigger-responses">Responses</h3>
+<h3 id="listeyessnmptrigger-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of triggers created for the sensor|Inline|
 
-<h3 id="listeyesnmptrigger-responseschema">Response Schema</h3>
+<h3 id="listeyessnmptrigger-responseschema">Response Schema</h3>
 
 Status Code **200**
 
@@ -4893,11 +4892,10 @@ Status Code **200**
 |» id|integer(int32)|true|The unique identifier of the SNMP Trigger|
 |» name|string|true|The name of the trigger|
 |» operands|[string]|true|The operands for the function|
-|» sensor_id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
 
-## createEyeSNMPSensorTrigger
+## createEyeSNMPTrigger
 
-<a id="opIdcreateEyeSNMPSensorTrigger"></a>
+<a id="opIdcreateEyeSNMPTrigger"></a>
 
 > Code samples
 
@@ -5043,7 +5041,7 @@ Creates a new SNMP Trigger for the sensor
 </code>
 </p>
 
-<h3 id="createeyesnmpsensortrigger-parameters">Parameters</h3>
+<h3 id="createeyesnmptrigger-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -5052,15 +5050,15 @@ Creates a new SNMP Trigger for the sensor
 |sensor_id|path|integer(int32)|true|SNMP Eye ID|
 |body|body|[SNMPDomotzSnmpTriggerCreation](#schemasnmpdomotzsnmptriggercreation)|true|none|
 
-<h3 id="createeyesnmpsensortrigger-responses">Responses</h3>
+<h3 id="createeyesnmptrigger-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
 
-## deleteEyeTriggerSNMP
+## deleteEyeSNMPTrigger
 
-<a id="opIddeleteEyeTriggerSNMP"></a>
+<a id="opIddeleteEyeSNMPTrigger"></a>
 
 > Code samples
 
@@ -5181,7 +5179,7 @@ Deletes the SNMP Trigger for the sensor
 </code>
 </p>
 
-<h3 id="deleteeyetriggersnmp-parameters">Parameters</h3>
+<h3 id="deleteeyesnmptrigger-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -5190,15 +5188,15 @@ Deletes the SNMP Trigger for the sensor
 |sensor_id|path|integer(int32)|true|SNMP Eye ID|
 |trigger_id|path|integer(int32)|true|SNMP Eye Trigger ID|
 
-<h3 id="deleteeyetriggersnmp-responses">Responses</h3>
+<h3 id="deleteeyesnmptrigger-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
-## deleteEyeTriggerAlertSNMP
+## deleteEyeSNMPTriggerAlert
 
-<a id="opIddeleteEyeTriggerAlertSNMP"></a>
+<a id="opIddeleteEyeSNMPTriggerAlert"></a>
 
 > Code samples
 
@@ -5319,7 +5317,7 @@ Deletes the alert for thee SNMP Trigger
 </code>
 </p>
 
-<h3 id="deleteeyetriggeralertsnmp-parameters">Parameters</h3>
+<h3 id="deleteeyesnmptriggeralert-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -5336,15 +5334,15 @@ Deletes the alert for thee SNMP Trigger
 |medium_name|email|
 |medium_name|mobile|
 
-<h3 id="deleteeyetriggeralertsnmp-responses">Responses</h3>
+<h3 id="deleteeyesnmptriggeralert-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
-## createEyeTriggerAlertSNMP
+## createEyeSNMPTriggerAlert
 
-<a id="opIdcreateEyeTriggerAlertSNMP"></a>
+<a id="opIdcreateEyeSNMPTriggerAlert"></a>
 
 > Code samples
 
@@ -5478,7 +5476,7 @@ Add an alert to a SNMP Trigger
 </code>
 </p>
 
-<h3 id="createeyetriggeralertsnmp-parameters">Parameters</h3>
+<h3 id="createeyesnmptriggeralert-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -5496,7 +5494,7 @@ Add an alert to a SNMP Trigger
 |medium_name|email|
 |medium_name|mobile|
 
-<h3 id="createeyetriggeralertsnmp-responses">Responses</h3>
+<h3 id="createeyesnmptriggeralert-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -10322,8 +10320,7 @@ Returns the User information
   "name": "string",
   "operands": [
     "string"
-  ],
-  "sensor_id": 0
+  ]
 }
 
 ```
@@ -10342,7 +10339,6 @@ Returns the User information
 |id|integer(int32)|true|The unique identifier of the SNMP Trigger|
 |name|string|true|The name of the trigger|
 |operands|[string]|true|The operands for the function|
-|sensor_id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
 
 <h2 id="tocSsnmpdomotzeyetriggerfunction">SNMPDomotzEyeTriggerFunction</h2>
 
