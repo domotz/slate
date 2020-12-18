@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v0.8.3</h1>
+<h1 id="domotz-public-api">Domotz Public API v0.8.2</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -24,10 +24,6 @@ headingLevel: 2
 Use the "API Key Endpoint" which you can retrieve from the Domotz Portal as the Base URL for your API calls.
 
 The Domotz Public API uses standard HTTP response codes, authentication, and verbs. JSON format is used in responses and accepted for request bodies. All date-time formats are expressed as yyyy-mm-ddThh:mm:ss. Date-time must be expressed in UTC. Specification of different TimeZones are not allowed.
-
-### Agent Activation API Key
-
-This special API Key can be used only for the Activation of new Domotz Agents as specified in [User Guide](https://help.domotz.com/user-guide/agent-activation-via-command-line/).
 
 ### Domotz Webhook
 It is possible to subscribe to events happening on the Domotz platform, both at an Agent level and Device level, through the usage of Webhooks.
@@ -4368,6 +4364,184 @@ Deletes the SNMP Domotz Eye
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## listEyeSNMPTriggerFunction
+
+<a id="opIdlistEyeSNMPTriggerFunction"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function`</span>
+
+Retrieves the list of functions for the SNMP trigger Domotz Eyes
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listeyesnmptriggerfunction-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "cardinality": 0,
+    "id": 0,
+    "name": "string",
+    "value_types": "STRING"
+  }
+]
+```
+
+<h3 id="listeyesnmptriggerfunction-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of functions exploitable for the sensor|Inline|
+
+<h3 id="listeyesnmptriggerfunction-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[SNMPDomotzEyeTriggerFunction](#schemasnmpdomotzeyetriggerfunction)]|false|[Information about a trigger function]|
+|» cardinality|integer(int32)|true|The cardinality of the function|
+|» id|integer(int32)|true|The unique identifier of the SNMP Trigger function|
+|» name|string|true|The name of the function|
+|» value_types|string|true|The type of the operands|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|value_types|STRING|
+|value_types|NUMERIC|
+
 ## getEyesSNMPHistory
 
 <a id="opIdgetEyesSNMPHistory"></a>
@@ -4533,9 +4707,800 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|[[DeviceEyesSNMPHistorySample](#schemadeviceeyessnmphistorysample)]|false|none|
+|*anonymous*|[[DeviceEyeSNMPHistorySample](#schemadeviceeyesnmphistorysample)]|false|none|
 |» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
 |» value|string|true|none|
+
+## listEyeSNMPTrigger
+
+<a id="opIdlistEyeSNMPTrigger"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger`</span>
+
+Retrieves the list of triggers for the SNMP Sensor
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listeyesnmptrigger-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "alert": {
+      "email": true,
+      "mobile": true
+    },
+    "creation_time": "2019-08-24T14:15:22Z",
+    "function_id": 0,
+    "id": 0,
+    "name": "string",
+    "operands": [
+      "string"
+    ],
+    "sensor_id": 0
+  }
+]
+```
+
+<h3 id="listeyesnmptrigger-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of triggers created for the sensor|Inline|
+
+<h3 id="listeyesnmptrigger-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[SNMPDomotzEyeTrigger](#schemasnmpdomotzeyetrigger)]|false|[Information about a trigger]|
+|» alert|object|false|The alerts details|
+|»» email|boolean|false|True if the email alert is active|
+|»» mobile|boolean|false|True if the mobile alert is active|
+|» creation_time|string(date-time)|false|none|
+|» function_id|integer(int32)|true|The unique identifier of the function assigned to the trigger|
+|» id|integer(int32)|true|The unique identifier of the SNMP Trigger|
+|» name|string|true|The name of the trigger|
+|» operands|[string]|true|The operands for the function|
+|» sensor_id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
+
+## createEyeSNMPSensorTrigger
+
+<a id="opIdcreateEyeSNMPSensorTrigger"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "function_id": 0,
+  "name": "string",
+  "operands": [
+    "string"
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger`</span>
+
+Creates a new SNMP Trigger for the sensor
+
+> Body parameter
+
+```json
+{
+  "function_id": 0,
+  "name": "string",
+  "operands": [
+    "string"
+  ]
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createeyesnmpsensortrigger-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|body|body|[SNMPDomotzSnmpTriggerCreation](#schemasnmpdomotzsnmptriggercreation)|true|none|
+
+<h3 id="createeyesnmpsensortrigger-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
+## deleteEyeTriggerSNMP
+
+<a id="opIddeleteEyeTriggerSNMP"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}`</span>
+
+Deletes the SNMP Trigger for the sensor
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteeyetriggersnmp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|trigger_id|path|integer(int32)|true|SNMP Eye Trigger ID|
+
+<h3 id="deleteeyetriggersnmp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## deleteEyeTriggerAlertSNMP
+
+<a id="opIddeleteEyeTriggerAlertSNMP"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}`</span>
+
+Deletes the alert for thee SNMP Trigger
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteeyetriggeralertsnmp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|trigger_id|path|integer(int32)|true|SNMP Eye Trigger ID|
+|medium_name|path|string|true|the name of the medium|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|medium_name|email|
+|medium_name|mobile|
+
+<h3 id="deleteeyetriggeralertsnmp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## createEyeTriggerAlertSNMP
+
+<a id="opIdcreateEyeTriggerAlertSNMP"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}`</span>
+
+Add an alert to a SNMP Trigger
+
+> Body parameter
+
+```json
+{}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createeyetriggeralertsnmp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|trigger_id|path|integer(int32)|true|SNMP Eye Trigger ID|
+|medium_name|path|string|true|the name of the medium|
+|body|body|[SNMPDomotzSnmpTriggerAlertCreation](#schemasnmpdomotzsnmptriggeralertcreation)|true|none|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|medium_name|email|
+|medium_name|mobile|
+
+<h3 id="createeyetriggeralertsnmp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
 
 ## listEyesTCP
 
@@ -8494,9 +9459,9 @@ Returns the User information
 |---|---|
 |name|agent_device_discovery|
 
-<h2 id="tocSdeviceeyessnmphistorysample">DeviceEyesSNMPHistorySample</h2>
+<h2 id="tocSdeviceeyesnmphistorysample">DeviceEyeSNMPHistorySample</h2>
 
-<a id="schemadeviceeyessnmphistorysample"></a>
+<a id="schemadeviceeyesnmphistorysample"></a>
 
 ```json
 {
@@ -9340,6 +10305,116 @@ Returns the User information
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+
+<h2 id="tocSsnmpdomotzeyetrigger">SNMPDomotzEyeTrigger</h2>
+
+<a id="schemasnmpdomotzeyetrigger"></a>
+
+```json
+{
+  "alert": {
+    "email": true,
+    "mobile": true
+  },
+  "creation_time": "2019-08-24T14:15:22Z",
+  "function_id": 0,
+  "id": 0,
+  "name": "string",
+  "operands": [
+    "string"
+  ],
+  "sensor_id": 0
+}
+
+```
+
+*Information about a trigger*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|alert|object|false|The alerts details|
+|» email|boolean|false|True if the email alert is active|
+|» mobile|boolean|false|True if the mobile alert is active|
+|creation_time|string(date-time)|false|none|
+|function_id|integer(int32)|true|The unique identifier of the function assigned to the trigger|
+|id|integer(int32)|true|The unique identifier of the SNMP Trigger|
+|name|string|true|The name of the trigger|
+|operands|[string]|true|The operands for the function|
+|sensor_id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
+
+<h2 id="tocSsnmpdomotzeyetriggerfunction">SNMPDomotzEyeTriggerFunction</h2>
+
+<a id="schemasnmpdomotzeyetriggerfunction"></a>
+
+```json
+{
+  "cardinality": 0,
+  "id": 0,
+  "name": "string",
+  "value_types": "STRING"
+}
+
+```
+
+*Information about a trigger function*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|cardinality|integer(int32)|true|The cardinality of the function|
+|id|integer(int32)|true|The unique identifier of the SNMP Trigger function|
+|name|string|true|The name of the function|
+|value_types|string|true|The type of the operands|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|value_types|STRING|
+|value_types|NUMERIC|
+
+<h2 id="tocSsnmpdomotzsnmptriggeralertcreation">SNMPDomotzSnmpTriggerAlertCreation</h2>
+
+<a id="schemasnmpdomotzsnmptriggeralertcreation"></a>
+
+```json
+{}
+
+```
+
+*SNMP Trigger Alert*
+
+### Properties
+
+*None*
+
+<h2 id="tocSsnmpdomotzsnmptriggercreation">SNMPDomotzSnmpTriggerCreation</h2>
+
+<a id="schemasnmpdomotzsnmptriggercreation"></a>
+
+```json
+{
+  "function_id": 0,
+  "name": "string",
+  "operands": [
+    "string"
+  ]
+}
+
+```
+
+*SNMP Trigger*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|function_id|integer(int32)|true|The unique identifier of the sensor function|
+|name|string|true|The name of the trigger|
+|operands|[string]|true|The operands for the function|
 
 <h2 id="tocSsubnetipdevice">SubnetIpDevice</h2>
 
