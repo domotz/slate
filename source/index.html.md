@@ -5015,7 +5015,11 @@ func main() {
 
 <span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger`</span>
 
-Creates a new SNMP Trigger for the sensor
+Creates a new SNMP Trigger for the sensor. 
+
+For instance, to receive a notification when the value of the sensor is above a threshold x, it is required to add a trigger specifying the function_id = 2 (is greater than) and the operand value equals to [x]. 
+The function_id value can be retrieved with the listEyesSNMPTriggerFunction call. 
+To activate the alert, it is required to call createEyeSNMPTriggerAlert after the trigger creation.
 
 > Body parameter
 
