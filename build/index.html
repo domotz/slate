@@ -255,13 +255,19 @@
                   <li>
                     <a href="#getconnectionconsumption" class="toc-h2 toc-link" data-title="getConnectionConsumption">getConnectionConsumption</a>
                   </li>
+                  <li>
+                    <a href="#getagentvpnactiveconnections" class="toc-h2 toc-link" data-title="getAgentVPNActiveConnections">getAgentVPNActiveConnections</a>
+                  </li>
               </ul>
           </li>
           <li>
             <a href="#domotz-public-api-actions" class="toc-h1 toc-link" data-title="actions">actions</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#connecttoagent" class="toc-h2 toc-link" data-title="connectToAgent">connectToAgent</a>
+                    <a href="#createagentvpnconnection" class="toc-h2 toc-link" data-title="createAgentVPNConnection">createAgentVPNConnection</a>
+                  </li>
+                  <li>
+                    <a href="#deleteagentvpnconnection" class="toc-h2 toc-link" data-title="deleteAgentVPNConnection">deleteAgentVPNConnection</a>
                   </li>
                   <li>
                     <a href="#connecttodevice" class="toc-h2 toc-link" data-title="connectToDevice">connectToDevice</a>
@@ -480,6 +486,9 @@
                   </li>
                   <li>
                     <a href="#tocSagentstatusevent" class="toc-h2 toc-link" data-title="AgentStatusEvent">AgentStatusEvent</a>
+                  </li>
+                  <li>
+                    <a href="#tocSagentvpnactiveconnection" class="toc-h2 toc-link" data-title="AgentVPNActiveConnection">AgentVPNActiveConnection</a>
                   </li>
                   <li>
                     <a href="#tocSagentvpnconnection" class="toc-h2 toc-link" data-title="AgentVPNConnection">AgentVPNConnection</a>
@@ -1751,10 +1760,252 @@
 <td><a href="#schemaconnectionconsumption">ConnectionConsumption</a></td>
 </tr>
 </tbody></table>
+<h2 id='getagentvpnactiveconnections'>getAgentVPNActiveConnections</h2>
+<p><a id="opIdgetAgentVPNActiveConnections"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET http://172.17.0.1:9080/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/connection/vpn <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"Accept"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>GET /agent/{agent_id}/connection/vpn</code></span></p>
+
+<p>Get the Active VPN connections for the <code>agent</code></p>
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentvpnactiveconnections-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h3 id="getagentvpnactiveconnections-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>Agent VPN Connection information</td>
+<td>Inline</td>
+</tr>
+</tbody></table>
+
+<h3 id="getagentvpnactiveconnections-responseschema">Response Schema</h3>
+
+<p>Status Code <strong>200</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>[<a href="#schemaagentvpnactiveconnection">AgentVPNActiveConnection</a>]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» bytes</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Current VPN connection consumption (bytes)</td>
+</tr>
+<tr>
+<td>» creation_time</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» expiration_time</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>The ID of the VPN connection</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>string</td>
+<td>true</td>
+<td>The user that started the VPN connection</td>
+</tr>
+<tr>
+<td>» status</td>
+<td>string</td>
+<td>true</td>
+<td>The status of the vpn connection</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-2'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>ACTIVE</td>
+</tr>
+<tr>
+<td>status</td>
+<td>INACTIVE</td>
+</tr>
+<tr>
+<td>status</td>
+<td>EXPIRED</td>
+</tr>
+</tbody></table>
 
 <h1 id="domotz-public-api-actions">actions</h1>
-<h2 id='connecttoagent'>connectToAgent</h2>
-<p><a id="opIdconnectToAgent"></a></p>
+<h2 id='createagentvpnconnection'>createAgentVPNConnection</h2>
+<p><a id="opIdcreateAgentVPNConnection"></a></p>
 
 <blockquote>
 <p>Code samples</p>
@@ -1861,7 +2112,7 @@
 </span></code></pre>
 <p><span class='dmt-method'><code>POST /agent/{agent_id}/connection/vpn</code></span></p>
 
-<p>Creates a temporary VPN server on the <code>agent</code> and returns the configuration file contentCurrent consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint</p>
+<p>Creates a temporary VPN server on the <code>agent</code> and returns the vpn configuration file content. Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint</p>
 
 <blockquote>
 <p>Body parameter</p>
@@ -1884,7 +2135,7 @@
 </code>
 </p>
 
-<h3 id="connecttoagent-parameters">Parameters</h3>
+<h3 id="createagentvpnconnection-parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -1918,7 +2169,7 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
 </span></code></pre>
-<h3 id="connecttoagent-responses">Responses</h3>
+<h3 id="createagentvpnconnection-responses">Responses</h3>
 
 <table><thead>
 <tr>
@@ -1933,6 +2184,156 @@
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
 <td>OpenVPN Configuration file content</td>
 <td><a href="#schemaagentvpnconnectionconfigurationfile">AgentVPNConnectionConfigurationFile</a></td>
+</tr>
+</tbody></table>
+<h2 id='deleteagentvpnconnection'>deleteAgentVPNConnection</h2>
+<p><a id="opIddeleteAgentVPNConnection"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/connection/vpn/<span class="o">{</span>session_id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'delete'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'DELETE'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span><span class="x"> </span><span class="s">"http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>DELETE /agent/{agent_id}/connection/vpn/{session_id}</code></span></p>
+
+<p>Closes an active VPN connection session for the <code>agent</code></p>
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteagentvpnconnection-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+<tr>
+<td>session_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Session ID</td>
+</tr>
+</tbody></table>
+
+<h3 id="deleteagentvpnconnection-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
+<td>none</td>
+<td>None</td>
 </tr>
 </tbody></table>
 <h2 id='connecttodevice'>connectToDevice</h2>
@@ -2470,7 +2871,7 @@
 </tbody></table>
 
 <h3 id="listdevices-responseschema">Response Schema</h3>
-<h4 id='enumerated-values-2'>Enumerated Values</h4>
+<h4 id='enumerated-values-3'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -2874,7 +3275,7 @@
 </tbody></table>
 
 <h3 id="getdevice-responseschema">Response Schema</h3>
-<h4 id='enumerated-values-3'>Enumerated Values</h4>
+<h4 id='enumerated-values-4'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -3246,7 +3647,7 @@
 <td>Specifies the power action to perform</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-4'>Enumerated Values</h4>
+<h4 id='enumerated-values-5'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4306,7 +4707,7 @@
 <td>The value that the field will change to</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-5'>Enumerated Values</h4>
+<h4 id='enumerated-values-6'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4839,7 +5240,7 @@
 <td>The device event type</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-6'>Enumerated Values</h4>
+<h4 id='enumerated-values-7'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -5314,7 +5715,7 @@
 <td>The agent event type</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-7'>Enumerated Values</h4>
+<h4 id='enumerated-values-8'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -5787,7 +6188,7 @@ download and in upload.</p>
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-8'>Enumerated Values</h4>
+<h4 id='enumerated-values-9'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -6389,7 +6790,7 @@ download and in upload.</p>
 <td>The type of the operands</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-9'>Enumerated Values</h4>
+<h4 id='enumerated-values-10'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -7389,7 +7790,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>the name of the medium</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-10'>Enumerated Values</h4>
+<h4 id='enumerated-values-11'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7595,7 +7996,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-11'>Enumerated Values</h4>
+<h4 id='enumerated-values-12'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7844,7 +8245,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The status of the TCP service</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-12'>Enumerated Values</h4>
+<h4 id='enumerated-values-13'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -11476,7 +11877,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-13'>Enumerated Values</h4>
+<h4 id='enumerated-values-14'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -11737,7 +12138,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-14'>Enumerated Values</h4>
+<h4 id='enumerated-values-15'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -11906,7 +12307,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The agent event type</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-15'>Enumerated Values</h4>
+<h4 id='enumerated-values-16'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -12002,7 +12403,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-16'>Enumerated Values</h4>
+<h4 id='enumerated-values-17'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -12125,7 +12526,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-17'>Enumerated Values</h4>
+<h4 id='enumerated-values-18'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -12200,7 +12601,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-18'>Enumerated Values</h4>
+<h4 id='enumerated-values-19'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -12221,6 +12622,85 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 </tbody></table>
 
+<h2 id="tocSagentvpnactiveconnection">AgentVPNActiveConnection</h2>
+
+<p><a id="schemaagentvpnactiveconnection"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='properties-9'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bytes</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Current VPN connection consumption (bytes)</td>
+</tr>
+<tr>
+<td>creation_time</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>expiration_time</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>The ID of the VPN connection</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>The user that started the VPN connection</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>true</td>
+<td>The status of the vpn connection</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-20'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>ACTIVE</td>
+</tr>
+<tr>
+<td>status</td>
+<td>INACTIVE</td>
+</tr>
+<tr>
+<td>status</td>
+<td>EXPIRED</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocSagentvpnconnection">AgentVPNConnection</h2>
 
 <p><a id="schemaagentvpnconnection"></a></p>
@@ -12229,7 +12709,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"routing_policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"global"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-9'>Properties</h3>
+</span></code></pre><h3 id='properties-10'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12251,7 +12731,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>TODO Add description here</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-19'>Enumerated Values</h4>
+<h4 id='enumerated-values-21'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -12273,7 +12753,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <p><a id="schemaagentvpnconnectionconfigurationfile"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
 
-</span></code></pre><h3 id='properties-10'>Properties</h3>
+</span></code></pre><h3 id='properties-11'>Properties</h3>
 <p><em>None</em></p>
 
 <h2 id="tocSalertprofile">AlertProfile</h2>
@@ -12290,7 +12770,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-11'>Properties</h3>
+</span></code></pre><h3 id='properties-12'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12344,7 +12824,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"alert_profile_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-12'>Properties</h3>
+</span></code></pre><h3 id='properties-13'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12369,7 +12849,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-13'>Properties</h3>
+</span></code></pre><h3 id='properties-14'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12402,7 +12882,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Represents an area of the Company</em></p>
-<h3 id='properties-14'>Properties</h3>
+<h3 id='properties-15'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12433,7 +12913,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-15'>Properties</h3>
+</span></code></pre><h3 id='properties-16'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12468,7 +12948,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-16'>Properties</h3>
+</span></code></pre><h3 id='properties-17'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12514,7 +12994,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The protocol wrapped by the connection:  </br>- <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates will be securely forwarded to the requested <code>port</code> of the device.  </br>- <em>ssh</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- <em>rdp</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-20'>Enumerated Values</h4>
+<h4 id='enumerated-values-22'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -12558,7 +13038,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>A device type, detected by the Domotz device identification feature</em></p>
-<h3 id='properties-17'>Properties</h3>
+<h3 id='properties-18'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12611,7 +13091,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>A device type, either set by the user or as identified by the Domotz system</em></p>
-<h3 id='properties-18'>Properties</h3>
+<h3 id='properties-19'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12660,73 +13140,6 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the device configuration changes</em></p>
-<h3 id='properties-19'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>data</td>
-<td>object</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» agent_id</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>The <code>id</code> of the <code>agent</code></td>
-</tr>
-<tr>
-<td>» device_id</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>The <code>id</code> of the <code>device</code></td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>timestamp</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>The timestamp of the event</td>
-</tr>
-</tbody></table>
-<h4 id='enumerated-values-21'>Enumerated Values</h4>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td>device_configuration_change</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSdeviceconfigurationmisalignmentevent">DeviceConfigurationMisalignmentEvent</h2>
-
-<p><a id="schemadeviceconfigurationmisalignmentevent"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"device_configuration_misalignment"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<p><em>Triggered when the device configuration becomes different from the startup one</em></p>
 <h3 id='properties-20'>Properties</h3>
 <table><thead>
 <tr>
@@ -12767,7 +13180,74 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-22'>Enumerated Values</h4>
+<h4 id='enumerated-values-23'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>device_configuration_change</td>
+</tr>
+</tbody></table>
+
+<h2 id="tocSdeviceconfigurationmisalignmentevent">DeviceConfigurationMisalignmentEvent</h2>
+
+<p><a id="schemadeviceconfigurationmisalignmentevent"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"device_configuration_misalignment"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><em>Triggered when the device configuration becomes different from the startup one</em></p>
+<h3 id='properties-21'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» agent_id</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The <code>id</code> of the <code>agent</code></td>
+</tr>
+<tr>
+<td>» device_id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>The <code>id</code> of the <code>device</code></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>The timestamp of the event</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-24'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -12789,7 +13269,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-21'>Properties</h3>
+</span></code></pre><h3 id='properties-22'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12817,7 +13297,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The protocol wrapped by the connection:  </br>- <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates will be securely forwarded to the requested <code>port</code> of the device.  </br>- <em>ssh</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- <em>rdp</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-23'>Enumerated Values</h4>
+<h4 id='enumerated-values-25'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -12854,7 +13334,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-22'>Properties</h3>
+</span></code></pre><h3 id='properties-23'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12891,7 +13371,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when a new device appears on the network</em></p>
-<h3 id='properties-23'>Properties</h3>
+<h3 id='properties-24'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12931,7 +13411,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-24'>Enumerated Values</h4>
+<h4 id='enumerated-values-26'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -12952,7 +13432,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-24'>Properties</h3>
+</span></code></pre><h3 id='properties-25'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -12989,7 +13469,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when a device does not respond to a ping</em></p>
-<h3 id='properties-25'>Properties</h3>
+<h3 id='properties-26'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13029,7 +13509,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-25'>Enumerated Values</h4>
+<h4 id='enumerated-values-27'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -13058,7 +13538,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP_CHANGE"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-26'>Properties</h3>
+</span></code></pre><h3 id='properties-27'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13098,7 +13578,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The device event type</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-26'>Enumerated Values</h4>
+<h4 id='enumerated-values-28'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -13143,7 +13623,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the device IP address changes</em></p>
-<h3 id='properties-27'>Properties</h3>
+<h3 id='properties-28'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13195,7 +13675,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-27'>Enumerated Values</h4>
+<h4 id='enumerated-values-29'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -13218,7 +13698,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"software_reboot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-28'>Properties</h3>
+</span></code></pre><h3 id='properties-29'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13265,7 +13745,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-29'>Properties</h3>
+</span></code></pre><h3 id='properties-30'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13335,7 +13815,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the Round-Trip-Delay values of a device exceeds the defined thresholds</em></p>
-<h3 id='properties-30'>Properties</h3>
+<h3 id='properties-31'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13417,7 +13897,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-28'>Enumerated Values</h4>
+<h4 id='enumerated-values-30'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -13452,7 +13932,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-31'>Properties</h3>
+</span></code></pre><h3 id='properties-32'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13527,7 +14007,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the status of an SNMP value changes</em></p>
-<h3 id='properties-32'>Properties</h3>
+<h3 id='properties-33'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13579,7 +14059,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-29'>Enumerated Values</h4>
+<h4 id='enumerated-values-31'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -13600,7 +14080,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"write"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-33'>Properties</h3>
+</span></code></pre><h3 id='properties-34'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13638,7 +14118,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the status of a device changes</em></p>
-<h3 id='properties-34'>Properties</h3>
+<h3 id='properties-35'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13684,7 +14164,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-30'>Enumerated Values</h4>
+<h4 id='enumerated-values-32'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -13725,7 +14205,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the status of a monitored TCP service changes</em></p>
-<h3 id='properties-35'>Properties</h3>
+<h3 id='properties-36'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13783,7 +14263,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-31'>Enumerated Values</h4>
+<h4 id='enumerated-values-33'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -13818,7 +14298,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about Domotz Eyes current usage and limits</em></p>
-<h3 id='properties-36'>Properties</h3>
+<h3 id='properties-37'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13888,7 +14368,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-37'>Properties</h3>
+</span></code></pre><h3 id='properties-38'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -13967,7 +14447,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-38'>Properties</h3>
+</span></code></pre><h3 id='properties-39'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -14060,7 +14540,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-39'>Properties</h3>
+</span></code></pre><h3 id='properties-40'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -14138,7 +14618,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-32'>Enumerated Values</h4>
+<h4 id='enumerated-values-34'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14211,7 +14691,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-40'>Properties</h3>
+</span></code></pre><h3 id='properties-41'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -14315,7 +14795,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span></code></pre>
 <p><em>A Network Speed Sample is the result of the measurement of the Internet download and upload
      speed, in bits per second, taken by the Agent</em></p>
-<h3 id='properties-41'>Properties</h3>
+<h3 id='properties-42'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14354,7 +14834,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>The SNMP authentication setting of a device</em></p>
-<h3 id='properties-42'>Properties</h3>
+<h3 id='properties-43'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14412,7 +14892,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The configured SNMP version</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-33'>Enumerated Values</h4>
+<h4 id='enumerated-values-35'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14472,7 +14952,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a configured SNMP Domotz Eye</em></p>
-<h3 id='properties-43'>Properties</h3>
+<h3 id='properties-44'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14524,7 +15004,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-34'>Enumerated Values</h4>
+<h4 id='enumerated-values-36'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14581,7 +15061,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>SNMP Domotz Eye Data</em></p>
-<h3 id='properties-44'>Properties</h3>
+<h3 id='properties-45'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14615,7 +15095,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-35'>Enumerated Values</h4>
+<h4 id='enumerated-values-37'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14679,7 +15159,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a trigger</em></p>
-<h3 id='properties-45'>Properties</h3>
+<h3 id='properties-46'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14750,7 +15230,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a trigger function</em></p>
-<h3 id='properties-46'>Properties</h3>
+<h3 id='properties-47'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14784,7 +15264,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The type of the operands</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-36'>Enumerated Values</h4>
+<h4 id='enumerated-values-38'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14808,7 +15288,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>SNMP Trigger Alert</em></p>
-<h3 id='properties-47'>Properties</h3>
+<h3 id='properties-48'>Properties</h3>
 <p><em>None</em></p>
 
 <h2 id="tocSsnmpdomotzsnmptriggercreation">SNMPDomotzSnmpTriggerCreation</h2>
@@ -14824,7 +15304,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>SNMP Trigger</em></p>
-<h3 id='properties-48'>Properties</h3>
+<h3 id='properties-49'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14898,7 +15378,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-49'>Properties</h3>
+</span></code></pre><h3 id='properties-50'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -14983,7 +15463,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a configured TCP Domotz Eye</em></p>
-<h3 id='properties-50'>Properties</h3>
+<h3 id='properties-51'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15017,7 +15497,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The status of the TCP service</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-37'>Enumerated Values</h4>
+<h4 id='enumerated-values-39'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -15043,7 +15523,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>TCP Domotz Eye Data</em></p>
-<h3 id='properties-51'>Properties</h3>
+<h3 id='properties-52'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15070,7 +15550,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Represents a team of the Company</em></p>
-<h3 id='properties-52'>Properties</h3>
+<h3 id='properties-53'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15109,7 +15589,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Team Creation under specified Area</em></p>
-<h3 id='properties-53'>Properties</h3>
+<h3 id='properties-54'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15164,7 +15644,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-54'>Properties</h3>
+</span></code></pre><h3 id='properties-55'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>

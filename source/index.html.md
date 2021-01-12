@@ -896,11 +896,192 @@ Get the connection consumption on the given agent
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[ConnectionConsumption](#schemaconnectionconsumption)|
 
+## getAgentVPNActiveConnections
+
+<a id="opIdgetAgentVPNActiveConnections"></a>
+
+> Code samples
+
+```shell
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/connection/vpn`</span>
+
+Get the Active VPN connections for the `agent`
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentvpnactiveconnections-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "bytes": 0,
+    "creation_time": "2019-08-24T14:15:22Z",
+    "expiration_time": "2019-08-24T14:15:22Z",
+    "id": 0,
+    "name": "string",
+    "status": "ACTIVE"
+  }
+]
+```
+
+<h3 id="getagentvpnactiveconnections-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Agent VPN Connection information|Inline|
+
+<h3 id="getagentvpnactiveconnections-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[AgentVPNActiveConnection](#schemaagentvpnactiveconnection)]|false|none|
+|» bytes|integer(int32)|true|Current VPN connection consumption (bytes)|
+|» creation_time|string(date-time)|true|none|
+|» expiration_time|string(date-time)|true|none|
+|» id|integer(int32)|true|The ID of the VPN connection|
+|» name|string|true|The user that started the VPN connection|
+|» status|string|true|The status of the vpn connection|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|ACTIVE|
+|status|INACTIVE|
+|status|EXPIRED|
+
 <h1 id="domotz-public-api-actions">actions</h1>
 
-## connectToAgent
+## createAgentVPNConnection
 
-<a id="opIdconnectToAgent"></a>
+<a id="opIdcreateAgentVPNConnection"></a>
 
 > Code samples
 
@@ -1023,7 +1204,7 @@ func main() {
 
 <span class='dmt-method'>`POST /agent/{agent_id}/connection/vpn`</span>
 
-Creates a temporary VPN server on the `agent` and returns the configuration file contentCurrent consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
+Creates a temporary VPN server on the `agent` and returns the vpn configuration file content. Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
 
 > Body parameter
 
@@ -1047,7 +1228,7 @@ Creates a temporary VPN server on the `agent` and returns the configuration file
 </code>
 </p>
 
-<h3 id="connecttoagent-parameters">Parameters</h3>
+<h3 id="createagentvpnconnection-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1062,11 +1243,147 @@ Creates a temporary VPN server on the `agent` and returns the configuration file
 {}
 ```
 
-<h3 id="connecttoagent-responses">Responses</h3>
+<h3 id="createagentvpnconnection-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|OpenVPN Configuration file content|[AgentVPNConnectionConfigurationFile](#schemaagentvpnconnectionconfigurationfile)|
+
+## deleteAgentVPNConnection
+
+<a id="opIddeleteAgentVPNConnection"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/connection/vpn/{session_id}`</span>
+
+Closes an active VPN connection session for the `agent`
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn/{session_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteagentvpnconnection-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|session_id|path|integer(int32)|true|Session ID|
+
+<h3 id="deleteagentvpnconnection-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
 ## connectToDevice
 
@@ -9282,6 +9599,41 @@ Returns the User information
 |value|UP|
 |value|DOWN|
 |name|agent_status|
+
+<h2 id="tocSagentvpnactiveconnection">AgentVPNActiveConnection</h2>
+
+<a id="schemaagentvpnactiveconnection"></a>
+
+```json
+{
+  "bytes": 0,
+  "creation_time": "2019-08-24T14:15:22Z",
+  "expiration_time": "2019-08-24T14:15:22Z",
+  "id": 0,
+  "name": "string",
+  "status": "ACTIVE"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|bytes|integer(int32)|true|Current VPN connection consumption (bytes)|
+|creation_time|string(date-time)|true|none|
+|expiration_time|string(date-time)|true|none|
+|id|integer(int32)|true|The ID of the VPN connection|
+|name|string|true|The user that started the VPN connection|
+|status|string|true|The status of the vpn connection|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|ACTIVE|
+|status|INACTIVE|
+|status|EXPIRED|
 
 <h2 id="tocSagentvpnconnection">AgentVPNConnection</h2>
 
