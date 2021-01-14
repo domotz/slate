@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.0.1</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.0.2</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -903,7 +903,7 @@ Get the connection consumption on the given agent
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn \
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -917,7 +917,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn',
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
   method: 'get',
 
   headers: headers,
@@ -937,7 +937,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn',
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
 {
   method: 'GET',
 
@@ -958,7 +958,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn', params={
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session', params={
 
 }, headers = headers)
 
@@ -975,7 +975,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn',
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
   params: {
   }, headers: headers
 
@@ -1000,7 +1000,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn", data)
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1010,7 +1010,7 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`GET /agent/{agent_id}/connection/vpn`</span>
+<span class='dmt-method'>`GET /agent/{agent_id}/connection/vpn-session`</span>
 
 Get the Active VPN connections for the `agent`
 
@@ -1018,7 +1018,7 @@ Get the Active VPN connections for the `agent`
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1086,9 +1086,9 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn \
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
   -H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
+  -H 'Accept: text/plain' \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -1096,13 +1096,13 @@ curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn \
 ```javascript
 var headers = {
   'Content-Type':'application/json',
-  'Accept':'application/json',
+  'Accept':'text/plain',
   'X-Api-Key':'API_KEY'
 
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn',
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
   method: 'post',
 
   headers: headers,
@@ -1121,12 +1121,12 @@ const inputBody = '{
 }';
 const headers = {
   'Content-Type':'application/json',
-  'Accept':'application/json',
+  'Accept':'text/plain',
   'X-Api-Key':'API_KEY'
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn',
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
 {
   method: 'POST',
   body: inputBody,
@@ -1144,11 +1144,11 @@ fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn',
 import requests
 headers = {
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
+  'Accept': 'text/plain',
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn', params={
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session', params={
 
 }, headers = headers)
 
@@ -1162,11 +1162,11 @@ require 'json'
 
 headers = {
   'Content-Type' => 'application/json',
-  'Accept' => 'application/json',
+  'Accept' => 'text/plain',
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn',
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
   params: {
   }, headers: headers
 
@@ -1186,13 +1186,13 @@ func main() {
 
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
-        "Accept": []string{"application/json"},
+        "Accept": []string{"text/plain"},
         "X-Api-Key": []string{"API_KEY"},
         
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn", data)
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1202,7 +1202,7 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`POST /agent/{agent_id}/connection/vpn`</span>
+<span class='dmt-method'>`POST /agent/{agent_id}/connection/vpn-session`</span>
 
 Creates a temporary VPN server on the `agent` and returns the vpn configuration file content. Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
 
@@ -1219,9 +1219,9 @@ Creates a temporary VPN server on the `agent` and returns the vpn configuration 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
   -H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
+  -H 'Accept: text/plain' \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -1239,15 +1239,11 @@ Creates a temporary VPN server on the `agent` and returns the vpn configuration 
 
 > 201 Response
 
-```json
-{}
-```
-
 <h3 id="createagentvpnconnection-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|OpenVPN Configuration file content|[AgentVPNConnectionConfigurationFile](#schemaagentvpnconnectionconfigurationfile)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|OpenVPN Configuration file content|string|
 
 ## deleteAgentVPNConnection
 
@@ -1256,7 +1252,7 @@ Creates a temporary VPN server on the `agent` and returns the vpn configuration 
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn/{session_id} \
+curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -1268,7 +1264,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}',
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
   method: 'delete',
 
   headers: headers,
@@ -1287,7 +1283,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}',
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
 {
   method: 'DELETE',
 
@@ -1307,7 +1303,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}', params={
+r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}', params={
 
 }, headers = headers)
 
@@ -1323,7 +1319,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}',
+result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
   params: {
   }, headers: headers
 
@@ -1347,7 +1343,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn/{session_id}", data)
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1357,7 +1353,7 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`DELETE /agent/{agent_id}/connection/vpn/{session_id}`</span>
+<span class='dmt-method'>`DELETE /agent/{agent_id}/connection/vpn-session/{vpn_session_id}`</span>
 
 Closes an active VPN connection session for the `agent`
 
@@ -1365,7 +1361,7 @@ Closes an active VPN connection session for the `agent`
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn/{session_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -9652,7 +9648,7 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
-|routing_policy|string|true|TODO Add description here|
+|routing_policy|string|true|The traffic routing policy for the VPN connection:  </br>- *global*: All the traffic is routed through the VPN On Demand. More consumption on the Domotz Cloud </br>- *local*: Only LAN traffic passes through the VPN On Demand. Less consumption on the Domotz Cloud|
 
 #### Enumerated Values
 
@@ -9660,19 +9656,6 @@ Returns the User information
 |---|---|
 |routing_policy|global|
 |routing_policy|local|
-
-<h2 id="tocSagentvpnconnectionconfigurationfile">AgentVPNConnectionConfigurationFile</h2>
-
-<a id="schemaagentvpnconnectionconfigurationfile"></a>
-
-```json
-{}
-
-```
-
-### Properties
-
-*None*
 
 <h2 id="tocSalertprofile">AlertProfile</h2>
 
