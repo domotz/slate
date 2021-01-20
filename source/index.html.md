@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v0.8.2</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.0.2</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -895,6 +895,671 @@ Get the connection consumption on the given agent
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[ConnectionConsumption](#schemaconnectionconsumption)|
+
+## getAgentVPNActiveConnections
+
+<a id="opIdgetAgentVPNActiveConnections"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/connection/vpn-session`</span>
+
+Get the Active VPN connections for the `agent`
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentvpnactiveconnections-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "bytes": 0,
+    "creation_time": "2019-08-24T14:15:22Z",
+    "expiration_time": "2019-08-24T14:15:22Z",
+    "id": 0,
+    "name": "string",
+    "status": "ACTIVE"
+  }
+]
+```
+
+<h3 id="getagentvpnactiveconnections-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Agent VPN Connection information|Inline|
+
+<h3 id="getagentvpnactiveconnections-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[AgentVPNActiveConnection](#schemaagentvpnactiveconnection)]|false|none|
+|» bytes|integer(int32)|true|Current VPN connection consumption (bytes)|
+|» creation_time|string(date-time)|true|none|
+|» expiration_time|string(date-time)|true|none|
+|» id|integer(int32)|true|The ID of the VPN connection|
+|» name|string|true|The user that started the VPN connection|
+|» status|string|true|The status of the vpn connection|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|ACTIVE|
+|status|INACTIVE|
+|status|EXPIRED|
+
+<h1 id="domotz-public-api-actions">actions</h1>
+
+## createAgentVPNConnection
+
+<a id="opIdcreateAgentVPNConnection"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: text/plain' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'text/plain',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "allowed_ip": "string",
+  "routing_policy": "global"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'text/plain',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'text/plain',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'text/plain',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"text/plain"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/connection/vpn-session`</span>
+
+Creates a temporary VPN server on the `agent` and returns the vpn configuration file content. Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
+
+> Body parameter
+
+```json
+{
+  "allowed_ip": "string",
+  "routing_policy": "global"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: text/plain' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createagentvpnconnection-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|body|body|[AgentVPNConnection](#schemaagentvpnconnection)|true|none|
+
+> Example responses
+
+> 201 Response
+
+<h3 id="createagentvpnconnection-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|OpenVPN Configuration file content|string|
+
+## deleteAgentVPNConnection
+
+<a id="opIddeleteAgentVPNConnection"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/connection/vpn-session/{vpn_session_id}`</span>
+
+Closes an active VPN connection session for the `agent`
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteagentvpnconnection-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|session_id|path|integer(int32)|true|Session ID|
+
+<h3 id="deleteagentvpnconnection-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## connectToDevice
+
+<a id="opIdconnectToDevice"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "allowed_ip": "string",
+  "port": 0,
+  "protocol": "http"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/connection`</span>
+
+Establishes a direct secure connection to the `device` Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
+
+> Body parameter
+
+```json
+{
+  "allowed_ip": "string",
+  "port": 0,
+  "protocol": "http"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="connecttodevice-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|body|body|[DeviceConnection](#schemadeviceconnection)|true|none|
+
+> Example responses
+
+> 201 Response
+
+```json
+{
+  "allowed_ip": "string",
+  "expiration": "2019-08-24T14:15:22Z",
+  "id": 0,
+  "link": "string",
+  "port": 0,
+  "protocol": "http"
+}
+```
+
+<h3 id="connecttodevice-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|[ConnectionSession](#schemaconnectionsession)|
 
 <h1 id="domotz-public-api-device">device</h1>
 
@@ -3693,188 +4358,6 @@ Status Code **200**
 |» timestamp|string(date-time)|false|The time the sample was reported to Domotz|
 |» values|[integer]|false|A pair of values: the download and upload speed, in Bit Per Seconds (bps), as measured by the Agent|
 
-<h1 id="domotz-public-api-actions">actions</h1>
-
-## connectToDevice
-
-<a id="opIdconnectToDevice"></a>
-
-> Code samples
-
-```shell
-curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-const inputBody = '{
-  "allowed_ip": "string",
-  "port": 0,
-  "protocol": "http"
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
-        "Accept": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/connection`</span>
-
-Establishes a direct secure connection to the `device` Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
-
-> Body parameter
-
-```json
-{
-  "allowed_ip": "string",
-  "port": 0,
-  "protocol": "http"
-}
-```
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="connecttodevice-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|device_id|path|integer(int32)|true|Device ID|
-|body|body|[DeviceConnection](#schemadeviceconnection)|true|none|
-
-> Example responses
-
-> 201 Response
-
-```json
-{
-  "allowed_ip": "string",
-  "expiration": "2019-08-24T14:15:22Z",
-  "id": 0,
-  "link": "string",
-  "port": 0,
-  "protocol": "http"
-}
-```
-
-<h3 id="connecttodevice-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|[ConnectionSession](#schemaconnectionsession)|
-
 <h1 id="domotz-public-api-eyes">eyes</h1>
 
 ## listEyesSNMP
@@ -4521,7 +5004,7 @@ Retrieves the list of functions for the SNMP trigger Domotz Eyes
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of functions exploitable for the sensor|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of functions that can be used by the trigger|Inline|
 
 <h3 id="listeyessnmptriggerfunction-responseschema">Response Schema</h3>
 
@@ -4530,7 +5013,7 @@ Status Code **200**
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |*anonymous*|[[SNMPDomotzEyeTriggerFunction](#schemasnmpdomotzeyetriggerfunction)]|false|[Information about a trigger function]|
-|» cardinality|integer(int32)|true|The cardinality of the function|
+|» cardinality|integer(int32)|true|The number of arguments of the function|
 |» id|integer(int32)|true|The unique identifier of the SNMP Trigger function|
 |» name|string|true|The name of the function|
 |» value_types|string|true|The type of the operands|
@@ -4875,7 +5358,7 @@ Retrieves the list of triggers for the SNMP Sensor
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of triggers created for the sensor|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of triggers associated to the sensor|Inline|
 
 <h3 id="listeyessnmptrigger-responseschema">Response Schema</h3>
 
@@ -9113,6 +9596,67 @@ Returns the User information
 |value|DOWN|
 |name|agent_status|
 
+<h2 id="tocSagentvpnactiveconnection">AgentVPNActiveConnection</h2>
+
+<a id="schemaagentvpnactiveconnection"></a>
+
+```json
+{
+  "bytes": 0,
+  "creation_time": "2019-08-24T14:15:22Z",
+  "expiration_time": "2019-08-24T14:15:22Z",
+  "id": 0,
+  "name": "string",
+  "status": "ACTIVE"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|bytes|integer(int32)|true|Current VPN connection consumption (bytes)|
+|creation_time|string(date-time)|true|none|
+|expiration_time|string(date-time)|true|none|
+|id|integer(int32)|true|The ID of the VPN connection|
+|name|string|true|The user that started the VPN connection|
+|status|string|true|The status of the vpn connection|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|ACTIVE|
+|status|INACTIVE|
+|status|EXPIRED|
+
+<h2 id="tocSagentvpnconnection">AgentVPNConnection</h2>
+
+<a id="schemaagentvpnconnection"></a>
+
+```json
+{
+  "allowed_ip": "string",
+  "routing_policy": "global"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
+|routing_policy|string|true|The traffic routing policy for the VPN connection:  </br>- *global*: All the traffic is routed through the VPN On Demand. More consumption on the Domotz Cloud </br>- *local*: Only LAN traffic passes through the VPN On Demand. Less consumption on the Domotz Cloud|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|routing_policy|global|
+|routing_policy|local|
+
 <h2 id="tocSalertprofile">AlertProfile</h2>
 
 <a id="schemaalertprofile"></a>
@@ -10364,7 +10908,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|cardinality|integer(int32)|true|The cardinality of the function|
+|cardinality|integer(int32)|true|The number of arguments of the function|
 |id|integer(int32)|true|The unique identifier of the SNMP Trigger function|
 |name|string|true|The name of the function|
 |value_types|string|true|The type of the operands|
