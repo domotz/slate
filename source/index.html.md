@@ -174,8 +174,8 @@ Returns the agents list
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|page_size|query|integer(int32)|false|The maximum number of items to return|
-|page_number|query|integer(int32)|false|The requested page number, 0-indexed|
+|page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 100. Default value is 10|
+|page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
 |display_name|query|string|false|Consider only agents with `display_name` containing the string (case insensitive)|
 |team_name|query|string|false|Filters by team name (companies only)|
 
@@ -202,6 +202,10 @@ Returns the agents list
       "code": "string",
       "expiration_time": "2019-08-24T14:15:22Z",
       "id": 0
+    },
+    "location": {
+      "latitude": "string",
+      "longitude": "string"
     },
     "status": {
       "last_change": "2019-08-24T14:15:22Z",
@@ -251,6 +255,9 @@ Status Code **200**
 |»» code|string|false|none|
 |»» expiration_time|string(date-time)|false|none|
 |»» id|integer(int32)|false|none|
+|» location|object|false|none|
+|»» latitude|string|false|none|
+|»» longitude|string|false|none|
 |» status|object|false|none|
 |»» last_change|string(date-time)|false|none|
 |»» value|string|false|none|
@@ -712,6 +719,10 @@ Returns the details of an agent
     "expiration_time": "2019-08-24T14:15:22Z",
     "id": 0
   },
+  "location": {
+    "latitude": "string",
+    "longitude": "string"
+  },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
     "value": "ONLINE"
@@ -729,11 +740,7 @@ Returns the details of an agent
     "agent": "string",
     "package": "string"
   },
-  "listen_on": "string",
-  "location": {
-    "latitude": "string",
-    "longitude": "string"
-  }
+  "listen_on": "string"
 }
 ```
 
@@ -4505,9 +4512,7 @@ Retrieves the list of configured SNMP Domotz Eyes
 [
   {
     "category": "OTHER",
-    "id": 0,
-    "last_update": "2019-08-24T14:15:22Z",
-    "latest_value": "string",
+    "description": "string",
     "name": "string",
     "oid": "string",
     "value_type": "STRING"
@@ -4529,9 +4534,7 @@ Status Code **200**
 |---|---|---|---|---|
 |*anonymous*|[[SNMPDomotzEye](#schemasnmpdomotzeye)]|false|[Information about a configured SNMP Domotz Eye]|
 |» category|string|true|The category of the OID|
-|» id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
-|» last_update|string(date-time)|true|The timestamp of the latest update|
-|» latest_value|string|true|The value retrieved on the OID|
+|» description|string|true|The description of the OID string|
 |» name|string|true|The name of the Domotz Eyes|
 |» oid|string|true|The OID string|
 |» value_type|string|true|The type of the OID|
@@ -4709,6 +4712,192 @@ Creates a new SNMP Domotz Eyes
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
+## listEyesSNMPSuggestion
+
+<a id="opIdlistEyesSNMPSuggestion"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp/suggestion`</span>
+
+Retrieves the list of configured SNMP Domotz Eyes
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listeyessnmpsuggestion-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "category": "OTHER",
+    "description": "string",
+    "name": "string",
+    "oid": "string",
+    "value_type": "STRING"
+  }
+]
+```
+
+<h3 id="listeyessnmpsuggestion-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured SNMP Domotz Eyes for the device and their latest values|Inline|
+
+<h3 id="listeyessnmpsuggestion-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[SNMPDomotzEye](#schemasnmpdomotzeye)]|false|[Information about a configured SNMP Domotz Eye]|
+|» category|string|true|The category of the OID|
+|» description|string|true|The description of the OID string|
+|» name|string|true|The name of the Domotz Eyes|
+|» oid|string|true|The OID string|
+|» value_type|string|true|The type of the OID|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|category|OTHER|
+|category|CONSUMABLE|
+|category|CPU|
+|category|DISK_SPACE|
+|category|MEMORY|
+|category|NETWORK_TRAFFIC|
+|category|TEMPERATURE|
+|value_type|STRING|
+|value_type|NUMERIC|
 
 ## deleteEyeSNMP
 
@@ -9307,6 +9496,10 @@ Returns the User information
     "expiration_time": "2019-08-24T14:15:22Z",
     "id": 0
   },
+  "location": {
+    "latitude": "string",
+    "longitude": "string"
+  },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
     "value": "ONLINE"
@@ -9346,6 +9539,9 @@ Returns the User information
 |» code|string|false|none|
 |» expiration_time|string(date-time)|false|none|
 |» id|integer(int32)|false|none|
+|location|object|false|none|
+|» latitude|string|false|none|
+|» longitude|string|false|none|
 |status|object|false|none|
 |» last_change|string(date-time)|false|none|
 |» value|string|false|none|
@@ -9394,6 +9590,10 @@ Returns the User information
     "expiration_time": "2019-08-24T14:15:22Z",
     "id": 0
   },
+  "location": {
+    "latitude": "string",
+    "longitude": "string"
+  },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
     "value": "ONLINE"
@@ -9411,11 +9611,7 @@ Returns the User information
     "agent": "string",
     "package": "string"
   },
-  "listen_on": "string",
-  "location": {
-    "latitude": "string",
-    "longitude": "string"
-  }
+  "listen_on": "string"
 }
 
 ```
@@ -10775,9 +10971,7 @@ Returns the User information
 ```json
 {
   "category": "OTHER",
-  "id": 0,
-  "last_update": "2019-08-24T14:15:22Z",
-  "latest_value": "string",
+  "description": "string",
   "name": "string",
   "oid": "string",
   "value_type": "STRING"
@@ -10792,9 +10986,7 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |category|string|true|The category of the OID|
-|id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
-|last_update|string(date-time)|true|The timestamp of the latest update|
-|latest_value|string|true|The value retrieved on the OID|
+|description|string|true|The description of the OID string|
 |name|string|true|The name of the Domotz Eyes|
 |oid|string|true|The OID string|
 |value_type|string|true|The type of the OID|
