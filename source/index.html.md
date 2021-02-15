@@ -15,15 +15,20 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v0.6.0</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.0.2</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-The Domotz Public API.
+### The Domotz Public API
 
-Get your API Key and Base URL from the Domotz Portal or contact us.
+Use the "API Key Endpoint" which you can retrieve from the Domotz Portal as the Base URL for your API calls.
 
 The Domotz Public API uses standard HTTP response codes, authentication, and verbs. JSON format is used in responses and accepted for request bodies. All date-time formats are expressed as yyyy-mm-ddThh:mm:ss. Date-time must be expressed in UTC. Specification of different TimeZones are not allowed.
+
+### Domotz Webhook
+It is possible to subscribe to events happening on the Domotz platform, both at an Agent level and Device level, through the usage of Webhooks.
+
+Please refer to the [user-guide](https://help.domotz.com/user-guide/shared-alerts-webhooks-ticketing-systems/) on the usage of the Webhook as a possible contact channel to receive notification of events and how to create a Shared Alert Profile. Moreover, refer to [getAlertProfiles](#getalertprofiles), [bindAlertProfileToAgent](#bindalertprofiletoagent) and [bindAlertProfileToDevice](#bindalertprofiletodevice) on how to retrieve the list of Shared Alert Profiles and bind to Agents and Devices respectively. In those same sections you also have the list of all the possible Webhook events and references to the Schemas.
 
 Base URLs:
 
@@ -192,18 +197,22 @@ Returns the agents list
       },
       "status": "OWNED"
     },
-    "creation_time": "2019-06-11T09:08:10Z",
+    "creation_time": "2021-02-15T11:21:04Z",
     "display_name": "string",
     "id": 0,
     "licence": {
-      "activation_time": "2019-06-11T09:08:10Z",
+      "activation_time": "2021-02-15T11:21:04Z",
       "bound_mac_address": "string",
       "code": "string",
-      "expiration_time": "2019-06-11T09:08:10Z",
+      "expiration_time": "2021-02-15T11:21:04Z",
       "id": 0
     },
+    "location": {
+      "latitude": "string",
+      "longitude": "string"
+    },
     "status": {
-      "last_change": "2019-06-11T09:08:10Z",
+      "last_change": "2021-02-15T11:21:04Z",
       "value": "ONLINE"
     },
     "team": {
@@ -250,6 +259,9 @@ Status Code **200**
 |»» code|string|false|none|
 |»» expiration_time|string(date-time)|false|none|
 |»» id|integer(int32)|false|none|
+|» location|object|false|none|
+|»» latitude|string|false|none|
+|»» longitude|string|false|none|
 |» status|object|false|none|
 |»» last_change|string(date-time)|false|none|
 |»» value|string|false|none|
@@ -417,6 +429,141 @@ Counts the agents
 |---|---|---|---|---|
 |204|X-Entities-Count|integer|int32|The number of agents matching the filtering criteria|
 
+## deleteAgent
+
+<a id="opIddeleteAgent"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}`</span>
+
+Deletes an agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteagent-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+<h3 id="deleteagent-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 ## getAgent
 
 <a id="opIdgetAgent"></a>
@@ -566,18 +713,22 @@ Returns the details of an agent
     },
     "status": "OWNED"
   },
-  "creation_time": "2019-06-11T09:08:10Z",
+  "creation_time": "2021-02-15T11:21:04Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2019-06-11T09:08:10Z",
+    "activation_time": "2021-02-15T11:21:04Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2019-06-11T09:08:10Z",
+    "expiration_time": "2021-02-15T11:21:04Z",
     "id": 0
   },
+  "location": {
+    "latitude": "string",
+    "longitude": "string"
+  },
   "status": {
-    "last_change": "2019-06-11T09:08:10Z",
+    "last_change": "2021-02-15T11:21:04Z",
     "value": "ONLINE"
   },
   "team": {
@@ -593,11 +744,7 @@ Returns the details of an agent
     "agent": "string",
     "package": "string"
   },
-  "listen_on": "string",
-  "location": {
-    "latitude": "string",
-    "longitude": "string"
-  }
+  "listen_on": "string"
 }
 ```
 
@@ -606,6 +753,824 @@ Returns the details of an agent
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The agent|[AgentDetail](#schemaagentdetail)|
+
+## getConnectionConsumption
+
+<a id="opIdgetConnectionConsumption"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/connection/consumption`</span>
+
+Get the connection consumption on the given agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/consumption \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getconnectionconsumption-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "current": 0,
+  "limit": 0
+}
+```
+
+<h3 id="getconnectionconsumption-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[ConnectionConsumption](#schemaconnectionconsumption)|
+
+## getAgentVPNActiveConnections
+
+<a id="opIdgetAgentVPNActiveConnections"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/connection/vpn-session`</span>
+
+Get the Active VPN connections for the `agent`
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentvpnactiveconnections-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "bytes": 0,
+    "creation_time": "2021-02-15T11:21:04Z",
+    "expiration_time": "2021-02-15T11:21:04Z",
+    "id": 0,
+    "name": "string",
+    "status": "ACTIVE"
+  }
+]
+```
+
+<h3 id="getagentvpnactiveconnections-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Agent VPN Connection information|Inline|
+
+<h3 id="getagentvpnactiveconnections-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[AgentVPNActiveConnection](#schemaagentvpnactiveconnection)]|false|none|
+|» bytes|integer(int32)|true|Current VPN connection consumption (bytes)|
+|» creation_time|string(date-time)|true|none|
+|» expiration_time|string(date-time)|true|none|
+|» id|integer(int32)|true|The ID of the VPN connection|
+|» name|string|true|The user that started the VPN connection|
+|» status|string|true|The status of the vpn connection|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|ACTIVE|
+|status|INACTIVE|
+|status|EXPIRED|
+
+<h1 id="domotz-public-api-actions">actions</h1>
+
+## createAgentVPNConnection
+
+<a id="opIdcreateAgentVPNConnection"></a>
+
+> Code samples
+
+```shell
+curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: text/plain' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'text/plain',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "allowed_ip": "string",
+  "routing_policy": "global"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'text/plain',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'text/plain',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'text/plain',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"text/plain"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/connection/vpn-session`</span>
+
+Creates a temporary VPN server on the `agent` and returns the vpn configuration file content. Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
+
+> Body parameter
+
+```json
+{
+  "allowed_ip": "string",
+  "routing_policy": "global"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: text/plain' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createagentvpnconnection-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|body|body|[AgentVPNConnection](#schemaagentvpnconnection)|true|none|
+
+> Example responses
+
+> 201 Response
+
+<h3 id="createagentvpnconnection-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|OpenVPN Configuration file content|string|
+
+## deleteAgentVPNConnection
+
+<a id="opIddeleteAgentVPNConnection"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/connection/vpn-session/{vpn_session_id}`</span>
+
+Closes an active VPN connection session for the `agent`
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteagentvpnconnection-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|session_id|path|integer(int32)|true|Session ID|
+
+<h3 id="deleteagentvpnconnection-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## connectToDevice
+
+<a id="opIdconnectToDevice"></a>
+
+> Code samples
+
+```shell
+curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "allowed_ip": "string",
+  "port": 0,
+  "protocol": "http"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/connection`</span>
+
+Establishes a direct secure connection to the `device` Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
+
+> Body parameter
+
+```json
+{
+  "allowed_ip": "string",
+  "port": 0,
+  "protocol": "http"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="connecttodevice-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|body|body|[DeviceConnection](#schemadeviceconnection)|true|none|
+
+> Example responses
+
+> 201 Response
+
+```json
+{
+  "allowed_ip": "string",
+  "expiration": "2021-02-15T11:21:04Z",
+  "id": 0,
+  "link": "string",
+  "port": 0,
+  "protocol": "http"
+}
+```
+
+<h3 id="connecttodevice-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|[ConnectionSession](#schemaconnectionsession)|
 
 <h1 id="domotz-public-api-device">device</h1>
 
@@ -896,7 +1861,7 @@ Returns all the devices of an agent
       "zone": "string"
     },
     "display_name": "string",
-    "first_seen_on": "2019-06-11T09:08:10Z",
+    "first_seen_on": "2021-02-15T11:21:04Z",
     "id": 0,
     "importance": "VITAL",
     "main_id": 0,
@@ -1229,7 +2194,7 @@ Returns the details of a device
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2019-06-11T09:08:10Z",
+  "first_seen_on": "2021-02-15T11:21:04Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -1390,7 +2355,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/action/power`</span>
 
-Returns the power management actions available on the device at the current moment. See <a href='#schemadevicepoweraction'> DevicePowerAction </a> schema for further details.
+Returns the power management actions available on the device at the current moment.See <a href='#schemadevicepoweraction'> DevicePowerAction </a> schema for further details.
 
 <h3>Curl</h3>
 
@@ -1567,8 +2532,8 @@ Performs the action on the device, according to the specified {<b> field </b>} v
 |---|---|
 |field|on|
 |field|off|
-|field|software-reboot|
 |field|cycle|
+|field|software-reboot|
 
 <h3 id="poweractionondevice-responses">Responses</h3>
 
@@ -1732,6 +2697,334 @@ Sets the device credentials to perform extended discovery. This operation will a
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## getSNMPAuthentication
+
+<a id="opIdgetSNMPAuthentication"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/snmp-authentication`</span>
+
+Retrieves the SNMP authentication info
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getsnmpauthentication-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "authentication_key": "string",
+  "authentication_protocol": "MD5",
+  "encryption_key": "string",
+  "encryption_protocol": "DES",
+  "snmp_read_community": "string",
+  "snmp_write_community": "string",
+  "username": "string",
+  "version": "V2"
+}
+```
+
+<h3 id="getsnmpauthentication-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The SNMP authentication info for the device|[SNMPDomotzAuthentication](#schemasnmpdomotzauthentication)|
+
+## setSNMPAuthentication
+
+<a id="opIdsetSNMPAuthentication"></a>
+
+> Code samples
+
+```shell
+curl -X PUT your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "authentication_key": "string",
+  "authentication_protocol": "MD5",
+  "encryption_key": "string",
+  "encryption_protocol": "DES",
+  "snmp_read_community": "string",
+  "snmp_write_community": "string",
+  "username": "string",
+  "version": "V2"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/device/{device_id}/snmp-authentication`</span>
+
+Sets the SNMP authentication info. <ul><li>_snmp_read_community_ and _snmp_write_community_ are  relevant only for _V1_ and _V2_. </li><li>_V3_NO_AUTH_ requires a valid _username_. </li><li>_V3_AUTH_NO_PRIV_ requires _username_, _authentication_protocol_ and _authentication_key_. </li><li>_V3_AUTH_PRIV_ requires _username_, _authentication_protocol_, _authentication_key_, _encryption_protocol_ and _encryption_key_.</li></ul>
+
+> Body parameter
+
+```json
+{
+  "authentication_key": "string",
+  "authentication_protocol": "MD5",
+  "encryption_key": "string",
+  "encryption_protocol": "DES",
+  "snmp_read_community": "string",
+  "snmp_write_community": "string",
+  "username": "string",
+  "version": "V2"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="setsnmpauthentication-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|body|body|[SNMPDomotzAuthentication](#schemasnmpdomotzauthentication)|true|none|
+
+<h3 id="setsnmpauthentication-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 ## setSnmpCommunity
 
 <a id="opIdsetSnmpCommunity"></a>
@@ -1851,7 +3144,7 @@ func main() {
 
 <span class='dmt-method'>`PUT /agent/{agent_id}/device/{device_id}/snmp-community`</span>
 
-Saves a snmp community (read, optionally write) on device
+Saves a snmp community (read, optionally write) on device. _Deprecated_, please use <a href='#setsnmpauthentication'> setSNMPAuthentication </a>
 
 > Body parameter
 
@@ -2173,13 +3466,13 @@ Changes a field of the device or one of its details
 
 |Parameter|Value|
 |---|---|
-|field|user_data/vendor|
-|field|details/zone|
 |field|importance|
-|field|details/room|
-|field|user_data/name|
-|field|user_data/type|
 |field|user_data/model|
+|field|user_data/type|
+|field|user_data/name|
+|field|user_data/vendor|
+|field|details/room|
+|field|details/zone|
 
 <h3 id="editdevice-responses">Responses</h3>
 
@@ -2339,7 +3632,7 @@ Returns the Round Trip Delay statistics for all devices monitored by the agent. 
     "latest_lost_packet_count": 0,
     "latest_median": "string",
     "latest_sent_packet_count": 0,
-    "timestamp": "2019-06-11T09:08:10Z"
+    "timestamp": "2021-02-15T11:21:04Z"
   }
 ]
 ```
@@ -2520,7 +3813,7 @@ Returns the time series of the state changes of the device
         "string"
       ]
     },
-    "timestamp": "2019-06-11T09:08:10Z",
+    "timestamp": "2021-02-15T11:21:04Z",
     "type": "IP_CHANGE"
   }
 ]
@@ -2705,7 +3998,7 @@ Returns the Round Trip Delay history for the device. Each item represents the st
     "median": "string",
     "min": "string",
     "sent_packet_count": 0,
-    "timestamp": "2019-06-11T09:08:10Z"
+    "timestamp": "2021-02-15T11:21:04Z"
   }
 ]
 ```
@@ -2875,7 +4168,7 @@ Returns the time series of the state changes of the agent
 ```json
 [
   {
-    "timestamp": "2019-06-11T09:08:10Z",
+    "timestamp": "2021-02-15T11:21:04Z",
     "type": "CONNECTION_RECOVERED"
   }
 ]
@@ -3052,7 +4345,7 @@ download and in upload.
 ```json
 [
   {
-    "timestamp": "2019-06-11T09:08:10Z",
+    "timestamp": "2021-02-15T11:21:04Z",
     "values": [
       0
     ]
@@ -3076,17 +4369,16 @@ Status Code **200**
 |» timestamp|string(date-time)|false|The time the sample was reported to Domotz|
 |» values|[integer]|false|A pair of values: the download and upload speed, in Bit Per Seconds (bps), as measured by the Agent|
 
-<h1 id="domotz-public-api-actions">actions</h1>
+<h1 id="domotz-public-api-eyes">eyes</h1>
 
-## connectToDevice
+## listEyesSNMP
 
-<a id="opIdconnectToDevice"></a>
+<a id="opIdlistEyesSNMP"></a>
 
 > Code samples
 
 ```shell
-curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
-  -H 'Content-Type: application/json' \
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3094,14 +4386,203 @@ curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{dev
 
 ```javascript
 var headers = {
-  'Content-Type':'application/json',
   'Accept':'application/json',
   'X-Api-Key':'API_KEY'
 
 };
 
 $.ajax({
-  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp`</span>
+
+Retrieves the list of configured SNMP Domotz Eyes
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listeyessnmp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "category": "OTHER",
+    "id": 0,
+    "last_update": "2021-02-15T11:21:04Z",
+    "latest_value": "string",
+    "name": "string",
+    "oid": "string",
+    "value_type": "STRING"
+  }
+]
+```
+
+<h3 id="listeyessnmp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured SNMP Domotz Eyes for the device and their latest values|Inline|
+
+<h3 id="listeyessnmp-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[SNMPDomotzEye](#schemasnmpdomotzeye)]|false|[Information about a configured SNMP Domotz Eye]|
+|» category|string|true|The category of the OID|
+|» id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
+|» last_update|string(date-time)|true|The timestamp of the latest update|
+|» latest_value|string|true|The value retrieved on the OID|
+|» name|string|true|The name of the Domotz Eyes|
+|» oid|string|true|The OID string|
+|» value_type|string|true|The type of the OID|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|category|OTHER|
+|category|CONSUMABLE|
+|category|CPU|
+|category|DISK_SPACE|
+|category|MEMORY|
+|category|NETWORK_TRAFFIC|
+|category|TEMPERATURE|
+|value_type|STRING|
+|value_type|NUMERIC|
+
+## createEyeSNMP
+
+<a id="opIdcreateEyeSNMP"></a>
+
+> Code samples
+
+```shell
+curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
   method: 'post',
 
   headers: headers,
@@ -3115,18 +4596,18 @@ $.ajax({
 ```javascript--nodejs
 const fetch = require('node-fetch');
 const inputBody = '{
-  "allowed_ip": "string",
-  "port": 0,
-  "protocol": "http"
+  "category": "OTHER",
+  "name": "string",
+  "oid": "string",
+  "value_type": "STRING"
 }';
 const headers = {
   'Content-Type':'application/json',
-  'Accept':'application/json',
   'X-Api-Key':'API_KEY'
 
 };
 
-fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
 {
   method: 'POST',
   body: inputBody,
@@ -3144,11 +4625,10 @@ fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id
 import requests
 headers = {
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection', params={
+r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp', params={
 
 }, headers = headers)
 
@@ -3162,11 +4642,10 @@ require 'json'
 
 headers = {
   'Content-Type' => 'application/json',
-  'Accept' => 'application/json',
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
   params: {
   }, headers: headers
 
@@ -3186,13 +4665,12 @@ func main() {
 
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
-        "Accept": []string{"application/json"},
         "X-Api-Key": []string{"API_KEY"},
         
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection", data)
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3202,17 +4680,18 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/connection`</span>
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/eye/snmp`</span>
 
-Establishes a direct secure connection to the `device`
+Creates a new SNMP Domotz Eyes
 
 > Body parameter
 
 ```json
 {
-  "allowed_ip": "string",
-  "port": 0,
-  "protocol": "http"
+  "category": "OTHER",
+  "name": "string",
+  "oid": "string",
+  "value_type": "STRING"
 }
 ```
 
@@ -3220,8 +4699,288 @@ Establishes a direct secure connection to the `device`
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
   -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createeyesnmp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|body|body|[SNMPDomotzEyeCreation](#schemasnmpdomotzeyecreation)|true|none|
+
+<h3 id="createeyesnmp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
+## deleteEyeSNMP
+
+<a id="opIddeleteEyeSNMP"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}`</span>
+
+Deletes the SNMP Domotz Eye
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteeyesnmp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+
+<h3 id="deleteeyesnmp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## listEyesSNMPTriggerFunction
+
+<a id="opIdlistEyesSNMPTriggerFunction"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function`</span>
+
+Retrieves the list of functions for the SNMP trigger Domotz Eyes
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3229,34 +4988,1640 @@ Establishes a direct secure connection to the `device`
 </code>
 </p>
 
-<h3 id="connecttodevice-parameters">Parameters</h3>
+<h3 id="listeyessnmptriggerfunction-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|body|body|[DeviceConnection](#schemadeviceconnection)|true|none|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
 
 > Example responses
 
-> 201 Response
+> 200 Response
 
 ```json
-{
-  "allowed_ip": "string",
-  "expiration": "2019-06-11T09:08:10Z",
-  "id": 0,
-  "link": "string",
-  "port": 0,
-  "protocol": "http"
-}
+[
+  {
+    "cardinality": 0,
+    "id": 0,
+    "name": "string",
+    "value_types": "STRING"
+  }
+]
 ```
 
-<h3 id="connecttodevice-responses">Responses</h3>
+<h3 id="listeyessnmptriggerfunction-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|[ConnectionSession](#schemaconnectionsession)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of functions that can be used by the trigger|Inline|
+
+<h3 id="listeyessnmptriggerfunction-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[SNMPDomotzEyeTriggerFunction](#schemasnmpdomotzeyetriggerfunction)]|false|[Information about a trigger function]|
+|» cardinality|integer(int32)|true|The number of arguments of the function|
+|» id|integer(int32)|true|The unique identifier of the SNMP Trigger function|
+|» name|string|true|The name of the function|
+|» value_types|string|true|The type of the operands|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|value_types|STRING|
+|value_types|NUMERIC|
+
+## getEyesSNMPHistory
+
+<a id="opIdgetEyesSNMPHistory"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history`</span>
+
+Returns the time series of the SNMP Domotz Eyes collected samples
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="geteyessnmphistory-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
+|to|query|string(date-time)|false|The end time of the time series. Default value is now|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "timestamp": "2021-02-15T11:21:04Z",
+    "value": "string"
+  }
+]
+```
+
+<h3 id="geteyessnmphistory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of SNMP Domotz Eyes samples|Inline|
+
+<h3 id="geteyessnmphistory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceEyeSNMPHistorySample](#schemadeviceeyesnmphistorysample)]|false|none|
+|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+|» value|string|true|none|
+
+## listEyesSNMPTrigger
+
+<a id="opIdlistEyesSNMPTrigger"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger`</span>
+
+Retrieves the list of triggers for the SNMP Sensor
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listeyessnmptrigger-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "alert": {
+      "email": true,
+      "mobile": true
+    },
+    "creation_time": "2021-02-15T11:21:04Z",
+    "function_id": 0,
+    "id": 0,
+    "name": "string",
+    "operands": [
+      "string"
+    ]
+  }
+]
+```
+
+<h3 id="listeyessnmptrigger-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of triggers associated to the sensor|Inline|
+
+<h3 id="listeyessnmptrigger-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[SNMPDomotzEyeTrigger](#schemasnmpdomotzeyetrigger)]|false|[Information about a trigger]|
+|» alert|object|false|The alerts details|
+|»» email|boolean|false|True if the email alert is active|
+|»» mobile|boolean|false|True if the mobile alert is active|
+|» creation_time|string(date-time)|false|none|
+|» function_id|integer(int32)|true|The unique identifier of the function assigned to the trigger|
+|» id|integer(int32)|true|The unique identifier of the SNMP Trigger|
+|» name|string|true|The name of the trigger|
+|» operands|[string]|true|The operands for the function|
+
+## createEyeSNMPTrigger
+
+<a id="opIdcreateEyeSNMPTrigger"></a>
+
+> Code samples
+
+```shell
+curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "function_id": 0,
+  "name": "string",
+  "operands": [
+    "string"
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger`</span>
+
+Creates a new SNMP Trigger for the sensor. 
+
+For instance, to receive a notification when the value of the sensor is above a threshold x, it is required to add a trigger specifying the function_id = 2 (is greater than) and the operand value equals to [x]. 
+The function_id value can be retrieved with the listEyesSNMPTriggerFunction call. 
+To activate the alert, it is required to call createEyeSNMPTriggerAlert after the trigger creation.
+
+> Body parameter
+
+```json
+{
+  "function_id": 0,
+  "name": "string",
+  "operands": [
+    "string"
+  ]
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createeyesnmptrigger-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|body|body|[SNMPDomotzSnmpTriggerCreation](#schemasnmpdomotzsnmptriggercreation)|true|none|
+
+<h3 id="createeyesnmptrigger-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
+## deleteEyeSNMPTrigger
+
+<a id="opIddeleteEyeSNMPTrigger"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}`</span>
+
+Deletes the SNMP Trigger for the sensor
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteeyesnmptrigger-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|trigger_id|path|integer(int32)|true|SNMP Eye Trigger ID|
+
+<h3 id="deleteeyesnmptrigger-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## deleteEyeSNMPTriggerAlert
+
+<a id="opIddeleteEyeSNMPTriggerAlert"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}`</span>
+
+Deletes the alert for thee SNMP Trigger
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteeyesnmptriggeralert-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|trigger_id|path|integer(int32)|true|SNMP Eye Trigger ID|
+|medium_name|path|string|true|the name of the medium|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|medium_name|email|
+|medium_name|mobile|
+
+<h3 id="deleteeyesnmptriggeralert-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## createEyeSNMPTriggerAlert
+
+<a id="opIdcreateEyeSNMPTriggerAlert"></a>
+
+> Code samples
+
+```shell
+curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}`</span>
+
+Add an alert to a SNMP Trigger
+
+> Body parameter
+
+```json
+{}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createeyesnmptriggeralert-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|trigger_id|path|integer(int32)|true|SNMP Eye Trigger ID|
+|medium_name|path|string|true|the name of the medium|
+|body|body|[SNMPDomotzSnmpTriggerAlertCreation](#schemasnmpdomotzsnmptriggeralertcreation)|true|none|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|medium_name|email|
+|medium_name|mobile|
+
+<h3 id="createeyesnmptriggeralert-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
+## listEyesTCP
+
+<a id="opIdlistEyesTCP"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/tcp`</span>
+
+Retrieves the list of configured TCP Domotz Eyes
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listeyestcp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "id": 0,
+    "last_update": "2021-02-15T11:21:04Z",
+    "port": 0,
+    "status": "UP"
+  }
+]
+```
+
+<h3 id="listeyestcp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured TCP Domotz Eyes for the device and their latest values|Inline|
+
+<h3 id="listeyestcp-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[TCPDomotzEye](#schematcpdomotzeye)]|false|[Information about a configured TCP Domotz Eye]|
+|» id|integer(int32)|true|The unique identifier of the TCP Domotz Eye|
+|» last_update|string(date-time)|true|The timestamp of the latest update|
+|» port|integer(int32)|true|The port number|
+|» status|string|true|The status of the TCP service|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|UP|
+|status|DOWN|
+
+## createEyeTCP
+
+<a id="opIdcreateEyeTCP"></a>
+
+> Code samples
+
+```shell
+curl -X POST your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "port": 0
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/eye/tcp`</span>
+
+Creates a new TCP Domotz Eyes
+
+> Body parameter
+
+```json
+{
+  "port": 0
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createeyetcp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|body|body|[TCPDomotzEyeCreation](#schematcpdomotzeyecreation)|true|none|
+
+<h3 id="createeyetcp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
+## deleteEyeTCP
+
+<a id="opIddeleteEyeTCP"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}`</span>
+
+Deletes the TCP Domotz Eye
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteeyetcp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|service_id|path|integer(int32)|true|TCP Eye ID|
+
+<h3 id="deleteeyetcp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## eyesUsageInfo
+
+<a id="opIdeyesUsageInfo"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/eye-statistics`</span>
+
+Retrieves information about Domotz Eyes usage and limits
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/eye-statistics \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="eyesusageinfo-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "limit": 0,
+  "usage": {
+    "snmp": 0,
+    "tcp": 0,
+    "total": 0
+  }
+}
+```
+
+<h3 id="eyesusageinfo-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A data structure containing information about current Domotz Eyes usage and limits|[DomotzEyesUsageInformation](#schemadomotzeyesusageinformation)|
 
 <h1 id="domotz-public-api-multimedia">multimedia</h1>
 
@@ -3376,7 +6741,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot`</span>
 
-Take a snapshot of the camera.
+Take a snapshot of the camera. Internally, a device connection is established.Current consumption and consumption limits can be retrieved with a call to <a href='#getconnectionconsumption'> getConnectionConsumption</a> endpoint
 
 <h3>Curl</h3>
 
@@ -3407,16 +6772,152 @@ Take a snapshot of the camera.
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A binary image|string|
 
-<h1 id="domotz-public-api-alert-profiles">alert profiles</h1>
+<h1 id="domotz-public-api-company">company</h1>
 
-## getAlertProfiles
+## moveAgent
 
-<a id="opIdgetAlertProfiles"></a>
+<a id="opIdmoveAgent"></a>
 
 > Code samples
 
 ```shell
-curl -X GET your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile \
+curl -X PUT your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+{
+  method: 'PUT',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put 'your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/ownership/team/{team_id}`</span>
+
+Moves an agent under the control of a different team
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/agent/{agent_id}/ownership/team/{team_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="moveagent-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|team_id|path|integer(int32)|true|Team ID|
+
+<h3 id="moveagent-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## listAreas
+
+<a id="opIdlistAreas"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/area \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3430,7 +6931,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile',
+  url: 'your-domotz-api-endpoint/public-api/v1/area',
   method: 'get',
 
   headers: headers,
@@ -3450,7 +6951,7 @@ const headers = {
 
 };
 
-fetch('your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile',
+fetch('your-domotz-api-endpoint/public-api/v1/area',
 {
   method: 'GET',
 
@@ -3471,7 +6972,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile', params={
+r = requests.get('your-domotz-api-endpoint/public-api/v1/area', params={
 
 }, headers = headers)
 
@@ -3488,7 +6989,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile',
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/area',
   params: {
   }, headers: headers
 
@@ -3513,7 +7014,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile", data)
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/area", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3523,27 +7024,9 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`GET /user/{user_id}/alert-profile`</span>
+<span class='dmt-method'>`GET /area`</span>
 
-Returns the list of configured alert profiles. You can configure alert profiles on the Domotz Portal. Alert profiles define the association between a list of events and a notification channel (email, webhook or slack)
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="getalertprofiles-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|user_id|path|integer(int32)|true|User ID|
+Returns all the areas of a Company
 
 > Example responses
 
@@ -3552,37 +7035,361 @@ Returns the list of configured alert profiles. You can configure alert profiles 
 ```json
 [
   {
-    "description": "string",
-    "events": [
-      "device_status"
-    ],
     "id": 0,
-    "is_enabled": true,
-    "name": "string",
-    "tag": "string"
+    "name": "string"
   }
 ]
 ```
 
-<h3 id="getalertprofiles-responses">Responses</h3>
+<h3 id="listareas-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured alert profiles|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of all the areas in the User's Company|Inline|
 
-<h3 id="getalertprofiles-responseschema">Response Schema</h3>
+<h3 id="listareas-responseschema">Response Schema</h3>
 
 Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|[[AlertProfile](#schemaalertprofile)]|false|none|
-|» description|string|false|The description of the alert profile|
-|» events|[string]|false|The list of events associated to the profile|
-|» id|integer(int32)|true|The id of the event profile|
-|» is_enabled|boolean|false|true if the event profile is enabled, false otherwise|
-|» name|string|false|The symbolic name associated to the profile|
-|» tag|string|false|A label associated to the profile|
+|*anonymous*|[[Area](#schemaarea)]|false|[Represents an area of the Company]|
+|» id|integer(int32)|true|The identifier of the Area|
+|» name|string|true|The name of the Area|
+
+## listTeams
+
+<a id="opIdlistTeams"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/area/{area_id}/team \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/area/{area_id}/team', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/area/{area_id}/team", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /area/{area_id}/team`</span>
+
+Returns all the teams of an Area
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/area/{area_id}/team \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listteams-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|area_id|path|integer(int32)|true|Area ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+```
+
+<h3 id="listteams-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of all the teams in a Company Area's|Inline|
+
+<h3 id="listteams-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Team](#schemateam)]|false|[Represents a team of the Company]|
+|» id|integer(int32)|true|The identifier of the Team|
+|» name|string|true|The name of the Team|
+
+## createTeam
+
+<a id="opIdcreateTeam"></a>
+
+> Code samples
+
+```shell
+curl -X POST your-domotz-api-endpoint/public-api/v1/area/{area_id}/team \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "leader": {
+    "details": {
+      "display_name": "string"
+    },
+    "name": "string",
+    "password": "string"
+  },
+  "name": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('your-domotz-api-endpoint/public-api/v1/area/{area_id}/team', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post 'your-domotz-api-endpoint/public-api/v1/area/{area_id}/team',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "your-domotz-api-endpoint/public-api/v1/area/{area_id}/team", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /area/{area_id}/team`</span>
+
+Creates a new Team
+
+> Body parameter
+
+```json
+{
+  "leader": {
+    "details": {
+      "display_name": "string"
+    },
+    "name": "string",
+    "password": "string"
+  },
+  "name": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/area/{area_id}/team \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createteam-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|area_id|path|integer(int32)|true|Area ID|
+|body|body|[TeamCreation](#schemateamcreation)|true|none|
+
+<h3 id="createteam-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
+<h1 id="domotz-public-api-alert-profiles">alert profiles</h1>
 
 ## getAgentAlertProfile
 
@@ -3719,7 +7526,6 @@ Get the alert profile bindings of an agent
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
-|alert_profile_id|path|integer(int32)|true|Profile ID|
 
 > Example responses
 
@@ -3883,7 +7689,6 @@ Get the alert profile bindings of the devices of an agent
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
-|alert_profile_id|path|integer(int32)|true|Profile ID|
 
 > Example responses
 
@@ -4524,6 +8329,20 @@ Bind an alert profile to a device. After binding, a webhook will be sent to the 
 <tbody>
 
 <tr>
+<td>device_configuration_change</td>
+<td>POST</td>
+<td><a href="#tocSdeviceconfigurationchangeevent" data-title="DeviceConfigurationChangeEvent">DeviceConfigurationChangeEvent</a></td>
+<td>201</td>
+</tr>
+
+<tr>
+<td>device_configuration_misalignment</td>
+<td>POST</td>
+<td><a href="#tocSdeviceconfigurationmisalignmentevent" data-title="DeviceConfigurationMisalignmentEvent">DeviceConfigurationMisalignmentEvent</a></td>
+<td>201</td>
+</tr>
+
+<tr>
 <td>device_heartbeat_lost</td>
 <td>POST</td>
 <td><a href="#tocSdeviceheartbeatlostevent" data-title="DeviceHeartbeatLostEvent">DeviceHeartbeatLostEvent</a></td>
@@ -4540,7 +8359,7 @@ Bind an alert profile to a device. After binding, a webhook will be sent to the 
 <tr>
 <td>device_rtd</td>
 <td>POST</td>
-<td><a href="#tocSdevicetcpevent" data-title="DeviceTCPEvent">DeviceTCPEvent</a></td>
+<td><a href="#tocSdevicertdissueevent" data-title="DeviceRTDIssueEvent">DeviceRTDIssueEvent</a></td>
 <td>201</td>
 </tr>
 
@@ -4569,6 +8388,181 @@ Bind an alert profile to a device. After binding, a webhook will be sent to the 
 </table>
 
 </div>
+
+## getAlertProfiles
+
+<a id="opIdgetAlertProfiles"></a>
+
+> Code samples
+
+```shell
+curl -X GET your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: 'your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get 'your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /user/{user_id}/alert-profile`</span>
+
+Returns the list of configured alert profiles. You can configure alert profiles on the Domotz Portal. Alert profiles define the association between a list of events and a notification channel (email, webhook or slack)
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">your-domotz-api-endpoint/public-api/v1/user/{user_id}/alert-profile \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getalertprofiles-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|user_id|path|integer(int32)|true|User ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "description": "string",
+    "events": [
+      "device_status"
+    ],
+    "id": 0,
+    "is_enabled": true,
+    "name": "string",
+    "tag": "string"
+  }
+]
+```
+
+<h3 id="getalertprofiles-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured alert profiles|Inline|
+
+<h3 id="getalertprofiles-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[AlertProfile](#schemaalertprofile)]|false|none|
+|» description|string|false|The description of the alert profile|
+|» events|[string]|false|The list of events associated to the profile|
+|» id|integer(int32)|true|The id of the event profile|
+|» is_enabled|boolean|false|true if the event profile is enabled, false otherwise|
+|» name|string|false|The symbolic name associated to the profile|
+|» tag|string|false|A label associated to the profile|
 
 <h1 id="domotz-public-api-meta">meta</h1>
 
@@ -5240,7 +9234,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2019-06-11T09:08:10Z",
+  "first_seen_on": "2021-02-15T11:21:04Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -5266,7 +9260,11 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |authentication_status|string|false|When defined the device requires authentication info to perform extended discovery <ul> <li> *REQUIRED*: the device requires authentication, extended discovery is locked </li><li> *PENDING*: credentials have been submitted but not verified yet </li><li> *WRONG_CREDENTIALS*: device authentication failed </li><li> *AUTHENTICATED*: device authentication succeeded </li></ul>|
-|details|[DeviceDetails](#schemadevicedetails)|false|none|
+|details|object|false|DeviceDetails|
+|» room|string|false|none|
+|» snmp_read_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
+|» snmp_write_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
+|» zone|string|false|none|
 |display_name|string|true|none|
 |first_seen_on|string(date-time)|false|none|
 |id|integer(int32)|true|none|
@@ -5310,18 +9308,22 @@ Returns the User information
     },
     "status": "OWNED"
   },
-  "creation_time": "2019-06-11T09:08:10Z",
+  "creation_time": "2021-02-15T11:21:04Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2019-06-11T09:08:10Z",
+    "activation_time": "2021-02-15T11:21:04Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2019-06-11T09:08:10Z",
+    "expiration_time": "2021-02-15T11:21:04Z",
     "id": 0
   },
+  "location": {
+    "latitude": "string",
+    "longitude": "string"
+  },
   "status": {
-    "last_change": "2019-06-11T09:08:10Z",
+    "last_change": "2021-02-15T11:21:04Z",
     "value": "ONLINE"
   },
   "team": {
@@ -5359,6 +9361,9 @@ Returns the User information
 |» code|string|false|none|
 |» expiration_time|string(date-time)|false|none|
 |» id|integer(int32)|false|none|
+|location|object|false|none|
+|» latitude|string|false|none|
+|» longitude|string|false|none|
 |status|object|false|none|
 |» last_change|string(date-time)|false|none|
 |» value|string|false|none|
@@ -5397,18 +9402,22 @@ Returns the User information
     },
     "status": "OWNED"
   },
-  "creation_time": "2019-06-11T09:08:10Z",
+  "creation_time": "2021-02-15T11:21:04Z",
   "display_name": "string",
   "id": 0,
   "licence": {
-    "activation_time": "2019-06-11T09:08:10Z",
+    "activation_time": "2021-02-15T11:21:04Z",
     "bound_mac_address": "string",
     "code": "string",
-    "expiration_time": "2019-06-11T09:08:10Z",
+    "expiration_time": "2021-02-15T11:21:04Z",
     "id": 0
   },
+  "location": {
+    "latitude": "string",
+    "longitude": "string"
+  },
   "status": {
-    "last_change": "2019-06-11T09:08:10Z",
+    "last_change": "2021-02-15T11:21:04Z",
     "value": "ONLINE"
   },
   "team": {
@@ -5424,11 +9433,7 @@ Returns the User information
     "agent": "string",
     "package": "string"
   },
-  "listen_on": "string",
-  "location": {
-    "latitude": "string",
-    "longitude": "string"
-  }
+  "listen_on": "string"
 }
 
 ```
@@ -5457,7 +9462,7 @@ Returns the User information
 
 ```json
 {
-  "timestamp": "2019-06-11T09:08:10Z",
+  "timestamp": "2021-02-15T11:21:04Z",
   "type": "CONNECTION_RECOVERED"
 }
 
@@ -5495,7 +9500,7 @@ Returns the User information
     ]
   },
   "name": "agent_security_issue",
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -5542,7 +9547,7 @@ Returns the User information
     }
   },
   "name": "agent_speed_test",
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -5584,7 +9589,7 @@ Returns the User information
     "value": "UP"
   },
   "name": "agent_status",
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -5608,6 +9613,67 @@ Returns the User information
 |value|UP|
 |value|DOWN|
 |name|agent_status|
+
+<h2 id="tocSagentvpnactiveconnection">AgentVPNActiveConnection</h2>
+
+<a id="schemaagentvpnactiveconnection"></a>
+
+```json
+{
+  "bytes": 0,
+  "creation_time": "2021-02-15T11:21:04Z",
+  "expiration_time": "2021-02-15T11:21:04Z",
+  "id": 0,
+  "name": "string",
+  "status": "ACTIVE"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|bytes|integer(int32)|true|Current VPN connection consumption (bytes)|
+|creation_time|string(date-time)|true|none|
+|expiration_time|string(date-time)|true|none|
+|id|integer(int32)|true|The ID of the VPN connection|
+|name|string|true|The user that started the VPN connection|
+|status|string|true|The status of the vpn connection|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|ACTIVE|
+|status|INACTIVE|
+|status|EXPIRED|
+
+<h2 id="tocSagentvpnconnection">AgentVPNConnection</h2>
+
+<a id="schemaagentvpnconnection"></a>
+
+```json
+{
+  "allowed_ip": "string",
+  "routing_policy": "global"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
+|routing_policy|string|true|The traffic routing policy for the VPN connection:  </br>- *global*: All the traffic is routed through the VPN On Demand. More consumption on the Domotz Cloud </br>- *local*: Only LAN traffic passes through the VPN On Demand. Less consumption on the Domotz Cloud|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|routing_policy|global|
+|routing_policy|local|
 
 <h2 id="tocSalertprofile">AlertProfile</h2>
 
@@ -5674,6 +9740,46 @@ Returns the User information
 |alert_profile_id|integer(int32)|true|The id of the alert profile|
 |device_id|integer(int32)|true|none|
 
+<h2 id="tocSarea">Area</h2>
+
+<a id="schemaarea"></a>
+
+```json
+{
+  "id": 0,
+  "name": "string"
+}
+
+```
+
+*Represents an area of the Company*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|id|integer(int32)|true|The identifier of the Area|
+|name|string|true|The name of the Area|
+
+<h2 id="tocSconnectionconsumption">ConnectionConsumption</h2>
+
+<a id="schemaconnectionconsumption"></a>
+
+```json
+{
+  "current": 0,
+  "limit": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|current|integer(int32)|true|Current connection consumption (bytes)|
+|limit|integer(int32)|true|Maximum connection consumption (bytes)|
+
 <h2 id="tocSconnectionsession">ConnectionSession</h2>
 
 <a id="schemaconnectionsession"></a>
@@ -5681,7 +9787,7 @@ Returns the User information
 ```json
 {
   "allowed_ip": "string",
-  "expiration": "2019-06-11T09:08:10Z",
+  "expiration": "2021-02-15T11:21:04Z",
   "id": 0,
   "link": "string",
   "port": 0,
@@ -5694,12 +9800,12 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses.  You can use `0.0.0.0` to allow access from any IP - For `http` abd `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
+|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
 |expiration|string(date-time)|false|The time after which the connection will be closed|
 |id|integer(int32)|true|The unique identifier of the `connection`|
 |link|string|false|Either the link to access the device's HTTP(s) interface in the browser or the host/port coordinates of the proxied TCP port, depending on the protocol (see protocol description in the request)|
 |port|integer(int32)|true|none|
-|protocol|string|true|The protocol wrapped by the connection:  </br>- *http/https*: the `link` field in the reply will contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is `https` the device's certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- *tcp*: the `link` field will be in the form `tcp://{host}:{port}`. Any connection established (e.g. with `telnet`  or `ssh`) on these coordinates will be securely forwarded to the requested `port` of the device.|
+|protocol|string|true|The protocol wrapped by the connection:  </br>- *http/https*: the `link` field in the reply will contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is `https` the device's certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- *tcp*: the `link` field will be in the form `tcp://{host}:{port}`. Any connection established (e.g. with `telnet`  or `ssh`) on these coordinates will be securely forwarded to the requested `port` of the device.  </br>- *ssh*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- *rdp*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.|
 
 #### Enumerated Values
 
@@ -5708,6 +9814,8 @@ Returns the User information
 |protocol|http|
 |protocol|https|
 |protocol|tcp|
+|protocol|ssh|
+|protocol|rdp|
 
 <h2 id="tocSdetecteddevicetype">DetectedDeviceType</h2>
 
@@ -5763,6 +9871,74 @@ Returns the User information
 |label|string|false|A human-readable short description of the type|
 |vital|boolean|false|Whether a device of this type will be marked as `VITAL` as soon as recognised|
 
+<h2 id="tocSdeviceconfigurationchangeevent">DeviceConfigurationChangeEvent</h2>
+
+<a id="schemadeviceconfigurationchangeevent"></a>
+
+```json
+{
+  "data": {
+    "agent_id": 0,
+    "device_id": 0
+  },
+  "name": "device_configuration_change",
+  "timestamp": "2021-02-15T11:21:04Z"
+}
+
+```
+
+*Triggered when the device configuration changes*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|data|object|false|none|
+|» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device_id|integer(int32)|true|The `id` of the `device`|
+|name|string|true|none|
+|timestamp|string(date-time)|true|The timestamp of the event|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|name|device_configuration_change|
+
+<h2 id="tocSdeviceconfigurationmisalignmentevent">DeviceConfigurationMisalignmentEvent</h2>
+
+<a id="schemadeviceconfigurationmisalignmentevent"></a>
+
+```json
+{
+  "data": {
+    "agent_id": 0,
+    "device_id": 0
+  },
+  "name": "device_configuration_misalignment",
+  "timestamp": "2021-02-15T11:21:04Z"
+}
+
+```
+
+*Triggered when the device configuration becomes different from the startup one*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|data|object|false|none|
+|» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device_id|integer(int32)|true|The `id` of the `device`|
+|name|string|true|none|
+|timestamp|string(date-time)|true|The timestamp of the event|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|name|device_configuration_misalignment|
+
 <h2 id="tocSdeviceconnection">DeviceConnection</h2>
 
 <a id="schemadeviceconnection"></a>
@@ -5780,9 +9956,9 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses.  You can use `0.0.0.0` to allow access from any IP - For `http` abd `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
+|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
 |port|integer(int32)|true|none|
-|protocol|string|true|The protocol wrapped by the connection:  </br>- *http/https*: the `link` field in the reply will contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is `https` the device's certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- *tcp*: the `link` field will be in the form `tcp://{host}:{port}`. Any connection established (e.g. with `telnet`  or `ssh`) on these coordinates will be securely forwarded to the requested `port` of the device.|
+|protocol|string|true|The protocol wrapped by the connection:  </br>- *http/https*: the `link` field in the reply will contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is `https` the device's certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- *tcp*: the `link` field will be in the form `tcp://{host}:{port}`. Any connection established (e.g. with `telnet`  or `ssh`) on these coordinates will be securely forwarded to the requested `port` of the device.  </br>- *ssh*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- *rdp*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.|
 
 #### Enumerated Values
 
@@ -5791,6 +9967,8 @@ Returns the User information
 |protocol|http|
 |protocol|https|
 |protocol|tcp|
+|protocol|ssh|
+|protocol|rdp|
 
 <h2 id="tocSdevicecredentials">DeviceCredentials</h2>
 
@@ -5811,29 +9989,6 @@ Returns the User information
 |password|string|true|password|
 |username|string|true|username|
 
-<h2 id="tocSdevicedetails">DeviceDetails</h2>
-
-<a id="schemadevicedetails"></a>
-
-```json
-{
-  "room": "string",
-  "snmp_read_community": "string",
-  "snmp_write_community": "string",
-  "zone": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Description|
-|---|---|---|---|---|
-|room|string|false|none|
-|snmp_read_community|string|false|none|
-|snmp_write_community|string|false|none|
-|zone|string|false|none|
-
 <h2 id="tocSdevicediscoveryevent">DeviceDiscoveryEvent</h2>
 
 <a id="schemadevicediscoveryevent"></a>
@@ -5845,7 +10000,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "agent_device_discovery",
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -5868,6 +10023,25 @@ Returns the User information
 |---|---|
 |name|agent_device_discovery|
 
+<h2 id="tocSdeviceeyesnmphistorysample">DeviceEyeSNMPHistorySample</h2>
+
+<a id="schemadeviceeyesnmphistorysample"></a>
+
+```json
+{
+  "timestamp": "2021-02-15T11:21:04Z",
+  "value": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+|value|string|true|none|
+
 <h2 id="tocSdeviceheartbeatlostevent">DeviceHeartbeatLostEvent</h2>
 
 <a id="schemadeviceheartbeatlostevent"></a>
@@ -5879,7 +10053,7 @@ Returns the User information
     "device_id": 0
   },
   "name": "device_heartbeat_lost",
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -5916,7 +10090,7 @@ Returns the User information
       "string"
     ]
   },
-  "timestamp": "2019-06-11T09:08:10Z",
+  "timestamp": "2021-02-15T11:21:04Z",
   "type": "IP_CHANGE"
 }
 
@@ -5958,7 +10132,7 @@ Returns the User information
     ]
   },
   "name": "device_ip_change",
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -6017,7 +10191,7 @@ Returns the User information
   "median": "string",
   "min": "string",
   "sent_packet_count": 0,
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -6053,7 +10227,7 @@ Returns the User information
     }
   },
   "name": "device_rtd",
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -6098,7 +10272,7 @@ Returns the User information
   "latest_lost_packet_count": 0,
   "latest_median": "string",
   "latest_sent_packet_count": 0,
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -6129,7 +10303,7 @@ Returns the User information
     "value": "string"
   },
   "name": "device_snmp",
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -6185,7 +10359,7 @@ Returns the User information
     "value": "UP"
   },
   "name": "device_status",
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -6228,7 +10402,7 @@ Returns the User information
     ]
   },
   "name": "device_tcp",
-  "timestamp": "2019-06-11T09:08:10Z"
+  "timestamp": "2021-02-15T11:21:04Z"
 }
 
 ```
@@ -6256,6 +10430,34 @@ Returns the User information
 |status|DOWN|
 |name|device_tcp|
 
+<h2 id="tocSdomotzeyesusageinformation">DomotzEyesUsageInformation</h2>
+
+<a id="schemadomotzeyesusageinformation"></a>
+
+```json
+{
+  "limit": 0,
+  "usage": {
+    "snmp": 0,
+    "tcp": 0,
+    "total": 0
+  }
+}
+
+```
+
+*Information about Domotz Eyes current usage and limits*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|limit|integer(int32)|false|Number of allowed Domotz Eyes for the agent|
+|usage|object|false|none|
+|» snmp|integer(int32)|false|Number of configured Domotz Eyes of type `snmp` on the agent.|
+|» tcp|integer(int32)|false|Number of configured Domotz Eyes of type `tcp` on the agent.|
+|» total|integer(int32)|false|Number of configured Domotz Eyes on the agent.|
+
 <h2 id="tocSdummydevice">DummyDevice</h2>
 
 <a id="schemadummydevice"></a>
@@ -6270,7 +10472,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2019-06-11T09:08:10Z",
+  "first_seen_on": "2021-02-15T11:21:04Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -6317,7 +10519,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2019-06-11T09:08:10Z",
+  "first_seen_on": "2021-02-15T11:21:04Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -6337,7 +10539,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2019-06-11T09:08:10Z",
+  "last_status_change": "2021-02-15T11:21:04Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -6380,7 +10582,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2019-06-11T09:08:10Z",
+  "first_seen_on": "2021-02-15T11:21:04Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -6400,7 +10602,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2019-06-11T09:08:10Z",
+  "last_status_change": "2021-02-15T11:21:04Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string"
@@ -6452,7 +10654,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2019-06-11T09:08:10Z",
+  "first_seen_on": "2021-02-15T11:21:04Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -6472,7 +10674,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2019-06-11T09:08:10Z",
+  "last_status_change": "2021-02-15T11:21:04Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -6519,7 +10721,7 @@ Returns the User information
 
 ```json
 {
-  "timestamp": "2019-06-11T09:08:10Z",
+  "timestamp": "2021-02-15T11:21:04Z",
   "values": [
     0
   ]
@@ -6537,6 +10739,245 @@ Returns the User information
 |timestamp|string(date-time)|false|The time the sample was reported to Domotz|
 |values|[integer]|false|A pair of values: the download and upload speed, in Bit Per Seconds (bps), as measured by the Agent|
 
+<h2 id="tocSsnmpdomotzauthentication">SNMPDomotzAuthentication</h2>
+
+<a id="schemasnmpdomotzauthentication"></a>
+
+```json
+{
+  "authentication_key": "string",
+  "authentication_protocol": "MD5",
+  "encryption_key": "string",
+  "encryption_protocol": "DES",
+  "snmp_read_community": "string",
+  "snmp_write_community": "string",
+  "username": "string",
+  "version": "V2"
+}
+
+```
+
+*The SNMP authentication setting of a device*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|authentication_key|string|false|none|
+|authentication_protocol|string|false|The SNMP authentication protocol|
+|encryption_key|string|false|none|
+|encryption_protocol|string|false|The SNMP encryption protocol|
+|snmp_read_community|string|false|none|
+|snmp_write_community|string|false|none|
+|username|string|false|none|
+|version|string|true|The configured SNMP version|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|authentication_protocol|MD5|
+|authentication_protocol|SHA|
+|encryption_protocol|DES|
+|encryption_protocol|AES|
+|version|V2|
+|version|V1|
+|version|V3_AUTH_PRIV|
+|version|V3_NO_AUTH|
+|version|V3_AUTH_NO_PRIV|
+
+<h2 id="tocSsnmpdomotzeye">SNMPDomotzEye</h2>
+
+<a id="schemasnmpdomotzeye"></a>
+
+```json
+{
+  "category": "OTHER",
+  "id": 0,
+  "last_update": "2021-02-15T11:21:04Z",
+  "latest_value": "string",
+  "name": "string",
+  "oid": "string",
+  "value_type": "STRING"
+}
+
+```
+
+*Information about a configured SNMP Domotz Eye*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|category|string|true|The category of the OID|
+|id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
+|last_update|string(date-time)|true|The timestamp of the latest update|
+|latest_value|string|true|The value retrieved on the OID|
+|name|string|true|The name of the Domotz Eyes|
+|oid|string|true|The OID string|
+|value_type|string|true|The type of the OID|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|category|OTHER|
+|category|CONSUMABLE|
+|category|CPU|
+|category|DISK_SPACE|
+|category|MEMORY|
+|category|NETWORK_TRAFFIC|
+|category|TEMPERATURE|
+|value_type|STRING|
+|value_type|NUMERIC|
+
+<h2 id="tocSsnmpdomotzeyecreation">SNMPDomotzEyeCreation</h2>
+
+<a id="schemasnmpdomotzeyecreation"></a>
+
+```json
+{
+  "category": "OTHER",
+  "name": "string",
+  "oid": "string",
+  "value_type": "STRING"
+}
+
+```
+
+*SNMP Domotz Eye Data*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|category|string|true|The category of the OID|
+|name|string|true|The name of the Domotz Eyes|
+|oid|string|true|The OID string|
+|value_type|string|true|The type of the OID|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|category|OTHER|
+|category|CONSUMABLE|
+|category|CPU|
+|category|DISK_SPACE|
+|category|MEMORY|
+|category|NETWORK_TRAFFIC|
+|category|TEMPERATURE|
+|value_type|STRING|
+|value_type|NUMERIC|
+
+<h2 id="tocSsnmpdomotzeyetrigger">SNMPDomotzEyeTrigger</h2>
+
+<a id="schemasnmpdomotzeyetrigger"></a>
+
+```json
+{
+  "alert": {
+    "email": true,
+    "mobile": true
+  },
+  "creation_time": "2021-02-15T11:21:04Z",
+  "function_id": 0,
+  "id": 0,
+  "name": "string",
+  "operands": [
+    "string"
+  ]
+}
+
+```
+
+*Information about a trigger*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|alert|object|false|The alerts details|
+|» email|boolean|false|True if the email alert is active|
+|» mobile|boolean|false|True if the mobile alert is active|
+|creation_time|string(date-time)|false|none|
+|function_id|integer(int32)|true|The unique identifier of the function assigned to the trigger|
+|id|integer(int32)|true|The unique identifier of the SNMP Trigger|
+|name|string|true|The name of the trigger|
+|operands|[string]|true|The operands for the function|
+
+<h2 id="tocSsnmpdomotzeyetriggerfunction">SNMPDomotzEyeTriggerFunction</h2>
+
+<a id="schemasnmpdomotzeyetriggerfunction"></a>
+
+```json
+{
+  "cardinality": 0,
+  "id": 0,
+  "name": "string",
+  "value_types": "STRING"
+}
+
+```
+
+*Information about a trigger function*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|cardinality|integer(int32)|true|The number of arguments of the function|
+|id|integer(int32)|true|The unique identifier of the SNMP Trigger function|
+|name|string|true|The name of the function|
+|value_types|string|true|The type of the operands|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|value_types|STRING|
+|value_types|NUMERIC|
+
+<h2 id="tocSsnmpdomotzsnmptriggeralertcreation">SNMPDomotzSnmpTriggerAlertCreation</h2>
+
+<a id="schemasnmpdomotzsnmptriggeralertcreation"></a>
+
+```json
+{}
+
+```
+
+*SNMP Trigger Alert*
+
+### Properties
+
+*None*
+
+<h2 id="tocSsnmpdomotzsnmptriggercreation">SNMPDomotzSnmpTriggerCreation</h2>
+
+<a id="schemasnmpdomotzsnmptriggercreation"></a>
+
+```json
+{
+  "function_id": 0,
+  "name": "string",
+  "operands": [
+    "string"
+  ]
+}
+
+```
+
+*SNMP Trigger*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|function_id|integer(int32)|true|The unique identifier of the sensor function|
+|name|string|true|The name of the trigger|
+|operands|[string]|true|The operands for the function|
+
 <h2 id="tocSsubnetipdevice">SubnetIpDevice</h2>
 
 <a id="schemasubnetipdevice"></a>
@@ -6551,7 +10992,7 @@ Returns the User information
     "zone": "string"
   },
   "display_name": "string",
-  "first_seen_on": "2019-06-11T09:08:10Z",
+  "first_seen_on": "2021-02-15T11:21:04Z",
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
@@ -6571,7 +11012,7 @@ Returns the User information
   "ip_addresses": [
     "string"
   ],
-  "last_status_change": "2019-06-11T09:08:10Z",
+  "last_status_change": "2021-02-15T11:21:04Z",
   "model": "string",
   "status": "ONLINE",
   "vendor": "string",
@@ -6605,6 +11046,109 @@ Returns the User information
 |»» inspection|string|false|none|
 |»» snmp|string|false|none|
 |»» upnp|string|false|none|
+
+<h2 id="tocStcpdomotzeye">TCPDomotzEye</h2>
+
+<a id="schematcpdomotzeye"></a>
+
+```json
+{
+  "id": 0,
+  "last_update": "2021-02-15T11:21:04Z",
+  "port": 0,
+  "status": "UP"
+}
+
+```
+
+*Information about a configured TCP Domotz Eye*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|id|integer(int32)|true|The unique identifier of the TCP Domotz Eye|
+|last_update|string(date-time)|true|The timestamp of the latest update|
+|port|integer(int32)|true|The port number|
+|status|string|true|The status of the TCP service|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|UP|
+|status|DOWN|
+
+<h2 id="tocStcpdomotzeyecreation">TCPDomotzEyeCreation</h2>
+
+<a id="schematcpdomotzeyecreation"></a>
+
+```json
+{
+  "port": 0
+}
+
+```
+
+*TCP Domotz Eye Data*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|port|integer(int32)|true|The port number|
+
+<h2 id="tocSteam">Team</h2>
+
+<a id="schemateam"></a>
+
+```json
+{
+  "id": 0,
+  "name": "string"
+}
+
+```
+
+*Represents a team of the Company*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|id|integer(int32)|true|The identifier of the Team|
+|name|string|true|The name of the Team|
+
+<h2 id="tocSteamcreation">TeamCreation</h2>
+
+<a id="schemateamcreation"></a>
+
+```json
+{
+  "leader": {
+    "details": {
+      "display_name": "string"
+    },
+    "name": "string",
+    "password": "string"
+  },
+  "name": "string"
+}
+
+```
+
+*Team Creation under specified Area*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|leader|object|true|The Team Leader|
+|» details|object|true|The Team Leader's details|
+|»» display_name|string|true|The Team Leader's display name|
+|» name|string|true|The Team Leader's name|
+|» password|string|true|The Team Leader's password|
+|name|string|true|The Team's name|
 
 <h2 id="tocSuser">User</h2>
 
