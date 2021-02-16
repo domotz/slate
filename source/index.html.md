@@ -174,8 +174,8 @@ Returns the agents list
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|page_size|query|integer(int32)|false|The maximum number of items to return|
-|page_number|query|integer(int32)|false|The requested page number, 0-indexed|
+|page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 100. Default value is 10|
+|page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
 |display_name|query|string|false|Consider only agents with `display_name` containing the string (case insensitive)|
 |team_name|query|string|false|Filters by team name (companies only)|
 
@@ -202,6 +202,10 @@ Returns the agents list
       "code": "string",
       "expiration_time": "2019-08-24T14:15:22Z",
       "id": 0
+    },
+    "location": {
+      "latitude": "string",
+      "longitude": "string"
     },
     "status": {
       "last_change": "2019-08-24T14:15:22Z",
@@ -251,6 +255,9 @@ Status Code **200**
 |»» code|string|false|none|
 |»» expiration_time|string(date-time)|false|none|
 |»» id|integer(int32)|false|none|
+|» location|object|false|none|
+|»» latitude|string|false|none|
+|»» longitude|string|false|none|
 |» status|object|false|none|
 |»» last_change|string(date-time)|false|none|
 |»» value|string|false|none|
@@ -712,6 +719,10 @@ Returns the details of an agent
     "expiration_time": "2019-08-24T14:15:22Z",
     "id": 0
   },
+  "location": {
+    "latitude": "string",
+    "longitude": "string"
+  },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
     "value": "ONLINE"
@@ -729,11 +740,7 @@ Returns the details of an agent
     "agent": "string",
     "package": "string"
   },
-  "listen_on": "string",
-  "location": {
-    "latitude": "string",
-    "longitude": "string"
-  }
+  "listen_on": "string"
 }
 ```
 
@@ -9307,6 +9314,10 @@ Returns the User information
     "expiration_time": "2019-08-24T14:15:22Z",
     "id": 0
   },
+  "location": {
+    "latitude": "string",
+    "longitude": "string"
+  },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
     "value": "ONLINE"
@@ -9346,6 +9357,9 @@ Returns the User information
 |» code|string|false|none|
 |» expiration_time|string(date-time)|false|none|
 |» id|integer(int32)|false|none|
+|location|object|false|none|
+|» latitude|string|false|none|
+|» longitude|string|false|none|
 |status|object|false|none|
 |» last_change|string(date-time)|false|none|
 |» value|string|false|none|
@@ -9394,6 +9408,10 @@ Returns the User information
     "expiration_time": "2019-08-24T14:15:22Z",
     "id": 0
   },
+  "location": {
+    "latitude": "string",
+    "longitude": "string"
+  },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
     "value": "ONLINE"
@@ -9411,11 +9429,7 @@ Returns the User information
     "agent": "string",
     "package": "string"
   },
-  "listen_on": "string",
-  "location": {
-    "latitude": "string",
-    "longitude": "string"
-  }
+  "listen_on": "string"
 }
 
 ```
