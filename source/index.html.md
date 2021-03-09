@@ -9661,7 +9661,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
+|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.|
 |routing_policy|string|true|The traffic routing policy for the VPN connection:  </br>- *global*: All the traffic is routed through the VPN On Demand. More consumption on the Domotz Cloud </br>- *local*: Only LAN traffic passes through the VPN On Demand. Less consumption on the Domotz Cloud|
 
 #### Enumerated Values
@@ -9796,7 +9796,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
+|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.|
 |expiration|string(date-time)|false|The time after which the connection will be closed|
 |id|integer(int32)|true|The unique identifier of the `connection`|
 |link|string|false|Either the link to access the device's HTTP(s) interface in the browser or the host/port coordinates of the proxied TCP port, depending on the protocol (see protocol description in the request)|
@@ -9952,7 +9952,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
+|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.|
 |port|integer(int32)|true|none|
 |protocol|string|true|The protocol wrapped by the connection:  </br>- *http/https*: the `link` field in the reply will contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is `https` the device's certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- *tcp*: the `link` field will be in the form `tcp://{host}:{port}`. Any connection established (e.g. with `telnet`  or `ssh`) on these coordinates will be securely forwarded to the requested `port` of the device.  </br>- *ssh*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- *rdp*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.|
 
