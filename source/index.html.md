@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.0.2</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.0.0-dev</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -47,7 +47,7 @@ Please refer to the [user-guide](https://help.domotz.com/user-guide/shared-alert
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -61,7 +61,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent',
   method: 'get',
 
   headers: headers,
@@ -81,7 +81,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent',
+fetch('http://172.17.0.1:9080/public-api/v1/agent',
 {
   method: 'GET',
 
@@ -102,7 +102,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent', params={
 
 }, headers = headers)
 
@@ -119,7 +119,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent',
   params: {
   }, headers: headers
 
@@ -144,7 +144,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -162,7 +162,7 @@ Returns the agents list
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -290,7 +290,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X HEAD {baseURL}/public-api/v1/agent \
+curl -X HEAD http://172.17.0.1:9080/public-api/v1/agent \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -302,7 +302,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent',
   method: 'head',
 
   headers: headers,
@@ -321,7 +321,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent',
+fetch('http://172.17.0.1:9080/public-api/v1/agent',
 {
   method: 'HEAD',
 
@@ -341,7 +341,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.head('{baseURL}/public-api/v1/agent', params={
+r = requests.head('http://172.17.0.1:9080/public-api/v1/agent', params={
 
 }, headers = headers)
 
@@ -357,7 +357,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.head '{baseURL}/public-api/v1/agent',
+result = RestClient.head 'http://172.17.0.1:9080/public-api/v1/agent',
   params: {
   }, headers: headers
 
@@ -381,7 +381,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("HEAD", "{baseURL}/public-api/v1/agent", data)
+    req, err := http.NewRequest("HEAD", "http://172.17.0.1:9080/public-api/v1/agent", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -399,7 +399,7 @@ Counts the agents
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">{baseURL}/public-api/v1/agent \
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -432,7 +432,7 @@ Counts the agents
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id} \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -444,7 +444,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
   method: 'delete',
 
   headers: headers,
@@ -463,7 +463,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
 {
   method: 'DELETE',
 
@@ -483,7 +483,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}', params={
 
 }, headers = headers)
 
@@ -499,7 +499,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
   params: {
   }, headers: headers
 
@@ -523,7 +523,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -541,7 +541,7 @@ Deletes an agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -567,7 +567,7 @@ Deletes an agent
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id} \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -581,7 +581,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
   method: 'get',
 
   headers: headers,
@@ -601,7 +601,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
 {
   method: 'GET',
 
@@ -622,7 +622,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}', params={
 
 }, headers = headers)
 
@@ -639,7 +639,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}',
   params: {
   }, headers: headers
 
@@ -664,7 +664,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -682,7 +682,7 @@ Returns the details of an agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id} \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -757,7 +757,7 @@ Returns the details of an agent
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/connection/consumption \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/consumption \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -771,7 +771,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/consumption',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/consumption',
   method: 'get',
 
   headers: headers,
@@ -791,7 +791,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/consumption',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/consumption',
 {
   method: 'GET',
 
@@ -812,7 +812,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/connection/consumption', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/consumption', params={
 
 }, headers = headers)
 
@@ -829,7 +829,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/connection/consumption',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/consumption',
   params: {
   }, headers: headers
 
@@ -854,7 +854,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/connection/consumption", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/consumption", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -872,7 +872,7 @@ Get the connection consumption on the given agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/consumption \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/consumption \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -910,7 +910,7 @@ Get the connection consumption on the given agent
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -924,7 +924,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session',
   method: 'get',
 
   headers: headers,
@@ -944,7 +944,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session',
 {
   method: 'GET',
 
@@ -965,7 +965,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session', params={
 
 }, headers = headers)
 
@@ -982,7 +982,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session',
   params: {
   }, headers: headers
 
@@ -1007,7 +1007,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1025,7 +1025,7 @@ Get the Active VPN connections for the `agent`
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1093,7 +1093,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
+curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session \
   -H 'Content-Type: application/json' \
   -H 'Accept: text/plain' \
   -H 'X-Api-Key: API_KEY'
@@ -1109,7 +1109,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session',
   method: 'post',
 
   headers: headers,
@@ -1133,7 +1133,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session',
 {
   method: 'POST',
   body: inputBody,
@@ -1155,7 +1155,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session', params={
+r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session', params={
 
 }, headers = headers)
 
@@ -1173,7 +1173,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session',
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session',
   params: {
   }, headers: headers
 
@@ -1199,7 +1199,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session", data)
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1226,7 +1226,7 @@ Creates a temporary VPN server on the `agent` and returns the vpn configuration 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session \
   -H 'Content-Type: application/json' \
   -H 'Accept: text/plain' \
   -H 'X-Api-Key: API_KEY'
@@ -1259,7 +1259,7 @@ Creates a temporary VPN server on the `agent` and returns the vpn configuration 
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id} \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -1271,7 +1271,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
   method: 'delete',
 
   headers: headers,
@@ -1290,7 +1290,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
 {
   method: 'DELETE',
 
@@ -1310,7 +1310,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}', params={
 
 }, headers = headers)
 
@@ -1326,7 +1326,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}',
   params: {
   }, headers: headers
 
@@ -1350,7 +1350,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1368,7 +1368,7 @@ Closes an active VPN connection session for the `agent`
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/connection/vpn-session/{vpn_session_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -1395,7 +1395,7 @@ Closes an active VPN connection session for the `agent`
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
+curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
@@ -1411,7 +1411,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
   method: 'post',
 
   headers: headers,
@@ -1436,7 +1436,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
 {
   method: 'POST',
   body: inputBody,
@@ -1458,7 +1458,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection', params={
+r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection', params={
 
 }, headers = headers)
 
@@ -1476,7 +1476,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection',
   params: {
   }, headers: headers
 
@@ -1502,7 +1502,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection", data)
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1530,7 +1530,7 @@ Establishes a direct secure connection to the `device` Current consumption and c
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/connection \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
@@ -1577,7 +1577,7 @@ Establishes a direct secure connection to the `device` Current consumption and c
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -1589,7 +1589,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
   method: 'delete',
 
   headers: headers,
@@ -1608,7 +1608,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
 {
   method: 'DELETE',
 
@@ -1628,7 +1628,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device', params={
 
 }, headers = headers)
 
@@ -1644,7 +1644,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
   params: {
   }, headers: headers
 
@@ -1668,7 +1668,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1686,7 +1686,7 @@ Deletes all the DOWN devices of *IP* protocol
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -1712,7 +1712,7 @@ Deletes all the DOWN devices of *IP* protocol
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1726,7 +1726,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
   method: 'get',
 
   headers: headers,
@@ -1746,7 +1746,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
 {
   method: 'GET',
 
@@ -1767,7 +1767,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device', params={
 
 }, headers = headers)
 
@@ -1784,7 +1784,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device',
   params: {
   }, headers: headers
 
@@ -1809,7 +1809,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1827,7 +1827,7 @@ Returns all the devices of an agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -1910,7 +1910,7 @@ Returns all the devices of an agent
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id} \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -1922,7 +1922,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
   method: 'delete',
 
   headers: headers,
@@ -1941,7 +1941,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
 {
   method: 'DELETE',
 
@@ -1961,7 +1961,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}', params={
 
 }, headers = headers)
 
@@ -1977,7 +1977,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
   params: {
   }, headers: headers
 
@@ -2001,7 +2001,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2019,7 +2019,7 @@ Deletes a device, whether ONLINE, OFFLINE or DOWN . If a device  is deleted whil
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -2046,7 +2046,7 @@ Deletes a device, whether ONLINE, OFFLINE or DOWN . If a device  is deleted whil
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id} \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2060,7 +2060,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
   method: 'get',
 
   headers: headers,
@@ -2080,7 +2080,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
 {
   method: 'GET',
 
@@ -2101,7 +2101,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}', params={
 
 }, headers = headers)
 
@@ -2118,7 +2118,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}',
   params: {
   }, headers: headers
 
@@ -2143,7 +2143,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2161,7 +2161,7 @@ Returns the details of a device
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id} \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2242,7 +2242,7 @@ Returns the details of a device
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2256,7 +2256,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
   method: 'get',
 
   headers: headers,
@@ -2276,7 +2276,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
 {
   method: 'GET',
 
@@ -2297,7 +2297,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power', params={
 
 }, headers = headers)
 
@@ -2314,7 +2314,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power',
   params: {
   }, headers: headers
 
@@ -2339,7 +2339,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2357,7 +2357,7 @@ Returns the power management actions available on the device at the current mome
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2398,7 +2398,7 @@ Returns the power management actions available on the device at the current mome
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field} \
+curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -2410,7 +2410,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
   method: 'post',
 
   headers: headers,
@@ -2429,7 +2429,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
 {
   method: 'POST',
 
@@ -2449,7 +2449,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}', params={
+r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}', params={
 
 }, headers = headers)
 
@@ -2465,7 +2465,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}',
   params: {
   }, headers: headers
 
@@ -2489,7 +2489,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}", data)
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2507,7 +2507,7 @@ Performs the action on the device, according to the specified {<b> field </b>} v
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field} \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/action/power/{field} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -2544,7 +2544,7 @@ Performs the action on the device, according to the specified {<b> field </b>} v
 > Code samples
 
 ```shell
-curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/credentials \
+curl -X PUT http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2558,7 +2558,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
   method: 'put',
 
   headers: headers,
@@ -2581,7 +2581,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
 {
   method: 'PUT',
   body: inputBody,
@@ -2602,7 +2602,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/credentials', params={
+r = requests.put('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials', params={
 
 }, headers = headers)
 
@@ -2619,7 +2619,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
+result = RestClient.put 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials',
   params: {
   }, headers: headers
 
@@ -2644,7 +2644,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/credentials", data)
+    req, err := http.NewRequest("PUT", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2671,7 +2671,7 @@ Sets the device credentials to perform extended discovery. This operation will a
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/credentials \
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/credentials \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2700,7 +2700,7 @@ Sets the device credentials to perform extended discovery. This operation will a
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2714,7 +2714,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
   method: 'get',
 
   headers: headers,
@@ -2734,7 +2734,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
 {
   method: 'GET',
 
@@ -2755,7 +2755,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication', params={
 
 }, headers = headers)
 
@@ -2772,7 +2772,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
   params: {
   }, headers: headers
 
@@ -2797,7 +2797,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2815,7 +2815,7 @@ Retrieves the SNMP authentication info
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2860,7 +2860,7 @@ Retrieves the SNMP authentication info
 > Code samples
 
 ```shell
-curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+curl -X PUT http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -2874,7 +2874,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
   method: 'put',
 
   headers: headers,
@@ -2903,7 +2903,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
 {
   method: 'PUT',
   body: inputBody,
@@ -2924,7 +2924,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication', params={
+r = requests.put('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication', params={
 
 }, headers = headers)
 
@@ -2941,7 +2941,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
+result = RestClient.put 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication',
   params: {
   }, headers: headers
 
@@ -2966,7 +2966,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication", data)
+    req, err := http.NewRequest("PUT", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2999,7 +2999,7 @@ Sets the SNMP authentication info. <ul><li>_snmp_read_community_ and _snmp_write
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-authentication \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3028,7 +3028,7 @@ Sets the SNMP authentication info. <ul><li>_snmp_read_community_ and _snmp_write
 > Code samples
 
 ```shell
-curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community \
+curl -X PUT http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3042,7 +3042,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
   method: 'put',
 
   headers: headers,
@@ -3065,7 +3065,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
 {
   method: 'PUT',
   body: inputBody,
@@ -3086,7 +3086,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community', params={
+r = requests.put('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community', params={
 
 }, headers = headers)
 
@@ -3103,7 +3103,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
+result = RestClient.put 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community',
   params: {
   }, headers: headers
 
@@ -3128,7 +3128,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community", data)
+    req, err := http.NewRequest("PUT", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3155,7 +3155,7 @@ Saves a snmp community (read, optionally write) on device. _Deprecated_, please 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community \
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/snmp-community \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3184,7 +3184,7 @@ Saves a snmp community (read, optionally write) on device. _Deprecated_, please 
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/visibility \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -3196,7 +3196,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
   method: 'delete',
 
   headers: headers,
@@ -3215,7 +3215,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
 {
   method: 'DELETE',
 
@@ -3235,7 +3235,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/visibility', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility', params={
 
 }, headers = headers)
 
@@ -3251,7 +3251,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility',
   params: {
   }, headers: headers
 
@@ -3275,7 +3275,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/visibility", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3293,7 +3293,7 @@ Hides a device (available only on DOWN devices)
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/visibility \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/visibility \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -3320,7 +3320,7 @@ Hides a device (available only on DOWN devices)
 > Code samples
 
 ```shell
-curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/{field} \
+curl -X PUT http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field} \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3334,7 +3334,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
   method: 'put',
 
   headers: headers,
@@ -3354,7 +3354,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
 {
   method: 'PUT',
   body: inputBody,
@@ -3375,7 +3375,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/{field}', params={
+r = requests.put('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field}', params={
 
 }, headers = headers)
 
@@ -3392,7 +3392,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
+result = RestClient.put 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field}',
   params: {
   }, headers: headers
 
@@ -3417,7 +3417,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/{field}", data)
+    req, err := http.NewRequest("PUT", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3441,7 +3441,7 @@ Changes a field of the device or one of its details
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/{field} \
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/{field} \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3485,7 +3485,7 @@ Changes a field of the device or one of its details
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/rtd \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3499,7 +3499,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/rtd',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd',
   method: 'get',
 
   headers: headers,
@@ -3519,7 +3519,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/rtd',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd',
 {
   method: 'GET',
 
@@ -3540,7 +3540,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/rtd', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd', params={
 
 }, headers = headers)
 
@@ -3557,7 +3557,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/rtd',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd',
   params: {
   }, headers: headers
 
@@ -3582,7 +3582,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/rtd", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3600,7 +3600,7 @@ Returns the Round Trip Delay statistics for all devices monitored by the agent. 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/rtd \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/rtd \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3662,7 +3662,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3676,7 +3676,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
   method: 'get',
 
   headers: headers,
@@ -3696,7 +3696,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
 {
   method: 'GET',
 
@@ -3717,7 +3717,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event', params={
 
 }, headers = headers)
 
@@ -3734,7 +3734,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
   params: {
   }, headers: headers
 
@@ -3759,7 +3759,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3777,7 +3777,7 @@ Returns the time series of the state changes of the device
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3850,7 +3850,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -3864,7 +3864,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
   method: 'get',
 
   headers: headers,
@@ -3884,7 +3884,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
 {
   method: 'GET',
 
@@ -3905,7 +3905,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd', params={
 
 }, headers = headers)
 
@@ -3922,7 +3922,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
   params: {
   }, headers: headers
 
@@ -3947,7 +3947,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3965,7 +3965,7 @@ Returns the Round Trip Delay history for the device. Each item represents the st
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4026,7 +4026,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/history/network/event \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4040,7 +4040,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/history/network/event',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event',
   method: 'get',
 
   headers: headers,
@@ -4060,7 +4060,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/history/network/event',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event',
 {
   method: 'GET',
 
@@ -4081,7 +4081,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/history/network/event', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event', params={
 
 }, headers = headers)
 
@@ -4098,7 +4098,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/history/network/event',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event',
   params: {
   }, headers: headers
 
@@ -4123,7 +4123,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/history/network/event", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4141,7 +4141,7 @@ Returns the time series of the state changes of the agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/history/network/event \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/event \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4202,7 +4202,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/history/network/speed \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4216,7 +4216,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed',
   method: 'get',
 
   headers: headers,
@@ -4236,7 +4236,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed',
 {
   method: 'GET',
 
@@ -4257,7 +4257,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed', params={
 
 }, headers = headers)
 
@@ -4274,7 +4274,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed',
   params: {
   }, headers: headers
 
@@ -4299,7 +4299,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4318,7 +4318,7 @@ download and in upload.
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/history/network/speed \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4365,7 +4365,7 @@ Status Code **200**
 |» timestamp|string(date-time)|false|The time the sample was reported to Domotz|
 |» values|[integer]|false|A pair of values: the download and upload speed, in Bit Per Seconds (bps), as measured by the Agent|
 
-<h1 id="domotz-public-api-eyes">eyes</h1>
+<h1 id="domotz-public-api-snmp-tcp-sensors">SNMP/TCP SENSORS</h1>
 
 ## listEyesSNMP
 
@@ -4374,7 +4374,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4388,7 +4388,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
   method: 'get',
 
   headers: headers,
@@ -4408,7 +4408,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
 {
   method: 'GET',
 
@@ -4429,7 +4429,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp', params={
 
 }, headers = headers)
 
@@ -4446,7 +4446,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
   params: {
   }, headers: headers
 
@@ -4471,7 +4471,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4489,7 +4489,7 @@ Retrieves the list of configured SNMP Domotz Eyes
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4512,7 +4512,9 @@ Retrieves the list of configured SNMP Domotz Eyes
 [
   {
     "category": "OTHER",
-    "description": "string",
+    "id": 0,
+    "last_update": "2019-08-24T14:15:22Z",
+    "latest_value": "string",
     "name": "string",
     "oid": "string",
     "value_type": "STRING"
@@ -4534,7 +4536,9 @@ Status Code **200**
 |---|---|---|---|---|
 |*anonymous*|[[SNMPDomotzEye](#schemasnmpdomotzeye)]|false|[Information about a configured SNMP Domotz Eye]|
 |» category|string|true|The category of the OID|
-|» description|string|true|The description of the OID string|
+|» id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
+|» last_update|string(date-time)|true|The timestamp of the latest update|
+|» latest_value|string|true|The value retrieved on the OID|
 |» name|string|true|The name of the Domotz Eyes|
 |» oid|string|true|The OID string|
 |» value_type|string|true|The type of the OID|
@@ -4560,7 +4564,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
+curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4574,7 +4578,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
   method: 'post',
 
   headers: headers,
@@ -4599,7 +4603,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
 {
   method: 'POST',
   body: inputBody,
@@ -4620,7 +4624,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp', params={
+r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp', params={
 
 }, headers = headers)
 
@@ -4637,7 +4641,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp',
   params: {
   }, headers: headers
 
@@ -4662,7 +4666,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp", data)
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4691,7 +4695,7 @@ Creates a new SNMP Domotz Eyes
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -4713,192 +4717,6 @@ Creates a new SNMP Domotz Eyes
 |---|---|---|---|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
 
-## listEyesSNMPSuggestion
-
-<a id="opIdlistEyesSNMPSuggestion"></a>
-
-> Code samples
-
-```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp/suggestion`</span>
-
-Retrieves the list of configured SNMP Domotz Eyes
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/suggestion \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="listeyessnmpsuggestion-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|device_id|path|integer(int32)|true|Device ID|
-
-> Example responses
-
-> 200 Response
-
-```json
-[
-  {
-    "category": "OTHER",
-    "description": "string",
-    "name": "string",
-    "oid": "string",
-    "value_type": "STRING"
-  }
-]
-```
-
-<h3 id="listeyessnmpsuggestion-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured SNMP Domotz Eyes for the device and their latest values|Inline|
-
-<h3 id="listeyessnmpsuggestion-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Description|
-|---|---|---|---|---|
-|*anonymous*|[[SNMPDomotzEye](#schemasnmpdomotzeye)]|false|[Information about a configured SNMP Domotz Eye]|
-|» category|string|true|The category of the OID|
-|» description|string|true|The description of the OID string|
-|» name|string|true|The name of the Domotz Eyes|
-|» oid|string|true|The OID string|
-|» value_type|string|true|The type of the OID|
-
-#### Enumerated Values
-
-|Property|Value|
-|---|---|
-|category|OTHER|
-|category|CONSUMABLE|
-|category|CPU|
-|category|DISK_SPACE|
-|category|MEMORY|
-|category|NETWORK_TRAFFIC|
-|category|TEMPERATURE|
-|value_type|STRING|
-|value_type|NUMERIC|
-
 ## deleteEyeSNMP
 
 <a id="opIddeleteEyeSNMP"></a>
@@ -4906,7 +4724,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id} \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -4918,7 +4736,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
   method: 'delete',
 
   headers: headers,
@@ -4937,7 +4755,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
 {
   method: 'DELETE',
 
@@ -4957,7 +4775,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}', params={
 
 }, headers = headers)
 
@@ -4973,7 +4791,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}',
   params: {
   }, headers: headers
 
@@ -4997,7 +4815,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5015,7 +4833,7 @@ Deletes the SNMP Domotz Eye
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -5043,7 +4861,7 @@ Deletes the SNMP Domotz Eye
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5057,7 +4875,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
   method: 'get',
 
   headers: headers,
@@ -5077,7 +4895,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
 {
   method: 'GET',
 
@@ -5098,7 +4916,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function', params={
 
 }, headers = headers)
 
@@ -5115,7 +4933,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function',
   params: {
   }, headers: headers
 
@@ -5140,7 +4958,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5158,7 +4976,7 @@ Retrieves the list of functions for the SNMP trigger Domotz Eyes
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5221,7 +5039,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5235,7 +5053,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
   method: 'get',
 
   headers: headers,
@@ -5255,7 +5073,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
 {
   method: 'GET',
 
@@ -5276,7 +5094,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history', params={
 
 }, headers = headers)
 
@@ -5293,7 +5111,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history',
   params: {
   }, headers: headers
 
@@ -5318,7 +5136,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5336,7 +5154,7 @@ Returns the time series of the SNMP Domotz Eyes collected samples
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5390,7 +5208,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5404,7 +5222,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
   method: 'get',
 
   headers: headers,
@@ -5424,7 +5242,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
 {
   method: 'GET',
 
@@ -5445,7 +5263,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger', params={
 
 }, headers = headers)
 
@@ -5462,7 +5280,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
   params: {
   }, headers: headers
 
@@ -5487,7 +5305,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5505,7 +5323,7 @@ Retrieves the list of triggers for the SNMP Sensor
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5572,7 +5390,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5586,7 +5404,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
   method: 'post',
 
   headers: headers,
@@ -5612,7 +5430,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
 {
   method: 'POST',
   body: inputBody,
@@ -5633,7 +5451,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger', params={
+r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger', params={
 
 }, headers = headers)
 
@@ -5650,7 +5468,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger',
   params: {
   }, headers: headers
 
@@ -5675,7 +5493,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger", data)
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5709,7 +5527,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -5739,7 +5557,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id} \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -5751,7 +5569,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
   method: 'delete',
 
   headers: headers,
@@ -5770,7 +5588,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
 {
   method: 'DELETE',
 
@@ -5790,7 +5608,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}', params={
 
 }, headers = headers)
 
@@ -5806,7 +5624,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}',
   params: {
   }, headers: headers
 
@@ -5830,7 +5648,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5848,7 +5666,7 @@ Deletes the SNMP Trigger for the sensor
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -5877,7 +5695,7 @@ Deletes the SNMP Trigger for the sensor
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -5889,7 +5707,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
   method: 'delete',
 
   headers: headers,
@@ -5908,7 +5726,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
 {
   method: 'DELETE',
 
@@ -5928,7 +5746,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}', params={
 
 }, headers = headers)
 
@@ -5944,7 +5762,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
   params: {
   }, headers: headers
 
@@ -5968,7 +5786,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5986,7 +5804,7 @@ Deletes the alert for thee SNMP Trigger
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -6023,7 +5841,7 @@ Deletes the alert for thee SNMP Trigger
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6037,7 +5855,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
   method: 'post',
 
   headers: headers,
@@ -6057,7 +5875,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
 {
   method: 'POST',
   body: inputBody,
@@ -6078,7 +5896,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}', params={
+r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}', params={
 
 }, headers = headers)
 
@@ -6095,7 +5913,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}',
   params: {
   }, headers: headers
 
@@ -6120,7 +5938,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}", data)
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6144,7 +5962,7 @@ Add an alert to a SNMP Trigger
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/trigger/{trigger_id}/alert/{medium_name} \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6183,7 +6001,7 @@ Add an alert to a SNMP Trigger
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6197,7 +6015,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
   method: 'get',
 
   headers: headers,
@@ -6217,7 +6035,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
 {
   method: 'GET',
 
@@ -6238,7 +6056,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp', params={
 
 }, headers = headers)
 
@@ -6255,7 +6073,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
   params: {
   }, headers: headers
 
@@ -6280,7 +6098,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6298,7 +6116,7 @@ Retrieves the list of configured TCP Domotz Eyes
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6360,7 +6178,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+curl -X POST http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6374,7 +6192,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
   method: 'post',
 
   headers: headers,
@@ -6396,7 +6214,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
 {
   method: 'POST',
   body: inputBody,
@@ -6417,7 +6235,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp', params={
+r = requests.post('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp', params={
 
 }, headers = headers)
 
@@ -6434,7 +6252,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp',
   params: {
   }, headers: headers
 
@@ -6459,7 +6277,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp", data)
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6485,7 +6303,7 @@ Creates a new TCP Domotz Eyes
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6514,7 +6332,7 @@ Creates a new TCP Domotz Eyes
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id} \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -6526,7 +6344,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
   method: 'delete',
 
   headers: headers,
@@ -6545,7 +6363,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
 {
   method: 'DELETE',
 
@@ -6565,7 +6383,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}', params={
 
 }, headers = headers)
 
@@ -6581,7 +6399,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}',
   params: {
   }, headers: headers
 
@@ -6605,7 +6423,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6623,7 +6441,7 @@ Deletes the TCP Domotz Eye
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/eye/tcp/{service_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -6651,7 +6469,7 @@ Deletes the TCP Domotz Eye
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/eye-statistics \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6665,7 +6483,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/eye-statistics',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics',
   method: 'get',
 
   headers: headers,
@@ -6685,7 +6503,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/eye-statistics',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics',
 {
   method: 'GET',
 
@@ -6706,7 +6524,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/eye-statistics', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics', params={
 
 }, headers = headers)
 
@@ -6723,7 +6541,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/eye-statistics',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics',
   params: {
   }, headers: headers
 
@@ -6748,7 +6566,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/eye-statistics", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6766,7 +6584,7 @@ Retrieves information about Domotz Eyes usage and limits
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/eye-statistics \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/eye-statistics \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6810,7 +6628,7 @@ Retrieves information about Domotz Eyes usage and limits
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot \
+curl -X GET http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot \
   -H 'Accept: image/*' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6824,7 +6642,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
   method: 'get',
 
   headers: headers,
@@ -6844,7 +6662,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
 {
   method: 'GET',
 
@@ -6865,7 +6683,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot', params={
 
 }, headers = headers)
 
@@ -6882,7 +6700,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot',
   params: {
   }, headers: headers
 
@@ -6907,7 +6725,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6925,7 +6743,7 @@ Take a snapshot of the camera. Internally, a device connection is established.Cu
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/device/{device_id}/multimedia/camera/snapshot \
   -H 'Accept: image/*' \
   -H 'X-Api-Key: API_KEY'
 
@@ -6959,7 +6777,7 @@ Take a snapshot of the camera. Internally, a device connection is established.Cu
 > Code samples
 
 ```shell
-curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/ownership/team/{team_id} \
+curl -X PUT http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -6971,7 +6789,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
   method: 'put',
 
   headers: headers,
@@ -6990,7 +6808,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
 {
   method: 'PUT',
 
@@ -7010,7 +6828,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/ownership/team/{team_id}', params={
+r = requests.put('http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id}', params={
 
 }, headers = headers)
 
@@ -7026,7 +6844,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
+result = RestClient.put 'http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id}',
   params: {
   }, headers: headers
 
@@ -7050,7 +6868,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/ownership/team/{team_id}", data)
+    req, err := http.NewRequest("PUT", "http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -7068,7 +6886,7 @@ Moves an agent under the control of a different team
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/ownership/team/{team_id} \
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/agent/{agent_id}/ownership/team/{team_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -7095,7 +6913,7 @@ Moves an agent under the control of a different team
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/area \
+curl -X GET http://172.17.0.1:9080/public-api/v1/area \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -7109,7 +6927,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/area',
+  url: 'http://172.17.0.1:9080/public-api/v1/area',
   method: 'get',
 
   headers: headers,
@@ -7129,7 +6947,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/area',
+fetch('http://172.17.0.1:9080/public-api/v1/area',
 {
   method: 'GET',
 
@@ -7150,7 +6968,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/area', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/area', params={
 
 }, headers = headers)
 
@@ -7167,7 +6985,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/area',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/area',
   params: {
   }, headers: headers
 
@@ -7192,7 +7010,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/area", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/area", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -7242,7 +7060,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/area/{area_id}/team \
+curl -X GET http://172.17.0.1:9080/public-api/v1/area/{area_id}/team \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -7256,7 +7074,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/area/{area_id}/team',
+  url: 'http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
   method: 'get',
 
   headers: headers,
@@ -7276,7 +7094,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/area/{area_id}/team',
+fetch('http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
 {
   method: 'GET',
 
@@ -7297,7 +7115,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/area/{area_id}/team', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/area/{area_id}/team', params={
 
 }, headers = headers)
 
@@ -7314,7 +7132,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/area/{area_id}/team',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
   params: {
   }, headers: headers
 
@@ -7339,7 +7157,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/area/{area_id}/team", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/area/{area_id}/team", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -7357,7 +7175,7 @@ Returns all the teams of an Area
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/area/{area_id}/team \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/area/{area_id}/team \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -7407,7 +7225,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/area/{area_id}/team \
+curl -X POST http://172.17.0.1:9080/public-api/v1/area/{area_id}/team \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -7421,7 +7239,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/area/{area_id}/team',
+  url: 'http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
   method: 'post',
 
   headers: headers,
@@ -7450,7 +7268,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/area/{area_id}/team',
+fetch('http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
 {
   method: 'POST',
   body: inputBody,
@@ -7471,7 +7289,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/area/{area_id}/team', params={
+r = requests.post('http://172.17.0.1:9080/public-api/v1/area/{area_id}/team', params={
 
 }, headers = headers)
 
@@ -7488,7 +7306,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/area/{area_id}/team',
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/area/{area_id}/team',
   params: {
   }, headers: headers
 
@@ -7513,7 +7331,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/area/{area_id}/team", data)
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/area/{area_id}/team", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -7546,7 +7364,7 @@ Creates a new Team
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/area/{area_id}/team \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/area/{area_id}/team \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -7576,7 +7394,7 @@ Creates a new Team
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id} \
+curl -X GET http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -7590,7 +7408,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}',
   method: 'get',
 
   headers: headers,
@@ -7610,7 +7428,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}',
 {
   method: 'GET',
 
@@ -7631,7 +7449,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}', params={
 
 }, headers = headers)
 
@@ -7648,7 +7466,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}',
   params: {
   }, headers: headers
 
@@ -7673,7 +7491,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -7691,7 +7509,7 @@ Get the alert profile bindings of an agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id} \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id} \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -7739,7 +7557,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}/device \
+curl -X GET http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -7753,7 +7571,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
+  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
   method: 'get',
 
   headers: headers,
@@ -7773,7 +7591,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
+fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
 {
   method: 'GET',
 
@@ -7794,7 +7612,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}/device', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device', params={
 
 }, headers = headers)
 
@@ -7811,7 +7629,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device',
   params: {
   }, headers: headers
 
@@ -7836,7 +7654,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}/device", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -7854,7 +7672,7 @@ Get the alert profile bindings of the devices of an agent
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/alert-profile/binding/agent/{agent_id}/device \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/binding/agent/{agent_id}/device \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -7904,7 +7722,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -7916,7 +7734,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
   method: 'delete',
 
   headers: headers,
@@ -7935,7 +7753,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
 {
   method: 'DELETE',
 
@@ -7955,7 +7773,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}', params={
 
 }, headers = headers)
 
@@ -7971,7 +7789,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
   params: {
   }, headers: headers
 
@@ -7995,7 +7813,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -8013,7 +7831,7 @@ Unbind an alert profile from an agent.
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -8040,7 +7858,7 @@ Unbind an alert profile from an agent.
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
+curl -X POST http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -8052,7 +7870,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
   method: 'post',
 
   headers: headers,
@@ -8071,7 +7889,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
 {
   method: 'POST',
 
@@ -8091,7 +7909,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}', params={
+r = requests.post('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}', params={
 
 }, headers = headers)
 
@@ -8107,7 +7925,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}',
   params: {
   }, headers: headers
 
@@ -8131,7 +7949,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}", data)
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -8149,7 +7967,7 @@ Bind an alert profile to an agent. After binding, a webhook will be sent to the 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -8224,7 +8042,7 @@ Bind an alert profile to an agent. After binding, a webhook will be sent to the 
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
+curl -X DELETE http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -8236,7 +8054,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
   method: 'delete',
 
   headers: headers,
@@ -8255,7 +8073,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
 {
   method: 'DELETE',
 
@@ -8275,7 +8093,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}', params={
+r = requests.delete('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}', params={
 
 }, headers = headers)
 
@@ -8291,7 +8109,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+result = RestClient.delete 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
   params: {
   }, headers: headers
 
@@ -8315,7 +8133,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}", data)
+    req, err := http.NewRequest("DELETE", "http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -8333,7 +8151,7 @@ Unbind an alert profile from a device
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -8361,7 +8179,7 @@ Unbind an alert profile from a device
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
+curl -X POST http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -8373,7 +8191,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+  url: 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
   method: 'post',
 
   headers: headers,
@@ -8392,7 +8210,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+fetch('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
 {
   method: 'POST',
 
@@ -8412,7 +8230,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}', params={
+r = requests.post('http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}', params={
 
 }, headers = headers)
 
@@ -8428,7 +8246,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
+result = RestClient.post 'http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}',
   params: {
   }, headers: headers
 
@@ -8452,7 +8270,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}", data)
+    req, err := http.NewRequest("POST", "http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -8470,7 +8288,7 @@ Bind an alert profile to a device. After binding, a webhook will be sent to the 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/alert-profile/{alert_profile_id}/binding/agent/{agent_id}/device/{device_id} \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -8574,7 +8392,7 @@ Bind an alert profile to a device. After binding, a webhook will be sent to the 
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/user/{user_id}/alert-profile \
+curl -X GET http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -8588,7 +8406,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/user/{user_id}/alert-profile',
+  url: 'http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile',
   method: 'get',
 
   headers: headers,
@@ -8608,7 +8426,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/user/{user_id}/alert-profile',
+fetch('http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile',
 {
   method: 'GET',
 
@@ -8629,7 +8447,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/user/{user_id}/alert-profile', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile', params={
 
 }, headers = headers)
 
@@ -8646,7 +8464,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/user/{user_id}/alert-profile',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile',
   params: {
   }, headers: headers
 
@@ -8671,7 +8489,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/user/{user_id}/alert-profile", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -8689,7 +8507,7 @@ Returns the list of configured alert profiles. You can configure alert profiles 
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/user/{user_id}/alert-profile \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">http://172.17.0.1:9080/public-api/v1/user/{user_id}/alert-profile \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -8751,7 +8569,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/meta/usage \
+curl -X GET http://172.17.0.1:9080/public-api/v1/meta/usage \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -8765,7 +8583,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/meta/usage',
+  url: 'http://172.17.0.1:9080/public-api/v1/meta/usage',
   method: 'get',
 
   headers: headers,
@@ -8785,7 +8603,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/meta/usage',
+fetch('http://172.17.0.1:9080/public-api/v1/meta/usage',
 {
   method: 'GET',
 
@@ -8806,7 +8624,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/meta/usage', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/meta/usage', params={
 
 }, headers = headers)
 
@@ -8823,7 +8641,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/meta/usage',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/meta/usage',
   params: {
   }, headers: headers
 
@@ -8848,7 +8666,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/meta/usage", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/meta/usage", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -8908,7 +8726,7 @@ Retrieves information about API usage and limits
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/type/device/base \
+curl -X GET http://172.17.0.1:9080/public-api/v1/type/device/base \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -8922,7 +8740,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/type/device/base',
+  url: 'http://172.17.0.1:9080/public-api/v1/type/device/base',
   method: 'get',
 
   headers: headers,
@@ -8942,7 +8760,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/type/device/base',
+fetch('http://172.17.0.1:9080/public-api/v1/type/device/base',
 {
   method: 'GET',
 
@@ -8963,7 +8781,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/type/device/base', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/type/device/base', params={
 
 }, headers = headers)
 
@@ -8980,7 +8798,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/type/device/base',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/type/device/base',
   params: {
   }, headers: headers
 
@@ -9005,7 +8823,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/type/device/base", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/type/device/base", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -9059,7 +8877,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/type/device/detected \
+curl -X GET http://172.17.0.1:9080/public-api/v1/type/device/detected \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -9073,7 +8891,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/type/device/detected',
+  url: 'http://172.17.0.1:9080/public-api/v1/type/device/detected',
   method: 'get',
 
   headers: headers,
@@ -9093,7 +8911,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/type/device/detected',
+fetch('http://172.17.0.1:9080/public-api/v1/type/device/detected',
 {
   method: 'GET',
 
@@ -9114,7 +8932,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/type/device/detected', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/type/device/detected', params={
 
 }, headers = headers)
 
@@ -9131,7 +8949,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/type/device/detected',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/type/device/detected',
   params: {
   }, headers: headers
 
@@ -9156,7 +8974,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/type/device/detected", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/type/device/detected", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -9216,7 +9034,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/user \
+curl -X GET http://172.17.0.1:9080/public-api/v1/user \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -9230,7 +9048,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/user',
+  url: 'http://172.17.0.1:9080/public-api/v1/user',
   method: 'get',
 
   headers: headers,
@@ -9250,7 +9068,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/user',
+fetch('http://172.17.0.1:9080/public-api/v1/user',
 {
   method: 'GET',
 
@@ -9271,7 +9089,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/user', params={
+r = requests.get('http://172.17.0.1:9080/public-api/v1/user', params={
 
 }, headers = headers)
 
@@ -9288,7 +9106,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/user',
+result = RestClient.get 'http://172.17.0.1:9080/public-api/v1/user',
   params: {
   }, headers: headers
 
@@ -9313,7 +9131,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/user", data)
+    req, err := http.NewRequest("GET", "http://172.17.0.1:9080/public-api/v1/user", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -10971,7 +10789,9 @@ Returns the User information
 ```json
 {
   "category": "OTHER",
-  "description": "string",
+  "id": 0,
+  "last_update": "2019-08-24T14:15:22Z",
+  "latest_value": "string",
   "name": "string",
   "oid": "string",
   "value_type": "STRING"
@@ -10986,7 +10806,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |category|string|true|The category of the OID|
-|description|string|true|The description of the OID string|
+|id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
+|last_update|string(date-time)|true|The timestamp of the latest update|
+|latest_value|string|true|The value retrieved on the OID|
 |name|string|true|The name of the Domotz Eyes|
 |oid|string|true|The OID string|
 |value_type|string|true|The type of the OID|
