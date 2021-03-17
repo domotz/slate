@@ -4365,7 +4365,7 @@ Status Code **200**
 |» timestamp|string(date-time)|false|The time the sample was reported to Domotz|
 |» values|[integer]|false|A pair of values: the download and upload speed, in Bit Per Seconds (bps), as measured by the Agent|
 
-<h1 id="domotz-public-api-eyes">eyes</h1>
+<h1 id="domotz-public-api-snmp-tcp-sensors">SNMP/TCP SENSORS</h1>
 
 ## listEyesSNMP
 
@@ -4483,7 +4483,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp`</span>
 
-Retrieves the list of configured SNMP Domotz Eyes
+Retrieves the list of configured SNMP Domotz Sensors
 
 <h3>Curl</h3>
 
@@ -4526,7 +4526,7 @@ Retrieves the list of configured SNMP Domotz Eyes
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured SNMP Domotz Eyes for the device and their latest values|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured SNMP Domotz Sensors for the device and their latest values|Inline|
 
 <h3 id="listeyessnmp-responseschema">Response Schema</h3>
 
@@ -4534,12 +4534,12 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|[[SNMPDomotzEye](#schemasnmpdomotzeye)]|false|[Information about a configured SNMP Domotz Eye]|
+|*anonymous*|[[SNMPDomotzEye](#schemasnmpdomotzeye)]|false|[Information about a configured SNMP Domotz Sensor]|
 |» category|string|true|The category of the OID|
-|» id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
+|» id|integer(int32)|true|The unique identifier of the SNMP Domotz Sensor|
 |» last_update|string(date-time)|true|The timestamp of the latest update|
 |» latest_value|string|true|The value retrieved on the OID|
-|» name|string|true|The name of the Domotz Eyes|
+|» name|string|true|The name of the Domotz Sensors|
 |» oid|string|true|The OID string|
 |» value_type|string|true|The type of the OID|
 
@@ -4678,7 +4678,7 @@ func main() {
 
 <span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/eye/snmp`</span>
 
-Creates a new SNMP Domotz Eyes
+Creates a new SNMP Domotz Sensors
 
 > Body parameter
 
@@ -4827,7 +4827,7 @@ func main() {
 
 <span class='dmt-method'>`DELETE /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}`</span>
 
-Deletes the SNMP Domotz Eye
+Deletes the SNMP Domotz Sensor
 
 <h3>Curl</h3>
 
@@ -4846,7 +4846,7 @@ Deletes the SNMP Domotz Eye
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|sensor_id|path|integer(int32)|true|SNMP Sensor ID|
 
 <h3 id="deleteeyesnmp-responses">Responses</h3>
 
@@ -4970,7 +4970,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function`</span>
 
-Retrieves the list of functions for the SNMP trigger Domotz Eyes
+Retrieves the list of functions for the SNMP trigger Domotz Sensors
 
 <h3>Curl</h3>
 
@@ -4990,7 +4990,7 @@ Retrieves the list of functions for the SNMP trigger Domotz Eyes
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|sensor_id|path|integer(int32)|true|SNMP Sensor ID|
 
 > Example responses
 
@@ -5148,7 +5148,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history`</span>
 
-Returns the time series of the SNMP Domotz Eyes collected samples
+Returns the time series of the SNMP Domotz Sensors collected samples
 
 <h3>Curl</h3>
 
@@ -5168,7 +5168,7 @@ Returns the time series of the SNMP Domotz Eyes collected samples
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|sensor_id|path|integer(int32)|true|SNMP Sensor ID|
 |from|query|string(date-time)|false|The start time of the time series. Default value is one week|
 |to|query|string(date-time)|false|The end time of the time series. Default value is now|
 
@@ -5189,7 +5189,7 @@ Returns the time series of the SNMP Domotz Eyes collected samples
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of SNMP Domotz Eyes samples|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of SNMP Domotz Sensors samples|Inline|
 
 <h3 id="geteyessnmphistory-responseschema">Response Schema</h3>
 
@@ -5337,7 +5337,7 @@ Retrieves the list of triggers for the SNMP Sensor
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|sensor_id|path|integer(int32)|true|SNMP Sensor ID|
 
 > Example responses
 
@@ -5541,7 +5541,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|sensor_id|path|integer(int32)|true|SNMP Eye ID|
+|sensor_id|path|integer(int32)|true|SNMP Sensor ID|
 |body|body|[SNMPDomotzSnmpTriggerCreation](#schemasnmpdomotzsnmptriggercreation)|true|none|
 
 <h3 id="createeyesnmptrigger-responses">Responses</h3>
@@ -5679,8 +5679,8 @@ Deletes the SNMP Trigger for the sensor
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|sensor_id|path|integer(int32)|true|SNMP Eye ID|
-|trigger_id|path|integer(int32)|true|SNMP Eye Trigger ID|
+|sensor_id|path|integer(int32)|true|SNMP Sensor ID|
+|trigger_id|path|integer(int32)|true|SNMP Sensor Trigger ID|
 
 <h3 id="deleteeyesnmptrigger-responses">Responses</h3>
 
@@ -5817,8 +5817,8 @@ Deletes the alert for thee SNMP Trigger
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|sensor_id|path|integer(int32)|true|SNMP Eye ID|
-|trigger_id|path|integer(int32)|true|SNMP Eye Trigger ID|
+|sensor_id|path|integer(int32)|true|SNMP Sensor ID|
+|trigger_id|path|integer(int32)|true|SNMP Sensor Trigger ID|
 |medium_name|path|string|true|the name of the medium|
 
 #### Enumerated Values
@@ -5976,8 +5976,8 @@ Add an alert to a SNMP Trigger
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|sensor_id|path|integer(int32)|true|SNMP Eye ID|
-|trigger_id|path|integer(int32)|true|SNMP Eye Trigger ID|
+|sensor_id|path|integer(int32)|true|SNMP Sensor ID|
+|trigger_id|path|integer(int32)|true|SNMP Sensor Trigger ID|
 |medium_name|path|string|true|the name of the medium|
 |body|body|[SNMPDomotzSnmpTriggerAlertCreation](#schemasnmpdomotzsnmptriggeralertcreation)|true|none|
 
@@ -6110,7 +6110,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/eye/tcp`</span>
 
-Retrieves the list of configured TCP Domotz Eyes
+Retrieves the list of configured TCP Domotz Sensors
 
 <h3>Curl</h3>
 
@@ -6150,7 +6150,7 @@ Retrieves the list of configured TCP Domotz Eyes
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured TCP Domotz Eyes for the device and their latest values|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured TCP Domotz Sensors for the device and their latest values|Inline|
 
 <h3 id="listeyestcp-responseschema">Response Schema</h3>
 
@@ -6158,8 +6158,8 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|[[TCPDomotzEye](#schematcpdomotzeye)]|false|[Information about a configured TCP Domotz Eye]|
-|» id|integer(int32)|true|The unique identifier of the TCP Domotz Eye|
+|*anonymous*|[[TCPDomotzEye](#schematcpdomotzeye)]|false|[Information about a configured TCP Domotz Sensor]|
+|» id|integer(int32)|true|The unique identifier of the TCP Domotz Sensor|
 |» last_update|string(date-time)|true|The timestamp of the latest update|
 |» port|integer(int32)|true|The port number|
 |» status|string|true|The status of the TCP service|
@@ -6289,7 +6289,7 @@ func main() {
 
 <span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/eye/tcp`</span>
 
-Creates a new TCP Domotz Eyes
+Creates a new TCP Domotz Sensors
 
 > Body parameter
 
@@ -6435,7 +6435,7 @@ func main() {
 
 <span class='dmt-method'>`DELETE /agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}`</span>
 
-Deletes the TCP Domotz Eye
+Deletes the TCP Domotz Sensor
 
 <h3>Curl</h3>
 
@@ -6454,7 +6454,7 @@ Deletes the TCP Domotz Eye
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|service_id|path|integer(int32)|true|TCP Eye ID|
+|service_id|path|integer(int32)|true|TCP Sensor ID|
 
 <h3 id="deleteeyetcp-responses">Responses</h3>
 
@@ -6578,7 +6578,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/eye-statistics`</span>
 
-Retrieves information about Domotz Eyes usage and limits
+Retrieves information about Domotz Sensors usage and limits
 
 <h3>Curl</h3>
 
@@ -6617,7 +6617,7 @@ Retrieves information about Domotz Eyes usage and limits
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A data structure containing information about current Domotz Eyes usage and limits|[DomotzEyesUsageInformation](#schemadomotzeyesusageinformation)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A data structure containing information about current Domotz Sensors usage and limits|[DomotzEyesUsageInformation](#schemadomotzeyesusageinformation)|
 
 <h1 id="domotz-public-api-multimedia">multimedia</h1>
 
@@ -9661,7 +9661,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
+|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.|
 |routing_policy|string|true|The traffic routing policy for the VPN connection:  </br>- *global*: All the traffic is routed through the VPN On Demand. More consumption on the Domotz Cloud </br>- *local*: Only LAN traffic passes through the VPN On Demand. Less consumption on the Domotz Cloud|
 
 #### Enumerated Values
@@ -9796,7 +9796,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
+|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.|
 |expiration|string(date-time)|false|The time after which the connection will be closed|
 |id|integer(int32)|true|The unique identifier of the `connection`|
 |link|string|false|Either the link to access the device's HTTP(s) interface in the browser or the host/port coordinates of the proxied TCP port, depending on the protocol (see protocol description in the request)|
@@ -9952,7 +9952,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For `http` and `https` it is safe, since if you keep the connection link secret nobody will access the device. For `tcp` it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device's tcp port as if it was in the agent's network.|
+|allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.|
 |port|integer(int32)|true|none|
 |protocol|string|true|The protocol wrapped by the connection:  </br>- *http/https*: the `link` field in the reply will contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is `https` the device's certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- *tcp*: the `link` field will be in the form `tcp://{host}:{port}`. Any connection established (e.g. with `telnet`  or `ssh`) on these coordinates will be securely forwarded to the requested `port` of the device.  </br>- *ssh*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- *rdp*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.|
 
@@ -10442,17 +10442,17 @@ Returns the User information
 
 ```
 
-*Information about Domotz Eyes current usage and limits*
+*Information about Domotz Sensors current usage and limits*
 
 ### Properties
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|limit|integer(int32)|false|Number of allowed Domotz Eyes for the agent|
+|limit|integer(int32)|false|Number of allowed Domotz Sensors for the agent|
 |usage|object|false|none|
-|» snmp|integer(int32)|false|Number of configured Domotz Eyes of type `snmp` on the agent.|
-|» tcp|integer(int32)|false|Number of configured Domotz Eyes of type `tcp` on the agent.|
-|» total|integer(int32)|false|Number of configured Domotz Eyes on the agent.|
+|» snmp|integer(int32)|false|Number of configured Domotz Sensors of type `snmp` on the agent.|
+|» tcp|integer(int32)|false|Number of configured Domotz Sensors of type `tcp` on the agent.|
+|» total|integer(int32)|false|Number of configured Domotz Sensors on the agent.|
 
 <h2 id="tocSdummydevice">DummyDevice</h2>
 
@@ -10799,17 +10799,17 @@ Returns the User information
 
 ```
 
-*Information about a configured SNMP Domotz Eye*
+*Information about a configured SNMP Domotz Sensor*
 
 ### Properties
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |category|string|true|The category of the OID|
-|id|integer(int32)|true|The unique identifier of the SNMP Domotz Eye|
+|id|integer(int32)|true|The unique identifier of the SNMP Domotz Sensor|
 |last_update|string(date-time)|true|The timestamp of the latest update|
 |latest_value|string|true|The value retrieved on the OID|
-|name|string|true|The name of the Domotz Eyes|
+|name|string|true|The name of the Domotz Sensors|
 |oid|string|true|The OID string|
 |value_type|string|true|The type of the OID|
 
@@ -10841,14 +10841,14 @@ Returns the User information
 
 ```
 
-*SNMP Domotz Eye Data*
+*SNMP Domotz Sensor Data*
 
 ### Properties
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |category|string|true|The category of the OID|
-|name|string|true|The name of the Domotz Eyes|
+|name|string|true|The name of the Domotz Sensors|
 |oid|string|true|The OID string|
 |value_type|string|true|The type of the OID|
 
@@ -11057,13 +11057,13 @@ Returns the User information
 
 ```
 
-*Information about a configured TCP Domotz Eye*
+*Information about a configured TCP Domotz Sensor*
 
 ### Properties
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|id|integer(int32)|true|The unique identifier of the TCP Domotz Eye|
+|id|integer(int32)|true|The unique identifier of the TCP Domotz Sensor|
 |last_update|string(date-time)|true|The timestamp of the latest update|
 |port|integer(int32)|true|The port number|
 |status|string|true|The status of the TCP service|
@@ -11086,7 +11086,7 @@ Returns the User information
 
 ```
 
-*TCP Domotz Eye Data*
+*TCP Domotz Sensor Data*
 
 ### Properties
 

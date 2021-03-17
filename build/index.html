@@ -336,7 +336,7 @@
               </ul>
           </li>
           <li>
-            <a href="#domotz-public-api-eyes" class="toc-h1 toc-link" data-title="eyes">eyes</a>
+            <a href="#domotz-public-api-snmp-tcp-sensors" class="toc-h1 toc-link" data-title="SNMP/TCP SENSORS">SNMP/TCP SENSORS</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#listeyessnmp" class="toc-h2 toc-link" data-title="listEyesSNMP">listEyesSNMP</a>
@@ -5969,7 +5969,7 @@ download and in upload.</p>
 </tr>
 </tbody></table>
 
-<h1 id="domotz-public-api-eyes">eyes</h1>
+<h1 id="domotz-public-api-snmp-tcp-sensors">SNMP/TCP SENSORS</h1>
 <h2 id='listeyessnmp'>listEyesSNMP</h2>
 <p><a id="opIdlistEyesSNMP"></a></p>
 
@@ -6069,7 +6069,7 @@ download and in upload.</p>
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/device/{device_id}/eye/snmp</code></span></p>
 
-<p>Retrieves the list of configured SNMP Domotz Eyes</p>
+<p>Retrieves the list of configured SNMP Domotz Sensors</p>
 
 <h3>Curl</h3>
 
@@ -6140,7 +6140,7 @@ download and in upload.</p>
 <tr>
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>The list of configured SNMP Domotz Eyes for the device and their latest values</td>
+<td>The list of configured SNMP Domotz Sensors for the device and their latest values</td>
 <td>Inline</td>
 </tr>
 </tbody></table>
@@ -6161,7 +6161,7 @@ download and in upload.</p>
 <td><em>anonymous</em></td>
 <td>[<a href="#schemasnmpdomotzeye">SNMPDomotzEye</a>]</td>
 <td>false</td>
-<td>[Information about a configured SNMP Domotz Eye]</td>
+<td>[Information about a configured SNMP Domotz Sensor]</td>
 </tr>
 <tr>
 <td>» category</td>
@@ -6173,7 +6173,7 @@ download and in upload.</p>
 <td>» id</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>The unique identifier of the SNMP Domotz Eye</td>
+<td>The unique identifier of the SNMP Domotz Sensor</td>
 </tr>
 <tr>
 <td>» last_update</td>
@@ -6191,7 +6191,7 @@ download and in upload.</p>
 <td>» name</td>
 <td>string</td>
 <td>true</td>
-<td>The name of the Domotz Eyes</td>
+<td>The name of the Domotz Sensors</td>
 </tr>
 <tr>
 <td>» oid</td>
@@ -6354,7 +6354,7 @@ download and in upload.</p>
 </span></code></pre>
 <p><span class='dmt-method'><code>POST /agent/{agent_id}/device/{device_id}/eye/snmp</code></span></p>
 
-<p>Creates a new SNMP Domotz Eyes</p>
+<p>Creates a new SNMP Domotz Sensors</p>
 
 <blockquote>
 <p>Body parameter</p>
@@ -6522,7 +6522,7 @@ download and in upload.</p>
 </span></code></pre>
 <p><span class='dmt-method'><code>DELETE /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}</code></span></p>
 
-<p>Deletes the SNMP Domotz Eye</p>
+<p>Deletes the SNMP Domotz Sensor</p>
 
 <h3>Curl</h3>
 
@@ -6565,7 +6565,7 @@ download and in upload.</p>
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye ID</td>
+<td>SNMP Sensor ID</td>
 </tr>
 </tbody></table>
 
@@ -6685,7 +6685,7 @@ download and in upload.</p>
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/function</code></span></p>
 
-<p>Retrieves the list of functions for the SNMP trigger Domotz Eyes</p>
+<p>Retrieves the list of functions for the SNMP trigger Domotz Sensors</p>
 
 <h3>Curl</h3>
 
@@ -6729,7 +6729,7 @@ download and in upload.</p>
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye ID</td>
+<td>SNMP Sensor ID</td>
 </tr>
 </tbody></table>
 
@@ -6923,7 +6923,7 @@ download and in upload.</p>
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/device/{device_id}/eye/snmp/{sensor_id}/history</code></span></p>
 
-<p>Returns the time series of the SNMP Domotz Eyes collected samples</p>
+<p>Returns the time series of the SNMP Domotz Sensors collected samples</p>
 
 <h3>Curl</h3>
 
@@ -6967,7 +6967,7 @@ download and in upload.</p>
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye ID</td>
+<td>SNMP Sensor ID</td>
 </tr>
 <tr>
 <td>from</td>
@@ -7010,7 +7010,7 @@ download and in upload.</p>
 <tr>
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>The list of SNMP Domotz Eyes samples</td>
+<td>The list of SNMP Domotz Sensors samples</td>
 <td>Inline</td>
 </tr>
 </tbody></table>
@@ -7189,7 +7189,7 @@ download and in upload.</p>
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye ID</td>
+<td>SNMP Sensor ID</td>
 </tr>
 </tbody></table>
 
@@ -7463,7 +7463,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye ID</td>
+<td>SNMP Sensor ID</td>
 </tr>
 <tr>
 <td>body</td>
@@ -7627,14 +7627,14 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye ID</td>
+<td>SNMP Sensor ID</td>
 </tr>
 <tr>
 <td>trigger_id</td>
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye Trigger ID</td>
+<td>SNMP Sensor Trigger ID</td>
 </tr>
 </tbody></table>
 
@@ -7791,14 +7791,14 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye ID</td>
+<td>SNMP Sensor ID</td>
 </tr>
 <tr>
 <td>trigger_id</td>
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye Trigger ID</td>
+<td>SNMP Sensor Trigger ID</td>
 </tr>
 <tr>
 <td>medium_name</td>
@@ -7990,14 +7990,14 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye ID</td>
+<td>SNMP Sensor ID</td>
 </tr>
 <tr>
 <td>trigger_id</td>
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>SNMP Eye Trigger ID</td>
+<td>SNMP Sensor Trigger ID</td>
 </tr>
 <tr>
 <td>medium_name</td>
@@ -8147,7 +8147,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/device/{device_id}/eye/tcp</code></span></p>
 
-<p>Retrieves the list of configured TCP Domotz Eyes</p>
+<p>Retrieves the list of configured TCP Domotz Sensors</p>
 
 <h3>Curl</h3>
 
@@ -8215,7 +8215,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <tr>
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>The list of configured TCP Domotz Eyes for the device and their latest values</td>
+<td>The list of configured TCP Domotz Sensors for the device and their latest values</td>
 <td>Inline</td>
 </tr>
 </tbody></table>
@@ -8236,13 +8236,13 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td><em>anonymous</em></td>
 <td>[<a href="#schematcpdomotzeye">TCPDomotzEye</a>]</td>
 <td>false</td>
-<td>[Information about a configured TCP Domotz Eye]</td>
+<td>[Information about a configured TCP Domotz Sensor]</td>
 </tr>
 <tr>
 <td>» id</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>The unique identifier of the TCP Domotz Eye</td>
+<td>The unique identifier of the TCP Domotz Sensor</td>
 </tr>
 <tr>
 <td>» last_update</td>
@@ -8380,7 +8380,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span></code></pre>
 <p><span class='dmt-method'><code>POST /agent/{agent_id}/device/{device_id}/eye/tcp</code></span></p>
 
-<p>Creates a new TCP Domotz Eyes</p>
+<p>Creates a new TCP Domotz Sensors</p>
 
 <blockquote>
 <p>Body parameter</p>
@@ -8545,7 +8545,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span></code></pre>
 <p><span class='dmt-method'><code>DELETE /agent/{agent_id}/device/{device_id}/eye/tcp/{service_id}</code></span></p>
 
-<p>Deletes the TCP Domotz Eye</p>
+<p>Deletes the TCP Domotz Sensor</p>
 
 <h3>Curl</h3>
 
@@ -8588,7 +8588,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>TCP Eye ID</td>
+<td>TCP Sensor ID</td>
 </tr>
 </tbody></table>
 
@@ -8708,7 +8708,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/eye-statistics</code></span></p>
 
-<p>Retrieves information about Domotz Eyes usage and limits</p>
+<p>Retrieves information about Domotz Sensors usage and limits</p>
 
 <h3>Curl</h3>
 
@@ -8769,7 +8769,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <tr>
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>A data structure containing information about current Domotz Eyes usage and limits</td>
+<td>A data structure containing information about current Domotz Sensors usage and limits</td>
 <td><a href="#schemadomotzeyesusageinformation">DomotzEyesUsageInformation</a></td>
 </tr>
 </tbody></table>
@@ -12762,7 +12762,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>allowed_ip</td>
 <td>string</td>
 <td>true</td>
-<td>The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For <code>http</code> and <code>https</code> it is safe, since if you keep the connection link secret nobody will access the device. For <code>tcp</code> it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device&#39;s tcp port as if it was in the agent&#39;s network.</td>
+<td>The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.</td>
 </tr>
 <tr>
 <td>routing_policy</td>
@@ -12993,7 +12993,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>allowed_ip</td>
 <td>string</td>
 <td>true</td>
-<td>The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For <code>http</code> and <code>https</code> it is safe, since if you keep the connection link secret nobody will access the device. For <code>tcp</code> it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device&#39;s tcp port as if it was in the agent&#39;s network.</td>
+<td>The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.</td>
 </tr>
 <tr>
 <td>expiration</td>
@@ -13314,7 +13314,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>allowed_ip</td>
 <td>string</td>
 <td>true</td>
-<td>The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.   For <code>http</code> and <code>https</code> it is safe, since if you keep the connection link secret nobody will access the device. For <code>tcp</code> it is not recommended because a random port scan on our servers may allow an hostile actor to use the connection, accessing the device&#39;s tcp port as if it was in the agent&#39;s network.</td>
+<td>The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.</td>
 </tr>
 <tr>
 <td>port</td>
@@ -14329,7 +14329,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><em>Information about Domotz Eyes current usage and limits</em></p>
+<p><em>Information about Domotz Sensors current usage and limits</em></p>
 <h3 id='properties-36'>Properties</h3>
 <table><thead>
 <tr>
@@ -14343,7 +14343,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>limit</td>
 <td>integer(int32)</td>
 <td>false</td>
-<td>Number of allowed Domotz Eyes for the agent</td>
+<td>Number of allowed Domotz Sensors for the agent</td>
 </tr>
 <tr>
 <td>usage</td>
@@ -14355,19 +14355,19 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>» snmp</td>
 <td>integer(int32)</td>
 <td>false</td>
-<td>Number of configured Domotz Eyes of type <code>snmp</code> on the agent.</td>
+<td>Number of configured Domotz Sensors of type <code>snmp</code> on the agent.</td>
 </tr>
 <tr>
 <td>» tcp</td>
 <td>integer(int32)</td>
 <td>false</td>
-<td>Number of configured Domotz Eyes of type <code>tcp</code> on the agent.</td>
+<td>Number of configured Domotz Sensors of type <code>tcp</code> on the agent.</td>
 </tr>
 <tr>
 <td>» total</td>
 <td>integer(int32)</td>
 <td>false</td>
-<td>Number of configured Domotz Eyes on the agent.</td>
+<td>Number of configured Domotz Sensors on the agent.</td>
 </tr>
 </tbody></table>
 
@@ -14983,7 +14983,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><em>Information about a configured SNMP Domotz Eye</em></p>
+<p><em>Information about a configured SNMP Domotz Sensor</em></p>
 <h3 id='properties-43'>Properties</h3>
 <table><thead>
 <tr>
@@ -15003,7 +15003,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>id</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>The unique identifier of the SNMP Domotz Eye</td>
+<td>The unique identifier of the SNMP Domotz Sensor</td>
 </tr>
 <tr>
 <td>last_update</td>
@@ -15021,7 +15021,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>name</td>
 <td>string</td>
 <td>true</td>
-<td>The name of the Domotz Eyes</td>
+<td>The name of the Domotz Sensors</td>
 </tr>
 <tr>
 <td>oid</td>
@@ -15092,7 +15092,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><em>SNMP Domotz Eye Data</em></p>
+<p><em>SNMP Domotz Sensor Data</em></p>
 <h3 id='properties-44'>Properties</h3>
 <table><thead>
 <tr>
@@ -15112,7 +15112,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>name</td>
 <td>string</td>
 <td>true</td>
-<td>The name of the Domotz Eyes</td>
+<td>The name of the Domotz Sensors</td>
 </tr>
 <tr>
 <td>oid</td>
@@ -15494,7 +15494,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><em>Information about a configured TCP Domotz Eye</em></p>
+<p><em>Information about a configured TCP Domotz Sensor</em></p>
 <h3 id='properties-50'>Properties</h3>
 <table><thead>
 <tr>
@@ -15508,7 +15508,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>id</td>
 <td>integer(int32)</td>
 <td>true</td>
-<td>The unique identifier of the TCP Domotz Eye</td>
+<td>The unique identifier of the TCP Domotz Sensor</td>
 </tr>
 <tr>
 <td>last_update</td>
@@ -15554,7 +15554,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><em>TCP Domotz Eye Data</em></p>
+<p><em>TCP Domotz Sensor Data</em></p>
 <h3 id='properties-51'>Properties</h3>
 <table><thead>
 <tr>
