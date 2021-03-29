@@ -3650,8 +3650,8 @@ Status Code **200**
 |» category|string|true|The category of the OID|
 |» device_id|integer(int32)|false|The unique identifier of the device|
 |» id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
-|» last_update|string(date-time)|false|The timestamp of the latest update|
-|» latest_value|string|false|The value retrieved on the OID|
+|» last_update|string(date-time)|true|The timestamp of the latest update|
+|» latest_value|string|true|The value retrieved on the OID|
 |» name|string|true|The name of the Domotz Sensors|
 |» oid|string|true|The OID string|
 |» value_type|string|true|The type of the OID|
@@ -4020,8 +4020,8 @@ Status Code **200**
 |» category|string|true|The category of the OID|
 |» device_id|integer(int32)|false|The unique identifier of the device|
 |» id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
-|» last_update|string(date-time)|false|The timestamp of the latest update|
-|» latest_value|string|false|The value retrieved on the OID|
+|» last_update|string(date-time)|true|The timestamp of the latest update|
+|» latest_value|string|true|The value retrieved on the OID|
 |» name|string|true|The name of the Domotz Sensors|
 |» oid|string|true|The OID string|
 |» value_type|string|true|The type of the OID|
@@ -11365,8 +11365,8 @@ Returns the User information
 |category|string|true|The category of the OID|
 |device_id|integer(int32)|false|The unique identifier of the device|
 |id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
-|last_update|string(date-time)|false|The timestamp of the latest update|
-|latest_value|string|false|The value retrieved on the OID|
+|last_update|string(date-time)|true|The timestamp of the latest update|
+|latest_value|string|true|The value retrieved on the OID|
 |name|string|true|The name of the Domotz Sensors|
 |oid|string|true|The OID string|
 |value_type|string|true|The type of the OID|
