@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.0.2</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.0.3</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -3476,896 +3476,377 @@ Changes a field of the device or one of its details
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
-<h1 id="domotz-public-api-metrics">metrics</h1>
-
-## getAgentRTDStats
-
-<a id="opIdgetAgentRTDStats"></a>
-
-> Code samples
-
-```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/rtd \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/rtd',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/rtd',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/rtd', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/rtd',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/rtd", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`GET /agent/{agent_id}/device/rtd`</span>
-
-Returns the Round Trip Delay statistics for all devices monitored by the agent. The aggregate values of _avg_min_, _avg_max_, _avg_median_ help to understand the baseline response time of a device in a weekly time frame, while _latest_median_ helps detecting a possible deviation from the baseline
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/rtd \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="getagentrtdstats-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-
-> Example responses
-
-> 200 Response
-
-```json
-[
-  {
-    "avg_max": "string",
-    "avg_median": "string",
-    "avg_min": "string",
-    "device_id": 0,
-    "latest_lost_packet_count": 0,
-    "latest_median": "string",
-    "latest_sent_packet_count": 0,
-    "timestamp": "2019-08-24T14:15:22Z"
-  }
-]
-```
-
-<h3 id="getagentrtdstats-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Devices RTD Statistics|Inline|
-
-<h3 id="getagentrtdstats-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Description|
-|---|---|---|---|---|
-|*anonymous*|[[DeviceRTDStatistics](#schemadevicertdstatistics)]|false|none|
-|» avg_max|string|false|none|
-|» avg_median|string|false|none|
-|» avg_min|string|false|none|
-|» device_id|integer(int32)|true|none|
-|» latest_lost_packet_count|integer(int32)|false|The number of lost packets of the latest collection sample|
-|» latest_median|string|false|The median value of the latest collection sample|
-|» latest_sent_packet_count|integer(int32)|false|The number of sent packets of the latest collection sample|
-|» timestamp|string(date-time)|true|The timestamp of the latest update|
-
-## getDeviceStatusHistory
-
-<a id="opIdgetDeviceStatusHistory"></a>
-
-> Code samples
-
-```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/history/network/event`</span>
-
-Returns the time series of the state changes of the device
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="getdevicestatushistory-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|device_id|path|integer(int32)|true|Device ID|
-|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
-|to|query|string(date-time)|false|The end time of the time series. Default value is now|
-
-> Example responses
-
-> 200 Response
-
-```json
-[
-  {
-    "details": {
-      "new_ip": [
-        "string"
-      ],
-      "old_ip": [
-        "string"
-      ]
-    },
-    "timestamp": "2019-08-24T14:15:22Z",
-    "type": "IP_CHANGE"
-  }
-]
-```
-
-<h3 id="getdevicestatushistory-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A time series|Inline|
-
-<h3 id="getdevicestatushistory-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Description|
-|---|---|---|---|---|
-|*anonymous*|[[DeviceHistory](#schemadevicehistory)]|false|none|
-|» details|object|false|none|
-|»» new_ip|[string]|false|The new IP addresses|
-|»» old_ip|[string]|false|The old IP addresses|
-|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
-|» type|string|true|The device event type|
-
-#### Enumerated Values
-
-|Property|Value|
-|---|---|
-|type|IP_CHANGE|
-|type|CREATED|
-|type|UP|
-|type|DOWN|
-
-## getDeviceRTDHistory
-
-<a id="opIdgetDeviceRTDHistory"></a>
-
-> Code samples
-
-```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/history/rtd`</span>
-
-Returns the Round Trip Delay history for the device. Each item represents the statistical aggregate of a set of Round Trip Delay measurements
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="getdevicertdhistory-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|device_id|path|integer(int32)|true|Device ID|
-|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
-|to|query|string(date-time)|false|The end time of the time series. Default value is now|
-
-> Example responses
-
-> 200 Response
-
-```json
-[
-  {
-    "lost_packet_count": 0,
-    "max": "string",
-    "median": "string",
-    "min": "string",
-    "sent_packet_count": 0,
-    "timestamp": "2019-08-24T14:15:22Z"
-  }
-]
-```
-
-<h3 id="getdevicertdhistory-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Device RTD History|Inline|
-
-<h3 id="getdevicertdhistory-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Description|
-|---|---|---|---|---|
-|*anonymous*|[[DeviceRTDHistorySample](#schemadevicertdhistorysample)]|false|none|
-|» lost_packet_count|integer(int32)|false|none|
-|» max|string|false|none|
-|» median|string|false|none|
-|» min|string|false|none|
-|» sent_packet_count|integer(int32)|false|none|
-|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
-
-## getAgentStatusHistory
-
-<a id="opIdgetAgentStatusHistory"></a>
-
-> Code samples
-
-```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/history/network/event \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/history/network/event',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/history/network/event',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/history/network/event', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/history/network/event',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/history/network/event", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`GET /agent/{agent_id}/history/network/event`</span>
-
-Returns the time series of the state changes of the agent
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/history/network/event \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="getagentstatushistory-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
-|to|query|string(date-time)|false|The end time of the time series. Default value is now|
-
-> Example responses
-
-> 200 Response
-
-```json
-[
-  {
-    "timestamp": "2019-08-24T14:15:22Z",
-    "type": "CONNECTION_RECOVERED"
-  }
-]
-```
-
-<h3 id="getagentstatushistory-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A time series|Inline|
-
-<h3 id="getagentstatushistory-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Description|
-|---|---|---|---|---|
-|*anonymous*|[[AgentHistory](#schemaagenthistory)]|false|none|
-|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
-|» type|string|true|The agent event type|
-
-#### Enumerated Values
-
-|Property|Value|
-|---|---|
-|type|CONNECTION_RECOVERED|
-|type|CONNECTION_LOST|
-|type|UP|
-|type|DOWN|
-
-## getSpeedTestHistory
-
-<a id="opIdgetSpeedTestHistory"></a>
-
-> Code samples
-
-```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/history/network/speed \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`GET /agent/{agent_id}/history/network/speed`</span>
-
-Returns the time series of the Internet Speed measurements taken from the agent, both in 
-download and in upload.
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="getspeedtesthistory-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
-|to|query|string(date-time)|false|The end time of the time series. Default value is now|
-
-> Example responses
-
-> 200 Response
-
-```json
-[
-  {
-    "timestamp": "2019-08-24T14:15:22Z",
-    "values": [
-      0
-    ]
-  }
-]
-```
-
-<h3 id="getspeedtesthistory-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A time series|Inline|
-
-<h3 id="getspeedtesthistory-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Description|
-|---|---|---|---|---|
-|*anonymous*|[[NetworkSpeedSample](#schemanetworkspeedsample)]|false|[A Network Speed Sample is the result of the measurement of the Internet download and upload      speed, in bits per second, taken by the Agent]|
-|» timestamp|string(date-time)|false|The time the sample was reported to Domotz|
-|» values|[integer]|false|A pair of values: the download and upload speed, in Bit Per Seconds (bps), as measured by the Agent|
-
 <h1 id="domotz-public-api-snmp-tcp-sensors">SNMP/TCP SENSORS</h1>
+
+## listAgentEyesSNMP
+
+<a id="opIdlistAgentEyesSNMP"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/eye/snmp \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/eye/snmp',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/eye/snmp',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/eye/snmp', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/eye/snmp',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/eye/snmp", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/eye/snmp`</span>
+
+Retrieves the list of configured SNMP Domotz Sensors on the agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/eye/snmp \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listagenteyessnmp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "category": "OTHER",
+    "device_id": 0,
+    "id": 0,
+    "last_update": "2019-08-24T14:15:22Z",
+    "latest_value": "string",
+    "name": "string",
+    "oid": "string",
+    "value_type": "STRING"
+  }
+]
+```
+
+<h3 id="listagenteyessnmp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured SNMP Domotz Sensors on the agent|Inline|
+
+<h3 id="listagenteyessnmp-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[SNMPDomotzEye](#schemasnmpdomotzeye)]|false|[Information about a configured SNMP Domotz Sensor]|
+|» category|string|true|The category of the OID|
+|» device_id|integer(int32)|false|The unique identifier of the device|
+|» id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
+|» last_update|string(date-time)|true|The timestamp of the latest update|
+|» latest_value|string|true|The value retrieved on the OID|
+|» name|string|true|The name of the Domotz Sensors|
+|» oid|string|true|The OID string|
+|» value_type|string|true|The type of the OID|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|category|OTHER|
+|category|CONSUMABLE|
+|category|CPU|
+|category|DISK_SPACE|
+|category|MEMORY|
+|category|NETWORK_TRAFFIC|
+|category|TEMPERATURE|
+|value_type|STRING|
+|value_type|NUMERIC|
+
+## listAgentEyesTCP
+
+<a id="opIdlistAgentEyesTCP"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/eye/tcp \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/eye/tcp',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/eye/tcp',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/eye/tcp', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/eye/tcp',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/eye/tcp", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/eye/tcp`</span>
+
+Retrieves the list of configured TCP Domotz Sensors on the agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/eye/tcp \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listagenteyestcp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "device_id": 0,
+    "id": 0,
+    "last_update": "2019-08-24T14:15:22Z",
+    "port": 0,
+    "status": "UP"
+  }
+]
+```
+
+<h3 id="listagenteyestcp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured TCP Domotz Sensors on the agent and their latest values|Inline|
+
+<h3 id="listagenteyestcp-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[TCPDomotzEye](#schematcpdomotzeye)]|false|[Information about a configured TCP Domotz Sensor]|
+|» device_id|integer(int32)|false|The unique identifier of the device|
+|» id|integer(int32)|true|The ID of the TCP Domotz Sensor|
+|» last_update|string(date-time)|true|The timestamp of the latest update|
+|» port|integer(int32)|true|The port number|
+|» status|string|true|The status of the TCP service|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|UP|
+|status|DOWN|
 
 ## listEyesSNMP
 
@@ -4512,6 +3993,7 @@ Retrieves the list of configured SNMP Domotz Sensors
 [
   {
     "category": "OTHER",
+    "device_id": 0,
     "id": 0,
     "last_update": "2019-08-24T14:15:22Z",
     "latest_value": "string",
@@ -4536,7 +4018,8 @@ Status Code **200**
 |---|---|---|---|---|
 |*anonymous*|[[SNMPDomotzEye](#schemasnmpdomotzeye)]|false|[Information about a configured SNMP Domotz Sensor]|
 |» category|string|true|The category of the OID|
-|» id|integer(int32)|true|The unique identifier of the SNMP Domotz Sensor|
+|» device_id|integer(int32)|false|The unique identifier of the device|
+|» id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
 |» last_update|string(date-time)|true|The timestamp of the latest update|
 |» latest_value|string|true|The value retrieved on the OID|
 |» name|string|true|The name of the Domotz Sensors|
@@ -6138,6 +5621,7 @@ Retrieves the list of configured TCP Domotz Sensors
 ```json
 [
   {
+    "device_id": 0,
     "id": 0,
     "last_update": "2019-08-24T14:15:22Z",
     "port": 0,
@@ -6159,7 +5643,8 @@ Status Code **200**
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |*anonymous*|[[TCPDomotzEye](#schematcpdomotzeye)]|false|[Information about a configured TCP Domotz Sensor]|
-|» id|integer(int32)|true|The unique identifier of the TCP Domotz Sensor|
+|» device_id|integer(int32)|false|The unique identifier of the device|
+|» id|integer(int32)|true|The ID of the TCP Domotz Sensor|
 |» last_update|string(date-time)|true|The timestamp of the latest update|
 |» port|integer(int32)|true|The port number|
 |» status|string|true|The status of the TCP service|
@@ -6618,6 +6103,895 @@ Retrieves information about Domotz Sensors usage and limits
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A data structure containing information about current Domotz Sensors usage and limits|[DomotzEyesUsageInformation](#schemadomotzeyesusageinformation)|
+
+<h1 id="domotz-public-api-metrics">metrics</h1>
+
+## getAgentRTDStats
+
+<a id="opIdgetAgentRTDStats"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/rtd \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/rtd',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/rtd',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/rtd', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/rtd',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/rtd", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/rtd`</span>
+
+Returns the Round Trip Delay statistics for all devices monitored by the agent. The aggregate values of _avg_min_, _avg_max_, _avg_median_ help to understand the baseline response time of a device in a weekly time frame, while _latest_median_ helps detecting a possible deviation from the baseline
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/rtd \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentrtdstats-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "avg_max": "string",
+    "avg_median": "string",
+    "avg_min": "string",
+    "device_id": 0,
+    "latest_lost_packet_count": 0,
+    "latest_median": "string",
+    "latest_sent_packet_count": 0,
+    "timestamp": "2019-08-24T14:15:22Z"
+  }
+]
+```
+
+<h3 id="getagentrtdstats-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Devices RTD Statistics|Inline|
+
+<h3 id="getagentrtdstats-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceRTDStatistics](#schemadevicertdstatistics)]|false|none|
+|» avg_max|string|false|none|
+|» avg_median|string|false|none|
+|» avg_min|string|false|none|
+|» device_id|integer(int32)|true|none|
+|» latest_lost_packet_count|integer(int32)|false|The number of lost packets of the latest collection sample|
+|» latest_median|string|false|The median value of the latest collection sample|
+|» latest_sent_packet_count|integer(int32)|false|The number of sent packets of the latest collection sample|
+|» timestamp|string(date-time)|true|The timestamp of the latest update|
+
+## getDeviceStatusHistory
+
+<a id="opIdgetDeviceStatusHistory"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/history/network/event`</span>
+
+Returns the time series of the state changes of the device
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/network/event \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getdevicestatushistory-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
+|to|query|string(date-time)|false|The end time of the time series. Default value is now|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "details": {
+      "new_ip": [
+        "string"
+      ],
+      "old_ip": [
+        "string"
+      ]
+    },
+    "timestamp": "2019-08-24T14:15:22Z",
+    "type": "IP_CHANGE"
+  }
+]
+```
+
+<h3 id="getdevicestatushistory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A time series|Inline|
+
+<h3 id="getdevicestatushistory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceHistory](#schemadevicehistory)]|false|none|
+|» details|object|false|none|
+|»» new_ip|[string]|false|The new IP addresses|
+|»» old_ip|[string]|false|The old IP addresses|
+|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+|» type|string|true|The device event type|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|type|IP_CHANGE|
+|type|CREATED|
+|type|UP|
+|type|DOWN|
+
+## getDeviceRTDHistory
+
+<a id="opIdgetDeviceRTDHistory"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/history/rtd`</span>
+
+Returns the Round Trip Delay history for the device. Each item represents the statistical aggregate of a set of Round Trip Delay measurements
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/history/rtd \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getdevicertdhistory-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
+|to|query|string(date-time)|false|The end time of the time series. Default value is now|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "lost_packet_count": 0,
+    "max": "string",
+    "median": "string",
+    "min": "string",
+    "sent_packet_count": 0,
+    "timestamp": "2019-08-24T14:15:22Z"
+  }
+]
+```
+
+<h3 id="getdevicertdhistory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Device RTD History|Inline|
+
+<h3 id="getdevicertdhistory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceRTDHistorySample](#schemadevicertdhistorysample)]|false|none|
+|» lost_packet_count|integer(int32)|false|none|
+|» max|string|false|none|
+|» median|string|false|none|
+|» min|string|false|none|
+|» sent_packet_count|integer(int32)|false|none|
+|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+
+## getAgentStatusHistory
+
+<a id="opIdgetAgentStatusHistory"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/history/network/event \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/history/network/event',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/history/network/event',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/history/network/event', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/history/network/event',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/history/network/event", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/history/network/event`</span>
+
+Returns the time series of the state changes of the agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/history/network/event \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentstatushistory-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
+|to|query|string(date-time)|false|The end time of the time series. Default value is now|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "timestamp": "2019-08-24T14:15:22Z",
+    "type": "CONNECTION_RECOVERED"
+  }
+]
+```
+
+<h3 id="getagentstatushistory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A time series|Inline|
+
+<h3 id="getagentstatushistory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[AgentHistory](#schemaagenthistory)]|false|none|
+|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+|» type|string|true|The agent event type|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|type|CONNECTION_RECOVERED|
+|type|CONNECTION_LOST|
+|type|UP|
+|type|DOWN|
+
+## getSpeedTestHistory
+
+<a id="opIdgetSpeedTestHistory"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/history/network/speed \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/history/network/speed`</span>
+
+Returns the time series of the Internet Speed measurements taken from the agent, both in 
+download and in upload.
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/history/network/speed \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getspeedtesthistory-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
+|to|query|string(date-time)|false|The end time of the time series. Default value is now|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "timestamp": "2019-08-24T14:15:22Z",
+    "values": [
+      0
+    ]
+  }
+]
+```
+
+<h3 id="getspeedtesthistory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A time series|Inline|
+
+<h3 id="getspeedtesthistory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[NetworkSpeedSample](#schemanetworkspeedsample)]|false|[A Network Speed Sample is the result of the measurement of the Internet download and upload      speed, in bits per second, taken by the Agent]|
+|» timestamp|string(date-time)|false|The time the sample was reported to Domotz|
+|» values|[integer]|false|A pair of values: the download and upload speed, in Bit Per Seconds (bps), as measured by the Agent|
 
 <h1 id="domotz-public-api-multimedia">multimedia</h1>
 
@@ -10793,6 +11167,7 @@ Returns the User information
 ```json
 {
   "category": "OTHER",
+  "device_id": 0,
   "id": 0,
   "last_update": "2019-08-24T14:15:22Z",
   "latest_value": "string",
@@ -10810,7 +11185,8 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |category|string|true|The category of the OID|
-|id|integer(int32)|true|The unique identifier of the SNMP Domotz Sensor|
+|device_id|integer(int32)|false|The unique identifier of the device|
+|id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
 |last_update|string(date-time)|true|The timestamp of the latest update|
 |latest_value|string|true|The value retrieved on the OID|
 |name|string|true|The name of the Domotz Sensors|
@@ -11053,6 +11429,7 @@ Returns the User information
 
 ```json
 {
+  "device_id": 0,
   "id": 0,
   "last_update": "2019-08-24T14:15:22Z",
   "port": 0,
@@ -11067,7 +11444,8 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|id|integer(int32)|true|The unique identifier of the TCP Domotz Sensor|
+|device_id|integer(int32)|false|The unique identifier of the device|
+|id|integer(int32)|true|The ID of the TCP Domotz Sensor|
 |last_update|string(date-time)|true|The timestamp of the latest update|
 |port|integer(int32)|true|The port number|
 |status|string|true|The status of the TCP service|
