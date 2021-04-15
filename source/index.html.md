@@ -11380,9 +11380,9 @@ Returns the User information
 |downtime_intervals|[object]|false|none|
 |» end|string(date-time)|false|none|
 |» start|string(date-time)|false|none|
-|online_seconds|integer(int32)|true|The uptime percentage of the device|
+|online_seconds|integer(int32)|true|none|
 |total_seconds|integer(int32)|true|none|
-|uptime|integer(int32)|true|none|
+|uptime|integer(int32)|true|The uptime percentage of the device|
 
 <h2 id="tocSdomotzeyesusageinformation">DomotzEyesUsageInformation</h2>
 
