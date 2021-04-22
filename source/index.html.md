@@ -1239,7 +1239,7 @@ Returns the uptime of all agents
     ],
     "online_seconds": 0,
     "total_seconds": 0,
-    "uptime": 0
+    "uptime": "string"
   }
 ]
 ```
@@ -1263,7 +1263,7 @@ Status Code **200**
 |»» start|string(date-time)|false|none|
 |» online_seconds|integer(int32)|true|none|
 |» total_seconds|integer(int32)|true|none|
-|» uptime|integer(int32)|true|The uptime percentage of the agent|
+|» uptime|string|true|The uptime percentage of the agent|
 
 ## getAgentRTDStats
 
@@ -1951,7 +1951,7 @@ Returns the uptime of the device
 
 ```json
 {
-  "agent_uptime": 0,
+  "agent_uptime": "string",
   "downtime_intervals": [
     {
       "end": "2019-08-24T14:15:22Z",
@@ -1960,7 +1960,7 @@ Returns the uptime of the device
   ],
   "online_seconds": 0,
   "total_seconds": 0,
-  "uptime": 0
+  "uptime": "string"
 }
 ```
 
@@ -2469,7 +2469,7 @@ Returns the uptime of the agent
   ],
   "online_seconds": 0,
   "total_seconds": 0,
-  "uptime": 0
+  "uptime": "string"
 }
 ```
 
@@ -5020,8 +5020,6 @@ Retrieves the list of configured SNMP Domotz Sensors on the agent
     "category": "OTHER",
     "device_id": 0,
     "id": 0,
-    "last_update": "2019-08-24T14:15:22Z",
-    "latest_value": "string",
     "name": "string",
     "oid": "string",
     "value_type": "STRING"
@@ -5041,12 +5039,10 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|[[SNMPDomotzEye](#schemasnmpdomotzeye)]|false|[Information about a configured SNMP Domotz Sensor]|
+|*anonymous*|[[SNMPDomotzAgentEye](#schemasnmpdomotzagenteye)]|false|[Information about a configured SNMP Domotz Sensor]|
 |» category|string|true|The category of the OID|
 |» device_id|integer(int32)|false|The unique identifier of the device|
 |» id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
-|» last_update|string(date-time)|true|The timestamp of the latest update|
-|» latest_value|string|true|The value retrieved on the OID|
 |» name|string|true|The name of the Domotz Sensors|
 |» oid|string|true|The OID string|
 |» value_type|string|true|The type of the OID|
@@ -10519,7 +10515,7 @@ Returns the User information
   ],
   "online_seconds": 0,
   "total_seconds": 0,
-  "uptime": 0
+  "uptime": "string"
 }
 
 ```
@@ -10534,7 +10530,7 @@ Returns the User information
 |» start|string(date-time)|false|none|
 |online_seconds|integer(int32)|true|none|
 |total_seconds|integer(int32)|true|none|
-|uptime|integer(int32)|true|The uptime percentage of the agent|
+|uptime|string|true|The uptime percentage of the agent|
 
 <h2 id="tocSagentvpnactiveconnection">AgentVPNActiveConnection</h2>
 
@@ -11358,7 +11354,7 @@ Returns the User information
 
 ```json
 {
-  "agent_uptime": 0,
+  "agent_uptime": "string",
   "downtime_intervals": [
     {
       "end": "2019-08-24T14:15:22Z",
@@ -11367,7 +11363,7 @@ Returns the User information
   ],
   "online_seconds": 0,
   "total_seconds": 0,
-  "uptime": 0
+  "uptime": "string"
 }
 
 ```
@@ -11376,13 +11372,13 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|agent_uptime|integer(int32)|true|The uptime percentage of the agent|
+|agent_uptime|string|true|The uptime percentage of the agent|
 |downtime_intervals|[object]|false|none|
 |» end|string(date-time)|false|none|
 |» start|string(date-time)|false|none|
 |online_seconds|integer(int32)|true|none|
 |total_seconds|integer(int32)|true|none|
-|uptime|integer(int32)|true|The uptime percentage of the device|
+|uptime|string|true|The uptime percentage of the device|
 
 <h2 id="tocSdomotzeyesusageinformation">DomotzEyesUsageInformation</h2>
 
@@ -11780,6 +11776,49 @@ Returns the User information
 |---|---|---|---|---|
 |timestamp|string(date-time)|false|The time the sample was reported to Domotz|
 |values|[integer]|false|A pair of values: the download and upload speed, in Bit Per Seconds (bps), as measured by the Agent|
+
+<h2 id="tocSsnmpdomotzagenteye">SNMPDomotzAgentEye</h2>
+
+<a id="schemasnmpdomotzagenteye"></a>
+
+```json
+{
+  "category": "OTHER",
+  "device_id": 0,
+  "id": 0,
+  "name": "string",
+  "oid": "string",
+  "value_type": "STRING"
+}
+
+```
+
+*Information about a configured SNMP Domotz Sensor*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|category|string|true|The category of the OID|
+|device_id|integer(int32)|false|The unique identifier of the device|
+|id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
+|name|string|true|The name of the Domotz Sensors|
+|oid|string|true|The OID string|
+|value_type|string|true|The type of the OID|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|category|OTHER|
+|category|CONSUMABLE|
+|category|CPU|
+|category|DISK_SPACE|
+|category|MEMORY|
+|category|NETWORK_TRAFFIC|
+|category|TEMPERATURE|
+|value_type|STRING|
+|value_type|NUMERIC|
 
 <h2 id="tocSsnmpdomotzauthentication">SNMPDomotzAuthentication</h2>
 

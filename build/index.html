@@ -614,6 +614,9 @@
                     <a href="#tocSnetworkspeedsample" class="toc-h2 toc-link" data-title="NetworkSpeedSample">NetworkSpeedSample</a>
                   </li>
                   <li>
+                    <a href="#tocSsnmpdomotzagenteye" class="toc-h2 toc-link" data-title="SNMPDomotzAgentEye">SNMPDomotzAgentEye</a>
+                  </li>
+                  <li>
                     <a href="#tocSsnmpdomotzauthentication" class="toc-h2 toc-link" data-title="SNMPDomotzAuthentication">SNMPDomotzAuthentication</a>
                   </li>
                   <li>
@@ -2206,7 +2209,7 @@
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"online_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -2284,7 +2287,7 @@
 </tr>
 <tr>
 <td>» uptime</td>
-<td>integer(int32)</td>
+<td>string</td>
 <td>true</td>
 <td>The uptime percentage of the agent</td>
 </tr>
@@ -3193,7 +3196,7 @@
 <p>200 Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"agent_uptime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"agent_uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"downtime_intervals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -3202,7 +3205,7 @@
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"online_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"total_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3 id="getdeviceuptime-responses">Responses</h3>
@@ -3827,7 +3830,7 @@ download and in upload.</p>
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"online_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"total_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3 id="getagentuptime-responses">Responses</h3>
@@ -6757,8 +6760,6 @@ download and in upload.</p>
     </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTHER"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"latest_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STRING"</span><span class="w">
@@ -6797,7 +6798,7 @@ download and in upload.</p>
 </thead><tbody>
 <tr>
 <td><em>anonymous</em></td>
-<td>[<a href="#schemasnmpdomotzeye">SNMPDomotzEye</a>]</td>
+<td>[<a href="#schemasnmpdomotzagenteye">SNMPDomotzAgentEye</a>]</td>
 <td>false</td>
 <td>[Information about a configured SNMP Domotz Sensor]</td>
 </tr>
@@ -6818,18 +6819,6 @@ download and in upload.</p>
 <td>integer(int32)</td>
 <td>true</td>
 <td>The ID of the SNMP Domotz Sensor</td>
-</tr>
-<tr>
-<td>» last_update</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>The timestamp of the latest update</td>
-</tr>
-<tr>
-<td>» latest_value</td>
-<td>string</td>
-<td>true</td>
-<td>The value retrieved on the OID</td>
 </tr>
 <tr>
 <td>» name</td>
@@ -13858,7 +13847,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"online_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"total_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><h3 id='properties-9'>Properties</h3>
@@ -13908,7 +13897,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 <tr>
 <td>uptime</td>
-<td>integer(int32)</td>
+<td>string</td>
 <td>true</td>
 <td>The uptime percentage of the agent</td>
 </tr>
@@ -15572,7 +15561,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p><a id="schemadeviceuptime"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"agent_uptime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"agent_uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"downtime_intervals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -15581,7 +15570,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"online_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"total_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><h3 id='properties-37'>Properties</h3>
@@ -15595,7 +15584,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </thead><tbody>
 <tr>
 <td>agent_uptime</td>
-<td>integer(int32)</td>
+<td>string</td>
 <td>true</td>
 <td>The uptime percentage of the agent</td>
 </tr>
@@ -15631,7 +15620,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 <tr>
 <td>uptime</td>
-<td>integer(int32)</td>
+<td>string</td>
 <td>true</td>
 <td>The uptime percentage of the device</td>
 </tr>
@@ -16359,6 +16348,111 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 </tbody></table>
 
+<h2 id="tocSsnmpdomotzagenteye">SNMPDomotzAgentEye</h2>
+
+<p><a id="schemasnmpdomotzagenteye"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTHER"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STRING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><em>Information about a configured SNMP Domotz Sensor</em></p>
+<h3 id='properties-46'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>string</td>
+<td>true</td>
+<td>The category of the OID</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The unique identifier of the device</td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>The ID of the SNMP Domotz Sensor</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>The name of the Domotz Sensors</td>
+</tr>
+<tr>
+<td>oid</td>
+<td>string</td>
+<td>true</td>
+<td>The OID string</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>string</td>
+<td>true</td>
+<td>The type of the OID</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-38'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>OTHER</td>
+</tr>
+<tr>
+<td>category</td>
+<td>CONSUMABLE</td>
+</tr>
+<tr>
+<td>category</td>
+<td>CPU</td>
+</tr>
+<tr>
+<td>category</td>
+<td>DISK_SPACE</td>
+</tr>
+<tr>
+<td>category</td>
+<td>MEMORY</td>
+</tr>
+<tr>
+<td>category</td>
+<td>NETWORK_TRAFFIC</td>
+</tr>
+<tr>
+<td>category</td>
+<td>TEMPERATURE</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>NUMERIC</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocSsnmpdomotzauthentication">SNMPDomotzAuthentication</h2>
 
 <p><a id="schemasnmpdomotzauthentication"></a></p>
@@ -16375,7 +16469,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>The SNMP authentication setting of a device</em></p>
-<h3 id='properties-46'>Properties</h3>
+<h3 id='properties-47'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -16433,7 +16527,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The configured SNMP version</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-38'>Enumerated Values</h4>
+<h4 id='enumerated-values-39'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -16494,7 +16588,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a configured SNMP Domotz Sensor</em></p>
-<h3 id='properties-47'>Properties</h3>
+<h3 id='properties-48'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -16532,97 +16626,6 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>string</td>
 <td>true</td>
 <td>The value retrieved on the OID</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td>true</td>
-<td>The name of the Domotz Sensors</td>
-</tr>
-<tr>
-<td>oid</td>
-<td>string</td>
-<td>true</td>
-<td>The OID string</td>
-</tr>
-<tr>
-<td>value_type</td>
-<td>string</td>
-<td>true</td>
-<td>The type of the OID</td>
-</tr>
-</tbody></table>
-<h4 id='enumerated-values-39'>Enumerated Values</h4>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>category</td>
-<td>OTHER</td>
-</tr>
-<tr>
-<td>category</td>
-<td>CONSUMABLE</td>
-</tr>
-<tr>
-<td>category</td>
-<td>CPU</td>
-</tr>
-<tr>
-<td>category</td>
-<td>DISK_SPACE</td>
-</tr>
-<tr>
-<td>category</td>
-<td>MEMORY</td>
-</tr>
-<tr>
-<td>category</td>
-<td>NETWORK_TRAFFIC</td>
-</tr>
-<tr>
-<td>category</td>
-<td>TEMPERATURE</td>
-</tr>
-<tr>
-<td>value_type</td>
-<td>STRING</td>
-</tr>
-<tr>
-<td>value_type</td>
-<td>NUMERIC</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSsnmpdomotzeyecreation">SNMPDomotzEyeCreation</h2>
-
-<p><a id="schemasnmpdomotzeyecreation"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTHER"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STRING"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<p><em>SNMP Domotz Sensor Data</em></p>
-<h3 id='properties-48'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>category</td>
-<td>string</td>
-<td>true</td>
-<td>The category of the OID</td>
 </tr>
 <tr>
 <td>name</td>
@@ -16688,6 +16691,97 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 </tbody></table>
 
+<h2 id="tocSsnmpdomotzeyecreation">SNMPDomotzEyeCreation</h2>
+
+<p><a id="schemasnmpdomotzeyecreation"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTHER"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STRING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><em>SNMP Domotz Sensor Data</em></p>
+<h3 id='properties-49'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>string</td>
+<td>true</td>
+<td>The category of the OID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>The name of the Domotz Sensors</td>
+</tr>
+<tr>
+<td>oid</td>
+<td>string</td>
+<td>true</td>
+<td>The OID string</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>string</td>
+<td>true</td>
+<td>The type of the OID</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-41'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>OTHER</td>
+</tr>
+<tr>
+<td>category</td>
+<td>CONSUMABLE</td>
+</tr>
+<tr>
+<td>category</td>
+<td>CPU</td>
+</tr>
+<tr>
+<td>category</td>
+<td>DISK_SPACE</td>
+</tr>
+<tr>
+<td>category</td>
+<td>MEMORY</td>
+</tr>
+<tr>
+<td>category</td>
+<td>NETWORK_TRAFFIC</td>
+</tr>
+<tr>
+<td>category</td>
+<td>TEMPERATURE</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>NUMERIC</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocSsnmpdomotzeyetrigger">SNMPDomotzEyeTrigger</h2>
 
 <p><a id="schemasnmpdomotzeyetrigger"></a></p>
@@ -16707,7 +16801,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a trigger</em></p>
-<h3 id='properties-49'>Properties</h3>
+<h3 id='properties-50'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -16778,7 +16872,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a trigger function</em></p>
-<h3 id='properties-50'>Properties</h3>
+<h3 id='properties-51'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -16812,7 +16906,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The type of the operands</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-41'>Enumerated Values</h4>
+<h4 id='enumerated-values-42'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -16836,7 +16930,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>SNMP Trigger Alert</em></p>
-<h3 id='properties-51'>Properties</h3>
+<h3 id='properties-52'>Properties</h3>
 <p><em>None</em></p>
 
 <h2 id="tocSsnmpdomotzsnmptriggercreation">SNMPDomotzSnmpTriggerCreation</h2>
@@ -16852,7 +16946,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>SNMP Trigger</em></p>
-<h3 id='properties-52'>Properties</h3>
+<h3 id='properties-53'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -16926,7 +17020,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-53'>Properties</h3>
+</span></code></pre><h3 id='properties-54'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -17012,7 +17106,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a configured TCP Domotz Sensor</em></p>
-<h3 id='properties-54'>Properties</h3>
+<h3 id='properties-55'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -17052,7 +17146,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The status of the TCP service</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-42'>Enumerated Values</h4>
+<h4 id='enumerated-values-43'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -17078,7 +17172,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>TCP Domotz Sensor Data</em></p>
-<h3 id='properties-55'>Properties</h3>
+<h3 id='properties-56'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -17105,7 +17199,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Represents a team of the Company</em></p>
-<h3 id='properties-56'>Properties</h3>
+<h3 id='properties-57'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -17144,7 +17238,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Team Creation under specified Area</em></p>
-<h3 id='properties-57'>Properties</h3>
+<h3 id='properties-58'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -17199,7 +17293,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-58'>Properties</h3>
+</span></code></pre><h3 id='properties-59'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
