@@ -8914,7 +8914,14 @@ Bind an alert profile to an agent. After binding, a webhook will be sent to the 
 </tr>
 
 <tr>
-<td>agent_status</td>
+<td>agent_status_down</td>
+<td>POST</td>
+<td><a href="#tocSagentstatusevent" data-title="AgentStatusEvent">AgentStatusEvent</a></td>
+<td>201</td>
+</tr>
+
+<tr>
+<td>agent_status_up</td>
 <td>POST</td>
 <td><a href="#tocSagentstatusevent" data-title="AgentStatusEvent">AgentStatusEvent</a></td>
 <td>201</td>
@@ -9257,7 +9264,14 @@ Bind an alert profile to a device. After binding, a webhook will be sent to the 
 </tr>
 
 <tr>
-<td>device_status</td>
+<td>device_status_down</td>
+<td>POST</td>
+<td><a href="#tocSdevicestatuschangeevent" data-title="DeviceStatusChangeEvent">DeviceStatusChangeEvent</a></td>
+<td>201</td>
+</tr>
+
+<tr>
+<td>device_status_up</td>
 <td>POST</td>
 <td><a href="#tocSdevicestatuschangeevent" data-title="DeviceStatusChangeEvent">DeviceStatusChangeEvent</a></td>
 <td>201</td>
@@ -9420,7 +9434,7 @@ Returns the list of configured alert profiles. You can configure alert profiles 
   {
     "description": "string",
     "events": [
-      "device_status"
+      "device_status_up"
     ],
     "id": 0,
     "is_enabled": true,
@@ -10601,7 +10615,7 @@ Returns the User information
 {
   "description": "string",
   "events": [
-    "device_status"
+    "device_status_up"
   ],
   "id": 0,
   "is_enabled": true,

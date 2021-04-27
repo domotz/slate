@@ -11519,7 +11519,14 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 
 <tr>
-<td>agent_status</td>
+<td>agent_status_down</td>
+<td>POST</td>
+<td><a href="#tocSagentstatusevent" data-title="AgentStatusEvent">AgentStatusEvent</a></td>
+<td>201</td>
+</tr>
+
+<tr>
+<td>agent_status_up</td>
 <td>POST</td>
 <td><a href="#tocSagentstatusevent" data-title="AgentStatusEvent">AgentStatusEvent</a></td>
 <td>201</td>
@@ -11902,7 +11909,14 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 
 <tr>
-<td>device_status</td>
+<td>device_status_down</td>
+<td>POST</td>
+<td><a href="#tocSdevicestatuschangeevent" data-title="DeviceStatusChangeEvent">DeviceStatusChangeEvent</a></td>
+<td>201</td>
+</tr>
+
+<tr>
+<td>device_status_up</td>
 <td>POST</td>
 <td><a href="#tocSdevicestatuschangeevent" data-title="DeviceStatusChangeEvent">DeviceStatusChangeEvent</a></td>
 <td>201</td>
@@ -12061,7 +12075,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"device_status"</span><span class="w">
+      </span><span class="s2">"device_status_up"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -14035,7 +14049,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"device_status"</span><span class="w">
+    </span><span class="s2">"device_status_up"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
