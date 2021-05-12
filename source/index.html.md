@@ -36,7 +36,7 @@ Please refer to the [user-guide](https://help.domotz.com/user-guide/shared-alert
 # Authentication
 
 * API Key (api_key)
-    - Parameter Name: **X-Api-Key**, in: header. Get you API Key from the Domotz Portal or contact us
+    - Parameter Name: **X-Api-Key**, in: header. Get you API Key from the <a href="https://portal.domotz.nl/?redirect=API_KEYS">Domotz Portal</a> or contact us
 
 <h1 id="domotz-public-api-agent">agent</h1>
 
@@ -8900,6 +8900,13 @@ Bind an alert profile to an agent. After binding, a webhook will be sent to the 
 </tr>
 
 <tr>
+<td>agent_lan_change</td>
+<td>POST</td>
+<td><a href="#tocSagentlanchangeevent" data-title="AgentLANChangeEvent">AgentLANChangeEvent</a></td>
+<td>201</td>
+</tr>
+
+<tr>
 <td>agent_security_issue</td>
 <td>POST</td>
 <td><a href="#tocSagentsecurityissueevent" data-title="AgentSecurityIssueEvent">AgentSecurityIssueEvent</a></td>
@@ -8924,6 +8931,13 @@ Bind an alert profile to an agent. After binding, a webhook will be sent to the 
 <td>agent_status_up</td>
 <td>POST</td>
 <td><a href="#tocSagentstatusevent" data-title="AgentStatusEvent">AgentStatusEvent</a></td>
+<td>201</td>
+</tr>
+
+<tr>
+<td>agent_wan_change</td>
+<td>POST</td>
+<td><a href="#tocSagentwanchangeevent" data-title="AgentWANChangeEvent">AgentWANChangeEvent</a></td>
 <td>201</td>
 </tr>
 
@@ -10384,6 +10398,67 @@ Returns the User information
 |type|UP|
 |type|DOWN|
 
+<h2 id="tocSagentlanchangeevent">AgentLANChangeEvent</h2>
+
+<a id="schemaagentlanchangeevent"></a>
+
+```json
+{
+  "data": {
+    "agent_id": 0,
+    "dhcp": {
+      "new": [
+        "string"
+      ],
+      "old": [
+        "string"
+      ]
+    },
+    "dns": {
+      "new": [
+        "string"
+      ],
+      "old": [
+        "string"
+      ]
+    },
+    "gateway": {
+      "new": "string",
+      "old": "string"
+    }
+  },
+  "name": "agent_lan_change",
+  "timestamp": "2019-08-24T14:15:22Z"
+}
+
+```
+
+*Triggered when gateway, DNS servers, DHCP servers change*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|data|object|false|none|
+|» agent_id|integer(int32)|true|The `id` of the `agent`|
+|» dhcp|object|false|none|
+|»» new|[string]|false|none|
+|»» old|[string]|false|none|
+|» dns|object|false|none|
+|»» new|[string]|false|none|
+|»» old|[string]|false|none|
+|» gateway|object|false|none|
+|»» new|string|false|none|
+|»» old|string|false|none|
+|» name|string|true|none|
+|» timestamp|string(date-time)|true|The timestamp of the event|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|name|agent_lan_change|
+
 <h2 id="tocSagentsecurityissueevent">AgentSecurityIssueEvent</h2>
 
 <a id="schemaagentsecurityissueevent"></a>
@@ -10606,6 +10681,80 @@ Returns the User information
 |---|---|
 |routing_policy|global|
 |routing_policy|local|
+
+<h2 id="tocSagentwanchangeevent">AgentWANChangeEvent</h2>
+
+<a id="schemaagentwanchangeevent"></a>
+
+```json
+{
+  "data": {
+    "agent_id": 0,
+    "ip": {
+      "new": {
+        "address": "string",
+        "name": "string"
+      },
+      "old": {
+        "address": "string",
+        "name": "string"
+      }
+    },
+    "provider": {
+      "new": {
+        "country": "string",
+        "descr": "string",
+        "inetnum": "string",
+        "netname": "string"
+      },
+      "old": {
+        "country": "string",
+        "descr": "string",
+        "inetnum": "string",
+        "netname": "string"
+      }
+    }
+  },
+  "name": "agent_wan_change",
+  "timestamp": "2019-08-24T14:15:22Z"
+}
+
+```
+
+*Triggered when ISP or Public IP address changes*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|data|object|false|none|
+|» agent_id|integer(int32)|true|The `id` of the `agent`|
+|» ip|object|false|none|
+|»» new|object|false|none|
+|»»» address|string|false|none|
+|»»» name|string|false|none|
+|»» old|object|false|none|
+|»»» address|string|false|none|
+|»»» name|string|false|none|
+|»» provider|object|false|none|
+|»»» new|object|false|none|
+|»»»» country|string|false|none|
+|»»»» descr|string|false|none|
+|»»»» inetnum|string|false|none|
+|»»»» netname|string|false|none|
+|»»» old|object|false|none|
+|»»»» country|string|false|none|
+|»»»» descr|string|false|none|
+|»»»» inetnum|string|false|none|
+|»»»» netname|string|false|none|
+|»»» name|string|true|none|
+|»»» timestamp|string(date-time)|true|The timestamp of the event|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|name|agent_wan_change|
 
 <h2 id="tocSalertprofile">AlertProfile</h2>
 

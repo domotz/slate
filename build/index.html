@@ -494,6 +494,9 @@
                     <a href="#tocSagenthistory" class="toc-h2 toc-link" data-title="AgentHistory">AgentHistory</a>
                   </li>
                   <li>
+                    <a href="#tocSagentlanchangeevent" class="toc-h2 toc-link" data-title="AgentLANChangeEvent">AgentLANChangeEvent</a>
+                  </li>
+                  <li>
                     <a href="#tocSagentsecurityissueevent" class="toc-h2 toc-link" data-title="AgentSecurityIssueEvent">AgentSecurityIssueEvent</a>
                   </li>
                   <li>
@@ -510,6 +513,9 @@
                   </li>
                   <li>
                     <a href="#tocSagentvpnconnection" class="toc-h2 toc-link" data-title="AgentVPNConnection">AgentVPNConnection</a>
+                  </li>
+                  <li>
+                    <a href="#tocSagentwanchangeevent" class="toc-h2 toc-link" data-title="AgentWANChangeEvent">AgentWANChangeEvent</a>
                   </li>
                   <li>
                     <a href="#tocSalertprofile" class="toc-h2 toc-link" data-title="AlertProfile">AlertProfile</a>
@@ -685,7 +691,7 @@
 <li>API Key (api_key)
 
 <ul>
-<li>Parameter Name: <strong>X-Api-Key</strong>, in: header. Get you API Key from the Domotz Portal or contact us</li>
+<li>Parameter Name: <strong>X-Api-Key</strong>, in: header. Get you API Key from the <a href="https://portal.domotz.nl/?redirect=API_KEYS">Domotz Portal</a> or contact us</li>
 </ul></li>
 </ul>
 
@@ -11505,6 +11511,13 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 
 <tr>
+<td>agent_lan_change</td>
+<td>POST</td>
+<td><a href="#tocSagentlanchangeevent" data-title="AgentLANChangeEvent">AgentLANChangeEvent</a></td>
+<td>201</td>
+</tr>
+
+<tr>
 <td>agent_security_issue</td>
 <td>POST</td>
 <td><a href="#tocSagentsecurityissueevent" data-title="AgentSecurityIssueEvent">AgentSecurityIssueEvent</a></td>
@@ -11529,6 +11542,13 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>agent_status_up</td>
 <td>POST</td>
 <td><a href="#tocSagentstatusevent" data-title="AgentStatusEvent">AgentStatusEvent</a></td>
+<td>201</td>
+</tr>
+
+<tr>
+<td>agent_wan_change</td>
+<td>POST</td>
+<td><a href="#tocSagentwanchangeevent" data-title="AgentWANChangeEvent">AgentWANChangeEvent</a></td>
 <td>201</td>
 </tr>
 
@@ -13558,6 +13578,140 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 </tbody></table>
 
+<h2 id="tocSagentlanchangeevent">AgentLANChangeEvent</h2>
+
+<p><a id="schemaagentlanchangeevent"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dhcp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"new"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"old"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"dns"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"new"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"old"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"gateway"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"new"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"old"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agent_lan_change"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><em>Triggered when gateway, DNS servers, DHCP servers change</em></p>
+<h3 id='properties-6'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» agent_id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>The <code>id</code> of the <code>agent</code></td>
+</tr>
+<tr>
+<td>» dhcp</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» new</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» old</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» dns</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» new</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» old</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» gateway</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» new</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» old</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» timestamp</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>The timestamp of the event</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-19'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>agent_lan_change</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocSagentsecurityissueevent">AgentSecurityIssueEvent</h2>
 
 <p><a id="schemaagentsecurityissueevent"></a></p>
@@ -13577,7 +13731,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when Domotz detects a security issue</em></p>
-<h3 id='properties-6'>Properties</h3>
+<h3 id='properties-7'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13629,7 +13783,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-19'>Enumerated Values</h4>
+<h4 id='enumerated-values-20'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -13676,7 +13830,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the measured Internet speed goes below the defined threshold</em></p>
-<h3 id='properties-7'>Properties</h3>
+<h3 id='properties-8'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13752,7 +13906,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-20'>Enumerated Values</h4>
+<h4 id='enumerated-values-21'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -13787,7 +13941,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the agent connectivity status changes</em></p>
-<h3 id='properties-8'>Properties</h3>
+<h3 id='properties-9'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13827,7 +13981,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-21'>Enumerated Values</h4>
+<h4 id='enumerated-values-22'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -13864,7 +14018,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-9'>Properties</h3>
+</span></code></pre><h3 id='properties-10'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13929,7 +14083,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-10'>Properties</h3>
+</span></code></pre><h3 id='properties-11'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -13975,7 +14129,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The status of the vpn connection</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-22'>Enumerated Values</h4>
+<h4 id='enumerated-values-23'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14004,7 +14158,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"routing_policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"global"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-11'>Properties</h3>
+</span></code></pre><h3 id='properties-12'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14026,7 +14180,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The traffic routing policy for the VPN connection:  </br>- <em>global</em>: All the traffic is routed through the VPN On Demand. More consumption on the Domotz Cloud </br>- <em>local</em>: Only LAN traffic passes through the VPN On Demand. Less consumption on the Domotz Cloud</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-23'>Enumerated Values</h4>
+<h4 id='enumerated-values-24'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14040,6 +14194,198 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <tr>
 <td>routing_policy</td>
 <td>local</td>
+</tr>
+</tbody></table>
+
+<h2 id="tocSagentwanchangeevent">AgentWANChangeEvent</h2>
+
+<p><a id="schemaagentwanchangeevent"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ip"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"new"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"old"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"provider"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"new"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"descr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inetnum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"netname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"old"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"descr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inetnum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"netname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agent_wan_change"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><em>Triggered when ISP or Public IP address changes</em></p>
+<h3 id='properties-13'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» agent_id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>The <code>id</code> of the <code>agent</code></td>
+</tr>
+<tr>
+<td>» ip</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» new</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» address</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» name</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» old</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» address</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» name</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» provider</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» new</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» country</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» descr</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» inetnum</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» netname</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» old</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» country</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» descr</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» inetnum</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» netname</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» timestamp</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>The timestamp of the event</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-25'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>agent_wan_change</td>
 </tr>
 </tbody></table>
 
@@ -14057,7 +14403,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-12'>Properties</h3>
+</span></code></pre><h3 id='properties-14'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14111,7 +14457,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"alert_profile_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-13'>Properties</h3>
+</span></code></pre><h3 id='properties-15'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14136,7 +14482,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-14'>Properties</h3>
+</span></code></pre><h3 id='properties-16'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14169,7 +14515,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Represents an area of the Company</em></p>
-<h3 id='properties-15'>Properties</h3>
+<h3 id='properties-17'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14200,7 +14546,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-16'>Properties</h3>
+</span></code></pre><h3 id='properties-18'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14235,7 +14581,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-17'>Properties</h3>
+</span></code></pre><h3 id='properties-19'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14281,7 +14627,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The protocol wrapped by the connection:  </br>- <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates will be securely forwarded to the requested <code>port</code> of the device.  </br>- <em>ssh</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- <em>rdp</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-24'>Enumerated Values</h4>
+<h4 id='enumerated-values-26'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14325,7 +14671,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>A device type, detected by the Domotz device identification feature</em></p>
-<h3 id='properties-18'>Properties</h3>
+<h3 id='properties-20'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14378,7 +14724,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>A device type, either set by the user or as identified by the Domotz system</em></p>
-<h3 id='properties-19'>Properties</h3>
+<h3 id='properties-21'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14427,7 +14773,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the device configuration changes</em></p>
-<h3 id='properties-20'>Properties</h3>
+<h3 id='properties-22'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14467,7 +14813,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-25'>Enumerated Values</h4>
+<h4 id='enumerated-values-27'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14494,7 +14840,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the device configuration becomes different from the startup one</em></p>
-<h3 id='properties-21'>Properties</h3>
+<h3 id='properties-23'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14534,7 +14880,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-26'>Enumerated Values</h4>
+<h4 id='enumerated-values-28'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14556,7 +14902,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-22'>Properties</h3>
+</span></code></pre><h3 id='properties-24'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14584,7 +14930,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The protocol wrapped by the connection:  </br>- <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates will be securely forwarded to the requested <code>port</code> of the device.  </br>- <em>ssh</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- <em>rdp</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-27'>Enumerated Values</h4>
+<h4 id='enumerated-values-29'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14621,7 +14967,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-23'>Properties</h3>
+</span></code></pre><h3 id='properties-25'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14658,7 +15004,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when a new device appears on the network</em></p>
-<h3 id='properties-24'>Properties</h3>
+<h3 id='properties-26'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14698,7 +15044,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-28'>Enumerated Values</h4>
+<h4 id='enumerated-values-30'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14719,7 +15065,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-25'>Properties</h3>
+</span></code></pre><h3 id='properties-27'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14756,7 +15102,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when a device does not respond to a ping</em></p>
-<h3 id='properties-26'>Properties</h3>
+<h3 id='properties-28'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14796,7 +15142,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-29'>Enumerated Values</h4>
+<h4 id='enumerated-values-31'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14825,7 +15171,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP_CHANGE"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-27'>Properties</h3>
+</span></code></pre><h3 id='properties-29'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14865,7 +15211,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The device event type</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-30'>Enumerated Values</h4>
+<h4 id='enumerated-values-32'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14910,7 +15256,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the device IP address changes</em></p>
-<h3 id='properties-28'>Properties</h3>
+<h3 id='properties-30'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -14962,7 +15308,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-31'>Enumerated Values</h4>
+<h4 id='enumerated-values-33'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -14985,7 +15331,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"software_reboot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-29'>Properties</h3>
+</span></code></pre><h3 id='properties-31'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15032,7 +15378,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-30'>Properties</h3>
+</span></code></pre><h3 id='properties-32'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15102,7 +15448,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the Round-Trip-Delay values of a device exceeds the defined thresholds</em></p>
-<h3 id='properties-31'>Properties</h3>
+<h3 id='properties-33'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15184,7 +15530,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-32'>Enumerated Values</h4>
+<h4 id='enumerated-values-34'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -15219,7 +15565,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-32'>Properties</h3>
+</span></code></pre><h3 id='properties-34'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15294,7 +15640,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the status of an SNMP value changes</em></p>
-<h3 id='properties-33'>Properties</h3>
+<h3 id='properties-35'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15346,7 +15692,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-33'>Enumerated Values</h4>
+<h4 id='enumerated-values-35'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -15367,7 +15713,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"write"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-34'>Properties</h3>
+</span></code></pre><h3 id='properties-36'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15405,7 +15751,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the status of a device changes</em></p>
-<h3 id='properties-35'>Properties</h3>
+<h3 id='properties-37'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15451,7 +15797,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-34'>Enumerated Values</h4>
+<h4 id='enumerated-values-36'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -15492,7 +15838,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when the status of a monitored TCP service changes</em></p>
-<h3 id='properties-36'>Properties</h3>
+<h3 id='properties-38'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15550,7 +15896,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-35'>Enumerated Values</h4>
+<h4 id='enumerated-values-37'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -15587,7 +15933,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-37'>Properties</h3>
+</span></code></pre><h3 id='properties-39'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15654,7 +16000,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about Domotz Sensors current usage and limits</em></p>
-<h3 id='properties-38'>Properties</h3>
+<h3 id='properties-40'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15724,7 +16070,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-39'>Properties</h3>
+</span></code></pre><h3 id='properties-41'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -15803,7 +16149,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-40'>Properties</h3>
+</span></code></pre><h3 id='properties-42'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -15876,7 +16222,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when a new feature is discovered on a device</em></p>
-<h3 id='properties-41'>Properties</h3>
+<h3 id='properties-43'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -15934,7 +16280,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-36'>Enumerated Values</h4>
+<h4 id='enumerated-values-38'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -15989,7 +16335,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-42'>Properties</h3>
+</span></code></pre><h3 id='properties-44'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -16067,7 +16413,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-37'>Enumerated Values</h4>
+<h4 id='enumerated-values-39'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -16142,7 +16488,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-43'>Properties</h3>
+</span></code></pre><h3 id='properties-45'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -16265,7 +16611,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-44'>Properties</h3>
+</span></code></pre><h3 id='properties-46'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -16339,7 +16685,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span></code></pre>
 <p><em>A Network Speed Sample is the result of the measurement of the Internet download and upload
      speed, in bits per second, taken by the Agent</em></p>
-<h3 id='properties-45'>Properties</h3>
+<h3 id='properties-47'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -16376,232 +16722,6 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a configured SNMP Domotz Sensor</em></p>
-<h3 id='properties-46'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>category</td>
-<td>string</td>
-<td>true</td>
-<td>The category of the OID</td>
-</tr>
-<tr>
-<td>device_id</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>The unique identifier of the device</td>
-</tr>
-<tr>
-<td>id</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>The ID of the SNMP Domotz Sensor</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td>true</td>
-<td>The name of the Domotz Sensors</td>
-</tr>
-<tr>
-<td>oid</td>
-<td>string</td>
-<td>true</td>
-<td>The OID string</td>
-</tr>
-<tr>
-<td>value_type</td>
-<td>string</td>
-<td>true</td>
-<td>The type of the OID</td>
-</tr>
-</tbody></table>
-<h4 id='enumerated-values-38'>Enumerated Values</h4>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>category</td>
-<td>OTHER</td>
-</tr>
-<tr>
-<td>category</td>
-<td>CONSUMABLE</td>
-</tr>
-<tr>
-<td>category</td>
-<td>CPU</td>
-</tr>
-<tr>
-<td>category</td>
-<td>DISK_SPACE</td>
-</tr>
-<tr>
-<td>category</td>
-<td>MEMORY</td>
-</tr>
-<tr>
-<td>category</td>
-<td>NETWORK_TRAFFIC</td>
-</tr>
-<tr>
-<td>category</td>
-<td>TEMPERATURE</td>
-</tr>
-<tr>
-<td>value_type</td>
-<td>STRING</td>
-</tr>
-<tr>
-<td>value_type</td>
-<td>NUMERIC</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSsnmpdomotzauthentication">SNMPDomotzAuthentication</h2>
-
-<p><a id="schemasnmpdomotzauthentication"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"authentication_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"authentication_protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MD5"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"encryption_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"encryption_protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DES"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"snmp_write_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V2"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<p><em>The SNMP authentication setting of a device</em></p>
-<h3 id='properties-47'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>authentication_key</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>authentication_protocol</td>
-<td>string</td>
-<td>false</td>
-<td>The SNMP authentication protocol</td>
-</tr>
-<tr>
-<td>encryption_key</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>encryption_protocol</td>
-<td>string</td>
-<td>false</td>
-<td>The SNMP encryption protocol</td>
-</tr>
-<tr>
-<td>snmp_read_community</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>snmp_write_community</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>username</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>version</td>
-<td>string</td>
-<td>true</td>
-<td>The configured SNMP version</td>
-</tr>
-</tbody></table>
-<h4 id='enumerated-values-39'>Enumerated Values</h4>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>authentication_protocol</td>
-<td>MD5</td>
-</tr>
-<tr>
-<td>authentication_protocol</td>
-<td>SHA</td>
-</tr>
-<tr>
-<td>encryption_protocol</td>
-<td>DES</td>
-</tr>
-<tr>
-<td>encryption_protocol</td>
-<td>AES</td>
-</tr>
-<tr>
-<td>version</td>
-<td>V2</td>
-</tr>
-<tr>
-<td>version</td>
-<td>V1</td>
-</tr>
-<tr>
-<td>version</td>
-<td>V3_AUTH_PRIV</td>
-</tr>
-<tr>
-<td>version</td>
-<td>V3_NO_AUTH</td>
-</tr>
-<tr>
-<td>version</td>
-<td>V3_AUTH_NO_PRIV</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSsnmpdomotzeye">SNMPDomotzEye</h2>
-
-<p><a id="schemasnmpdomotzeye"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTHER"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"last_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"latest_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STRING"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<p><em>Information about a configured SNMP Domotz Sensor</em></p>
 <h3 id='properties-48'>Properties</h3>
 <table><thead>
 <tr>
@@ -16628,18 +16748,6 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>integer(int32)</td>
 <td>true</td>
 <td>The ID of the SNMP Domotz Sensor</td>
-</tr>
-<tr>
-<td>last_update</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>The timestamp of the latest update</td>
-</tr>
-<tr>
-<td>latest_value</td>
-<td>string</td>
-<td>true</td>
-<td>The value retrieved on the OID</td>
 </tr>
 <tr>
 <td>name</td>
@@ -16705,6 +16813,244 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 </tbody></table>
 
+<h2 id="tocSsnmpdomotzauthentication">SNMPDomotzAuthentication</h2>
+
+<p><a id="schemasnmpdomotzauthentication"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"authentication_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"authentication_protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MD5"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"encryption_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"encryption_protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DES"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"snmp_write_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><em>The SNMP authentication setting of a device</em></p>
+<h3 id='properties-49'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>authentication_key</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>authentication_protocol</td>
+<td>string</td>
+<td>false</td>
+<td>The SNMP authentication protocol</td>
+</tr>
+<tr>
+<td>encryption_key</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>encryption_protocol</td>
+<td>string</td>
+<td>false</td>
+<td>The SNMP encryption protocol</td>
+</tr>
+<tr>
+<td>snmp_read_community</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>snmp_write_community</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>version</td>
+<td>string</td>
+<td>true</td>
+<td>The configured SNMP version</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-41'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>authentication_protocol</td>
+<td>MD5</td>
+</tr>
+<tr>
+<td>authentication_protocol</td>
+<td>SHA</td>
+</tr>
+<tr>
+<td>encryption_protocol</td>
+<td>DES</td>
+</tr>
+<tr>
+<td>encryption_protocol</td>
+<td>AES</td>
+</tr>
+<tr>
+<td>version</td>
+<td>V2</td>
+</tr>
+<tr>
+<td>version</td>
+<td>V1</td>
+</tr>
+<tr>
+<td>version</td>
+<td>V3_AUTH_PRIV</td>
+</tr>
+<tr>
+<td>version</td>
+<td>V3_NO_AUTH</td>
+</tr>
+<tr>
+<td>version</td>
+<td>V3_AUTH_NO_PRIV</td>
+</tr>
+</tbody></table>
+
+<h2 id="tocSsnmpdomotzeye">SNMPDomotzEye</h2>
+
+<p><a id="schemasnmpdomotzeye"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTHER"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"latest_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STRING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><em>Information about a configured SNMP Domotz Sensor</em></p>
+<h3 id='properties-50'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>string</td>
+<td>true</td>
+<td>The category of the OID</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The unique identifier of the device</td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>The ID of the SNMP Domotz Sensor</td>
+</tr>
+<tr>
+<td>last_update</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>The timestamp of the latest update</td>
+</tr>
+<tr>
+<td>latest_value</td>
+<td>string</td>
+<td>true</td>
+<td>The value retrieved on the OID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>The name of the Domotz Sensors</td>
+</tr>
+<tr>
+<td>oid</td>
+<td>string</td>
+<td>true</td>
+<td>The OID string</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>string</td>
+<td>true</td>
+<td>The type of the OID</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-42'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>OTHER</td>
+</tr>
+<tr>
+<td>category</td>
+<td>CONSUMABLE</td>
+</tr>
+<tr>
+<td>category</td>
+<td>CPU</td>
+</tr>
+<tr>
+<td>category</td>
+<td>DISK_SPACE</td>
+</tr>
+<tr>
+<td>category</td>
+<td>MEMORY</td>
+</tr>
+<tr>
+<td>category</td>
+<td>NETWORK_TRAFFIC</td>
+</tr>
+<tr>
+<td>category</td>
+<td>TEMPERATURE</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>NUMERIC</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocSsnmpdomotzeyecreation">SNMPDomotzEyeCreation</h2>
 
 <p><a id="schemasnmpdomotzeyecreation"></a></p>
@@ -16717,7 +17063,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>SNMP Domotz Sensor Data</em></p>
-<h3 id='properties-49'>Properties</h3>
+<h3 id='properties-51'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -16751,7 +17097,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-41'>Enumerated Values</h4>
+<h4 id='enumerated-values-43'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -16815,7 +17161,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a trigger</em></p>
-<h3 id='properties-50'>Properties</h3>
+<h3 id='properties-52'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -16886,7 +17232,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a trigger function</em></p>
-<h3 id='properties-51'>Properties</h3>
+<h3 id='properties-53'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -16920,7 +17266,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The type of the operands</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-42'>Enumerated Values</h4>
+<h4 id='enumerated-values-44'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -16944,7 +17290,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>SNMP Trigger Alert</em></p>
-<h3 id='properties-52'>Properties</h3>
+<h3 id='properties-54'>Properties</h3>
 <p><em>None</em></p>
 
 <h2 id="tocSsnmpdomotzsnmptriggercreation">SNMPDomotzSnmpTriggerCreation</h2>
@@ -16960,7 +17306,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>SNMP Trigger</em></p>
-<h3 id='properties-53'>Properties</h3>
+<h3 id='properties-55'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -17034,7 +17380,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-54'>Properties</h3>
+</span></code></pre><h3 id='properties-56'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -17120,7 +17466,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Information about a configured TCP Domotz Sensor</em></p>
-<h3 id='properties-55'>Properties</h3>
+<h3 id='properties-57'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -17160,7 +17506,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The status of the TCP service</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-43'>Enumerated Values</h4>
+<h4 id='enumerated-values-45'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -17186,7 +17532,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>TCP Domotz Sensor Data</em></p>
-<h3 id='properties-56'>Properties</h3>
+<h3 id='properties-58'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -17213,7 +17559,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Represents a team of the Company</em></p>
-<h3 id='properties-57'>Properties</h3>
+<h3 id='properties-59'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -17252,7 +17598,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Team Creation under specified Area</em></p>
-<h3 id='properties-58'>Properties</h3>
+<h3 id='properties-60'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -17307,7 +17653,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-59'>Properties</h3>
+</span></code></pre><h3 id='properties-61'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
