@@ -36,7 +36,7 @@ Please refer to the [user-guide](https://help.domotz.com/user-guide/shared-alert
 # Authentication
 
 * API Key (api_key)
-    - Parameter Name: **X-Api-Key**, in: header. Get you API Key from the <a href="https://portal.domotz.nl/?redirect=API_KEYS">Domotz Portal</a> or contact us
+    - Parameter Name: **X-Api-Key**, in: header. Get you API Key from the <a href="https://portal.domotz.com/portal/settings/services?selected_menu=api_keys">Domotz Portal</a> or contact us
 
 <h1 id="domotz-public-api-agent">agent</h1>
 
