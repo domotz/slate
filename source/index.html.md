@@ -7495,6 +7495,898 @@ Retrieves information about Domotz Sensors usage and limits
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A data structure containing information about current Domotz Sensors usage and limits|[DomotzEyesUsageInformation](#schemadomotzeyesusageinformation)|
 
+<h1 id="domotz-public-api-inventory">inventory</h1>
+
+## getDeviceInventory
+
+<a id="opIdgetDeviceInventory"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/inventory`</span>
+
+Returns the device's inventory data
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getdeviceinventory-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "creation_time": "2019-08-24T14:15:22Z",
+    "key": "string",
+    "value": "string"
+  }
+]
+```
+
+<h3 id="getdeviceinventory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The device's inventory, with the fields sorted alphabetically. Not set fields will be null|Inline|
+
+<h3 id="getdeviceinventory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceInventoryField](#schemadeviceinventoryfield)]|false|[A device inventory field]|
+|» creation_time|string(date-time)|false|none|
+|» key|string|true|The name of the field, unique in the Inventory|
+|» value|string|true|none|
+
+## deleteDeviceInventoryField
+
+<a id="opIddeleteDeviceInventoryField"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/device/{device_id}/inventory/{inventory_field}`</span>
+
+Deletes the Inventory field for the device
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deletedeviceinventoryfield-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+
+<h3 id="deletedeviceinventoryfield-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## setDeviceInventoryFieldValue
+
+<a id="opIdsetDeviceInventoryFieldValue"></a>
+
+> Code samples
+
+```shell
+curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = 'string';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/device/{device_id}/inventory/{inventory_field}`</span>
+
+Sets the value of an Inventory field for the device, a value can't be set to `null`
+
+> Body parameter
+
+```json
+"string"
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/inventory/{inventory_field} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="setdeviceinventoryfieldvalue-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+|body|body|string|true|none|
+
+<h3 id="setdeviceinventoryfieldvalue-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## deleteInventory
+
+<a id="opIddeleteInventory"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/{inventory} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/{inventory}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/{inventory}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/{inventory}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/{inventory}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/{inventory}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /{inventory}`</span>
+
+Clears the inventory
+
+<h3 id="deleteinventory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## getInventory
+
+<a id="opIdgetInventory"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/{inventory} \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/{inventory}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/{inventory}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/{inventory}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/{inventory}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/{inventory}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /{inventory}`</span>
+
+Enumerates all the Inventory fields
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "label": "string",
+    "creation_time": "2019-08-24T14:15:22Z",
+    "defined_by_user": 0,
+    "key": "string"
+  }
+]
+```
+
+<h3 id="getinventory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The inventory fields, sorted by creation time|Inline|
+
+<h3 id="getinventory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[allOf]|false|none|
+
+*allOf*
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|» *anonymous*|[WriteInventoryField](#schemawriteinventoryfield)|false|DTO Used for creating/updating Inventory fields|
+|»» label|string|true|A detailed description of the field, for documentation|
+
+*and*
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|» *anonymous*|object|false|DTO Returned by the API describing an Inventory Field|
+|»» creation_time|string(date-time)|false|none|
+|»» defined_by_user|integer(int32)|false|The `id` of the user that defined the inventory field - if different from your id, this field can't be deleted or changed|
+|»» key|string|true|The name of the field, unique in the Inventory|
+
+## createInventoryField
+
+<a id="opIdcreateInventoryField"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/{inventory}/{inventory_field} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "label": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/{inventory}/{inventory_field}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/{inventory}/{inventory_field}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /{inventory}/{inventory_field}`</span>
+
+Creates a new Inventory Field - the user will be able to set key-values pairs on every device
+
+> Body parameter
+
+```json
+{
+  "label": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/{inventory}/{inventory_field} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createinventoryfield-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+|body|body|[WriteInventoryField](#schemawriteinventoryfield)|true|none|
+
+<h3 id="createinventoryfield-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|The inventory field will be referenced to with its name|None|
+
 <h1 id="domotz-public-api-multimedia">multimedia</h1>
 
 ## onvifSnapshot
@@ -10080,6 +10972,298 @@ Returns the User information
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The user|[User](#schemauser)|
 
+<h1 id="domotz-public-api-inventory-device">inventory,device</h1>
+
+## deleteInventoryField
+
+<a id="opIddeleteInventoryField"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/{inventory}/{inventory_field} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/{inventory}/{inventory_field}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/{inventory}/{inventory_field}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /{inventory}/{inventory_field}`</span>
+
+Deletes the Inventory Field
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/{inventory}/{inventory_field} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteinventoryfield-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+
+<h3 id="deleteinventoryfield-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## updateInventoryField
+
+<a id="opIdupdateInventoryField"></a>
+
+> Code samples
+
+```shell
+curl -X PUT {baseURL}/public-api/v1/{inventory}/{inventory_field} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "label": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('{baseURL}/public-api/v1/{inventory}/{inventory_field}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/{inventory}/{inventory_field}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /{inventory}/{inventory_field}`</span>
+
+Updates the Inventory Field
+
+> Body parameter
+
+```json
+{
+  "label": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/{inventory}/{inventory_field} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="updateinventoryfield-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+|body|body|[WriteInventoryField](#schemawriteinventoryfield)|true|none|
+
+<h3 id="updateinventoryfield-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 # Schemas
 
 <h2 id="tocSapiusageinformation">APIUsageInformation</h2>
@@ -11238,6 +12422,29 @@ Returns the User information
 |---|---|
 |name|device_ip_change|
 
+<h2 id="tocSdeviceinventoryfield">DeviceInventoryField</h2>
+
+<a id="schemadeviceinventoryfield"></a>
+
+```json
+{
+  "creation_time": "2019-08-24T14:15:22Z",
+  "key": "string",
+  "value": "string"
+}
+
+```
+
+*A device inventory field*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|creation_time|string(date-time)|false|none|
+|key|string|true|The name of the field, unique in the Inventory|
+|value|string|true|none|
+
 <h2 id="tocSdevicepoweraction">DevicePowerAction</h2>
 
 <a id="schemadevicepoweraction"></a>
@@ -11722,6 +12929,37 @@ Returns the User information
 |---|---|
 |feature|mib_discovery|
 |name|agent_feature_discovery|
+
+<h2 id="tocSinventoryfield">InventoryField</h2>
+
+<a id="schemainventoryfield"></a>
+
+```json
+{
+  "label": "string",
+  "creation_time": "2019-08-24T14:15:22Z",
+  "defined_by_user": 0,
+  "key": "string"
+}
+
+```
+
+### Properties
+
+*allOf*
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[WriteInventoryField](#schemawriteinventoryfield)|false|DTO Used for creating/updating Inventory fields|
+
+*and*
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|object|false|DTO Returned by the API describing an Inventory Field|
+|» creation_time|string(date-time)|false|none|
+|» defined_by_user|integer(int32)|false|The `id` of the user that defined the inventory field - if different from your id, this field can't be deleted or changed|
+|» key|string|true|The name of the field, unique in the Inventory|
 
 <h2 id="tocSipdevice">IpDevice</h2>
 
@@ -12416,4 +13654,23 @@ Returns the User information
 |---|---|---|---|---|
 |id|integer(int32)|false|none|
 |name|string|false|none|
+
+<h2 id="tocSwriteinventoryfield">WriteInventoryField</h2>
+
+<a id="schemawriteinventoryfield"></a>
+
+```json
+{
+  "label": "string"
+}
+
+```
+
+*DTO Used for creating/updating Inventory fields*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|label|string|true|A detailed description of the field, for documentation|
 
