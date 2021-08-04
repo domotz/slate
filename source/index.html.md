@@ -5060,6 +5060,7 @@ Status Code **200**
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+|value_type|ENUM|
 
 ## listAgentEyesTCP
 
@@ -5387,6 +5388,7 @@ Retrieves the list of configured SNMP Domotz Sensors
     "device_id": 0,
     "id": 0,
     "last_update": "2019-08-24T14:15:22Z",
+    "latest_enum_value": "string",
     "latest_value": "string",
     "name": "string",
     "oid": "string",
@@ -5412,6 +5414,7 @@ Status Code **200**
 |» device_id|integer(int32)|false|The unique identifier of the device|
 |» id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
 |» last_update|string(date-time)|true|The timestamp of the latest update|
+|» latest_enum_value|string|false|The enum value retrieved on the OID|
 |» latest_value|string|true|The value retrieved on the OID|
 |» name|string|true|The name of the Domotz Sensors|
 |» oid|string|true|The OID string|
@@ -5430,6 +5433,7 @@ Status Code **200**
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+|value_type|ENUM|
 
 ## createEyeSNMP
 
@@ -5905,6 +5909,7 @@ Status Code **200**
 |---|---|
 |value_types|STRING|
 |value_types|NUMERIC|
+|value_types|ENUM|
 
 ## getEyesSNMPHistory
 
@@ -6053,6 +6058,7 @@ Returns the time series of the SNMP Domotz Sensors collected samples
 ```json
 [
   {
+    "enum_value": "string",
     "timestamp": "2019-08-24T14:15:22Z",
     "value": "string"
   }
@@ -6072,6 +6078,7 @@ Status Code **200**
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |*anonymous*|[[DeviceEyeSNMPHistorySample](#schemadeviceeyesnmphistorysample)]|false|none|
+|» enum_value|string|false|none|
 |» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
 |» value|string|true|none|
 
@@ -12294,6 +12301,7 @@ Updates the Inventory Field
 
 ```json
 {
+  "enum_value": "string",
   "timestamp": "2019-08-24T14:15:22Z",
   "value": "string"
 }
@@ -12304,6 +12312,7 @@ Updates the Inventory Field
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
+|enum_value|string|false|none|
 |timestamp|string(date-time)|true|The time the sample was reported to Domotz|
 |value|string|true|none|
 
@@ -12587,6 +12596,7 @@ Updates the Inventory Field
   "data": {
     "agent_id": 0,
     "device_id": 0,
+    "enum_value": "string",
     "trigger_name": "string",
     "value": "string"
   },
@@ -12605,6 +12615,7 @@ Updates the Inventory Field
 |data|object|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
 |» device_id|integer(int32)|true|The `id` of the `device`|
+|» enum_value|string|false|The current enum value of the SNMP sensor if the OID is of type enum|
 |» trigger_name|string|false|none|
 |» value|string|false|The current value of the SNMP sensor|
 |name|string|true|none|
@@ -13220,6 +13231,7 @@ Updates the Inventory Field
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+|value_type|ENUM|
 
 <h2 id="tocSsnmpdomotzauthentication">SNMPDomotzAuthentication</h2>
 
@@ -13278,6 +13290,7 @@ Updates the Inventory Field
   "device_id": 0,
   "id": 0,
   "last_update": "2019-08-24T14:15:22Z",
+  "latest_enum_value": "string",
   "latest_value": "string",
   "name": "string",
   "oid": "string",
@@ -13296,6 +13309,7 @@ Updates the Inventory Field
 |device_id|integer(int32)|false|The unique identifier of the device|
 |id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
 |last_update|string(date-time)|true|The timestamp of the latest update|
+|latest_enum_value|string|false|The enum value retrieved on the OID|
 |latest_value|string|true|The value retrieved on the OID|
 |name|string|true|The name of the Domotz Sensors|
 |oid|string|true|The OID string|
@@ -13314,6 +13328,7 @@ Updates the Inventory Field
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+|value_type|ENUM|
 
 <h2 id="tocSsnmpdomotzeyecreation">SNMPDomotzEyeCreation</h2>
 
@@ -13353,6 +13368,7 @@ Updates the Inventory Field
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+|value_type|ENUM|
 
 <h2 id="tocSsnmpdomotzeyetrigger">SNMPDomotzEyeTrigger</h2>
 
@@ -13421,6 +13437,7 @@ Updates the Inventory Field
 |---|---|
 |value_types|STRING|
 |value_types|NUMERIC|
+|value_types|ENUM|
 
 <h2 id="tocSsnmpdomotzsnmptriggeralertcreation">SNMPDomotzSnmpTriggerAlertCreation</h2>
 
