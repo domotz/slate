@@ -2519,7 +2519,8 @@ $.ajax({
 const fetch = require('node-fetch');
 const inputBody = '{
   "allowed_ip": "string",
-  "routing_policy": "global"
+  "routing_policy": "global",
+  "ttl_hours": 1
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -2613,7 +2614,8 @@ Creates a temporary VPN server on the `agent` and returns the vpn configuration 
 ```json
 {
   "allowed_ip": "string",
-  "routing_policy": "global"
+  "routing_policy": "global",
+  "ttl_hours": 1
 }
 ```
 
@@ -2822,7 +2824,8 @@ const fetch = require('node-fetch');
 const inputBody = '{
   "allowed_ip": "string",
   "port": 0,
-  "protocol": "http"
+  "protocol": "http",
+  "ttl_hours": 1
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -2917,7 +2920,8 @@ Establishes a direct secure connection to the `device` Current consumption and c
 {
   "allowed_ip": "string",
   "port": 0,
-  "protocol": "http"
+  "protocol": "http",
+  "ttl_hours": 1
 }
 ```
 
@@ -11854,7 +11858,8 @@ Updates the Inventory Field
 ```json
 {
   "allowed_ip": "string",
-  "routing_policy": "global"
+  "routing_policy": "global",
+  "ttl_hours": 1
 }
 
 ```
@@ -11865,6 +11870,7 @@ Updates the Inventory Field
 |---|---|---|---|---|
 |allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.|
 |routing_policy|string|true|The traffic routing policy for the VPN connection:  </br>- *global*: All the traffic is routed through the VPN On Demand. More consumption on the Domotz Cloud </br>- *local*: Only LAN traffic passes through the VPN On Demand. Less consumption on the Domotz Cloud|
+|ttl_hours|integer(int32)|false|none|
 
 #### Enumerated Values
 
@@ -12219,7 +12225,8 @@ Updates the Inventory Field
 {
   "allowed_ip": "string",
   "port": 0,
-  "protocol": "http"
+  "protocol": "http",
+  "ttl_hours": 1
 }
 
 ```
@@ -12231,6 +12238,7 @@ Updates the Inventory Field
 |allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.|
 |port|integer(int32)|true|none|
 |protocol|string|true|The protocol wrapped by the connection:  </br>- *http/https*: the `link` field in the reply will contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is `https` the device's certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- *tcp*: the `link` field will be in the form `tcp://{host}:{port}`. Any connection established (e.g. with `telnet`  or `ssh`) on these coordinates will be securely forwarded to the requested `port` of the device.  </br>- *ssh*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- *rdp*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.|
+|ttl_hours|integer(int32)|false|none|
 
 #### Enumerated Values
 
