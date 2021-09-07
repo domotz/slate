@@ -2519,7 +2519,8 @@ $.ajax({
 const fetch = require('node-fetch');
 const inputBody = '{
   "allowed_ip": "string",
-  "routing_policy": "global"
+  "routing_policy": "global",
+  "ttl_hours": 1
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -2613,7 +2614,8 @@ Creates a temporary VPN server on the `agent` and returns the vpn configuration 
 ```json
 {
   "allowed_ip": "string",
-  "routing_policy": "global"
+  "routing_policy": "global",
+  "ttl_hours": 1
 }
 ```
 
@@ -2822,7 +2824,8 @@ const fetch = require('node-fetch');
 const inputBody = '{
   "allowed_ip": "string",
   "port": 0,
-  "protocol": "http"
+  "protocol": "http",
+  "ttl_hours": 1
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -2917,7 +2920,8 @@ Establishes a direct secure connection to the `device` Current consumption and c
 {
   "allowed_ip": "string",
   "port": 0,
-  "protocol": "http"
+  "protocol": "http",
+  "ttl_hours": 1
 }
 ```
 
@@ -5060,6 +5064,7 @@ Status Code **200**
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+|value_type|ENUM|
 
 ## listAgentEyesTCP
 
@@ -5387,6 +5392,7 @@ Retrieves the list of configured SNMP Domotz Sensors
     "device_id": 0,
     "id": 0,
     "last_update": "2019-08-24T14:15:22Z",
+    "latest_enum_value": "string",
     "latest_value": "string",
     "name": "string",
     "oid": "string",
@@ -5412,6 +5418,7 @@ Status Code **200**
 |» device_id|integer(int32)|false|The unique identifier of the device|
 |» id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
 |» last_update|string(date-time)|true|The timestamp of the latest update|
+|» latest_enum_value|string|false|The enum value retrieved on the OID|
 |» latest_value|string|true|The value retrieved on the OID|
 |» name|string|true|The name of the Domotz Sensors|
 |» oid|string|true|The OID string|
@@ -5430,6 +5437,7 @@ Status Code **200**
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+|value_type|ENUM|
 
 ## createEyeSNMP
 
@@ -5905,6 +5913,7 @@ Status Code **200**
 |---|---|
 |value_types|STRING|
 |value_types|NUMERIC|
+|value_types|ENUM|
 
 ## getEyesSNMPHistory
 
@@ -6053,6 +6062,7 @@ Returns the time series of the SNMP Domotz Sensors collected samples
 ```json
 [
   {
+    "enum_value": "string",
     "timestamp": "2019-08-24T14:15:22Z",
     "value": "string"
   }
@@ -6072,6 +6082,7 @@ Status Code **200**
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |*anonymous*|[[DeviceEyeSNMPHistorySample](#schemadeviceeyesnmphistorysample)]|false|none|
+|» enum_value|string|false|none|
 |» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
 |» value|string|true|none|
 
@@ -7960,7 +7971,7 @@ Sets the value of an Inventory field for the device, a value can't be set to `nu
 > Code samples
 
 ```shell
-curl -X DELETE {baseURL}/public-api/v1/{inventory} \
+curl -X DELETE {baseURL}/public-api/v1/inventory \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -7972,7 +7983,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/{inventory}',
+  url: '{baseURL}/public-api/v1/inventory',
   method: 'delete',
 
   headers: headers,
@@ -7991,7 +8002,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/{inventory}',
+fetch('{baseURL}/public-api/v1/inventory',
 {
   method: 'DELETE',
 
@@ -8011,7 +8022,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.delete('{baseURL}/public-api/v1/{inventory}', params={
+r = requests.delete('{baseURL}/public-api/v1/inventory', params={
 
 }, headers = headers)
 
@@ -8027,7 +8038,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.delete '{baseURL}/public-api/v1/{inventory}',
+result = RestClient.delete '{baseURL}/public-api/v1/inventory',
   params: {
   }, headers: headers
 
@@ -8051,7 +8062,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/{inventory}", data)
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/inventory", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -8061,7 +8072,7 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`DELETE /{inventory}`</span>
+<span class='dmt-method'>`DELETE /inventory`</span>
 
 Clears the inventory
 
@@ -8078,7 +8089,7 @@ Clears the inventory
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/{inventory} \
+curl -X GET {baseURL}/public-api/v1/inventory \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -8092,7 +8103,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/{inventory}',
+  url: '{baseURL}/public-api/v1/inventory',
   method: 'get',
 
   headers: headers,
@@ -8112,7 +8123,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/{inventory}',
+fetch('{baseURL}/public-api/v1/inventory',
 {
   method: 'GET',
 
@@ -8133,7 +8144,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/{inventory}', params={
+r = requests.get('{baseURL}/public-api/v1/inventory', params={
 
 }, headers = headers)
 
@@ -8150,7 +8161,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/{inventory}',
+result = RestClient.get '{baseURL}/public-api/v1/inventory',
   params: {
   }, headers: headers
 
@@ -8175,7 +8186,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/{inventory}", data)
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/inventory", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -8185,7 +8196,7 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`GET /{inventory}`</span>
+<span class='dmt-method'>`GET /inventory`</span>
 
 Enumerates all the Inventory fields
 
@@ -8234,6 +8245,142 @@ Status Code **200**
 |»» defined_by_user|integer(int32)|false|The `id` of the user that defined the inventory field - if different from your id, this field can't be deleted or changed|
 |»» key|string|true|The name of the field, unique in the Inventory|
 
+## deleteInventoryField
+
+<a id="opIddeleteInventoryField"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/inventory/{inventory_field} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/inventory/{inventory_field}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/inventory/{inventory_field}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/inventory/{inventory_field}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/inventory/{inventory_field}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/inventory/{inventory_field}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /inventory/{inventory_field}`</span>
+
+Deletes the Inventory Field
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/inventory/{inventory_field} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteinventoryfield-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+
+<h3 id="deleteinventoryfield-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 ## createInventoryField
 
 <a id="opIdcreateInventoryField"></a>
@@ -8241,7 +8388,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/{inventory}/{inventory_field} \
+curl -X POST {baseURL}/public-api/v1/inventory/{inventory_field} \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -8255,7 +8402,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+  url: '{baseURL}/public-api/v1/inventory/{inventory_field}',
   method: 'post',
 
   headers: headers,
@@ -8277,7 +8424,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+fetch('{baseURL}/public-api/v1/inventory/{inventory_field}',
 {
   method: 'POST',
   body: inputBody,
@@ -8298,7 +8445,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/{inventory}/{inventory_field}', params={
+r = requests.post('{baseURL}/public-api/v1/inventory/{inventory_field}', params={
 
 }, headers = headers)
 
@@ -8315,7 +8462,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
+result = RestClient.post '{baseURL}/public-api/v1/inventory/{inventory_field}',
   params: {
   }, headers: headers
 
@@ -8340,7 +8487,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/{inventory}/{inventory_field}", data)
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/inventory/{inventory_field}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -8350,7 +8497,7 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`POST /{inventory}/{inventory_field}`</span>
+<span class='dmt-method'>`POST /inventory/{inventory_field}`</span>
 
 Creates a new Inventory Field - the user will be able to set key-values pairs on every device
 
@@ -8366,7 +8513,7 @@ Creates a new Inventory Field - the user will be able to set key-values pairs on
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/{inventory}/{inventory_field} \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/inventory/{inventory_field} \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -8386,6 +8533,160 @@ Creates a new Inventory Field - the user will be able to set key-values pairs on
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|The inventory field will be referenced to with its name|None|
+
+## updateInventoryField
+
+<a id="opIdupdateInventoryField"></a>
+
+> Code samples
+
+```shell
+curl -X PUT {baseURL}/public-api/v1/inventory/{inventory_field} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/inventory/{inventory_field}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "label": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/inventory/{inventory_field}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('{baseURL}/public-api/v1/inventory/{inventory_field}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put '{baseURL}/public-api/v1/inventory/{inventory_field}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/inventory/{inventory_field}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /inventory/{inventory_field}`</span>
+
+Updates the Inventory Field
+
+> Body parameter
+
+```json
+{
+  "label": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/inventory/{inventory_field} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="updateinventoryfield-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+|body|body|[WriteInventoryField](#schemawriteinventoryfield)|true|none|
+
+<h3 id="updateinventoryfield-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
 <h1 id="domotz-public-api-multimedia">multimedia</h1>
 
@@ -10972,298 +11273,6 @@ Returns the User information
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The user|[User](#schemauser)|
 
-<h1 id="domotz-public-api-inventory-device">inventory,device</h1>
-
-## deleteInventoryField
-
-<a id="opIddeleteInventoryField"></a>
-
-> Code samples
-
-```shell
-curl -X DELETE {baseURL}/public-api/v1/{inventory}/{inventory_field} \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
-  method: 'delete',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/{inventory}/{inventory_field}',
-{
-  method: 'DELETE',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.delete('{baseURL}/public-api/v1/{inventory}/{inventory_field}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.delete '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/{inventory}/{inventory_field}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`DELETE /{inventory}/{inventory_field}`</span>
-
-Deletes the Inventory Field
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/{inventory}/{inventory_field} \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="deleteinventoryfield-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
-
-<h3 id="deleteinventoryfield-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
-
-## updateInventoryField
-
-<a id="opIdupdateInventoryField"></a>
-
-> Code samples
-
-```shell
-curl -X PUT {baseURL}/public-api/v1/{inventory}/{inventory_field} \
-  -H 'Content-Type: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
-  method: 'put',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-const inputBody = '{
-  "label": "string"
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/{inventory}/{inventory_field}',
-{
-  method: 'PUT',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.put('{baseURL}/public-api/v1/{inventory}/{inventory_field}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.put '{baseURL}/public-api/v1/{inventory}/{inventory_field}',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/{inventory}/{inventory_field}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`PUT /{inventory}/{inventory_field}`</span>
-
-Updates the Inventory Field
-
-> Body parameter
-
-```json
-{
-  "label": "string"
-}
-```
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/{inventory}/{inventory_field} \
-  -H 'Content-Type: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="updateinventoryfield-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
-|body|body|[WriteInventoryField](#schemawriteinventoryfield)|true|none|
-
-<h3 id="updateinventoryfield-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
-
 # Schemas
 
 <h2 id="tocSapiusageinformation">APIUsageInformation</h2>
@@ -11847,7 +11856,8 @@ Updates the Inventory Field
 ```json
 {
   "allowed_ip": "string",
-  "routing_policy": "global"
+  "routing_policy": "global",
+  "ttl_hours": 1
 }
 
 ```
@@ -11858,6 +11868,7 @@ Updates the Inventory Field
 |---|---|---|---|---|
 |allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.|
 |routing_policy|string|true|The traffic routing policy for the VPN connection:  </br>- *global*: All the traffic is routed through the VPN On Demand. More consumption on the Domotz Cloud </br>- *local*: Only LAN traffic passes through the VPN On Demand. Less consumption on the Domotz Cloud|
+|ttl_hours|integer(int32)|false|The duration in hours of the connection.|
 
 #### Enumerated Values
 
@@ -12212,7 +12223,8 @@ Updates the Inventory Field
 {
   "allowed_ip": "string",
   "port": 0,
-  "protocol": "http"
+  "protocol": "http",
+  "ttl_hours": 1
 }
 
 ```
@@ -12224,6 +12236,7 @@ Updates the Inventory Field
 |allowed_ip|string|true|The only public IP address allowed to access the connection.         It will be impossible to use the connection from other IP addresses. You should use your public IP address.|
 |port|integer(int32)|true|none|
 |protocol|string|true|The protocol wrapped by the connection:  </br>- *http/https*: the `link` field in the reply will contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is `https` the device's certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- *tcp*: the `link` field will be in the form `tcp://{host}:{port}`. Any connection established (e.g. with `telnet`  or `ssh`) on these coordinates will be securely forwarded to the requested `port` of the device.  </br>- *ssh*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- *rdp*: the `link` field will  contain an `https` URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.|
+|ttl_hours|integer(int32)|false|The duration in hours of the connection.|
 
 #### Enumerated Values
 
@@ -12294,6 +12307,7 @@ Updates the Inventory Field
 
 ```json
 {
+  "enum_value": "string",
   "timestamp": "2019-08-24T14:15:22Z",
   "value": "string"
 }
@@ -12304,6 +12318,7 @@ Updates the Inventory Field
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
+|enum_value|string|false|none|
 |timestamp|string(date-time)|true|The time the sample was reported to Domotz|
 |value|string|true|none|
 
@@ -12587,6 +12602,7 @@ Updates the Inventory Field
   "data": {
     "agent_id": 0,
     "device_id": 0,
+    "enum_value": "string",
     "trigger_name": "string",
     "value": "string"
   },
@@ -12605,6 +12621,7 @@ Updates the Inventory Field
 |data|object|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
 |» device_id|integer(int32)|true|The `id` of the `device`|
+|» enum_value|string|false|The current enum value of the SNMP sensor if the OID is of type enum|
 |» trigger_name|string|false|none|
 |» value|string|false|The current value of the SNMP sensor|
 |name|string|true|none|
@@ -13220,6 +13237,7 @@ Updates the Inventory Field
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+|value_type|ENUM|
 
 <h2 id="tocSsnmpdomotzauthentication">SNMPDomotzAuthentication</h2>
 
@@ -13278,6 +13296,7 @@ Updates the Inventory Field
   "device_id": 0,
   "id": 0,
   "last_update": "2019-08-24T14:15:22Z",
+  "latest_enum_value": "string",
   "latest_value": "string",
   "name": "string",
   "oid": "string",
@@ -13296,6 +13315,7 @@ Updates the Inventory Field
 |device_id|integer(int32)|false|The unique identifier of the device|
 |id|integer(int32)|true|The ID of the SNMP Domotz Sensor|
 |last_update|string(date-time)|true|The timestamp of the latest update|
+|latest_enum_value|string|false|The enum value retrieved on the OID|
 |latest_value|string|true|The value retrieved on the OID|
 |name|string|true|The name of the Domotz Sensors|
 |oid|string|true|The OID string|
@@ -13314,6 +13334,7 @@ Updates the Inventory Field
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+|value_type|ENUM|
 
 <h2 id="tocSsnmpdomotzeyecreation">SNMPDomotzEyeCreation</h2>
 
@@ -13353,6 +13374,7 @@ Updates the Inventory Field
 |category|TEMPERATURE|
 |value_type|STRING|
 |value_type|NUMERIC|
+|value_type|ENUM|
 
 <h2 id="tocSsnmpdomotzeyetrigger">SNMPDomotzEyeTrigger</h2>
 
@@ -13421,6 +13443,7 @@ Updates the Inventory Field
 |---|---|
 |value_types|STRING|
 |value_types|NUMERIC|
+|value_types|ENUM|
 
 <h2 id="tocSsnmpdomotzsnmptriggeralertcreation">SNMPDomotzSnmpTriggerAlertCreation</h2>
 
