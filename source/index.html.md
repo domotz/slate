@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.2.1</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.3.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -8837,6 +8837,569 @@ Take a snapshot of the camera. Internally, a device connection is established.Cu
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A binary image|string|
 
+<h1 id="domotz-public-api-networking">networking</h1>
+
+## getAgentInterfaces
+
+<a id="opIdgetAgentInterfaces"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/network/interfaces \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/network/interfaces`</span>
+
+Returns the networks monitored by the agent
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "attached": [
+    {
+      "address": "string",
+      "mac_address": "string",
+      "name": "string",
+      "netmask": 0
+    }
+  ],
+  "routed": [
+    {
+      "address": "string",
+      "name": "string",
+      "netmask": 0
+    }
+  ]
+}
+```
+
+<h3 id="getagentinterfaces-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The networks monitored by the agent|[AllAgentInterfaces](#schemaallagentinterfaces)|
+
+## deleteAgentInterfacesPolicy
+
+<a id="opIddeleteAgentInterfacesPolicy"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/network/interfaces-policy`</span>
+
+Resets the network interface filtering policy to the default value
+
+<h3 id="deleteagentinterfacespolicy-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## getAgentInterfacesPolicy
+
+<a id="opIdgetAgentInterfacesPolicy"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/network/interfaces-policy`</span>
+
+Returns the current network interface filtering policy. The interfaces policy defines the set of interfaces which will be ignored (`deny`) or scanned (`allow`) by the agent. The default behavior is to scan all available interfaces
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "policy": "allow",
+  "rules": [
+    "string"
+  ]
+}
+```
+
+<h3 id="getagentinterfacespolicy-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The current network interface filtering policy|[AgentInterfacesPolicy](#schemaagentinterfacespolicy)|
+
+## setAgentInterfacesPolicy
+
+<a id="opIdsetAgentInterfacesPolicy"></a>
+
+> Code samples
+
+```shell
+curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "policy": "allow",
+  "rules": [
+    "string"
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/network/interfaces-policy`</span>
+
+Updates the current network interface filtering policy
+
+> Body parameter
+
+```json
+{
+  "policy": "allow",
+  "rules": [
+    "string"
+  ]
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="setagentinterfacespolicy-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[AgentInterfacesPolicy](#schemaagentinterfacespolicy)|true|the filtering policy to be applied|
+
+<h3 id="setagentinterfacespolicy-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 <h1 id="domotz-public-api-company">company</h1>
 
 ## moveAgent
@@ -11591,6 +12154,34 @@ Returns the User information
 |type|UP|
 |type|DOWN|
 
+<h2 id="tocSagentinterfacespolicy">AgentInterfacesPolicy</h2>
+
+<a id="schemaagentinterfacespolicy"></a>
+
+```json
+{
+  "policy": "allow",
+  "rules": [
+    "string"
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|policy|string|true|none|
+|rules|[string]|true|Rules can be expressed as lists of case-insensitive strings representing the names of the interfaces to be matched. The `*` wildcard can be used to match variable parts of the interface name. Example: `["eth*", "tun0"]`|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|policy|allow|
+|policy|deny|
+
 <h2 id="tocSagentlanchangeevent">AgentLANChangeEvent</h2>
 
 <a id="schemaagentlanchangeevent"></a>
@@ -12015,6 +12606,45 @@ Returns the User information
 |---|---|---|---|---|
 |alert_profile_id|integer(int32)|true|The id of the alert profile|
 |device_id|integer(int32)|true|none|
+
+<h2 id="tocSallagentinterfaces">AllAgentInterfaces</h2>
+
+<a id="schemaallagentinterfaces"></a>
+
+```json
+{
+  "attached": [
+    {
+      "address": "string",
+      "mac_address": "string",
+      "name": "string",
+      "netmask": 0
+    }
+  ],
+  "routed": [
+    {
+      "address": "string",
+      "name": "string",
+      "netmask": 0
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|attached|[object]|true|none|
+|» address|string|false|none|
+|» mac_address|string|false|none|
+|» name|string|true|none|
+|» netmask|integer(int32)|false|none|
+|routed|[object]|true|none|
+|» address|string|false|none|
+|» name|string|true|none|
+|» netmask|integer(int32)|false|none|
 
 <h2 id="tocSarea">Area</h2>
 
