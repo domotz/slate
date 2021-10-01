@@ -8837,6 +8837,375 @@ Take a snapshot of the camera. Internally, a device connection is established.Cu
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A binary image|string|
 
+<h1 id="domotz-public-api-variables">variables</h1>
+
+## listDeviceVariables
+
+<a id="opIdlistDeviceVariables"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/variable`</span>
+
+Retrieves the list of device variables
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listdevicevariables-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100|
+|page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
+|value|query|string|false|Allows filtering by `value`|
+|path|query|string|false|Allows filtering by `path`|
+|sort_by|query|string|false|Allows ordering by `path`, `id`, `value`, `label`, `value_update_time`, `creation_time`|
+|sorting_direction|query|string|false|The default is `asc`|
+|has_history|query|boolean|false|Allows filtering by `has_history` field|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|sort_by|path|
+|sort_by|id|
+|sort_by|value|
+|sort_by|label|
+|sort_by|value_update_time|
+|sort_by|creation_time|
+|sorting_direction|asc|
+|sorting_direction|desc|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "creation_time": "2019-08-24T14:15:22Z",
+    "has_history": true,
+    "id": 0,
+    "label": "string",
+    "path": "string",
+    "unit": "string",
+    "value": "string",
+    "value_update_time": "2019-08-24T14:15:22Z"
+  }
+]
+```
+
+<h3 id="listdevicevariables-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of device variables|Inline|
+
+<h3 id="listdevicevariables-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceVariable](#schemadevicevariable)]|false|[The representation of a device variable]|
+|» creation_time|string(date-time)|false|The creation time of the variable|
+|» has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
+|» id|integer(int32)|true|The ID of the variable|
+|» label|string|false|The label|
+|» path|string|true|The variable path|
+|» unit|string|false|The unit of measurement|
+|» value|string|false|The variable value|
+|» value_update_time|string(date-time)|false|The update time of the variable value|
+
+## getVariableHistory
+
+<a id="opIdgetVariableHistory"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/variable/{variable_id}/history`</span>
+
+Returns the variable history
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getvariablehistory-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|variable_id|path|integer(int32)|true|Variable ID|
+|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
+|to|query|string(date-time)|false|The end time of the time series. Default value is now|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "timestamp": "2019-08-24T14:15:22Z",
+    "value": "string"
+  }
+]
+```
+
+<h3 id="getvariablehistory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The variable's history, a list of dictionaries, each composed by the timestamp (a datetime) and the value (a string)|Inline|
+
+<h3 id="getvariablehistory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[VariableHistorySample](#schemavariablehistorysample)]|false|none|
+|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+|» value|string|true|The sample value|
+
 <h1 id="domotz-public-api-networking">networking</h1>
 
 ## getAgentInterfaces
@@ -13397,6 +13766,39 @@ Returns the User information
 |total_seconds|integer(int32)|true|none|
 |uptime|string|true|The uptime percentage of the device|
 
+<h2 id="tocSdevicevariable">DeviceVariable</h2>
+
+<a id="schemadevicevariable"></a>
+
+```json
+{
+  "creation_time": "2019-08-24T14:15:22Z",
+  "has_history": true,
+  "id": 0,
+  "label": "string",
+  "path": "string",
+  "unit": "string",
+  "value": "string",
+  "value_update_time": "2019-08-24T14:15:22Z"
+}
+
+```
+
+*The representation of a device variable*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|creation_time|string(date-time)|false|The creation time of the variable|
+|has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
+|id|integer(int32)|true|The ID of the variable|
+|label|string|false|The label|
+|path|string|true|The variable path|
+|unit|string|false|The unit of measurement|
+|value|string|false|The variable value|
+|value_update_time|string(date-time)|false|The update time of the variable value|
+
 <h2 id="tocSdomotzeyesusageinformation">DomotzEyesUsageInformation</h2>
 
 <a id="schemadomotzeyesusageinformation"></a>
@@ -14307,6 +14709,25 @@ Returns the User information
 |---|---|---|---|---|
 |id|integer(int32)|false|none|
 |name|string|false|none|
+
+<h2 id="tocSvariablehistorysample">VariableHistorySample</h2>
+
+<a id="schemavariablehistorysample"></a>
+
+```json
+{
+  "timestamp": "2019-08-24T14:15:22Z",
+  "value": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+|value|string|true|The sample value|
 
 <h2 id="tocSwriteinventoryfield">WriteInventoryField</h2>
 
