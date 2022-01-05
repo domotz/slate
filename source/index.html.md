@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.4.0</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.5.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -3250,6 +3250,7 @@ Returns all the devices of an agent
   {
     "authentication_status": "AUTHENTICATED",
     "details": {
+      "firmware_version": "string",
       "room": "string",
       "snmp_read_community": "string",
       "snmp_write_community": "string",
@@ -3583,6 +3584,7 @@ Returns the details of a device
 {
   "authentication_status": "AUTHENTICATED",
   "details": {
+    "firmware_version": "string",
     "room": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
@@ -3935,6 +3937,312 @@ Performs the action on the device, according to the specified {<b> field </b>} v
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## getDeviceApplication
+
+<a id="opIdgetDeviceApplication"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/application`</span>
+
+Retrieves the list of applications of the device
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getdeviceapplication-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "application_id": "string",
+    "first_time_seen": "2019-08-24T14:15:22Z",
+    "info": "string",
+    "install_date": "2019-08-24T14:15:22Z",
+    "install_location": "string",
+    "last_modified": "2019-08-24T14:15:22Z",
+    "last_update": "2019-08-24T14:15:22Z",
+    "name": "string",
+    "publisher": "string",
+    "version": "string"
+  }
+]
+```
+
+<h3 id="getdeviceapplication-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of applications of the device|Inline|
+
+<h3 id="getdeviceapplication-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceApplicationField](#schemadeviceapplicationfield)]|false|[The list of applications of a device]|
+|» application_id|string|true|none|
+|» first_time_seen|string(date-time)|true|none|
+|» info|string|false|none|
+|» install_date|string(date-time)|false|none|
+|» install_location|string|false|none|
+|» last_modified|string(date-time)|false|none|
+|» last_update|string(date-time)|false|none|
+|» name|string|false|none|
+|» publisher|string|false|none|
+|» version|string|false|none|
+
+## countApplications
+
+<a id="opIdcountApplications"></a>
+
+> Code samples
+
+```shell
+curl -X HEAD {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application',
+  method: 'head',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application',
+{
+  method: 'HEAD',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.head('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.head '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("HEAD", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`HEAD /agent/{agent_id}/device/{device_id}/application`</span>
+
+Counts the applications
+
+<h3 id="countapplications-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Returns the application count|None|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|204|X-Entities-Count|integer|int32|Returns the application count|
 
 ## setCredentials
 
@@ -12267,6 +12575,7 @@ Returns the User information
 {
   "authentication_status": "AUTHENTICATED",
   "details": {
+    "firmware_version": "string",
     "room": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
@@ -12300,6 +12609,7 @@ Returns the User information
 |---|---|---|---|---|
 |authentication_status|string|false|When defined the device requires authentication info to perform extended discovery <ul> <li> *REQUIRED*: the device requires authentication, extended discovery is locked </li><li> *PENDING*: credentials have been submitted but not verified yet </li><li> *WRONG_CREDENTIALS*: device authentication failed </li><li> *AUTHENTICATED*: device authentication succeeded </li></ul>|
 |details|object|false|DeviceDetails|
+|» firmware_version|string|false|none|
 |» room|string|false|none|
 |» snmp_read_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
 |» snmp_write_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
@@ -13121,6 +13431,43 @@ Returns the User information
 |label|string|false|A human-readable short description of the type|
 |type_id|integer(int32)|false|The corresponding `device type`|
 
+<h2 id="tocSdeviceapplicationfield">DeviceApplicationField</h2>
+
+<a id="schemadeviceapplicationfield"></a>
+
+```json
+{
+  "application_id": "string",
+  "first_time_seen": "2019-08-24T14:15:22Z",
+  "info": "string",
+  "install_date": "2019-08-24T14:15:22Z",
+  "install_location": "string",
+  "last_modified": "2019-08-24T14:15:22Z",
+  "last_update": "2019-08-24T14:15:22Z",
+  "name": "string",
+  "publisher": "string",
+  "version": "string"
+}
+
+```
+
+*The list of applications of a device*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|application_id|string|true|none|
+|first_time_seen|string(date-time)|true|none|
+|info|string|false|none|
+|install_date|string(date-time)|false|none|
+|install_location|string|false|none|
+|last_modified|string(date-time)|false|none|
+|last_update|string(date-time)|false|none|
+|name|string|false|none|
+|publisher|string|false|none|
+|version|string|false|none|
+
 <h2 id="tocSdevicebasetype">DeviceBaseType</h2>
 
 <a id="schemadevicebasetype"></a>
@@ -13835,6 +14182,7 @@ Returns the User information
 {
   "authentication_status": "AUTHENTICATED",
   "details": {
+    "firmware_version": "string",
     "room": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
@@ -13882,6 +14230,7 @@ Returns the User information
 {
   "authentication_status": "AUTHENTICATED",
   "details": {
+    "firmware_version": "string",
     "room": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
@@ -14018,6 +14367,7 @@ Returns the User information
 {
   "authentication_status": "AUTHENTICATED",
   "details": {
+    "firmware_version": "string",
     "room": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
@@ -14090,6 +14440,7 @@ Returns the User information
 {
   "authentication_status": "AUTHENTICATED",
   "details": {
+    "firmware_version": "string",
     "room": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
@@ -14525,6 +14876,7 @@ Returns the User information
 {
   "authentication_status": "AUTHENTICATED",
   "details": {
+    "firmware_version": "string",
     "room": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
