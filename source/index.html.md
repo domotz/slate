@@ -3938,9 +3938,9 @@ Performs the action on the device, according to the specified {<b> field </b>} v
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
-## listDeviceApplication
+## listDeviceApplications
 
-<a id="opIdlistDeviceApplication"></a>
+<a id="opIdlistDeviceApplications"></a>
 
 > Code samples
 
@@ -4068,7 +4068,7 @@ Retrieves the list of applications of the device
 </code>
 </p>
 
-<h3 id="listdeviceapplication-parameters">Parameters</h3>
+<h3 id="listdeviceapplications-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -4096,13 +4096,13 @@ Retrieves the list of applications of the device
 ]
 ```
 
-<h3 id="listdeviceapplication-responses">Responses</h3>
+<h3 id="listdeviceapplications-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of applications of the device|Inline|
 
-<h3 id="listdeviceapplication-responseschema">Response Schema</h3>
+<h3 id="listdeviceapplications-responseschema">Response Schema</h3>
 
 Status Code **200**
 
