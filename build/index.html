@@ -4253,7 +4253,7 @@ download and in upload.</p>
 <td>Agent ID</td>
 </tr>
 <tr>
-<td>session_id</td>
+<td>vpn_session_id</td>
 <td>path</td>
 <td>integer(int32)</td>
 <td>true</td>
@@ -5773,6 +5773,20 @@ download and in upload.</p>
 <td>true</td>
 <td>Device ID</td>
 </tr>
+<tr>
+<td>page_size</td>
+<td>query</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100</td>
+</tr>
+<tr>
+<td>page_number</td>
+<td>query</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The requested page number, 0-indexed. Default value is 0</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -5986,6 +6000,44 @@ download and in upload.</p>
 <p><span class='dmt-method'><code>HEAD /agent/{agent_id}/device/{device_id}/application</code></span></p>
 
 <p>Counts the applications</p>
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="countdeviceapplications-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Device ID</td>
+</tr>
+</tbody></table>
 
 <h3 id="countdeviceapplications-responses">Responses</h3>
 
@@ -7226,13 +7278,6 @@ download and in upload.</p>
 <td>integer(int32)</td>
 <td>true</td>
 <td>Agent ID</td>
-</tr>
-<tr>
-<td>device_id</td>
-<td>path</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>Device ID</td>
 </tr>
 </tbody></table>
 
@@ -10785,7 +10830,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>Device ID</td>
 </tr>
 <tr>
-<td>inventory_field_name</td>
+<td>inventory_field</td>
 <td>path</td>
 <td>string</td>
 <td>true</td>
@@ -10954,7 +10999,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>Device ID</td>
 </tr>
 <tr>
-<td>inventory_field_name</td>
+<td>inventory_field</td>
 <td>path</td>
 <td>string</td>
 <td>true</td>
@@ -11428,14 +11473,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 </thead><tbody>
 <tr>
-<td>agent_id</td>
-<td>path</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>Agent ID</td>
-</tr>
-<tr>
-<td>inventory_field_name</td>
+<td>inventory_field</td>
 <td>path</td>
 <td>string</td>
 <td>true</td>
@@ -11594,7 +11632,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 </thead><tbody>
 <tr>
-<td>inventory_field_name</td>
+<td>inventory_field</td>
 <td>path</td>
 <td>string</td>
 <td>true</td>
@@ -11760,14 +11798,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 </thead><tbody>
 <tr>
-<td>agent_id</td>
-<td>path</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>Agent ID</td>
-</tr>
-<tr>
-<td>inventory_field_name</td>
+<td>inventory_field</td>
 <td>path</td>
 <td>string</td>
 <td>true</td>
@@ -12623,6 +12654,38 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p>Returns the networks monitored by the agent</p>
 
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentinterfaces-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+</tbody></table>
+
 <blockquote>
 <p>Example responses</p>
 
@@ -12758,6 +12821,37 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p>Resets the network interface filtering policy to the default value</p>
 
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteagentinterfacespolicy-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+</tbody></table>
+
 <h3 id="deleteagentinterfacespolicy-responses">Responses</h3>
 
 <table><thead>
@@ -12875,6 +12969,38 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/network/interfaces-policy</code></span></p>
 
 <p>Returns the current network interface filtering policy. The interfaces policy defines the set of interfaces which will be ignored (<code>deny</code>) or scanned (<code>allow</code>) by the agent. The default behavior is to scan all available interfaces</p>
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentinterfacespolicy-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+</tbody></table>
 
 <blockquote>
 <p>Example responses</p>
@@ -13044,6 +13170,13 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
 <tr>
 <td>body</td>
 <td>body</td>

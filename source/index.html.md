@@ -2777,7 +2777,7 @@ Closes an active VPN connection session for the `agent`
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
-|session_id|path|integer(int32)|true|Session ID|
+|vpn_session_id|path|integer(int32)|true|Session ID|
 
 <h3 id="deleteagentvpnconnection-responses">Responses</h3>
 
@@ -4074,6 +4074,8 @@ Retrieves the list of applications of the device
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
+|page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100|
+|page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
 
 > Example responses
 
@@ -4231,6 +4233,24 @@ func main() {
 <span class='dmt-method'>`HEAD /agent/{agent_id}/device/{device_id}/application`</span>
 
 Counts the applications
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/application \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="countdeviceapplications-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
 
 <h3 id="countdeviceapplications-responses">Responses</h3>
 
@@ -5320,7 +5340,6 @@ Retrieves the list of configured SNMP Domotz Sensors on the agent
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
-|device_id|path|integer(int32)|true|Device ID|
 
 > Example responses
 
@@ -8113,7 +8132,7 @@ Deletes the Inventory field for the device
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+|inventory_field|path|string|true|Field identifier, unique within the Inventory|
 
 <h3 id="deletedeviceinventoryfield-responses">Responses</h3>
 
@@ -8263,7 +8282,7 @@ Sets the value of an Inventory field for the device, a value can't be set to `nu
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+|inventory_field|path|string|true|Field identifier, unique within the Inventory|
 |body|body|string|true|none|
 
 <h3 id="setdeviceinventoryfieldvalue-responses">Responses</h3>
@@ -8680,8 +8699,7 @@ Deletes the Inventory Field
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+|inventory_field|path|string|true|Field identifier, unique within the Inventory|
 
 <h3 id="deleteinventoryfield-responses">Responses</h3>
 
@@ -8833,7 +8851,7 @@ Creates a new Inventory Field - the user will be able to set key-values pairs on
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+|inventory_field|path|string|true|Field identifier, unique within the Inventory|
 |body|body|[WriteInventoryField](#schemawriteinventoryfield)|true|none|
 
 <h3 id="createinventoryfield-responses">Responses</h3>
@@ -8986,8 +9004,7 @@ Updates the Inventory Field
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|inventory_field_name|path|string|true|Field identifier, unique within the Inventory|
+|inventory_field|path|string|true|Field identifier, unique within the Inventory|
 |body|body|[WriteInventoryField](#schemawriteinventoryfield)|true|none|
 
 <h3 id="updateinventoryfield-responses">Responses</h3>
@@ -9634,6 +9651,24 @@ func main() {
 
 Returns the networks monitored by the agent
 
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentinterfaces-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
 > Example responses
 
 > 200 Response
@@ -9776,6 +9811,23 @@ func main() {
 
 Resets the network interface filtering policy to the default value
 
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteagentinterfacespolicy-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
 <h3 id="deleteagentinterfacespolicy-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
@@ -9899,6 +9951,24 @@ func main() {
 <span class='dmt-method'>`GET /agent/{agent_id}/network/interfaces-policy`</span>
 
 Returns the current network interface filtering policy. The interfaces policy defines the set of interfaces which will be ignored (`deny`) or scanned (`allow`) by the agent. The default behavior is to scan all available interfaces
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/interfaces-policy \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentinterfacespolicy-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
 
 > Example responses
 
@@ -10069,6 +10139,7 @@ Updates the current network interface filtering policy
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
 |body|body|[AgentInterfacesPolicy](#schemaagentinterfacespolicy)|true|the filtering policy to be applied|
 
 <h3 id="setagentinterfacespolicy-responses">Responses</h3>
