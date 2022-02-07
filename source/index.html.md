@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.5.0</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.6.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -14330,6 +14330,14 @@ Returns the User information
   ],
   "last_status_change": "2019-08-24T14:15:22Z",
   "model": "string",
+  "open_ports": {
+    "tcp": [
+      0
+    ],
+    "udp": [
+      0
+    ]
+  },
   "status": "ONLINE",
   "vendor": "string",
   "names": {
@@ -14467,6 +14475,14 @@ Returns the User information
   ],
   "last_status_change": "2019-08-24T14:15:22Z",
   "model": "string",
+  "open_ports": {
+    "tcp": [
+      0
+    ],
+    "udp": [
+      0
+    ]
+  },
   "status": "ONLINE",
   "vendor": "string"
 }
@@ -14491,6 +14507,9 @@ Returns the User information
 |» ip_addresses|[string]|false|none|
 |» last_status_change|string(date-time)|false|none|
 |» model|string|false|none|
+|» open_ports|object|false|The list of TCP and UDP open ports. Domotz scans a subset of all the ports, visit the <a href='https://help.domotz.com/user-guide/device-tcp-udp-ports-services-discovery/'>user guide</a> for more details.|
+|»» tcp|[integer]|false|none|
+|»» udp|[integer]|false|none|
 |» status|string|false|none|
 |» vendor|string|false|none|
 
@@ -14540,6 +14559,14 @@ Returns the User information
   ],
   "last_status_change": "2019-08-24T14:15:22Z",
   "model": "string",
+  "open_ports": {
+    "tcp": [
+      0
+    ],
+    "udp": [
+      0
+    ]
+  },
   "status": "ONLINE",
   "vendor": "string",
   "hw_address": "string",
@@ -14976,6 +15003,14 @@ Returns the User information
   ],
   "last_status_change": "2019-08-24T14:15:22Z",
   "model": "string",
+  "open_ports": {
+    "tcp": [
+      0
+    ],
+    "udp": [
+      0
+    ]
+  },
   "status": "ONLINE",
   "vendor": "string",
   "names": {

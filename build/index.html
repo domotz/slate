@@ -224,7 +224,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#domotz-public-api" class="toc-h1 toc-link" data-title="Domotz Public API v1.5.0">Domotz Public API v1.5.0</a>
+            <a href="#domotz-public-api" class="toc-h1 toc-link" data-title="Domotz Public API v1.6.0">Domotz Public API v1.6.0</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#the-domotz-public-api" class="toc-h2 toc-link" data-title="The Domotz Public API">The Domotz Public API</a>
@@ -757,7 +757,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="domotz-public-api">Domotz Public API v1.5.0</h1>
+        <h1 id="domotz-public-api">Domotz Public API v1.6.0</h1>
 
 <blockquote>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
@@ -19618,6 +19618,14 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"open_ports"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"tcp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">0</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"udp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">0</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -19874,6 +19882,14 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"open_ports"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"tcp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">0</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"udp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">0</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -19940,6 +19956,24 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <tr>
 <td>» model</td>
 <td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» open_ports</td>
+<td>object</td>
+<td>false</td>
+<td>The list of TCP and UDP open ports. Domotz scans a subset of all the ports, visit the <a href='https://help.domotz.com/user-guide/device-tcp-udp-ports-services-discovery/'>user guide</a> for more details.</td>
+</tr>
+<tr>
+<td>»» tcp</td>
+<td>[integer]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» udp</td>
+<td>[integer]</td>
 <td>false</td>
 <td>none</td>
 </tr>
@@ -20016,6 +20050,14 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"open_ports"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"tcp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">0</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"udp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">0</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"hw_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -20937,6 +20979,14 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"last_status_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"open_ports"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"tcp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">0</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"udp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">0</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLINE"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
