@@ -10767,6 +10767,163 @@ Creates a new Team
 
 <h1 id="domotz-public-api-alert-profiles">alert profiles</h1>
 
+## getAlertProfiles2
+
+<a id="opIdgetAlertProfiles2"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/alert-profile \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/alert-profile',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/alert-profile',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/alert-profile', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/alert-profile',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/alert-profile", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /alert-profile`</span>
+
+Returns the list of configured alert profiles. You can configure alert profiles on the Domotz Portal. Alert profiles define the association between a list of events and a notification channel (email, webhook or slack)
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "description": "string",
+    "events": [
+      "device_status_up"
+    ],
+    "id": 0,
+    "is_enabled": true,
+    "name": "string",
+    "tag": "string"
+  }
+]
+```
+
+<h3 id="getalertprofiles2-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured alert profiles|Inline|
+
+<h3 id="getalertprofiles2-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[AlertProfile](#schemaalertprofile)]|false|none|
+|» description|string|false|The description of the alert profile|
+|» events|[string]|false|The list of events associated to the profile|
+|» id|integer(int32)|true|The id of the event profile|
+|» is_enabled|boolean|false|true if the event profile is enabled, false otherwise|
+|» name|string|false|The symbolic name associated to the profile|
+|» tag|string|false|A label associated to the profile|
+
 ## getAgentAlertProfile
 
 <a id="opIdgetAgentAlertProfile"></a>
@@ -11807,9 +11964,9 @@ Bind an alert profile to a device. After binding, a webhook will be sent to the 
 
 </div>
 
-## getAlertProfiles
+## getAlertProfiles _Deprecated_ (please use getAlertProfiles2)
 
-<a id="opIdgetAlertProfiles"></a>
+<a id="opIdgetAlertProfiles _Deprecated_ (please use getAlertProfiles2)"></a>
 
 > Code samples
 
@@ -11937,7 +12094,7 @@ Returns the list of configured alert profiles. You can configure alert profiles 
 </code>
 </p>
 
-<h3 id="getalertprofiles-parameters">Parameters</h3>
+<h3 id="getalertprofiles-_deprecated_-(please-use-getalertprofiles2)-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -11962,13 +12119,13 @@ Returns the list of configured alert profiles. You can configure alert profiles 
 ]
 ```
 
-<h3 id="getalertprofiles-responses">Responses</h3>
+<h3 id="getalertprofiles-_deprecated_-(please-use-getalertprofiles2)-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of configured alert profiles|Inline|
 
-<h3 id="getalertprofiles-responseschema">Response Schema</h3>
+<h3 id="getalertprofiles-_deprecated_-(please-use-getalertprofiles2)-responseschema">Response Schema</h3>
 
 Status Code **200**
 
