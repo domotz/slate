@@ -3261,6 +3261,11 @@ Returns all the devices of an agent
     "id": 0,
     "importance": "VITAL",
     "main_id": 0,
+    "os": {
+      "build": "string",
+      "name": "string",
+      "version": "string"
+    },
     "protocol": "IP",
     "type": {
       "detected_id": 0,
@@ -3595,6 +3600,11 @@ Returns the details of a device
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
+  "os": {
+    "build": "string",
+    "name": "string",
+    "version": "string"
+  },
   "protocol": "IP",
   "type": {
     "detected_id": 0,
@@ -12814,6 +12824,11 @@ Returns the User information
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
+  "os": {
+    "build": "string",
+    "name": "string",
+    "version": "string"
+  },
   "protocol": "IP",
   "type": {
     "detected_id": 0,
@@ -12847,6 +12862,10 @@ Returns the User information
 |id|integer(int32)|true|none|
 |importance|string|false|none|
 |main_id|integer(int32)|false|In a clustered configuration, the main device id|
+|os|object|false|DeviceOS|
+|» build|string|false|none|
+|» name|string|false|none|
+|» version|string|false|none|
 |protocol|string|true|none|
 |type|object|false|The device type, if recognised by domotz|
 |» detected_id|integer(int32)|false|none|
@@ -14421,6 +14440,11 @@ Returns the User information
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
+  "os": {
+    "build": "string",
+    "name": "string",
+    "version": "string"
+  },
   "protocol": "IP",
   "type": {
     "detected_id": 0,
@@ -14469,6 +14493,11 @@ Returns the User information
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
+  "os": {
+    "build": "string",
+    "name": "string",
+    "version": "string"
+  },
   "protocol": "IP",
   "type": {
     "detected_id": 0,
@@ -14614,6 +14643,11 @@ Returns the User information
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
+  "os": {
+    "build": "string",
+    "name": "string",
+    "version": "string"
+  },
   "protocol": "IP",
   "type": {
     "detected_id": 0,
@@ -14698,6 +14732,11 @@ Returns the User information
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
+  "os": {
+    "build": "string",
+    "name": "string",
+    "version": "string"
+  },
   "protocol": "IP",
   "type": {
     "detected_id": 0,
@@ -15142,6 +15181,11 @@ Returns the User information
   "id": 0,
   "importance": "VITAL",
   "main_id": 0,
+  "os": {
+    "build": "string",
+    "name": "string",
+    "version": "string"
+  },
   "protocol": "IP",
   "type": {
     "detected_id": 0,
