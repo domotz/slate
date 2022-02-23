@@ -9372,6 +9372,151 @@ Status Code **200**
 |» value|string|false|The variable value|
 |» value_update_time|string(date-time)|false|The update time of the variable value|
 
+## countDeviceVariables
+
+<a id="opIdcountDeviceVariables"></a>
+
+> Code samples
+
+```shell
+curl -X HEAD {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+  method: 'head',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+{
+  method: 'HEAD',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.head('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.head '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("HEAD", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`HEAD /agent/{agent_id}/device/{device_id}/variable`</span>
+
+Returns device variables count
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="countdevicevariables-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|value|query|string|false|Allows filtering by `value`|
+|path|query|string|false|Allows filtering by `path`|
+|has_history|query|boolean|false|Allows filtering by `has_history` field|
+
+<h3 id="countdevicevariables-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|The device variables count|None|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|204|X-Entities-Count|integer|int32|The device variables count|
+
 ## getVariableHistory
 
 <a id="opIdgetVariableHistory"></a>
