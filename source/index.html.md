@@ -4064,7 +4064,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/application`</span>
 
-Retrieves the list of applications of the device
+Retrieves the list of applications of the device. The feature is only available on agents having the Booster Pack
 
 <h3>Curl</h3>
 
