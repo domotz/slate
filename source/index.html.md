@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.6.0</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.7.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -10303,6 +10303,452 @@ Updates the current network interface filtering policy
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## deleteAgentIPScanPolicy
+
+<a id="opIddeleteAgentIPScanPolicy"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/network/ip-scan-policy`</span>
+
+Resets the IP scan policy to the default value
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteagentipscanpolicy-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+<h3 id="deleteagentipscanpolicy-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## getAgentIPScanPolicy
+
+<a id="opIdgetAgentIPScanPolicy"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/network/ip-scan-policy`</span>
+
+Returns the current IP addresses management policy. A set of IP addresses to be always scanned can be specified in the `forced_ip_addresses` array. 
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentipscanpolicy-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "forced_ip_addresses": [
+    "string"
+  ]
+}
+```
+
+<h3 id="getagentipscanpolicy-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The IP scan policy.|[AgentIPScanPolicy](#schemaagentipscanpolicy)|
+
+## setAgentIPScanPolicy
+
+<a id="opIdsetAgentIPScanPolicy"></a>
+
+> Code samples
+
+```shell
+curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "forced_ip_addresses": [
+    "string"
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/network/ip-scan-policy`</span>
+
+Updates the current IP address scan policy. The list of IP addresses provided in `forced_ip_addresses` will be scanned regardless of the automatic discovery settings of the agent.
+
+> Body parameter
+
+```json
+{
+  "forced_ip_addresses": [
+    "string"
+  ]
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/ip-scan-policy \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="setagentipscanpolicy-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|body|body|[AgentIPScanPolicy](#schemaagentipscanpolicy)|true|the IP scan policy to be applied|
+
+<h3 id="setagentipscanpolicy-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 <h1 id="domotz-public-api-company">company</h1>
 
 ## moveAgent
@@ -13224,6 +13670,25 @@ Returns the User information
 |type|CONNECTION_LOST|
 |type|UP|
 |type|DOWN|
+
+<h2 id="tocSagentipscanpolicy">AgentIPScanPolicy</h2>
+
+<a id="schemaagentipscanpolicy"></a>
+
+```json
+{
+  "forced_ip_addresses": [
+    "string"
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|forced_ip_addresses|[string]|true|The list of IP addresses in dotted decimal notation always checked by the agent. By default is empty and the agent performs hosts discovery automatically|
 
 <h2 id="tocSagentinterfacespolicy">AgentInterfacesPolicy</h2>
 
