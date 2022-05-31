@@ -9686,6 +9686,165 @@ Status Code **200**
 |» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
 |» value|string|true|The sample value|
 
+<h1 id="domotz-public-api-topology">topology</h1>
+
+## getNetworkTopology
+
+<a id="opIdgetNetworkTopology"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/network-topology \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network-topology',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network-topology',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/network-topology', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/network-topology',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/network-topology", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/network-topology`</span>
+
+Returns the agent's network topology
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network-topology \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getnetworktopology-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "edges": [
+    {
+      "from": 0,
+      "to": 0
+    }
+  ]
+}
+```
+
+<h3 id="getnetworktopology-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[NetworkTopology](#schemanetworktopology)|
+
 <h1 id="domotz-public-api-networking">networking</h1>
 
 ## getAgentInterfaces
@@ -13688,7 +13847,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|forced_ip_addresses|[string]|true|The list of IP addresses in dotted decimal notation always checked by the agent. By default is empty and the agent performs hosts discovery automatically|
+|forced_ip_addresses|[string]|true|The list of IP addresses always checked by the agent. By default the list is empty and the agent performs hosts discovery automatically. The addresses must be expressed in dotted decimal notation and must belong to private networks (see <a href='https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml/'>iana-ipv4-special-registry</a>)|
 
 <h2 id="tocSagentinterfacespolicy">AgentInterfacesPolicy</h2>
 
@@ -15481,6 +15640,30 @@ Returns the User information
 |---|---|---|---|---|
 |timestamp|string(date-time)|false|The time the sample was reported to Domotz|
 |values|[integer]|false|A pair of values: the download and upload speed, in Bit Per Seconds (bps), as measured by the Agent|
+
+<h2 id="tocSnetworktopology">NetworkTopology</h2>
+
+<a id="schemanetworktopology"></a>
+
+```json
+{
+  "edges": [
+    {
+      "from": 0,
+      "to": 0
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|edges|[object]|true|The list of edges. Each item contains the IDs of the connected devices.|
+|» from|integer(int32)|true|none|
+|» to|integer(int32)|true|none|
 
 <h2 id="tocSsnmpdomotzagenteye">SNMPDomotzAgentEye</h2>
 
