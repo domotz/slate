@@ -3269,7 +3269,8 @@ Returns all the devices of an agent
     "protocol": "IP",
     "type": {
       "detected_id": 0,
-      "id": 0
+      "id": 0,
+      "label": "string"
     },
     "user_data": {
       "model": "string",
@@ -3608,7 +3609,8 @@ Returns the details of a device
   "protocol": "IP",
   "type": {
     "detected_id": 0,
-    "id": 0
+    "id": 0,
+    "label": "string"
   },
   "user_data": {
     "model": "string",
@@ -13582,7 +13584,8 @@ Returns the User information
   "protocol": "IP",
   "type": {
     "detected_id": 0,
-    "id": 0
+    "id": 0,
+    "label": "string"
   },
   "user_data": {
     "model": "string",
@@ -13620,6 +13623,7 @@ Returns the User information
 |type|object|false|The device type, if recognised by domotz|
 |» detected_id|integer(int32)|false|none|
 |» id|integer(int32)|false|none|
+|» label|string|false|none|
 |user_data|object|false|none|
 |» model|string|false|none|
 |» name|string|false|none|
@@ -15217,7 +15221,8 @@ Returns the User information
   "protocol": "IP",
   "type": {
     "detected_id": 0,
-    "id": 0
+    "id": 0,
+    "label": "string"
   },
   "user_data": {
     "model": "string",
@@ -15270,7 +15275,8 @@ Returns the User information
   "protocol": "IP",
   "type": {
     "detected_id": 0,
-    "id": 0
+    "id": 0,
+    "label": "string"
   },
   "user_data": {
     "model": "string",
@@ -15420,7 +15426,8 @@ Returns the User information
   "protocol": "IP",
   "type": {
     "detected_id": 0,
-    "id": 0
+    "id": 0,
+    "label": "string"
   },
   "user_data": {
     "model": "string",
@@ -15509,7 +15516,8 @@ Returns the User information
   "protocol": "IP",
   "type": {
     "detected_id": 0,
-    "id": 0
+    "id": 0,
+    "label": "string"
   },
   "user_data": {
     "model": "string",
@@ -15982,7 +15990,8 @@ Returns the User information
   "protocol": "IP",
   "type": {
     "detected_id": 0,
-    "id": 0
+    "id": 0,
+    "label": "string"
   },
   "user_data": {
     "model": "string",
