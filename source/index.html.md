@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.7.0</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.8.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -31,7 +31,7 @@ It is possible to subscribe to events happening on the Domotz platform, both at 
 Please refer to the [user-guide](https://help.domotz.com/user-guide/shared-alerts-webhooks-ticketing-systems/) on the usage of the Webhook as a possible contact channel to receive notification of events and how to create a Shared Alert Profile. Moreover, refer to [getAlertProfiles](#getalertprofiles), [bindAlertProfileToAgent](#bindalertprofiletoagent) and [bindAlertProfileToDevice](#bindalertprofiletodevice) on how to retrieve the list of Shared Alert Profiles and bind to Agents and Devices respectively. In those same sections you also have the list of all the possible Webhook events and references to the Schemas.
 
 <a href="https://www.domotz.com/terms-and-conditions/">Terms of service</a>
-<br><a href="mailto:support@domotz.com">API Support</a> 
+<br><a href="mailto:support@domotz.com">API Support</a>
 
 # Authentication
 
@@ -13888,6 +13888,46 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
     "dhcp": {
       "new": [
@@ -13923,6 +13963,7 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|true|The `id` of the `agent`|
 |» dhcp|object|false|none|
 |»» new|[string]|false|none|
@@ -13949,6 +13990,46 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
     "value": [
       {
@@ -13970,6 +14051,7 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
 |» value|[object]|false|none|
 |»» port|integer(int32)|false|none|
@@ -13993,6 +14075,46 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
     "status": "SPEED_TEST_ISSUE_DETECTED",
     "threshold": {
@@ -14017,6 +14139,7 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
 |» status|string|false|none|
 |» threshold|object|false|none|
@@ -14043,6 +14166,46 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
     "value": "UP"
   },
@@ -14059,6 +14222,7 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
 |» value|string|false|none|
 |name|string|true|none|
@@ -14174,6 +14338,46 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
     "ip": {
       "new": {
@@ -14213,6 +14417,7 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|true|The `id` of the `agent`|
 |» ip|object|false|none|
 |»» new|object|false|none|
@@ -14520,7 +14725,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0
   },
   "name": "device_configuration_change",
@@ -14536,7 +14813,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» device_id|integer(int32)|true|The `id` of the `device`|
 |name|string|true|none|
 |timestamp|string(date-time)|true|The timestamp of the event|
@@ -14554,7 +14833,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0
   },
   "name": "device_configuration_misalignment",
@@ -14570,7 +14921,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» device_id|integer(int32)|true|The `id` of the `device`|
 |name|string|true|none|
 |timestamp|string(date-time)|true|The timestamp of the event|
@@ -14640,7 +14993,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0
   },
   "name": "agent_device_discovery",
@@ -14656,7 +15081,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» device_id|integer(int32)|false|The `id` of the `device`|
 |name|string|true|none|
 |timestamp|string(date-time)|true|The timestamp of the event|
@@ -14695,7 +15122,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0
   },
   "name": "device_heartbeat_lost",
@@ -14711,7 +15210,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» device_id|integer(int32)|true|The `id` of the `device`|
 |name|string|true|none|
 |timestamp|string(date-time)|true|The timestamp of the event|
@@ -14768,7 +15269,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0,
     "old_ip_addresses": [
       "string"
@@ -14790,7 +15363,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» device_id|integer(int32)|true|The `id` of the `device`|
 |» old_ip_addresses|[string]|false|The list of previous IP addresses|
 |» value|[string]|false|The list of new IP addresses|
@@ -14883,7 +15458,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0,
     "status": "RTD_ISSUE_DETECTED",
     "threshold": {
@@ -14908,7 +15555,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» device_id|integer(int32)|true|The `id` of the `device`|
 |» status|string|false|none|
 |» threshold|object|false|none|
@@ -14966,7 +15615,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0,
     "enum_value": "string",
     "trigger_name": "string",
@@ -14985,7 +15706,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» device_id|integer(int32)|true|The `id` of the `device`|
 |» enum_value|string|false|The current enum value of the SNMP sensor if the OID is of type enum|
 |» trigger_name|string|false|none|
@@ -15025,7 +15748,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0,
     "value": "UP"
   },
@@ -15042,7 +15837,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» device_id|integer(int32)|true|The `id` of the `device`|
 |» value|string|false|none|
 |name|string|true|none|
@@ -15063,7 +15860,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0,
     "value": [
       {
@@ -15085,7 +15954,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» device_id|integer(int32)|true|The `id` of the `device`|
 |» value|[object]|false|none|
 |»» port|integer(int32)|false|none|
@@ -15333,7 +16204,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0,
     "feature": "mib_discovery",
     "value": {
@@ -15353,7 +16296,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
 |» agent_id|integer(int32)|false|The `id` of the `agent`|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» device_id|integer(int32)|false|The `id` of the `device`|
 |» feature|string|false|The discovered feature|
 |» value|object|false|none|
@@ -15590,7 +16535,79 @@ Returns the User information
 ```json
 {
   "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
     "agent_id": 0,
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
     "device_id": 0,
     "feature": "mib_discovery",
     "value": {
@@ -15621,6 +16638,8 @@ Returns the User information
 |---|---|---|---|---|
 |*anonymous*|object|false|Triggered when a new feature MIB is discovered on a device|
 |» data|object|false|none|
+|»» agent|[AgentBase](#schemaagentbase)|false|none|
+|»» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |»» value|object|false|none|
 |»»» data|object|false|none|
 |»»»» mib|[string]|false|The discovered MIB|
