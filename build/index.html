@@ -6143,7 +6143,9 @@ download and in upload.</p>
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="s1">'{
+  "custom_driver_id": 0,
   "password": "string",
+  "scope": "DEVICE_MANAGEMENT",
   "username": "string"
 }'</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -6223,7 +6225,9 @@ download and in upload.</p>
 <p>Body parameter</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"custom_driver_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEVICE_MANAGEMENT"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -19831,7 +19835,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p><a id="schemadevicecredentials"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"custom_driver_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEVICE_MANAGEMENT"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -19845,16 +19851,52 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 </thead><tbody>
 <tr>
+<td>custom_driver_id</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The custom driver id to set the credentials for when scope is &#39;CUSTOM_DRIVER_MANAGEMENT&#39;</td>
+</tr>
+<tr>
 <td>password</td>
 <td>string</td>
 <td>true</td>
 <td>password</td>
 </tr>
 <tr>
+<td>scope</td>
+<td>string</td>
+<td>false</td>
+<td>The Scope for the Credentials. Default is &#39;DEVICE_MANAGEMENT&#39; used for device integrations</td>
+</tr>
+<tr>
 <td>username</td>
 <td>string</td>
 <td>true</td>
 <td>username</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-32'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>scope</td>
+<td>CUSTOM_DRIVER_MANAGEMENT</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>CONFIGURATION_MANAGEMENT</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>DEVICE_MANAGEMENT</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>OS_MANAGEMENT</td>
 </tr>
 </tbody></table>
 
@@ -19996,7 +20038,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-32'>Enumerated Values</h4>
+<h4 id='enumerated-values-33'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -20185,7 +20227,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-33'>Enumerated Values</h4>
+<h4 id='enumerated-values-34'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -20254,7 +20296,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The device event type</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-34'>Enumerated Values</h4>
+<h4 id='enumerated-values-35'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -20435,7 +20477,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-35'>Enumerated Values</h4>
+<h4 id='enumerated-values-36'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -20781,7 +20823,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-36'>Enumerated Values</h4>
+<h4 id='enumerated-values-37'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21034,7 +21076,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-37'>Enumerated Values</h4>
+<h4 id='enumerated-values-38'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21223,7 +21265,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-38'>Enumerated Values</h4>
+<h4 id='enumerated-values-39'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21406,7 +21448,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-39'>Enumerated Values</h4>
+<h4 id='enumerated-values-40'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21971,7 +22013,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-40'>Enumerated Values</h4>
+<h4 id='enumerated-values-41'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22202,7 +22244,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-41'>Enumerated Values</h4>
+<h4 id='enumerated-values-42'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22697,7 +22739,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-42'>Enumerated Values</h4>
+<h4 id='enumerated-values-43'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22820,7 +22862,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The configured SNMP version</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-43'>Enumerated Values</h4>
+<h4 id='enumerated-values-44'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22946,7 +22988,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-44'>Enumerated Values</h4>
+<h4 id='enumerated-values-45'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23041,7 +23083,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-45'>Enumerated Values</h4>
+<h4 id='enumerated-values-46'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23214,7 +23256,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The type of the operands</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-46'>Enumerated Values</h4>
+<h4 id='enumerated-values-47'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23473,7 +23515,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The status of the TCP service</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-47'>Enumerated Values</h4>
+<h4 id='enumerated-values-48'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
