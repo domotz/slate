@@ -4311,7 +4311,6 @@ $.ajax({
 ```javascript--nodejs
 const fetch = require('node-fetch');
 const inputBody = '{
-  "custom_driver_id": 0,
   "password": "string",
   "scope": "DEVICE_MANAGEMENT",
   "username": "string"
@@ -4403,7 +4402,6 @@ Sets the device credentials to perform extended discovery. This operation will a
 
 ```json
 {
-  "custom_driver_id": 0,
   "password": "string",
   "scope": "DEVICE_MANAGEMENT",
   "username": "string"
@@ -14977,7 +14975,6 @@ Returns the User information
 
 ```json
 {
-  "custom_driver_id": 0,
   "password": "string",
   "scope": "DEVICE_MANAGEMENT",
   "username": "string"
@@ -14989,7 +14986,6 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|custom_driver_id|integer(int32)|false|The custom driver id to set the credentials for when scope is 'CUSTOM_DRIVER_MANAGEMENT'|
 |password|string|true|password|
 |scope|string|false|The Scope for the Credentials. Default is 'DEVICE_MANAGEMENT' used for device integrations|
 |username|string|true|username|
