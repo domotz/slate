@@ -12903,7 +12903,7 @@ Status Code **200**
 |» name|string|false|The symbolic name associated to the profile|
 |» tag|string|false|A label associated to the profile|
 
-<h1 id="domotz-public-api-custom-drivers">CUSTOM DRIVERS</h1>
+<h1 id="domotz-public-api-custom-drivers">Custom Drivers</h1>
 
 ## listCustomDrivers
 
@@ -13038,7 +13038,7 @@ Retrieves the list of available Custom Drivers
     "is_valid": true,
     "minimal_sample_period": 0,
     "name": "string",
-    "require_credentials": true
+    "requires_credentials": true
   }
 ]
 ```
@@ -13062,7 +13062,7 @@ Status Code **200**
 |» is_valid|boolean|true|True if the Custom Driver has valid code, False otherwise|
 |» minimal_sample_period|integer(int32)|true|The minimal sampling interval of the Custom Driver (in seconds)|
 |» name|string|true|Name of the Custom Driver|
-|» require_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
+|» requires_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
 
 <h1 id="domotz-public-api-meta">meta</h1>
 
@@ -14804,7 +14804,7 @@ Returns the User information
   "is_valid": true,
   "minimal_sample_period": 0,
   "name": "string",
-  "require_credentials": true
+  "requires_credentials": true
 }
 
 ```
@@ -14821,7 +14821,7 @@ Returns the User information
 |is_valid|boolean|true|True if the Custom Driver has valid code, False otherwise|
 |minimal_sample_period|integer(int32)|true|The minimal sampling interval of the Custom Driver (in seconds)|
 |name|string|true|Name of the Custom Driver|
-|require_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
+|requires_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
 
 <h2 id="tocSdetecteddevicetype">DetectedDeviceType</h2>
 
