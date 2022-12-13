@@ -12903,6 +12903,167 @@ Status Code **200**
 |» name|string|false|The symbolic name associated to the profile|
 |» tag|string|false|A label associated to the profile|
 
+<h1 id="domotz-public-api-custom-drivers">CUSTOM DRIVERS</h1>
+
+## listCustomDrivers
+
+<a id="opIdlistCustomDrivers"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/custom-driver \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-driver',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-driver',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/custom-driver', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/custom-driver',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/custom-driver", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /custom-driver`</span>
+
+Retrieves the list of available Custom Drivers
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "description": "string",
+    "device_ids": [
+      0
+    ],
+    "id": 0,
+    "is_valid": true,
+    "minimal_sample_period": 0,
+    "name": "string",
+    "require_credentials": true
+  }
+]
+```
+
+<h3 id="listcustomdrivers-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of available Custom Drivers|Inline|
+
+<h3 id="listcustomdrivers-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[CustomDriver](#schemacustomdriver)]|false|[A Custom Driver that can be applied on devices]|
+|» description|string|false|Description of the Custom Driver|
+|» device_ids|[integer]|true|List of the device IDs the Custom Driver is applied on|
+|» id|integer(int32)|true|The identifier of the Custom Driver|
+|» is_valid|boolean|true|True if the Custom Driver has valid code, False otherwise|
+|» minimal_sample_period|integer(int32)|true|The minimal sampling interval of the Custom Driver (in seconds)|
+|» name|string|true|Name of the Custom Driver|
+|» require_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
+
 <h1 id="domotz-public-api-meta">meta</h1>
 
 ## apiUsageInfo
@@ -14628,6 +14789,39 @@ Returns the User information
 |protocol|tcp|
 |protocol|ssh|
 |protocol|rdp|
+
+<h2 id="tocScustomdriver">CustomDriver</h2>
+
+<a id="schemacustomdriver"></a>
+
+```json
+{
+  "description": "string",
+  "device_ids": [
+    0
+  ],
+  "id": 0,
+  "is_valid": true,
+  "minimal_sample_period": 0,
+  "name": "string",
+  "require_credentials": true
+}
+
+```
+
+*A Custom Driver that can be applied on devices*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|description|string|false|Description of the Custom Driver|
+|device_ids|[integer]|true|List of the device IDs the Custom Driver is applied on|
+|id|integer(int32)|true|The identifier of the Custom Driver|
+|is_valid|boolean|true|True if the Custom Driver has valid code, False otherwise|
+|minimal_sample_period|integer(int32)|true|The minimal sampling interval of the Custom Driver (in seconds)|
+|name|string|true|Name of the Custom Driver|
+|require_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
 
 <h2 id="tocSdetecteddevicetype">DetectedDeviceType</h2>
 
