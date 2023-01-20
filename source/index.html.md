@@ -7690,6 +7690,184 @@ Deletes the TCP Domotz Sensor
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## testSNMPPreconfiguredSensor
+
+<a id="opIdtestSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test`</span>
+
+Returns the output of the SNMP Preconfigured Sensor tested on the device given
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="testsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|preconfigured_sensor_id|path|integer(int32)|true|Preconfigured Sensor ID|
+
+> Example responses
+
+> 201 Response
+
+```json
+{
+  "scalars": [
+    {
+      "name": "string",
+      "unit": "%",
+      "value": "string"
+    }
+  ],
+  "tables": [
+    {
+      "columns": [
+        "string"
+      ],
+      "rows": [
+        {
+          "cells": [
+            {
+              "unit": "%",
+              "value": "string",
+              "variable_type": "monotone_rate"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+<h3 id="testsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|[SNMPPreconfiguredSensorTest](#schemasnmppreconfiguredsensortest)|
+
 ## eyesUsageInfo
 
 <a id="opIdeyesUsageInfo"></a>
@@ -7846,6 +8024,143 @@ Retrieves information about Domotz Sensors usage and limits
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A data structure containing information about current Domotz Sensors usage and limits|[DomotzEyesUsageInformation](#schemadomotzeyesusageinformation)|
+
+## bindSNMPPreconfiguredSensor
+
+<a id="opIdbindSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}`</span>
+
+Binds an SNMP Preconfigured Sensor to a device given
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="bindsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|preconfigured_sensor_id|path|integer(int32)|true|Preconfigured Sensor ID|
+
+<h3 id="bindsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
 
 <h1 id="domotz-public-api-inventory">inventory</h1>
 
@@ -13064,6 +13379,510 @@ Status Code **200**
 |» name|string|true|Name of the Custom Driver|
 |» requires_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
 
+## listCustomDriverAssociations
+
+<a id="opIdlistCustomDriverAssociations"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/custom-driver/agent/{agent_id}/association \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-driver/agent/{agent_id}/association',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-driver/agent/{agent_id}/association',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/custom-driver/agent/{agent_id}/association', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/custom-driver/agent/{agent_id}/association',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/custom-driver/agent/{agent_id}/association", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /custom-driver/agent/{agent_id}/association`</span>
+
+Retrieves a list of all Custom Driver associations for an agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-driver/agent/{agent_id}/association \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listcustomdriverassociations-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "custom_driver_id": 0,
+    "device_id": 0,
+    "id": 0,
+    "last_inspection_time": "2019-08-24T14:15:22Z",
+    "sample_period": 0,
+    "status": "ENABLED",
+    "used_variables": 0
+  }
+]
+```
+
+<h3 id="listcustomdriverassociations-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of Custom Driver associations|Inline|
+
+<h3 id="listcustomdriverassociations-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[CustomDriverAssociationCreationResult](#schemacustomdriverassociationcreationresult)]|false|[An association between a Custom Driver and a device]|
+|» custom_driver_id|integer(int32)|false|The id of the Custom Driver|
+|» device_id|integer(int32)|false|The id of the device the Custom Driver is applied to|
+|» id|integer(int32)|false|The id of the association|
+|» last_inspection_time|string(date-time)|false|Timestamp of when the Custom Driver was last executed|
+|» sample_period|integer(int32)|false|The sampling interval of the Custom Driver (in seconds)|
+|» status|string|false|<ul><li> *ENABLED*: The association is enabled and running </li><li> *DISABLED*: The association is disabled due to failure </li></ul>|
+|» used_variables|integer(int32)|false|The number of variables used by this {CUSTOM_DRIVER} association|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|ENABLED|
+|status|DISABLED|
+
+## createCustomDriverAssociation
+
+<a id="opIdcreateCustomDriverAssociation"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/association \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/association',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "credentials": {
+    "password": "string",
+    "username": "string"
+  },
+  "sample_period": 0
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/association',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/association', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/association',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/association", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/association`</span>
+
+Apply a Custom Driver to a device
+
+> Body parameter
+
+```json
+{
+  "credentials": {
+    "password": "string",
+    "username": "string"
+  },
+  "sample_period": 0
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/association \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createcustomdriverassociation-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|custom_driver_id|path|integer(int32)|true|Custom Driver ID|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|body|body|[CustomDriverAssociationCreation](#schemacustomdriverassociationcreation)|false|none|
+
+> Example responses
+
+> 201 Response
+
+```json
+{
+  "custom_driver_id": 0,
+  "device_id": 0,
+  "id": 0,
+  "last_inspection_time": "2019-08-24T14:15:22Z",
+  "sample_period": 0,
+  "status": "ENABLED",
+  "used_variables": 0
+}
+```
+
+<h3 id="createcustomdriverassociation-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|The outcome of the association|[CustomDriverAssociationCreationResult](#schemacustomdriverassociationcreationresult)|
+
+## deleteCustomDriverAssociation
+
+<a id="opIddeleteCustomDriverAssociation"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/custom-driver/{custom_driver_id}/association/{association_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/association/{association_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/association/{association_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/association/{association_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/association/{association_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/association/{association_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /custom-driver/{custom_driver_id}/association/{association_id}`</span>
+
+Remove a Custom Driver from a device. This irreversibly deletes all variables created by the driver for that device
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/association/{association_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deletecustomdriverassociation-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|custom_driver_id|path|integer(int32)|true|Custom Driver ID|
+|association_id|path|integer(int32)|true|Custom Driver Association ID|
+
+<h3 id="deletecustomdriverassociation-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 <h1 id="domotz-public-api-meta">meta</h1>
 
 ## apiUsageInfo
@@ -14822,6 +15641,70 @@ Returns the User information
 |minimal_sample_period|integer(int32)|true|The minimal sampling interval of the Custom Driver (in seconds)|
 |name|string|true|Name of the Custom Driver|
 |requires_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
+
+<h2 id="tocScustomdriverassociationcreation">CustomDriverAssociationCreation</h2>
+
+<a id="schemacustomdriverassociationcreation"></a>
+
+```json
+{
+  "credentials": {
+    "password": "string",
+    "username": "string"
+  },
+  "sample_period": 0
+}
+
+```
+
+*Properties for associating a Custom Driver and a device*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|credentials|object|false|The credentials for the Custom Driver (with scope CUSTOM_DRIVER_MANAGEMENT). Only required if the driver requires credentials, and there are none saved for the device|
+|» password|string|true|password|
+|» username|string|true|username|
+|sample_period|integer(int32)|false|The sampling interval of the Custom Driver (in seconds). Must be one of [300, 600, 900, 1800, 3600, 7200, 21600, 43200, 86400] and equal to or greater than the minimal_sample_period of the Custom Driver.  Default value is the minimal_sample_period of the Custom Driver|
+
+<h2 id="tocScustomdriverassociationcreationresult">CustomDriverAssociationCreationResult</h2>
+
+<a id="schemacustomdriverassociationcreationresult"></a>
+
+```json
+{
+  "custom_driver_id": 0,
+  "device_id": 0,
+  "id": 0,
+  "last_inspection_time": "2019-08-24T14:15:22Z",
+  "sample_period": 0,
+  "status": "ENABLED",
+  "used_variables": 0
+}
+
+```
+
+*An association between a Custom Driver and a device*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|custom_driver_id|integer(int32)|false|The id of the Custom Driver|
+|device_id|integer(int32)|false|The id of the device the Custom Driver is applied to|
+|id|integer(int32)|false|The id of the association|
+|last_inspection_time|string(date-time)|false|Timestamp of when the Custom Driver was last executed|
+|sample_period|integer(int32)|false|The sampling interval of the Custom Driver (in seconds)|
+|status|string|false|<ul><li> *ENABLED*: The association is enabled and running </li><li> *DISABLED*: The association is disabled due to failure </li></ul>|
+|used_variables|integer(int32)|false|The number of variables used by this {CUSTOM_DRIVER} association|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|ENABLED|
+|status|DISABLED|
 
 <h2 id="tocSdetecteddevicetype">DetectedDeviceType</h2>
 
@@ -17188,6 +18071,100 @@ Returns the User information
 |function_id|integer(int32)|true|The unique identifier of the sensor function|
 |name|string|true|The name of the trigger|
 |operands|[string]|true|The operands for the function|
+
+<h2 id="tocSsnmppreconfiguredsensortest">SNMPPreconfiguredSensorTest</h2>
+
+<a id="schemasnmppreconfiguredsensortest"></a>
+
+```json
+{
+  "scalars": [
+    {
+      "name": "string",
+      "unit": "%",
+      "value": "string"
+    }
+  ],
+  "tables": [
+    {
+      "columns": [
+        "string"
+      ],
+      "rows": [
+        {
+          "cells": [
+            {
+              "unit": "%",
+              "value": "string",
+              "variable_type": "monotone_rate"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+*SNMP Preconfigured Sensor*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|scalars|[object]|false|none|
+|» name|string|false|none|
+|» unit|string|false|none|
+|» value|string|false|none|
+|tables|[object]|false|none|
+|» columns|[string]|false|none|
+|» rows|[object]|false|none|
+|»» cells|[object]|false|none|
+|»»» unit|string|false|none|
+|»»» value|string|false|none|
+|»»» variable_type|string|false|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|variable_type|monotone_rate|
+|variable_type|rate|
 
 <h2 id="tocSsubnetipdevice">SubnetIpDevice</h2>
 
