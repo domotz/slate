@@ -13230,14 +13230,14 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|[[CustomDriverAssociationCreationResult](#schemacustomdriverassociationcreationresult)]|false|[An association between a Custom Driver and a device]|
-|» custom_driver_id|integer(int32)|false|The id of the Custom Driver|
-|» device_id|integer(int32)|false|The id of the device the Custom Driver is applied to|
-|» id|integer(int32)|false|The id of the association|
-|» last_inspection_time|string(date-time)|false|Timestamp of when the Custom Driver was last executed|
-|» sample_period|integer(int32)|false|The sampling interval of the Custom Driver (in seconds)|
-|» status|string|false|<ul><li> *ENABLED*: The association is enabled and running </li><li> *DISABLED*: The association is disabled due to failure </li></ul>|
-|» used_variables|integer(int32)|false|The number of variables used by this {CUSTOM_DRIVER} association|
+|*anonymous*|[[CustomDriverAssociation](#schemacustomdriverassociation)]|false|[An association between a Custom Driver and a device]|
+|» custom_driver_id|integer(int32)|true|The id of the Custom Driver|
+|» device_id|integer(int32)|true|The id of the device the Custom Driver is applied to|
+|» id|integer(int32)|true|The id of the association|
+|» last_inspection_time|string(date-time)|true|The last time (datetime) the device inspection was executed|
+|» sample_period|integer(int32)|true|The sampling interval of the Custom Driver (in seconds)|
+|» status|string|true|<ul><li> *ENABLED*: The association is enabled and running </li><li> *DISABLED*: The association is disabled due to failure </li></ul>|
+|» used_variables|integer(int32)|true|The number of variables used by this Custom Driver association|
 
 #### Enumerated Values
 
@@ -13245,6 +13245,179 @@ Status Code **200**
 |---|---|
 |status|ENABLED|
 |status|DISABLED|
+
+## getCustomDriver
+
+<a id="opIdgetCustomDriver"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/custom-driver/{custom_driver_id} \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-driver/{custom_driver_id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-driver/{custom_driver_id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/custom-driver/{custom_driver_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/custom-driver/{custom_driver_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/custom-driver/{custom_driver_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /custom-driver/{custom_driver_id}`</span>
+
+Returns details of a Custom Driver
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-driver/{custom_driver_id} \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getcustomdriver-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|custom_driver_id|path|integer(int32)|true|Custom Driver ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "actions": [
+    {
+      "documentation": "string",
+      "id": 0,
+      "label": "string",
+      "line": 0
+    }
+  ],
+  "code": "string",
+  "description": "string",
+  "errors": [
+    {
+      "line": 0,
+      "message": "string",
+      "type": "string"
+    }
+  ],
+  "id": 0,
+  "is_valid": true,
+  "minimal_sample_period": 0,
+  "name": "string",
+  "requires_credentials": true
+}
+```
+
+<h3 id="getcustomdriver-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Custom Driver details|[CustomDriverDetails](#schemacustomdriverdetails)|
 
 ## createCustomDriverAssociation
 
@@ -13416,13 +13589,8 @@ Apply a Custom Driver to a device
 
 ```json
 {
-  "custom_driver_id": 0,
-  "device_id": 0,
-  "id": 0,
-  "last_inspection_time": "2019-08-24T14:15:22Z",
-  "sample_period": 0,
-  "status": "ENABLED",
-  "used_variables": 0
+  "error": "string",
+  "result": 0
 }
 ```
 
@@ -13431,6 +13599,167 @@ Apply a Custom Driver to a device
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|The outcome of the association|[CustomDriverAssociationCreationResult](#schemacustomdriverassociationcreationresult)|
+
+## executeCustomDriverAction
+
+<a id="opIdexecuteCustomDriverAction"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id} \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id}',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id}',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id}`</span>
+
+Execute a Custom Driver action on an associated device
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id} \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="executecustomdriveraction-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|custom_driver_id|path|integer(int32)|true|Custom Driver ID|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|action_id|path|integer(int32)|true|Custom Driver Action id. Valid range 1-30|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "elapsed": 0,
+  "errorMessage": "string",
+  "errorType": "string",
+  "log": [
+    "string"
+  ],
+  "outcome": "undefined"
+}
+```
+
+<h3 id="executecustomdriveraction-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The outcome of the custom action execution|[CustomDriverExecutionResult](#schemacustomdriverexecutionresult)|
 
 ## deleteCustomDriverAssociation
 
@@ -15327,6 +15656,44 @@ Returns the User information
 |name|string|true|Name of the Custom Driver|
 |requires_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
 
+<h2 id="tocScustomdriverassociation">CustomDriverAssociation</h2>
+
+<a id="schemacustomdriverassociation"></a>
+
+```json
+{
+  "custom_driver_id": 0,
+  "device_id": 0,
+  "id": 0,
+  "last_inspection_time": "2019-08-24T14:15:22Z",
+  "sample_period": 0,
+  "status": "ENABLED",
+  "used_variables": 0
+}
+
+```
+
+*An association between a Custom Driver and a device*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|custom_driver_id|integer(int32)|true|The id of the Custom Driver|
+|device_id|integer(int32)|true|The id of the device the Custom Driver is applied to|
+|id|integer(int32)|true|The id of the association|
+|last_inspection_time|string(date-time)|true|The last time (datetime) the device inspection was executed|
+|sample_period|integer(int32)|true|The sampling interval of the Custom Driver (in seconds)|
+|status|string|true|<ul><li> *ENABLED*: The association is enabled and running </li><li> *DISABLED*: The association is disabled due to failure </li></ul>|
+|used_variables|integer(int32)|true|The number of variables used by this Custom Driver association|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|ENABLED|
+|status|DISABLED|
+
 <h2 id="tocScustomdriverassociationcreation">CustomDriverAssociationCreation</h2>
 
 <a id="schemacustomdriverassociationcreation"></a>
@@ -15359,37 +15726,112 @@ Returns the User information
 
 ```json
 {
-  "custom_driver_id": 0,
-  "device_id": 0,
-  "id": 0,
-  "last_inspection_time": "2019-08-24T14:15:22Z",
-  "sample_period": 0,
-  "status": "ENABLED",
-  "used_variables": 0
+  "error": "string",
+  "result": 0
 }
 
 ```
 
-*An association between a Custom Driver and a device*
+*The outcome of applying a Custom Driver to a device*
 
 ### Properties
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|custom_driver_id|integer(int32)|false|The id of the Custom Driver|
-|device_id|integer(int32)|false|The id of the device the Custom Driver is applied to|
-|id|integer(int32)|false|The id of the association|
-|last_inspection_time|string(date-time)|false|Timestamp of when the Custom Driver was last executed|
-|sample_period|integer(int32)|false|The sampling interval of the Custom Driver (in seconds)|
-|status|string|false|<ul><li> *ENABLED*: The association is enabled and running </li><li> *DISABLED*: The association is disabled due to failure </li></ul>|
-|used_variables|integer(int32)|false|The number of variables used by this {CUSTOM_DRIVER} association|
+|error|string|false|Description of the error that occurred. Returned in case of failure.|
+|result|integer(int32)|false|The id of the newly created association. Returned in case of success.|
+
+<h2 id="tocScustomdriverdetails">CustomDriverDetails</h2>
+
+<a id="schemacustomdriverdetails"></a>
+
+```json
+{
+  "actions": [
+    {
+      "documentation": "string",
+      "id": 0,
+      "label": "string",
+      "line": 0
+    }
+  ],
+  "code": "string",
+  "description": "string",
+  "errors": [
+    {
+      "line": 0,
+      "message": "string",
+      "type": "string"
+    }
+  ],
+  "id": 0,
+  "is_valid": true,
+  "minimal_sample_period": 0,
+  "name": "string",
+  "requires_credentials": true
+}
+
+```
+
+*Detailed information for a Custom Driver that can be applied on devices*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|actions|[object]|true|A list of the custom actions that can be executed by this Custom Driver (empty if none exist)|
+|» documentation|string|true|Detailed description of the custom driver action|
+|» id|integer(int32)|true|Identifier of the custom driver action. Used in execution API Values range 1-30 depending on defined actions in the driver code|
+|» label|string|true|The label of the action, shown as the button label in the ui when the driver is applied to a device|
+|» line|integer(int32)|true|Line number of the function declaration for the action|
+|code|string|true|The source code of the driver|
+|description|string|false|Description of the Custom Driver|
+|errors|[object]|false|A list of errors in this drivers's code. Only returned if the driver's code is invalid and cannot be executed|
+|» line|integer(int32)|false|Line number of where the error occurs in the driver's code.|
+|» message|string|false|Error message|
+|» type|string|true|Type of the error|
+|id|integer(int32)|true|The identifier of the Custom Driver|
+|is_valid|boolean|true|True if the Custom Driver has valid code, False otherwise|
+|minimal_sample_period|integer(int32)|true|The minimal sampling interval of the Custom Driver (in seconds)|
+|name|string|true|Name of the Custom Driver|
+|requires_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
+
+<h2 id="tocScustomdriverexecutionresult">CustomDriverExecutionResult</h2>
+
+<a id="schemacustomdriverexecutionresult"></a>
+
+```json
+{
+  "elapsed": 0,
+  "errorMessage": "string",
+  "errorType": "string",
+  "log": [
+    "string"
+  ],
+  "outcome": "undefined"
+}
+
+```
+
+*The result of a Custom Driver execution command*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|elapsed|integer(int32)|false|The time it took to Execute the Custom Driver Action (in milliseconds|
+|errorMessage|string|false|Expanded description of the errorType returned in a failed Custom Driver Execution|
+|errorType|string|false|Short name of the error returned with a failed outcome of the Custom Driver Execution|
+|log|[string]|false|List of log messages generated during the Custom Driver Execution|
+|outcome|string|true|Outcome from the Custom Driver Execution|
 
 #### Enumerated Values
 
 |Property|Value|
 |---|---|
-|status|ENABLED|
-|status|DISABLED|
+|outcome|success|
+|outcome|failure|
+|outcome|undefined|
 
 <h2 id="tocSdetecteddevicetype">DetectedDeviceType</h2>
 
