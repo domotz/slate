@@ -7847,6 +7847,865 @@ Retrieves information about Domotz Sensors usage and limits
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A data structure containing information about current Domotz Sensors usage and limits|[DomotzEyesUsageInformation](#schemadomotzeyesusageinformation)|
 
+<h1 id="domotz-public-api-variables">variables</h1>
+
+## listAgentDeviceVariables
+
+<a id="opIdlistAgentDeviceVariables"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/variable \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/variable',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/variable',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/variable', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/variable',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/variable", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/variable`</span>
+
+Retrieves the list of all device variables of the agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/variable \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listagentdevicevariables-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100|
+|page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
+|value|query|string|false|Allows filtering by `value`|
+|path|query|string|false|Allows filtering by `path`|
+|sort_by|query|string|false|Allows ordering by `path`, `id`, `value`, `label`, `value_update_time`, `creation_time`|
+|sorting_direction|query|string|false|The default is `asc`|
+|has_history|query|boolean|false|Allows filtering by `has_history` field|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|sort_by|path|
+|sort_by|id|
+|sort_by|value|
+|sort_by|label|
+|sort_by|value_update_time|
+|sort_by|creation_time|
+|sorting_direction|asc|
+|sorting_direction|desc|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "creation_time": "2019-08-24T14:15:22Z",
+    "device_id": 0,
+    "has_history": true,
+    "id": 0,
+    "label": "string",
+    "path": "string",
+    "unit": "string",
+    "value": "string",
+    "value_update_time": "2019-08-24T14:15:22Z"
+  }
+]
+```
+
+<h3 id="listagentdevicevariables-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of all device variables of an agent|Inline|
+
+<h3 id="listagentdevicevariables-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceVariable](#schemadevicevariable)]|false|[The representation of a device variable]|
+|» creation_time|string(date-time)|false|The creation time of the variable|
+|» device_id|integer(int32)|true|The ID of the device|
+|» has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
+|» id|integer(int32)|true|The ID of the variable|
+|» label|string|false|The label|
+|» path|string|true|The variable path|
+|» unit|string|false|The unit of measurement|
+|» value|string|false|The variable value|
+|» value_update_time|string(date-time)|false|The update time of the variable value|
+
+## countAgentDeviceVariables
+
+<a id="opIdcountAgentDeviceVariables"></a>
+
+> Code samples
+
+```shell
+curl -X HEAD {baseURL}/public-api/v1/agent/{agent_id}/device/variable \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/variable',
+  method: 'head',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/variable',
+{
+  method: 'HEAD',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.head('{baseURL}/public-api/v1/agent/{agent_id}/device/variable', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.head '{baseURL}/public-api/v1/agent/{agent_id}/device/variable',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("HEAD", "{baseURL}/public-api/v1/agent/{agent_id}/device/variable", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`HEAD /agent/{agent_id}/device/variable`</span>
+
+Returns the device variables count of the agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/variable \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="countagentdevicevariables-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|value|query|string|false|Allows filtering by `value`|
+|path|query|string|false|Allows filtering by `path`|
+|has_history|query|boolean|false|Allows filtering by `has_history` field|
+
+<h3 id="countagentdevicevariables-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|The device variables count|None|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|204|X-Entities-Count|integer|int32|The device variables count|
+
+## listDeviceVariables
+
+<a id="opIdlistDeviceVariables"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/variable`</span>
+
+Retrieves the list of device variables
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listdevicevariables-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100|
+|page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
+|value|query|string|false|Allows filtering by `value`|
+|path|query|string|false|Allows filtering by `path`|
+|sort_by|query|string|false|Allows ordering by `path`, `id`, `value`, `label`, `value_update_time`, `creation_time`|
+|sorting_direction|query|string|false|The default is `asc`|
+|has_history|query|boolean|false|Allows filtering by `has_history` field|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|sort_by|path|
+|sort_by|id|
+|sort_by|value|
+|sort_by|label|
+|sort_by|value_update_time|
+|sort_by|creation_time|
+|sorting_direction|asc|
+|sorting_direction|desc|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "creation_time": "2019-08-24T14:15:22Z",
+    "device_id": 0,
+    "has_history": true,
+    "id": 0,
+    "label": "string",
+    "path": "string",
+    "unit": "string",
+    "value": "string",
+    "value_update_time": "2019-08-24T14:15:22Z"
+  }
+]
+```
+
+<h3 id="listdevicevariables-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of device variables|Inline|
+
+<h3 id="listdevicevariables-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceVariable](#schemadevicevariable)]|false|[The representation of a device variable]|
+|» creation_time|string(date-time)|false|The creation time of the variable|
+|» device_id|integer(int32)|true|The ID of the device|
+|» has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
+|» id|integer(int32)|true|The ID of the variable|
+|» label|string|false|The label|
+|» path|string|true|The variable path|
+|» unit|string|false|The unit of measurement|
+|» value|string|false|The variable value|
+|» value_update_time|string(date-time)|false|The update time of the variable value|
+
+## countDeviceVariables
+
+<a id="opIdcountDeviceVariables"></a>
+
+> Code samples
+
+```shell
+curl -X HEAD {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+  method: 'head',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+{
+  method: 'HEAD',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.head('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.head '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("HEAD", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`HEAD /agent/{agent_id}/device/{device_id}/variable`</span>
+
+Returns device variables count
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="countdevicevariables-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|value|query|string|false|Allows filtering by `value`|
+|path|query|string|false|Allows filtering by `path`|
+|has_history|query|boolean|false|Allows filtering by `has_history` field|
+
+<h3 id="countdevicevariables-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|The device variables count|None|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|204|X-Entities-Count|integer|int32|The device variables count|
+
+## getVariableHistory
+
+<a id="opIdgetVariableHistory"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/variable/{variable_id}/history`</span>
+
+Returns the variable history
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getvariablehistory-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|variable_id|path|integer(int32)|true|Variable ID|
+|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
+|to|query|string(date-time)|false|The end time of the time series. Default value is now|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "timestamp": "2019-08-24T14:15:22Z",
+    "value": "string"
+  }
+]
+```
+
+<h3 id="getvariablehistory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The variable's history, a list of dictionaries, each composed by the timestamp (a datetime) and the value (a string)|Inline|
+
+<h3 id="getvariablehistory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[VariableHistorySample](#schemavariablehistorysample)]|false|none|
+|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+|» value|string|true|The sample value|
+
 <h1 id="domotz-public-api-inventory">inventory</h1>
 
 ## getDeviceInventory
@@ -9175,520 +10034,6 @@ Take a snapshot of the camera. Internally, a device connection is established.Cu
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A binary image|string|
-
-<h1 id="domotz-public-api-variables">variables</h1>
-
-## listDeviceVariables
-
-<a id="opIdlistDeviceVariables"></a>
-
-> Code samples
-
-```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/variable`</span>
-
-Retrieves the list of device variables
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="listdevicevariables-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|device_id|path|integer(int32)|true|Device ID|
-|page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100|
-|page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
-|value|query|string|false|Allows filtering by `value`|
-|path|query|string|false|Allows filtering by `path`|
-|sort_by|query|string|false|Allows ordering by `path`, `id`, `value`, `label`, `value_update_time`, `creation_time`|
-|sorting_direction|query|string|false|The default is `asc`|
-|has_history|query|boolean|false|Allows filtering by `has_history` field|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|sort_by|path|
-|sort_by|id|
-|sort_by|value|
-|sort_by|label|
-|sort_by|value_update_time|
-|sort_by|creation_time|
-|sorting_direction|asc|
-|sorting_direction|desc|
-
-> Example responses
-
-> 200 Response
-
-```json
-[
-  {
-    "creation_time": "2019-08-24T14:15:22Z",
-    "has_history": true,
-    "id": 0,
-    "label": "string",
-    "path": "string",
-    "unit": "string",
-    "value": "string",
-    "value_update_time": "2019-08-24T14:15:22Z"
-  }
-]
-```
-
-<h3 id="listdevicevariables-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of device variables|Inline|
-
-<h3 id="listdevicevariables-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Description|
-|---|---|---|---|---|
-|*anonymous*|[[DeviceVariable](#schemadevicevariable)]|false|[The representation of a device variable]|
-|» creation_time|string(date-time)|false|The creation time of the variable|
-|» has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
-|» id|integer(int32)|true|The ID of the variable|
-|» label|string|false|The label|
-|» path|string|true|The variable path|
-|» unit|string|false|The unit of measurement|
-|» value|string|false|The variable value|
-|» value_update_time|string(date-time)|false|The update time of the variable value|
-
-## countDeviceVariables
-
-<a id="opIdcountDeviceVariables"></a>
-
-> Code samples
-
-```shell
-curl -X HEAD {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
-  method: 'head',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
-{
-  method: 'HEAD',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.head('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.head '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("HEAD", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`HEAD /agent/{agent_id}/device/{device_id}/variable`</span>
-
-Returns device variables count
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="countdevicevariables-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|device_id|path|integer(int32)|true|Device ID|
-|value|query|string|false|Allows filtering by `value`|
-|path|query|string|false|Allows filtering by `path`|
-|has_history|query|boolean|false|Allows filtering by `has_history` field|
-
-<h3 id="countdevicevariables-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|The device variables count|None|
-
-### Response Headers
-
-|Status|Header|Type|Format|Description|
-|---|---|---|---|---|
-|204|X-Entities-Count|integer|int32|The device variables count|
-
-## getVariableHistory
-
-<a id="opIdgetVariableHistory"></a>
-
-> Code samples
-
-```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/variable/{variable_id}/history`</span>
-
-Returns the variable history
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/variable/{variable_id}/history \
-  -H 'Accept: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="getvariablehistory-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|agent_id|path|integer(int32)|true|Agent ID|
-|device_id|path|integer(int32)|true|Device ID|
-|variable_id|path|integer(int32)|true|Variable ID|
-|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
-|to|query|string(date-time)|false|The end time of the time series. Default value is now|
-
-> Example responses
-
-> 200 Response
-
-```json
-[
-  {
-    "timestamp": "2019-08-24T14:15:22Z",
-    "value": "string"
-  }
-]
-```
-
-<h3 id="getvariablehistory-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The variable's history, a list of dictionaries, each composed by the timestamp (a datetime) and the value (a string)|Inline|
-
-<h3 id="getvariablehistory-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Description|
-|---|---|---|---|---|
-|*anonymous*|[[VariableHistorySample](#schemavariablehistorysample)]|false|none|
-|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
-|» value|string|true|The sample value|
 
 <h1 id="domotz-public-api-topology">topology</h1>
 
@@ -15787,7 +16132,7 @@ Returns the User information
 |code|string|true|The source code of the driver|
 |description|string|false|Description of the Custom Driver|
 |errors|[object]|false|A list of errors in this drivers's code. Only returned if the driver's code is invalid and cannot be executed|
-|» line|integer(int32)|false|Line number of where the error occurs in the driver's code.|
+|» line|integer(int32)|false|The line number in the code that raised the error.|
 |» message|string|false|Error message|
 |» type|string|true|Type of the error|
 |id|integer(int32)|true|The identifier of the Custom Driver|
@@ -15819,7 +16164,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|elapsed|integer(int32)|false|The time it took to Execute the Custom Driver Action (in milliseconds|
+|elapsed|integer(int32)|false|The time it took to Execute the Custom Driver Action (in milliseconds)|
 |errorMessage|string|false|Expanded description of the errorType returned in a failed Custom Driver Execution|
 |errorType|string|false|Short name of the error returned with a failed outcome of the Custom Driver Execution|
 |log|[string]|false|List of log messages generated during the Custom Driver Execution|
@@ -17228,6 +17573,7 @@ Returns the User information
 ```json
 {
   "creation_time": "2019-08-24T14:15:22Z",
+  "device_id": 0,
   "has_history": true,
   "id": 0,
   "label": "string",
@@ -17246,6 +17592,7 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |creation_time|string(date-time)|false|The creation time of the variable|
+|device_id|integer(int32)|true|The ID of the device|
 |has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
 |id|integer(int32)|true|The ID of the variable|
 |label|string|false|The label|
