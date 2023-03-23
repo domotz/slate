@@ -3446,6 +3446,8 @@ Retrieves the list of applications of all the devices belonging to the agent. Th
 |agent_id|path|integer(int32)|true|Agent ID|
 |page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100|
 |page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
+|name|query|string|false|Allows filtering by `name`|
+|device_ids|query|string|false|Allows filtering by `device_ids`|
 
 > Example responses
 
@@ -3622,6 +3624,8 @@ Counts the applications of all devices belonging to the agent
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
+|name|query|string|false|Allows filtering by `name`|
+|device_ids|query|string|false|Allows filtering by `device_ids`|
 
 <h3 id="countagentdeviceapplications-responses">Responses</h3>
 
