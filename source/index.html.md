@@ -4414,6 +4414,8 @@ Retrieves the list of applications of the device. The feature is only available 
 |device_id|path|integer(int32)|true|Device ID|
 |page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100|
 |page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
+|name|query|string|false|Allows filtering by `name`|
+|device_ids|query|string|false|Allows filtering by `device_ids`|
 
 > Example responses
 
@@ -4589,6 +4591,8 @@ Counts the applications
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
+|name|query|string|false|Allows filtering by `name`|
+|device_ids|query|string|false|Allows filtering by `device_ids`|
 
 <h3 id="countdeviceapplications-responses">Responses</h3>
 
