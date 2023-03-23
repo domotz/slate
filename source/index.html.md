@@ -8317,6 +8317,7 @@ Retrieves the list of all device variables of the agent
 |sort_by|query|string|false|Allows ordering by `path`, `id`, `value`, `label`, `value_update_time`, `creation_time`, `device_id`|
 |sorting_direction|query|string|false|The default is `asc`|
 |has_history|query|boolean|false|Allows filtering by `has_history` field|
+|metric|query|string|false|Allows filtering by `metric`|
 
 #### Enumerated Values
 
@@ -8508,6 +8509,7 @@ Returns the device variables count of the agent
 |value|query|string|false|Allows filtering by `value`|
 |path|query|string|false|Allows filtering by `path`|
 |has_history|query|boolean|false|Allows filtering by `has_history` field|
+|metric|query|string|false|Allows filtering by `metric`|
 
 <h3 id="countagentdevicevariables-responses">Responses</h3>
 
@@ -8664,6 +8666,7 @@ Retrieves the list of device variables
 |sort_by|query|string|false|Allows ordering by `path`, `id`, `value`, `label`, `value_update_time`, `creation_time`|
 |sorting_direction|query|string|false|The default is `asc`|
 |has_history|query|boolean|false|Allows filtering by `has_history` field|
+|metric|query|string|false|Allows filtering by `metric`|
 
 #### Enumerated Values
 
@@ -8855,6 +8858,7 @@ Returns device variables count
 |value|query|string|false|Allows filtering by `value`|
 |path|query|string|false|Allows filtering by `path`|
 |has_history|query|boolean|false|Allows filtering by `has_history` field|
+|metric|query|string|false|Allows filtering by `metric`|
 
 <h3 id="countdevicevariables-responses">Responses</h3>
 
