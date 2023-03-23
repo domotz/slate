@@ -3309,6 +3309,332 @@ Returns all the devices of an agent
 |status|DOWN|
 |status|HIDDEN|
 
+## listAgentDeviceApplications
+
+<a id="opIdlistAgentDeviceApplications"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/application \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/application',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/application',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/application', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/application',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/application", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/application`</span>
+
+Retrieves the list of applications of all the devices belonging to the agent. The feature is only available on agents having the Booster Pack
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/application \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listagentdeviceapplications-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100|
+|page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "application_id": "string",
+    "device_id": "string",
+    "first_time_seen": "2019-08-24T14:15:22Z",
+    "info": "string",
+    "install_date": "2019-08-24T14:15:22Z",
+    "install_location": "string",
+    "last_modified": "2019-08-24T14:15:22Z",
+    "last_update": "2019-08-24T14:15:22Z",
+    "name": "string",
+    "publisher": "string",
+    "version": "string"
+  }
+]
+```
+
+<h3 id="listagentdeviceapplications-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of applications of all the devices belonging to the agent|Inline|
+
+<h3 id="listagentdeviceapplications-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[AgentDeviceApplicationField](#schemaagentdeviceapplicationfield)]|false|[The list of applications of all devices belonging to the agent]|
+|» application_id|string|true|none|
+|» device_id|string|true|none|
+|» first_time_seen|string(date-time)|true|none|
+|» info|string|false|none|
+|» install_date|string(date-time)|false|none|
+|» install_location|string|false|none|
+|» last_modified|string(date-time)|false|none|
+|» last_update|string(date-time)|false|none|
+|» name|string|false|none|
+|» publisher|string|false|none|
+|» version|string|false|none|
+
+## countAgentDeviceApplications
+
+<a id="opIdcountAgentDeviceApplications"></a>
+
+> Code samples
+
+```shell
+curl -X HEAD {baseURL}/public-api/v1/agent/{agent_id}/device/application \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/application',
+  method: 'head',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/application',
+{
+  method: 'HEAD',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.head('{baseURL}/public-api/v1/agent/{agent_id}/device/application', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.head '{baseURL}/public-api/v1/agent/{agent_id}/device/application',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("HEAD", "{baseURL}/public-api/v1/agent/{agent_id}/device/application", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`HEAD /agent/{agent_id}/device/application`</span>
+
+Counts the applications of all devices belonging to the agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/application \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="countagentdeviceapplications-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+<h3 id="countagentdeviceapplications-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Returns the application count|None|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|204|X-Entities-Count|integer|int32|Returns the application count|
+
 ## deleteDevice
 
 <a id="opIddeleteDevice"></a>
@@ -7988,7 +8314,7 @@ Retrieves the list of all device variables of the agent
 |page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
 |value|query|string|false|Allows filtering by `value`|
 |path|query|string|false|Allows filtering by `path`|
-|sort_by|query|string|false|Allows ordering by `path`, `id`, `value`, `label`, `value_update_time`, `creation_time`|
+|sort_by|query|string|false|Allows ordering by `path`, `id`, `value`, `label`, `value_update_time`, `creation_time`, `device_id`|
 |sorting_direction|query|string|false|The default is `asc`|
 |has_history|query|boolean|false|Allows filtering by `has_history` field|
 
@@ -8002,6 +8328,7 @@ Retrieves the list of all device variables of the agent
 |sort_by|label|
 |sort_by|value_update_time|
 |sort_by|creation_time|
+|sort_by|device_id|
 |sorting_direction|asc|
 |sorting_direction|desc|
 
@@ -8017,6 +8344,7 @@ Retrieves the list of all device variables of the agent
     "has_history": true,
     "id": 0,
     "label": "string",
+    "metric": "string",
     "path": "string",
     "unit": "string",
     "value": "string",
@@ -8043,6 +8371,7 @@ Status Code **200**
 |» has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
 |» id|integer(int32)|true|The ID of the variable|
 |» label|string|false|The label|
+|» metric|string|false|The metric|
 |» path|string|true|The variable path|
 |» unit|string|false|The unit of measurement|
 |» value|string|false|The variable value|
@@ -8361,6 +8690,7 @@ Retrieves the list of device variables
     "has_history": true,
     "id": 0,
     "label": "string",
+    "metric": "string",
     "path": "string",
     "unit": "string",
     "value": "string",
@@ -8387,6 +8717,7 @@ Status Code **200**
 |» has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
 |» id|integer(int32)|true|The ID of the variable|
 |» label|string|false|The label|
+|» metric|string|false|The metric|
 |» path|string|true|The variable path|
 |» unit|string|false|The unit of measurement|
 |» value|string|false|The variable value|
@@ -15147,6 +15478,45 @@ Returns the User information
 |»» latitude|string|false|none|
 |»» longitude|string|false|none|
 
+<h2 id="tocSagentdeviceapplicationfield">AgentDeviceApplicationField</h2>
+
+<a id="schemaagentdeviceapplicationfield"></a>
+
+```json
+{
+  "application_id": "string",
+  "device_id": "string",
+  "first_time_seen": "2019-08-24T14:15:22Z",
+  "info": "string",
+  "install_date": "2019-08-24T14:15:22Z",
+  "install_location": "string",
+  "last_modified": "2019-08-24T14:15:22Z",
+  "last_update": "2019-08-24T14:15:22Z",
+  "name": "string",
+  "publisher": "string",
+  "version": "string"
+}
+
+```
+
+*The list of applications of all devices belonging to the agent*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|application_id|string|true|none|
+|device_id|string|true|none|
+|first_time_seen|string(date-time)|true|none|
+|info|string|false|none|
+|install_date|string(date-time)|false|none|
+|install_location|string|false|none|
+|last_modified|string(date-time)|false|none|
+|last_update|string(date-time)|false|none|
+|name|string|false|none|
+|publisher|string|false|none|
+|version|string|false|none|
+
 <h2 id="tocSagenthistory">AgentHistory</h2>
 
 <a id="schemaagenthistory"></a>
@@ -17577,6 +17947,7 @@ Returns the User information
   "has_history": true,
   "id": 0,
   "label": "string",
+  "metric": "string",
   "path": "string",
   "unit": "string",
   "value": "string",
@@ -17596,6 +17967,7 @@ Returns the User information
 |has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
 |id|integer(int32)|true|The ID of the variable|
 |label|string|false|The label|
+|metric|string|false|The metric|
 |path|string|true|The variable path|
 |unit|string|false|The unit of measurement|
 |value|string|false|The variable value|
