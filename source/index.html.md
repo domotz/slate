@@ -3483,7 +3483,7 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|[[AgentDeviceApplicationField](#schemaagentdeviceapplicationfield)]|false|[The list of applications of all devices belonging to the agent]|
+|*anonymous*|[[AgentDeviceApplication](#schemaagentdeviceapplication)]|false|[The list of applications of all devices belonging to the agent]|
 |» application_id|string|true|none|
 |» device_id|string|true|none|
 |» first_time_seen|string(date-time)|true|none|
@@ -4454,7 +4454,7 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|[[DeviceApplicationField](#schemadeviceapplicationfield)]|false|[The list of applications of a device]|
+|*anonymous*|[[DeviceApplication](#schemadeviceapplication)]|false|[The list of applications of a device]|
 |» application_id|string|true|none|
 |» first_time_seen|string(date-time)|true|none|
 |» info|string|false|none|
@@ -8374,7 +8374,7 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|[[DeviceVariable](#schemadevicevariable)]|false|[The representation of a device variable]|
+|*anonymous*|[[AgentDeviceVariable](#schemaagentdevicevariable)]|false|[The representation of a device variable]|
 |» creation_time|string(date-time)|false|The creation time of the variable|
 |» device_id|integer(int32)|true|The ID of the device|
 |» has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
@@ -8697,7 +8697,6 @@ Retrieves the list of device variables
 [
   {
     "creation_time": "2019-08-24T14:15:22Z",
-    "device_id": 0,
     "has_history": true,
     "id": 0,
     "label": "string",
@@ -8724,7 +8723,6 @@ Status Code **200**
 |---|---|---|---|---|
 |*anonymous*|[[DeviceVariable](#schemadevicevariable)]|false|[The representation of a device variable]|
 |» creation_time|string(date-time)|false|The creation time of the variable|
-|» device_id|integer(int32)|true|The ID of the device|
 |» has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
 |» id|integer(int32)|true|The ID of the variable|
 |» label|string|false|The label|
@@ -15490,9 +15488,9 @@ Returns the User information
 |»» latitude|string|false|none|
 |»» longitude|string|false|none|
 
-<h2 id="tocSagentdeviceapplicationfield">AgentDeviceApplicationField</h2>
+<h2 id="tocSagentdeviceapplication">AgentDeviceApplication</h2>
 
-<a id="schemaagentdeviceapplicationfield"></a>
+<a id="schemaagentdeviceapplication"></a>
 
 ```json
 {
@@ -15528,6 +15526,43 @@ Returns the User information
 |name|string|false|none|
 |publisher|string|false|none|
 |version|string|false|none|
+
+<h2 id="tocSagentdevicevariable">AgentDeviceVariable</h2>
+
+<a id="schemaagentdevicevariable"></a>
+
+```json
+{
+  "creation_time": "2019-08-24T14:15:22Z",
+  "device_id": 0,
+  "has_history": true,
+  "id": 0,
+  "label": "string",
+  "metric": "string",
+  "path": "string",
+  "unit": "string",
+  "value": "string",
+  "value_update_time": "2019-08-24T14:15:22Z"
+}
+
+```
+
+*The representation of a device variable*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|creation_time|string(date-time)|false|The creation time of the variable|
+|device_id|integer(int32)|true|The ID of the device|
+|has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
+|id|integer(int32)|true|The ID of the variable|
+|label|string|false|The label|
+|metric|string|false|The metric|
+|path|string|true|The variable path|
+|unit|string|false|The unit of measurement|
+|value|string|false|The variable value|
+|value_update_time|string(date-time)|false|The update time of the variable value|
 
 <h2 id="tocSagenthistory">AgentHistory</h2>
 
@@ -16589,9 +16624,9 @@ Returns the User information
 |label|string|false|A human-readable short description of the type|
 |type_id|integer(int32)|false|The corresponding `device type`|
 
-<h2 id="tocSdeviceapplicationfield">DeviceApplicationField</h2>
+<h2 id="tocSdeviceapplication">DeviceApplication</h2>
 
-<a id="schemadeviceapplicationfield"></a>
+<a id="schemadeviceapplication"></a>
 
 ```json
 {
@@ -17955,7 +17990,6 @@ Returns the User information
 ```json
 {
   "creation_time": "2019-08-24T14:15:22Z",
-  "device_id": 0,
   "has_history": true,
   "id": 0,
   "label": "string",
@@ -17975,7 +18009,6 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |creation_time|string(date-time)|false|The creation time of the variable|
-|device_id|integer(int32)|true|The ID of the device|
 |has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
 |id|integer(int32)|true|The ID of the variable|
 |label|string|false|The label|
