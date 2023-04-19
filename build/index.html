@@ -3767,7 +3767,7 @@
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/history/network/speed</code></span></p>
 
-<p>Returns the time series of the Internet Speed measurements taken from the agent, both in 
+<p>Returns the time series of the Internet Speed measurements taken from the agent, both in
 download and in upload.</p>
 
 <h3>Curl</h3>
@@ -9734,8 +9734,8 @@ download and in upload.</p>
 
 <p>Creates a new SNMP Trigger for the sensor. </p>
 
-<p>For instance, to receive a notification when the value of the sensor is above a threshold x, it is required to add a trigger specifying the function_id = 2 (is greater than) and the operand value equals to [x]. 
-The function_id value can be retrieved with the listEyesSNMPTriggerFunction call. 
+<p>For instance, to receive a notification when the value of the sensor is above a threshold x, it is required to add a trigger specifying the function_id = 2 (is greater than) and the operand value equals to [x].
+The function_id value can be retrieved with the listEyesSNMPTriggerFunction call.
 To activate the alert, it is required to call createEyeSNMPTriggerAlert after the trigger creation.</p>
 
 <blockquote>
@@ -23422,15 +23422,15 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>*A Custom Preconfigured sensor is defined providing a 
+<p>*A Custom Preconfigured sensor is defined providing a
 list of scalars or a table.
-Scalars and table cannot be defined at the same time. The lists of scalars 
-and columns in a table define the OIDs that will be retrieved to compose the preconfigured sensor. 
-For each retrieved item the <code>transformer</code> defines how the data must be processed. The <code>transformer</code> can 
+Scalars and table cannot be defined at the same time. The lists of scalars
+and columns in a table define the OIDs that will be retrieved to compose the preconfigured sensor.
+For each retrieved item the <code>transformer</code> defines how the data must be processed. The <code>transformer</code> can
 </br>- simply return the data retrieved, this is the default option <code>#VALUE</code>
-</br>- process the data using a macro function. In this case it can refer other retrieved fields 
+</br>- process the data using a macro function. In this case it can refer other retrieved fields
   by their key
-</br>A field can be marked as <code>hidden</code> if you are not interested in collecting the raw value for a scalar or a column. 
+</br>A field can be marked as <code>hidden</code> if you are not interested in collecting the raw value for a scalar or a column.
 Hidden fields can be used as input for macros in the <code>transformer</code> fields.
 The results of a <code>transformer</code> function can be filtered to eliminate unwanted results using the <code>filters</code>
  field. <code>op_in</code> and <code>op_equal</code> cannot be defined at the same time.</p>
@@ -27357,7 +27357,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><em>Triggered when a monitoring profile change state</em></p>
+<p><em>Triggered when a monitoring profile state changes</em></p>
 <h3 id='properties-63'>Properties</h3>
 <table><thead>
 <tr>
