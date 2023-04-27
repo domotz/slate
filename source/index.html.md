@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.9.0</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.10.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -196,6 +196,10 @@ Returns the agents list
     "creation_time": "2019-08-24T14:15:22Z",
     "display_name": "string",
     "id": 0,
+    "installation_info": {
+      "contract_id": "string",
+      "customer_id": "string"
+    },
     "licence": {
       "activation_time": "2019-08-24T14:15:22Z",
       "bound_mac_address": "string",
@@ -206,6 +210,10 @@ Returns the agents list
     "location": {
       "latitude": "string",
       "longitude": "string"
+    },
+    "organization": {
+      "id": 0,
+      "name": "string"
     },
     "status": {
       "last_change": "2019-08-24T14:15:22Z",
@@ -249,6 +257,9 @@ Status Code **200**
 |» creation_time|string(date-time)|false|none|
 |» display_name|string|true|none|
 |» id|integer(int32)|true|none|
+|» installation_info|object|false|none|
+|»» contract_id|string|false|none|
+|»» customer_id|string|false|none|
 |» licence|object|false|none|
 |»» activation_time|string(date-time)|false|none|
 |»» bound_mac_address|string|false|The MAC address of the primary interface of the device the software agent runs on|
@@ -258,6 +269,9 @@ Status Code **200**
 |» location|object|false|none|
 |»» latitude|string|false|none|
 |»» longitude|string|false|none|
+|» organization|object|false|none|
+|»» id|integer(int32)|false|none|
+|»» name|string|false|none|
 |» status|object|false|none|
 |»» last_change|string(date-time)|false|none|
 |»» value|string|false|none|
@@ -712,6 +726,10 @@ Returns the details of an agent
   "creation_time": "2019-08-24T14:15:22Z",
   "display_name": "string",
   "id": 0,
+  "installation_info": {
+    "contract_id": "string",
+    "customer_id": "string"
+  },
   "licence": {
     "activation_time": "2019-08-24T14:15:22Z",
     "bound_mac_address": "string",
@@ -722,6 +740,10 @@ Returns the details of an agent
   "location": {
     "latitude": "string",
     "longitude": "string"
+  },
+  "organization": {
+    "id": 0,
+    "name": "string"
   },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
@@ -8357,6 +8379,696 @@ Retrieves information about Domotz Sensors usage and limits
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A data structure containing information about current Domotz Sensors usage and limits|[DomotzEyesUsageInformation](#schemadomotzeyesusageinformation)|
 
+## createSNMPPreconfiguredSensor
+
+<a id="opIdcreateSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/custom-preconfigured-sensor/snmp \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "display_name": "string",
+  "name": "string",
+  "scalars": [
+    {
+      "display_name": "string",
+      "filters": {
+        "allow": {
+          "op_equal": "string",
+          "op_in": [
+            "string"
+          ]
+        }
+      },
+      "hidden": true,
+      "oid": "string",
+      "save_history": "ALWAYS",
+      "scalar_id": "string",
+      "transformer": {
+        "function": "string",
+        "parameters": [
+          "string"
+        ]
+      },
+      "unit": "%",
+      "variable_type": "monotone_rate"
+    }
+  ],
+  "table": {
+    "columns": [
+      {
+        "column_id": "string",
+        "display_name": "string",
+        "filters": {
+          "allow": {
+            "op_equal": "string",
+            "op_in": [
+              "string"
+            ]
+          }
+        },
+        "hidden": true,
+        "index": 0,
+        "save_history": "ALWAYS",
+        "transformer": {
+          "function": "string",
+          "parameters": [
+            "string"
+          ]
+        },
+        "unit": "%",
+        "variable_type": "monotone_rate"
+      }
+    ],
+    "display_name": "string",
+    "oid": "string",
+    "table_id": "string"
+  }
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /custom-preconfigured-sensor/snmp`</span>
+
+Create or updates a custom SNMP Preconfigured Sensor. If the SNMP Preconfigured Sensor is bound to a device it cannot be updated.
+
+> Body parameter
+
+```json
+{
+  "display_name": "string",
+  "name": "string",
+  "scalars": [
+    {
+      "display_name": "string",
+      "filters": {
+        "allow": {
+          "op_equal": "string",
+          "op_in": [
+            "string"
+          ]
+        }
+      },
+      "hidden": true,
+      "oid": "string",
+      "save_history": "ALWAYS",
+      "scalar_id": "string",
+      "transformer": {
+        "function": "string",
+        "parameters": [
+          "string"
+        ]
+      },
+      "unit": "%",
+      "variable_type": "monotone_rate"
+    }
+  ],
+  "table": {
+    "columns": [
+      {
+        "column_id": "string",
+        "display_name": "string",
+        "filters": {
+          "allow": {
+            "op_equal": "string",
+            "op_in": [
+              "string"
+            ]
+          }
+        },
+        "hidden": true,
+        "index": 0,
+        "save_history": "ALWAYS",
+        "transformer": {
+          "function": "string",
+          "parameters": [
+            "string"
+          ]
+        },
+        "unit": "%",
+        "variable_type": "monotone_rate"
+      }
+    ],
+    "display_name": "string",
+    "oid": "string",
+    "table_id": "string"
+  }
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[CustomSNMPPreconfiguredSensor](#schemacustomsnmppreconfiguredsensor)|true|none|
+
+<h3 id="createsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
+## deleteCustomSNMPPreconfiguredSensor
+
+<a id="opIddeleteCustomSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}`</span>
+
+Delete a custom SNMP Preconfigured Sensor
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deletecustomsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|preconfigured_sensor_id|path|integer(int32)|true|Preconfigured Sensor ID|
+
+<h3 id="deletecustomsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## listSNMPPreconfiguredSensor
+
+<a id="opIdlistSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/preconfigured-sensor/snmp \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/preconfigured-sensor/snmp',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/preconfigured-sensor/snmp',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/preconfigured-sensor/snmp', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/preconfigured-sensor/snmp',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/preconfigured-sensor/snmp", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /preconfigured-sensor/snmp`</span>
+
+Returns the list of SNMP Preconfigured Sensors
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "custom": true,
+    "display_name": "string",
+    "id": 0,
+    "name": "string",
+    "scalars": [
+      {
+        "display_name": "string",
+        "filters": {
+          "allow": {
+            "op_equal": "string",
+            "op_in": [
+              "string"
+            ]
+          }
+        },
+        "hidden": true,
+        "oid": "string",
+        "save_history": "ALWAYS",
+        "scalar_id": "string",
+        "transformer": {
+          "function": "string",
+          "parameters": [
+            "string"
+          ]
+        },
+        "unit": "%",
+        "variable_type": "monotone_rate"
+      }
+    ],
+    "table": {
+      "columns": [
+        {
+          "column_id": "string",
+          "display_name": "string",
+          "filters": {
+            "allow": {
+              "op_equal": "string",
+              "op_in": [
+                "string"
+              ]
+            }
+          },
+          "hidden": true,
+          "index": 0,
+          "save_history": "ALWAYS",
+          "transformer": {
+            "function": "string",
+            "parameters": [
+              "string"
+            ]
+          },
+          "unit": "%",
+          "variable_type": "monotone_rate"
+        }
+      ],
+      "display_name": "string",
+      "oid": "string",
+      "table_id": "string"
+    }
+  }
+]
+```
+
+<h3 id="listsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+<h3 id="listsnmppreconfiguredsensor-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[SNMPPreconfiguredSensor](#schemasnmppreconfiguredsensor)]|false|[SNMP Preconfigured Sensor]|
+|» custom|boolean|false|none|
+|» display_name|string|true|The display name of the SNMP Preconfigured Sensor|
+|» id|integer(int32)|true|none|
+|» name|string|true|The ID of the SNMP Preconfigured Sensor. The ID will be used to name the variables created using the preconfigured sensor|
+|» scalars|[object]|false|none|
+|»» display_name|string|true|none|
+|»» filters|object|false|none|
+|»»» allow|object|false|none|
+|»»»» op_equal|string|false|none|
+|»»»» op_in|[string]|false|none|
+|»»» hidden|boolean|false|none|
+|»»» oid|string|true|none|
+|»»» save_history|string|false|none|
+|»»» scalar_id|string|true|none|
+|»»» transformer|object|false|none|
+|»»»» function|string|true|none|
+|»»»» parameters|[string]|true|none|
+|»»» unit|string|false|none|
+|»»» variable_type|string|false|none|
+|»» table|object|false|none|
+|»»» columns|[object]|false|none|
+|»»»» column_id|string|true|none|
+|»»»» display_name|string|true|none|
+|»»»» filters|object|false|none|
+|»»»»» allow|object|false|none|
+|»»»»»» op_equal|string|false|none|
+|»»»»»» op_in|[string]|false|none|
+|»»»»» hidden|boolean|false|none|
+|»»»»» index|integer(int32)|false|The index of the column in the table|
+|»»»»» save_history|string|false|none|
+|»»»»» transformer|object|false|none|
+|»»»»»» function|string|true|none|
+|»»»»»» parameters|[string]|true|none|
+|»»»»» unit|string|false|none|
+|»»»»» variable_type|string|false|none|
+|»»»» display_name|string|true|none|
+|»»»» oid|string|true|none|
+|»»»» table_id|string|true|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|save_history|ALWAYS|
+|save_history|NEVER|
+|save_history|ON_CHANGE|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|variable_type|monotone_rate|
+|variable_type|rate|
+|save_history|ALWAYS|
+|save_history|NEVER|
+|save_history|ON_CHANGE|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|variable_type|monotone_rate|
+|variable_type|rate|
+
 ## getSNMPPreconfiguredSensorDeviceBinding
 
 <a id="opIdgetSNMPPreconfiguredSensorDeviceBinding"></a>
@@ -8794,407 +9506,6 @@ Binds an SNMP Preconfigured Sensor to a device given
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
-
-## createSNMPPreconfiguredSensor
-
-<a id="opIdcreateSNMPPreconfiguredSensor"></a>
-
-> Code samples
-
-```shell
-curl -X POST {baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp \
-  -H 'Content-Type: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-const inputBody = '{
-  "display_name": "string",
-  "name": "string",
-  "scalars": [
-    {
-      "display_name": "string",
-      "filters": {
-        "allow": {
-          "op_equal": "string",
-          "op_in": [
-            "string"
-          ]
-        }
-      },
-      "hidden": true,
-      "oid": "string",
-      "save_history": "ALWAYS",
-      "scalar_id": "string",
-      "transformer": {
-        "function": "string",
-        "parameters": [
-          "string"
-        ]
-      },
-      "unit": "%",
-      "variable_type": "monotone_rate"
-    }
-  ],
-  "table": {
-    "columns": [
-      {
-        "column_id": "string",
-        "display_name": "string",
-        "filters": {
-          "allow": {
-            "op_equal": "string",
-            "op_in": [
-              "string"
-            ]
-          }
-        },
-        "hidden": true,
-        "index": 0,
-        "save_history": "ALWAYS",
-        "transformer": {
-          "function": "string",
-          "parameters": [
-            "string"
-          ]
-        },
-        "unit": "%",
-        "variable_type": "monotone_rate"
-      }
-    ],
-    "display_name": "string",
-    "oid": "string",
-    "table_id": "string"
-  }
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.post('{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.post '{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`POST /user/{user_id}/custom-preconfigured-sensor/snmp`</span>
-
-Create or updates a custom SNMP Preconfigured Sensor. If the SNMP Preconfigured Sensor is bound to a device it cannot be updated.
-
-> Body parameter
-
-```json
-{
-  "display_name": "string",
-  "name": "string",
-  "scalars": [
-    {
-      "display_name": "string",
-      "filters": {
-        "allow": {
-          "op_equal": "string",
-          "op_in": [
-            "string"
-          ]
-        }
-      },
-      "hidden": true,
-      "oid": "string",
-      "save_history": "ALWAYS",
-      "scalar_id": "string",
-      "transformer": {
-        "function": "string",
-        "parameters": [
-          "string"
-        ]
-      },
-      "unit": "%",
-      "variable_type": "monotone_rate"
-    }
-  ],
-  "table": {
-    "columns": [
-      {
-        "column_id": "string",
-        "display_name": "string",
-        "filters": {
-          "allow": {
-            "op_equal": "string",
-            "op_in": [
-              "string"
-            ]
-          }
-        },
-        "hidden": true,
-        "index": 0,
-        "save_history": "ALWAYS",
-        "transformer": {
-          "function": "string",
-          "parameters": [
-            "string"
-          ]
-        },
-        "unit": "%",
-        "variable_type": "monotone_rate"
-      }
-    ],
-    "display_name": "string",
-    "oid": "string",
-    "table_id": "string"
-  }
-}
-```
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp \
-  -H 'Content-Type: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="createsnmppreconfiguredsensor-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|user_id|path|integer(int32)|true|User ID|
-|body|body|[CustomSNMPPreconfiguredSensor](#schemacustomsnmppreconfiguredsensor)|true|none|
-
-<h3 id="createsnmppreconfiguredsensor-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
-
-## deleteCustomSNMPPreconfiguredSensor
-
-<a id="opIddeleteCustomSNMPPreconfiguredSensor"></a>
-
-> Code samples
-
-```shell
-curl -X DELETE {baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id} \
-  -H 'X-Api-Key: API_KEY'
-
-```
-
-```javascript
-var headers = {
-  'X-Api-Key':'API_KEY'
-
-};
-
-$.ajax({
-  url: '{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}',
-  method: 'delete',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'X-Api-Key':'API_KEY'
-
-};
-
-fetch('{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}',
-{
-  method: 'DELETE',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'X-Api-Key': 'API_KEY'
-}
-
-r = requests.delete('{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'X-Api-Key' => 'API_KEY'
-}
-
-result = RestClient.delete '{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "X-Api-Key": []string{"API_KEY"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-<span class='dmt-method'>`DELETE /user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}`</span>
-
-Delete a custom SNMP Preconfigured Sensor
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id} \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="deletecustomsnmppreconfiguredsensor-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|user_id|path|integer(int32)|true|User ID|
-|preconfigured_sensor_id|path|integer(int32)|true|Preconfigured Sensor ID|
-
-<h3 id="deletecustomsnmppreconfiguredsensor-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
 <h1 id="domotz-public-api-variables">variables</h1>
 
@@ -16369,6 +16680,10 @@ Returns the User information
   "creation_time": "2019-08-24T14:15:22Z",
   "display_name": "string",
   "id": 0,
+  "installation_info": {
+    "contract_id": "string",
+    "customer_id": "string"
+  },
   "licence": {
     "activation_time": "2019-08-24T14:15:22Z",
     "bound_mac_address": "string",
@@ -16379,6 +16694,10 @@ Returns the User information
   "location": {
     "latitude": "string",
     "longitude": "string"
+  },
+  "organization": {
+    "id": 0,
+    "name": "string"
   },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
@@ -16413,6 +16732,9 @@ Returns the User information
 |creation_time|string(date-time)|false|none|
 |display_name|string|true|none|
 |id|integer(int32)|true|none|
+|installation_info|object|false|none|
+|» contract_id|string|false|none|
+|» customer_id|string|false|none|
 |licence|object|false|none|
 |» activation_time|string(date-time)|false|none|
 |» bound_mac_address|string|false|The MAC address of the primary interface of the device the software agent runs on|
@@ -16422,6 +16744,9 @@ Returns the User information
 |location|object|false|none|
 |» latitude|string|false|none|
 |» longitude|string|false|none|
+|organization|object|false|none|
+|» id|integer(int32)|false|none|
+|» name|string|false|none|
 |status|object|false|none|
 |» last_change|string(date-time)|false|none|
 |» value|string|false|none|
@@ -16463,6 +16788,10 @@ Returns the User information
   "creation_time": "2019-08-24T14:15:22Z",
   "display_name": "string",
   "id": 0,
+  "installation_info": {
+    "contract_id": "string",
+    "customer_id": "string"
+  },
   "licence": {
     "activation_time": "2019-08-24T14:15:22Z",
     "bound_mac_address": "string",
@@ -16473,6 +16802,10 @@ Returns the User information
   "location": {
     "latitude": "string",
     "longitude": "string"
+  },
+  "organization": {
+    "id": 0,
+    "name": "string"
   },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
@@ -16685,6 +17018,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -16695,6 +17032,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -16787,6 +17128,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -16797,6 +17142,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -16872,6 +17221,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -16882,6 +17235,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -16963,6 +17320,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -16973,6 +17334,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -17135,6 +17500,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -17145,6 +17514,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -17961,6 +18334,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -17971,6 +18348,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -18069,6 +18450,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -18079,6 +18464,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -18240,6 +18629,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -18250,6 +18643,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -18369,6 +18766,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -18379,6 +18780,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -18516,6 +18921,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -18526,6 +18935,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -18705,6 +19118,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -18715,6 +19132,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -18862,6 +19283,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -18872,6 +19297,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -18995,6 +19424,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -19005,6 +19438,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -19107,6 +19544,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -19117,6 +19558,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -19455,6 +19900,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -19465,6 +19914,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -19786,6 +20239,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -19796,6 +20253,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -19902,6 +20363,10 @@ Available macro functions
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -19912,6 +20377,10 @@ Available macro functions
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -19989,7 +20458,7 @@ Available macro functions
 
 ```
 
-*Triggered when a monitoring profile change state*
+*Triggered when a monitoring profile state changes*
 
 ### Properties
 
@@ -20350,6 +20819,171 @@ Available macro functions
 |function_id|integer(int32)|true|The unique identifier of the sensor function|
 |name|string|true|The name of the trigger|
 |operands|[string]|true|The operands for the function|
+
+<h2 id="tocSsnmppreconfiguredsensor">SNMPPreconfiguredSensor</h2>
+
+<a id="schemasnmppreconfiguredsensor"></a>
+
+```json
+{
+  "custom": true,
+  "display_name": "string",
+  "id": 0,
+  "name": "string",
+  "scalars": [
+    {
+      "display_name": "string",
+      "filters": {
+        "allow": {
+          "op_equal": "string",
+          "op_in": [
+            "string"
+          ]
+        }
+      },
+      "hidden": true,
+      "oid": "string",
+      "save_history": "ALWAYS",
+      "scalar_id": "string",
+      "transformer": {
+        "function": "string",
+        "parameters": [
+          "string"
+        ]
+      },
+      "unit": "%",
+      "variable_type": "monotone_rate"
+    }
+  ],
+  "table": {
+    "columns": [
+      {
+        "column_id": "string",
+        "display_name": "string",
+        "filters": {
+          "allow": {
+            "op_equal": "string",
+            "op_in": [
+              "string"
+            ]
+          }
+        },
+        "hidden": true,
+        "index": 0,
+        "save_history": "ALWAYS",
+        "transformer": {
+          "function": "string",
+          "parameters": [
+            "string"
+          ]
+        },
+        "unit": "%",
+        "variable_type": "monotone_rate"
+      }
+    ],
+    "display_name": "string",
+    "oid": "string",
+    "table_id": "string"
+  }
+}
+
+```
+
+*SNMP Preconfigured Sensor*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|custom|boolean|false|none|
+|display_name|string|true|The display name of the SNMP Preconfigured Sensor|
+|id|integer(int32)|true|none|
+|name|string|true|The ID of the SNMP Preconfigured Sensor. The ID will be used to name the variables created using the preconfigured sensor|
+|scalars|[object]|false|none|
+|» display_name|string|true|none|
+|» filters|object|false|none|
+|»» allow|object|false|none|
+|»»» op_equal|string|false|none|
+|»»» op_in|[string]|false|none|
+|»» hidden|boolean|false|none|
+|»» oid|string|true|none|
+|»» save_history|string|false|none|
+|»» scalar_id|string|true|none|
+|»» transformer|object|false|none|
+|»»» function|string|true|none|
+|»»» parameters|[string]|true|none|
+|»» unit|string|false|none|
+|»» variable_type|string|false|none|
+|» table|object|false|none|
+|»» columns|[object]|false|none|
+|»»» column_id|string|true|none|
+|»»» display_name|string|true|none|
+|»»» filters|object|false|none|
+|»»»» allow|object|false|none|
+|»»»»» op_equal|string|false|none|
+|»»»»» op_in|[string]|false|none|
+|»»»» hidden|boolean|false|none|
+|»»»» index|integer(int32)|false|The index of the column in the table|
+|»»»» save_history|string|false|none|
+|»»»» transformer|object|false|none|
+|»»»»» function|string|true|none|
+|»»»»» parameters|[string]|true|none|
+|»»»» unit|string|false|none|
+|»»»» variable_type|string|false|none|
+|»»» display_name|string|true|none|
+|»»» oid|string|true|none|
+|»»» table_id|string|true|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|save_history|ALWAYS|
+|save_history|NEVER|
+|save_history|ON_CHANGE|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|variable_type|monotone_rate|
+|variable_type|rate|
+|save_history|ALWAYS|
+|save_history|NEVER|
+|save_history|ON_CHANGE|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|variable_type|monotone_rate|
+|variable_type|rate|
 
 <h2 id="tocSsnmppreconfiguredsensorbinded">SNMPPreconfiguredSensorBinded</h2>
 

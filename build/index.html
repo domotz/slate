@@ -224,7 +224,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#domotz-public-api" class="toc-h1 toc-link" data-title="Domotz Public API v1.9.0">Domotz Public API v1.9.0</a>
+            <a href="#domotz-public-api" class="toc-h1 toc-link" data-title="Domotz Public API v1.10.0">Domotz Public API v1.10.0</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#the-domotz-public-api" class="toc-h2 toc-link" data-title="The Domotz Public API">The Domotz Public API</a>
@@ -411,6 +411,15 @@
                     <a href="#eyesusageinfo" class="toc-h2 toc-link" data-title="eyesUsageInfo">eyesUsageInfo</a>
                   </li>
                   <li>
+                    <a href="#createsnmppreconfiguredsensor" class="toc-h2 toc-link" data-title="createSNMPPreconfiguredSensor">createSNMPPreconfiguredSensor</a>
+                  </li>
+                  <li>
+                    <a href="#deletecustomsnmppreconfiguredsensor" class="toc-h2 toc-link" data-title="deleteCustomSNMPPreconfiguredSensor">deleteCustomSNMPPreconfiguredSensor</a>
+                  </li>
+                  <li>
+                    <a href="#listsnmppreconfiguredsensor" class="toc-h2 toc-link" data-title="listSNMPPreconfiguredSensor">listSNMPPreconfiguredSensor</a>
+                  </li>
+                  <li>
                     <a href="#getsnmppreconfiguredsensordevicebinding" class="toc-h2 toc-link" data-title="getSNMPPreconfiguredSensorDeviceBinding">getSNMPPreconfiguredSensorDeviceBinding</a>
                   </li>
                   <li>
@@ -418,12 +427,6 @@
                   </li>
                   <li>
                     <a href="#bindsnmppreconfiguredsensor" class="toc-h2 toc-link" data-title="bindSNMPPreconfiguredSensor">bindSNMPPreconfiguredSensor</a>
-                  </li>
-                  <li>
-                    <a href="#createsnmppreconfiguredsensor" class="toc-h2 toc-link" data-title="createSNMPPreconfiguredSensor">createSNMPPreconfiguredSensor</a>
-                  </li>
-                  <li>
-                    <a href="#deletecustomsnmppreconfiguredsensor" class="toc-h2 toc-link" data-title="deleteCustomSNMPPreconfiguredSensor">deleteCustomSNMPPreconfiguredSensor</a>
                   </li>
               </ul>
           </li>
@@ -837,6 +840,9 @@
                     <a href="#tocSsnmpdomotzsnmptriggercreation" class="toc-h2 toc-link" data-title="SNMPDomotzSnmpTriggerCreation">SNMPDomotzSnmpTriggerCreation</a>
                   </li>
                   <li>
+                    <a href="#tocSsnmppreconfiguredsensor" class="toc-h2 toc-link" data-title="SNMPPreconfiguredSensor">SNMPPreconfiguredSensor</a>
+                  </li>
+                  <li>
                     <a href="#tocSsnmppreconfiguredsensorbinded" class="toc-h2 toc-link" data-title="SNMPPreconfiguredSensorBinded">SNMPPreconfiguredSensorBinded</a>
                   </li>
                   <li>
@@ -875,7 +881,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="domotz-public-api">Domotz Public API v1.9.0</h1>
+        <h1 id="domotz-public-api">Domotz Public API v1.10.0</h1>
 
 <blockquote>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
@@ -1072,6 +1078,10 @@
     </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1082,6 +1092,10 @@
     </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -1188,6 +1202,24 @@
 <td>none</td>
 </tr>
 <tr>
+<td>» installation_info</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» contract_id</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» customer_id</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
 <td>» licence</td>
 <td>object</td>
 <td>false</td>
@@ -1237,6 +1269,24 @@
 </tr>
 <tr>
 <td>»» longitude</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» organization</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» id</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» name</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
@@ -1812,6 +1862,10 @@
   </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1822,6 +1876,10 @@
   </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -3767,7 +3825,7 @@
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/history/network/speed</code></span></p>
 
-<p>Returns the time series of the Internet Speed measurements taken from the agent, both in
+<p>Returns the time series of the Internet Speed measurements taken from the agent, both in 
 download and in upload.</p>
 
 <h3>Curl</h3>
@@ -9734,8 +9792,8 @@ download and in upload.</p>
 
 <p>Creates a new SNMP Trigger for the sensor. </p>
 
-<p>For instance, to receive a notification when the value of the sensor is above a threshold x, it is required to add a trigger specifying the function_id = 2 (is greater than) and the operand value equals to [x].
-The function_id value can be retrieved with the listEyesSNMPTriggerFunction call.
+<p>For instance, to receive a notification when the value of the sensor is above a threshold x, it is required to add a trigger specifying the function_id = 2 (is greater than) and the operand value equals to [x]. 
+The function_id value can be retrieved with the listEyesSNMPTriggerFunction call. 
 To activate the alert, it is required to call createEyeSNMPTriggerAlert after the trigger creation.</p>
 
 <blockquote>
@@ -11303,6 +11361,1047 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td><a href="#schemadomotzeyesusageinformation">DomotzEyesUsageInformation</a></td>
 </tr>
 </tbody></table>
+<h2 id='createsnmppreconfiguredsensor'>createSNMPPreconfiguredSensor</h2>
+<p><a id="opIdcreateSNMPPreconfiguredSensor"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/custom-preconfigured-sensor/snmp <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="s1">'{
+  "display_name": "string",
+  "name": "string",
+  "scalars": [
+    {
+      "display_name": "string",
+      "filters": {
+        "allow": {
+          "op_equal": "string",
+          "op_in": [
+            "string"
+          ]
+        }
+      },
+      "hidden": true,
+      "oid": "string",
+      "save_history": "ALWAYS",
+      "scalar_id": "string",
+      "transformer": {
+        "function": "string",
+        "parameters": [
+          "string"
+        ]
+      },
+      "unit": "%",
+      "variable_type": "monotone_rate"
+    }
+  ],
+  "table": {
+    "columns": [
+      {
+        "column_id": "string",
+        "display_name": "string",
+        "filters": {
+          "allow": {
+            "op_equal": "string",
+            "op_in": [
+              "string"
+            ]
+          }
+        },
+        "hidden": true,
+        "index": 0,
+        "save_history": "ALWAYS",
+        "transformer": {
+          "function": "string",
+          "parameters": [
+            "string"
+          ]
+        },
+        "unit": "%",
+        "variable_type": "monotone_rate"
+      }
+    ],
+    "display_name": "string",
+    "oid": "string",
+    "table_id": "string"
+  }
+}'</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"Content-Type"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>POST /custom-preconfigured-sensor/snmp</code></span></p>
+
+<p>Create or updates a custom SNMP Preconfigured Sensor. If the SNMP Preconfigured Sensor is bound to a device it cannot be updated.</p>
+
+<blockquote>
+<p>Body parameter</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scalars"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"op_equal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"op_in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"save_history"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALWAYS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scalar_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"transformer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"function"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"variable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monotone_rate"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"columns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"column_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"op_equal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"op_in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"save_history"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALWAYS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transformer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"function"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"variable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monotone_rate"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>body</td>
+<td><a href="#schemacustomsnmppreconfiguredsensor">CustomSNMPPreconfiguredSensor</a></td>
+<td>true</td>
+<td>none</td>
+</tr>
+</tbody></table>
+
+<h3 id="createsnmppreconfiguredsensor-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>none</td>
+<td>None</td>
+</tr>
+</tbody></table>
+<h2 id='deletecustomsnmppreconfiguredsensor'>deleteCustomSNMPPreconfiguredSensor</h2>
+<p><a id="opIddeleteCustomSNMPPreconfiguredSensor"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/custom-preconfigured-sensor/snmp/<span class="o">{</span>preconfigured_sensor_id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'delete'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'DELETE'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>DELETE /custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}</code></span></p>
+
+<p>Delete a custom SNMP Preconfigured Sensor</p>
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deletecustomsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>preconfigured_sensor_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Preconfigured Sensor ID</td>
+</tr>
+</tbody></table>
+
+<h3 id="deletecustomsnmppreconfiguredsensor-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
+<td>none</td>
+<td>None</td>
+</tr>
+</tbody></table>
+<h2 id='listsnmppreconfiguredsensor'>listSNMPPreconfiguredSensor</h2>
+<p><a id="opIdlistSNMPPreconfiguredSensor"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/preconfigured-sensor/snmp <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/preconfigured-sensor/snmp'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/preconfigured-sensor/snmp'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/preconfigured-sensor/snmp'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'{baseURL}/public-api/v1/preconfigured-sensor/snmp'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"Accept"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/preconfigured-sensor/snmp"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>GET /preconfigured-sensor/snmp</code></span></p>
+
+<p>Returns the list of SNMP Preconfigured Sensors</p>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"scalars"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"op_equal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"op_in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"save_history"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALWAYS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scalar_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transformer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"function"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"variable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monotone_rate"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"columns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"column_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"op_equal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"op_in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"string"</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"save_history"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALWAYS"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"transformer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"function"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"variable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monotone_rate"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"table_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h3 id="listsnmppreconfiguredsensor-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>none</td>
+<td>Inline</td>
+</tr>
+</tbody></table>
+
+<h3 id="listsnmppreconfiguredsensor-responseschema">Response Schema</h3>
+
+<p>Status Code <strong>200</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>[<a href="#schemasnmppreconfiguredsensor">SNMPPreconfiguredSensor</a>]</td>
+<td>false</td>
+<td>[SNMP Preconfigured Sensor]</td>
+</tr>
+<tr>
+<td>» custom</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» display_name</td>
+<td>string</td>
+<td>true</td>
+<td>The display name of the SNMP Preconfigured Sensor</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>string</td>
+<td>true</td>
+<td>The ID of the SNMP Preconfigured Sensor. The ID will be used to name the variables created using the preconfigured sensor</td>
+</tr>
+<tr>
+<td>» scalars</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» display_name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» filters</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» allow</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» op_equal</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» op_in</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» hidden</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» oid</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» save_history</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» scalar_id</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» transformer</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» function</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» parameters</td>
+<td>[string]</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» unit</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» variable_type</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» table</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» columns</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» column_id</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» display_name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» filters</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» allow</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»»» op_equal</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»»» op_in</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» hidden</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» index</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The index of the column in the table</td>
+</tr>
+<tr>
+<td>»»»»» save_history</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» transformer</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»»» function</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»»» parameters</td>
+<td>[string]</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» unit</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» variable_type</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» display_name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» oid</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» table_id</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-16'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>save_history</td>
+<td>ALWAYS</td>
+</tr>
+<tr>
+<td>save_history</td>
+<td>NEVER</td>
+</tr>
+<tr>
+<td>save_history</td>
+<td>ON_CHANGE</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>%</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>C</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>F</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>V</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>W</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>A</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>b/s</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>B/s</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>RPM</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>B</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>b</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>ms</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>second</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>minute</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>hour</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>day</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>month</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>year</td>
+</tr>
+<tr>
+<td>variable_type</td>
+<td>monotone_rate</td>
+</tr>
+<tr>
+<td>variable_type</td>
+<td>rate</td>
+</tr>
+<tr>
+<td>save_history</td>
+<td>ALWAYS</td>
+</tr>
+<tr>
+<td>save_history</td>
+<td>NEVER</td>
+</tr>
+<tr>
+<td>save_history</td>
+<td>ON_CHANGE</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>%</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>C</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>F</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>V</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>W</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>A</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>b/s</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>B/s</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>RPM</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>B</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>b</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>ms</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>second</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>minute</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>hour</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>day</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>month</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>year</td>
+</tr>
+<tr>
+<td>variable_type</td>
+<td>monotone_rate</td>
+</tr>
+<tr>
+<td>variable_type</td>
+<td>rate</td>
+</tr>
+</tbody></table>
 <h2 id='getsnmppreconfiguredsensordevicebinding'>getSNMPPreconfiguredSensorDeviceBinding</h2>
 <p><a id="opIdgetSNMPPreconfiguredSensorDeviceBinding"></a></p>
 
@@ -11811,434 +12910,6 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>None</td>
 </tr>
 </tbody></table>
-<h2 id='createsnmppreconfiguredsensor'>createSNMPPreconfiguredSensor</h2>
-<p><a id="opIdcreateSNMPPreconfiguredSensor"></a></p>
-
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/user/<span class="o">{</span>user_id<span class="o">}</span>/custom-preconfigured-sensor/snmp <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Api-Key: API_KEY'</span>
-
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
-
-<span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp'</span><span class="p">,</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
-
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
-  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-  <span class="p">}</span>
-<span class="p">})</span>
-
-</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="s1">'{
-  "display_name": "string",
-  "name": "string",
-  "scalars": [
-    {
-      "display_name": "string",
-      "filters": {
-        "allow": {
-          "op_equal": "string",
-          "op_in": [
-            "string"
-          ]
-        }
-      },
-      "hidden": true,
-      "oid": "string",
-      "save_history": "ALWAYS",
-      "scalar_id": "string",
-      "transformer": {
-        "function": "string",
-        "parameters": [
-          "string"
-        ]
-      },
-      "unit": "%",
-      "variable_type": "monotone_rate"
-    }
-  ],
-  "table": {
-    "columns": [
-      {
-        "column_id": "string",
-        "display_name": "string",
-        "filters": {
-          "allow": {
-            "op_equal": "string",
-            "op_in": [
-              "string"
-            ]
-          }
-        },
-        "hidden": true,
-        "index": 0,
-        "save_history": "ALWAYS",
-        "transformer": {
-          "function": "string",
-          "parameters": [
-            "string"
-          ]
-        },
-        "unit": "%",
-        "variable_type": "monotone_rate"
-      }
-    ],
-    "display_name": "string",
-    "oid": "string",
-    "table_id": "string"
-  }
-}'</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
-
-<span class="p">};</span>
-
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
-  <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
-<span class="p">}</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
-<span class="p">}</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp'</span><span class="p">,</span>
-  <span class="ss">params: </span><span class="p">{</span>
-  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
-
-<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
-
-</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
-       </span><span class="s">"bytes"</span><span class="x">
-       </span><span class="s">"net/http"</span><span class="x">
-</span><span class="p">)</span><span class="x">
-
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
-
-    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
-        </span><span class="s">"Content-Type"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
-        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
-
-    </span><span class="p">}</span><span class="x">
-
-    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
-    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
-
-    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
-    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
-    </span><span class="c">// ...</span><span class="x">
-</span><span class="p">}</span><span class="x">
-
-</span></code></pre>
-<p><span class='dmt-method'><code>POST /user/{user_id}/custom-preconfigured-sensor/snmp</code></span></p>
-
-<p>Create or updates a custom SNMP Preconfigured Sensor. If the SNMP Preconfigured Sensor is bound to a device it cannot be updated.</p>
-
-<blockquote>
-<p>Body parameter</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"scalars"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"op_equal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"op_in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"string"</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"save_history"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALWAYS"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scalar_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"transformer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"function"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="s2">"string"</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"variable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monotone_rate"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"columns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"column_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"op_equal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"op_in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"save_history"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALWAYS"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"transformer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"function"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"string"</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"variable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monotone_rate"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"table_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp \
-  -H 'Content-Type: application/json' \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="createsnmppreconfiguredsensor-parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>user_id</td>
-<td>path</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>User ID</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td><a href="#schemacustomsnmppreconfiguredsensor">CustomSNMPPreconfiguredSensor</a></td>
-<td>true</td>
-<td>none</td>
-</tr>
-</tbody></table>
-
-<h3 id="createsnmppreconfiguredsensor-responses">Responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
-<td>none</td>
-<td>None</td>
-</tr>
-</tbody></table>
-<h2 id='deletecustomsnmppreconfiguredsensor'>deleteCustomSNMPPreconfiguredSensor</h2>
-<p><a id="opIddeleteCustomSNMPPreconfiguredSensor"></a></p>
-
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/user/<span class="o">{</span>user_id<span class="o">}</span>/custom-preconfigured-sensor/snmp/<span class="o">{</span>preconfigured_sensor_id<span class="o">}</span> <span class="se">\</span>
-  -H <span class="s1">'X-Api-Key: API_KEY'</span>
-
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
-
-<span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}'</span><span class="p">,</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'delete'</span><span class="p">,</span>
-
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
-  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-  <span class="p">}</span>
-<span class="p">})</span>
-
-</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
-
-<span class="p">};</span>
-
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'DELETE'</span><span class="p">,</span>
-
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
-<span class="p">}</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
-<span class="p">}</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}'</span><span class="p">,</span>
-  <span class="ss">params: </span><span class="p">{</span>
-  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
-
-<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
-
-</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
-       </span><span class="s">"bytes"</span><span class="x">
-       </span><span class="s">"net/http"</span><span class="x">
-</span><span class="p">)</span><span class="x">
-
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
-
-    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
-        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
-
-    </span><span class="p">}</span><span class="x">
-
-    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
-    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
-
-    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
-    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
-    </span><span class="c">// ...</span><span class="x">
-</span><span class="p">}</span><span class="x">
-
-</span></code></pre>
-<p><span class='dmt-method'><code>DELETE /user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}</code></span></p>
-
-<p>Delete a custom SNMP Preconfigured Sensor</p>
-
-<h3>Curl</h3>
-
-<p class="dmt-code-block">
-<code>
-<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/user/{user_id}/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id} \
-  -H 'X-Api-Key: API_KEY'
-
-</span>
-</code>
-</p>
-
-<h3 id="deletecustomsnmppreconfiguredsensor-parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>user_id</td>
-<td>path</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>User ID</td>
-</tr>
-<tr>
-<td>preconfigured_sensor_id</td>
-<td>path</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>Preconfigured Sensor ID</td>
-</tr>
-</tbody></table>
-
-<h3 id="deletecustomsnmppreconfiguredsensor-responses">Responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>204</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
-<td>none</td>
-<td>None</td>
-</tr>
-</tbody></table>
 
 <h1 id="domotz-public-api-variables">variables</h1>
 <h2 id='listagentdevicevariables'>listAgentDeviceVariables</h2>
@@ -12429,7 +13100,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>Allows filtering by <code>metric</code></td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-16'>Enumerated Values</h4>
+<h4 id='enumerated-values-17'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12982,7 +13653,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>Allows filtering by <code>metric</code></td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-17'>Enumerated Values</h4>
+<h4 id='enumerated-values-18'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -19061,7 +19732,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The number of variables used by this Custom Driver association</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-18'>Enumerated Values</h4>
+<h4 id='enumerated-values-19'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -20765,7 +21436,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-19'>Enumerated Values</h4>
+<h4 id='enumerated-values-20'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -20828,6 +21499,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -20838,6 +21513,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -20916,6 +21595,24 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 <tr>
+<td>installation_info</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» contract_id</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» customer_id</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
 <td>licence</td>
 <td>object</td>
 <td>false</td>
@@ -20965,6 +21662,24 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 <tr>
 <td>» longitude</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>organization</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» name</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
@@ -21048,7 +21763,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-20'>Enumerated Values</h4>
+<h4 id='enumerated-values-21'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21095,6 +21810,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -21105,6 +21824,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -21409,7 +22132,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The agent event type</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-21'>Enumerated Values</h4>
+<h4 id='enumerated-values-22'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21492,7 +22215,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>Rules can be expressed as lists of case-insensitive strings representing the names of the interfaces to be matched. The <code>*</code> wildcard can be used to match variable parts of the interface name. Example: <code>[&quot;eth*&quot;, &quot;tun0&quot;]</code></td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-22'>Enumerated Values</h4>
+<h4 id='enumerated-values-23'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21525,6 +22248,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -21535,6 +22262,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -21676,7 +22407,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-23'>Enumerated Values</h4>
+<h4 id='enumerated-values-24'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21705,6 +22436,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -21715,6 +22450,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -21806,7 +22545,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-24'>Enumerated Values</h4>
+<h4 id='enumerated-values-25'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21847,6 +22586,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -21857,6 +22600,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -21975,7 +22722,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-25'>Enumerated Values</h4>
+<h4 id='enumerated-values-26'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22012,6 +22759,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -22022,6 +22773,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -22096,7 +22851,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-26'>Enumerated Values</h4>
+<h4 id='enumerated-values-27'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22244,7 +22999,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The status of the vpn connection</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-27'>Enumerated Values</h4>
+<h4 id='enumerated-values-28'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22302,7 +23057,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The duration in hours of the connection.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-28'>Enumerated Values</h4>
+<h4 id='enumerated-values-29'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22335,6 +23090,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -22345,6 +23104,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -22544,7 +23307,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-29'>Enumerated Values</h4>
+<h4 id='enumerated-values-30'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22881,7 +23644,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The protocol wrapped by the connection:  </br>- <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates will be securely forwarded to the requested <code>port</code> of the device.  </br>- <em>ssh</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- <em>rdp</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-30'>Enumerated Values</h4>
+<h4 id='enumerated-values-31'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23047,7 +23810,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The number of variables used by this Custom Driver association</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-31'>Enumerated Values</h4>
+<h4 id='enumerated-values-32'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23337,7 +24100,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>Outcome from the Custom Driver Execution</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-32'>Enumerated Values</h4>
+<h4 id='enumerated-values-33'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23422,15 +24185,15 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>*A Custom Preconfigured sensor is defined providing a
+<p>*A Custom Preconfigured sensor is defined providing a 
 list of scalars or a table.
-Scalars and table cannot be defined at the same time. The lists of scalars
-and columns in a table define the OIDs that will be retrieved to compose the preconfigured sensor.
-For each retrieved item the <code>transformer</code> defines how the data must be processed. The <code>transformer</code> can
+Scalars and table cannot be defined at the same time. The lists of scalars 
+and columns in a table define the OIDs that will be retrieved to compose the preconfigured sensor. 
+For each retrieved item the <code>transformer</code> defines how the data must be processed. The <code>transformer</code> can 
 </br>- simply return the data retrieved, this is the default option <code>#VALUE</code>
-</br>- process the data using a macro function. In this case it can refer other retrieved fields
+</br>- process the data using a macro function. In this case it can refer other retrieved fields 
   by their key
-</br>A field can be marked as <code>hidden</code> if you are not interested in collecting the raw value for a scalar or a column.
+</br>A field can be marked as <code>hidden</code> if you are not interested in collecting the raw value for a scalar or a column. 
 Hidden fields can be used as input for macros in the <code>transformer</code> fields.
 The results of a <code>transformer</code> function can be filtered to eliminate unwanted results using the <code>filters</code>
  field. <code>op_in</code> and <code>op_equal</code> cannot be defined at the same time.</p>
@@ -23717,7 +24480,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-33'>Enumerated Values</h4>
+<h4 id='enumerated-values-34'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -24118,6 +24881,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -24128,6 +24895,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -24240,7 +25011,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-34'>Enumerated Values</h4>
+<h4 id='enumerated-values-35'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -24269,6 +25040,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -24279,6 +25054,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -24391,7 +25170,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-35'>Enumerated Values</h4>
+<h4 id='enumerated-values-36'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -24448,7 +25227,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The duration in hours of the connection.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-36'>Enumerated Values</h4>
+<h4 id='enumerated-values-37'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -24514,7 +25293,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>username</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-37'>Enumerated Values</h4>
+<h4 id='enumerated-values-38'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -24555,6 +25334,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -24565,6 +25348,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -24677,7 +25464,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-38'>Enumerated Values</h4>
+<h4 id='enumerated-values-39'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -24744,6 +25531,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -24754,6 +25545,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -24866,7 +25661,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-39'>Enumerated Values</h4>
+<h4 id='enumerated-values-40'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -24935,7 +25730,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The device event type</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-40'>Enumerated Values</h4>
+<h4 id='enumerated-values-41'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -24976,6 +25771,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -24986,6 +25785,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -25116,7 +25919,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-41'>Enumerated Values</h4>
+<h4 id='enumerated-values-42'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25289,6 +26092,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -25299,6 +26106,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -25462,7 +26273,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-42'>Enumerated Values</h4>
+<h4 id='enumerated-values-43'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25572,6 +26383,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -25582,6 +26397,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -25715,7 +26534,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-43'>Enumerated Values</h4>
+<h4 id='enumerated-values-44'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25775,6 +26594,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -25785,6 +26608,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -25904,7 +26731,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-44'>Enumerated Values</h4>
+<h4 id='enumerated-values-45'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25941,6 +26768,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -25951,6 +26782,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -26087,7 +26922,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-45'>Enumerated Values</h4>
+<h4 id='enumerated-values-46'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -26522,6 +27357,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -26532,6 +27371,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -26666,7 +27509,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-46'>Enumerated Values</h4>
+<h4 id='enumerated-values-47'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -26897,7 +27740,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-47'>Enumerated Values</h4>
+<h4 id='enumerated-values-48'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -27106,6 +27949,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -27116,6 +27963,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -27271,6 +28122,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installation_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"licence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"activation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bound_mac_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -27281,6 +28136,10 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
       </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"last_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
@@ -27434,7 +28293,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-48'>Enumerated Values</h4>
+<h4 id='enumerated-values-49'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -27584,7 +28443,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-49'>Enumerated Values</h4>
+<h4 id='enumerated-values-50'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -27707,7 +28566,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The configured SNMP version</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-50'>Enumerated Values</h4>
+<h4 id='enumerated-values-51'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -27833,7 +28692,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-51'>Enumerated Values</h4>
+<h4 id='enumerated-values-52'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -27928,7 +28787,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-52'>Enumerated Values</h4>
+<h4 id='enumerated-values-53'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -28101,7 +28960,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The type of the operands</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-53'>Enumerated Values</h4>
+<h4 id='enumerated-values-54'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -28174,6 +29033,504 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 </tr>
 </tbody></table>
 
+<h2 id="tocSsnmppreconfiguredsensor">SNMPPreconfiguredSensor</h2>
+
+<p><a id="schemasnmppreconfiguredsensor"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scalars"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"op_equal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"op_in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"save_history"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALWAYS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scalar_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"transformer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"function"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"variable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monotone_rate"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"columns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"column_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"op_equal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"op_in"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"save_history"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALWAYS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transformer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"function"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"variable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monotone_rate"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><em>SNMP Preconfigured Sensor</em></p>
+<h3 id='properties-74'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>custom</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>display_name</td>
+<td>string</td>
+<td>true</td>
+<td>The display name of the SNMP Preconfigured Sensor</td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>The ID of the SNMP Preconfigured Sensor. The ID will be used to name the variables created using the preconfigured sensor</td>
+</tr>
+<tr>
+<td>scalars</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» display_name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» filters</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» allow</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» op_equal</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» op_in</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» hidden</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» oid</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» save_history</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» scalar_id</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» transformer</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» function</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» parameters</td>
+<td>[string]</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» unit</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» variable_type</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» table</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» columns</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» column_id</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» display_name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» filters</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» allow</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» op_equal</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» op_in</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» hidden</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» index</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The index of the column in the table</td>
+</tr>
+<tr>
+<td>»»»» save_history</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» transformer</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» function</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» parameters</td>
+<td>[string]</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» unit</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» variable_type</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» display_name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» oid</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» table_id</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-55'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>save_history</td>
+<td>ALWAYS</td>
+</tr>
+<tr>
+<td>save_history</td>
+<td>NEVER</td>
+</tr>
+<tr>
+<td>save_history</td>
+<td>ON_CHANGE</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>%</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>C</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>F</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>V</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>W</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>A</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>b/s</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>B/s</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>RPM</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>B</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>b</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>ms</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>second</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>minute</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>hour</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>day</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>month</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>year</td>
+</tr>
+<tr>
+<td>variable_type</td>
+<td>monotone_rate</td>
+</tr>
+<tr>
+<td>variable_type</td>
+<td>rate</td>
+</tr>
+<tr>
+<td>save_history</td>
+<td>ALWAYS</td>
+</tr>
+<tr>
+<td>save_history</td>
+<td>NEVER</td>
+</tr>
+<tr>
+<td>save_history</td>
+<td>ON_CHANGE</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>%</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>C</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>F</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>V</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>W</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>A</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>b/s</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>B/s</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>RPM</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>B</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>b</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>ms</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>second</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>minute</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>hour</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>day</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>month</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>year</td>
+</tr>
+<tr>
+<td>variable_type</td>
+<td>monotone_rate</td>
+</tr>
+<tr>
+<td>variable_type</td>
+<td>rate</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocSsnmppreconfiguredsensorbinded">SNMPPreconfiguredSensorBinded</h2>
 
 <p><a id="schemasnmppreconfiguredsensorbinded"></a></p>
@@ -28183,7 +29540,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 
 </span></code></pre>
 <p><em>SNMP Preconfigured Sensor</em></p>
-<h3 id='properties-74'>Properties</h3>
+<h3 id='properties-75'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28231,7 +29588,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 
 </span></code></pre>
 <p><em>SNMP Preconfigured Sensor</em></p>
-<h3 id='properties-75'>Properties</h3>
+<h3 id='properties-76'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28307,7 +29664,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-54'>Enumerated Values</h4>
+<h4 id='enumerated-values-56'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -28528,7 +29885,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-76'>Properties</h3>
+</span></code></pre><h3 id='properties-77'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -28614,7 +29971,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 
 </span></code></pre>
 <p><em>Information about a configured TCP Domotz Sensor</em></p>
-<h3 id='properties-77'>Properties</h3>
+<h3 id='properties-78'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28654,7 +30011,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 <td>The status of the TCP service</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-55'>Enumerated Values</h4>
+<h4 id='enumerated-values-57'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -28680,7 +30037,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 
 </span></code></pre>
 <p><em>TCP Domotz Sensor Data</em></p>
-<h3 id='properties-78'>Properties</h3>
+<h3 id='properties-79'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28707,7 +30064,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 
 </span></code></pre>
 <p><em>Represents a team of the Company</em></p>
-<h3 id='properties-79'>Properties</h3>
+<h3 id='properties-80'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28746,7 +30103,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 
 </span></code></pre>
 <p><em>Team Creation under specified Area</em></p>
-<h3 id='properties-80'>Properties</h3>
+<h3 id='properties-81'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28801,7 +30158,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-81'>Properties</h3>
+</span></code></pre><h3 id='properties-82'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28832,7 +30189,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
   </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-82'>Properties</h3>
+</span></code></pre><h3 id='properties-83'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28864,7 +30221,7 @@ The results of a <code>transformer</code> function can be filtered to eliminate 
 
 </span></code></pre>
 <p><em>DTO Used for creating/updating Inventory fields</em></p>
-<h3 id='properties-83'>Properties</h3>
+<h3 id='properties-84'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
