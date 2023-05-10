@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.9.0</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.10.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -196,6 +196,10 @@ Returns the agents list
     "creation_time": "2019-08-24T14:15:22Z",
     "display_name": "string",
     "id": 0,
+    "installation_info": {
+      "contract_id": "string",
+      "customer_id": "string"
+    },
     "licence": {
       "activation_time": "2019-08-24T14:15:22Z",
       "bound_mac_address": "string",
@@ -206,6 +210,10 @@ Returns the agents list
     "location": {
       "latitude": "string",
       "longitude": "string"
+    },
+    "organization": {
+      "id": 0,
+      "name": "string"
     },
     "status": {
       "last_change": "2019-08-24T14:15:22Z",
@@ -249,6 +257,9 @@ Status Code **200**
 |» creation_time|string(date-time)|false|none|
 |» display_name|string|true|none|
 |» id|integer(int32)|true|none|
+|» installation_info|object|false|none|
+|»» contract_id|string|false|none|
+|»» customer_id|string|false|none|
 |» licence|object|false|none|
 |»» activation_time|string(date-time)|false|none|
 |»» bound_mac_address|string|false|The MAC address of the primary interface of the device the software agent runs on|
@@ -258,6 +269,9 @@ Status Code **200**
 |» location|object|false|none|
 |»» latitude|string|false|none|
 |»» longitude|string|false|none|
+|» organization|object|false|none|
+|»» id|integer(int32)|false|none|
+|»» name|string|false|none|
 |» status|object|false|none|
 |»» last_change|string(date-time)|false|none|
 |»» value|string|false|none|
@@ -712,6 +726,10 @@ Returns the details of an agent
   "creation_time": "2019-08-24T14:15:22Z",
   "display_name": "string",
   "id": 0,
+  "installation_info": {
+    "contract_id": "string",
+    "customer_id": "string"
+  },
   "licence": {
     "activation_time": "2019-08-24T14:15:22Z",
     "bound_mac_address": "string",
@@ -722,6 +740,10 @@ Returns the details of an agent
   "location": {
     "latitude": "string",
     "longitude": "string"
+  },
+  "organization": {
+    "id": 0,
+    "name": "string"
   },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
@@ -8355,6 +8377,7 @@ Retrieves the list of all device variables of the agent
     "label": "string",
     "metric": "string",
     "path": "string",
+    "previous_value": "string",
     "unit": "string",
     "value": "string",
     "value_update_time": "2019-08-24T14:15:22Z"
@@ -8382,6 +8405,7 @@ Status Code **200**
 |» label|string|false|The label|
 |» metric|string|false|The metric|
 |» path|string|true|The variable path|
+|» previous_value|string|false|The previous value of the variable|
 |» unit|string|false|The unit of measurement|
 |» value|string|false|The variable value|
 |» value_update_time|string(date-time)|false|The update time of the variable value|
@@ -8702,6 +8726,7 @@ Retrieves the list of device variables
     "label": "string",
     "metric": "string",
     "path": "string",
+    "previous_value": "string",
     "unit": "string",
     "value": "string",
     "value_update_time": "2019-08-24T14:15:22Z"
@@ -8728,6 +8753,7 @@ Status Code **200**
 |» label|string|false|The label|
 |» metric|string|false|The metric|
 |» path|string|true|The variable path|
+|» previous_value|string|false|The previous value of the variable|
 |» unit|string|false|The unit of measurement|
 |» value|string|false|The variable value|
 |» value_update_time|string(date-time)|false|The update time of the variable value|
@@ -13409,6 +13435,13 @@ Bind an alert profile to a device. After binding, a webhook will be sent to the 
 <td>201</td>
 </tr>
 
+<tr>
+<td>monitoring_profile_state_changed</td>
+<td>POST</td>
+<td><a href="#tocSmonitoringprofilestatechanged" data-title="MonitoringProfileStateChanged">MonitoringProfileStateChanged</a></td>
+<td>201</td>
+</tr>
+
 </tbody>
 </table>
 
@@ -15343,6 +15376,10 @@ Returns the User information
   "creation_time": "2019-08-24T14:15:22Z",
   "display_name": "string",
   "id": 0,
+  "installation_info": {
+    "contract_id": "string",
+    "customer_id": "string"
+  },
   "licence": {
     "activation_time": "2019-08-24T14:15:22Z",
     "bound_mac_address": "string",
@@ -15353,6 +15390,10 @@ Returns the User information
   "location": {
     "latitude": "string",
     "longitude": "string"
+  },
+  "organization": {
+    "id": 0,
+    "name": "string"
   },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
@@ -15387,6 +15428,9 @@ Returns the User information
 |creation_time|string(date-time)|false|none|
 |display_name|string|true|none|
 |id|integer(int32)|true|none|
+|installation_info|object|false|none|
+|» contract_id|string|false|none|
+|» customer_id|string|false|none|
 |licence|object|false|none|
 |» activation_time|string(date-time)|false|none|
 |» bound_mac_address|string|false|The MAC address of the primary interface of the device the software agent runs on|
@@ -15396,6 +15440,9 @@ Returns the User information
 |location|object|false|none|
 |» latitude|string|false|none|
 |» longitude|string|false|none|
+|organization|object|false|none|
+|» id|integer(int32)|false|none|
+|» name|string|false|none|
 |status|object|false|none|
 |» last_change|string(date-time)|false|none|
 |» value|string|false|none|
@@ -15437,6 +15484,10 @@ Returns the User information
   "creation_time": "2019-08-24T14:15:22Z",
   "display_name": "string",
   "id": 0,
+  "installation_info": {
+    "contract_id": "string",
+    "customer_id": "string"
+  },
   "licence": {
     "activation_time": "2019-08-24T14:15:22Z",
     "bound_mac_address": "string",
@@ -15447,6 +15498,10 @@ Returns the User information
   "location": {
     "latitude": "string",
     "longitude": "string"
+  },
+  "organization": {
+    "id": 0,
+    "name": "string"
   },
   "status": {
     "last_change": "2019-08-24T14:15:22Z",
@@ -15540,6 +15595,7 @@ Returns the User information
   "label": "string",
   "metric": "string",
   "path": "string",
+  "previous_value": "string",
   "unit": "string",
   "value": "string",
   "value_update_time": "2019-08-24T14:15:22Z"
@@ -15560,6 +15616,7 @@ Returns the User information
 |label|string|false|The label|
 |metric|string|false|The metric|
 |path|string|true|The variable path|
+|previous_value|string|false|The previous value of the variable|
 |unit|string|false|The unit of measurement|
 |value|string|false|The variable value|
 |value_update_time|string(date-time)|false|The update time of the variable value|
@@ -15657,6 +15714,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -15667,6 +15728,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -15759,6 +15824,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -15769,6 +15838,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -15844,6 +15917,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -15854,6 +15931,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -15935,6 +16016,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -15945,6 +16030,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -16107,6 +16196,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -16117,6 +16210,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -16704,6 +16801,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -16714,6 +16815,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -16812,6 +16917,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -16822,6 +16931,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -16983,6 +17096,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -16993,6 +17110,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -17112,6 +17233,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -17122,6 +17247,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -17259,6 +17388,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -17269,6 +17402,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -17448,6 +17585,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -17458,6 +17599,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -17605,6 +17750,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -17615,6 +17764,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -17738,6 +17891,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -17748,6 +17905,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -17850,6 +18011,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -17860,6 +18025,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -17995,6 +18164,7 @@ Returns the User information
   "label": "string",
   "metric": "string",
   "path": "string",
+  "previous_value": "string",
   "unit": "string",
   "value": "string",
   "value_update_time": "2019-08-24T14:15:22Z"
@@ -18014,6 +18184,7 @@ Returns the User information
 |label|string|false|The label|
 |metric|string|false|The metric|
 |path|string|true|The variable path|
+|previous_value|string|false|The previous value of the variable|
 |unit|string|false|The unit of measurement|
 |value|string|false|The variable value|
 |value_update_time|string(date-time)|false|The update time of the variable value|
@@ -18196,6 +18367,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -18206,6 +18381,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -18527,6 +18706,10 @@ Returns the User information
       "creation_time": "2019-08-24T14:15:22Z",
       "display_name": "string",
       "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
       "licence": {
         "activation_time": "2019-08-24T14:15:22Z",
         "bound_mac_address": "string",
@@ -18537,6 +18720,10 @@ Returns the User information
       "location": {
         "latitude": "string",
         "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
       },
       "status": {
         "last_change": "2019-08-24T14:15:22Z",
@@ -18624,6 +18811,143 @@ Returns the User information
 |»» value|object|false|none|
 |»»» data|object|false|none|
 |»»»» mib|[string]|false|The discovered MIB|
+
+<h2 id="tocSmonitoringprofilestatechanged">MonitoringProfileStateChanged</h2>
+
+<a id="schemamonitoringprofilestatechanged"></a>
+
+```json
+{
+  "data": {
+    "agent": {
+      "access_right": {
+        "api_enabled": true,
+        "granting_user": {
+          "name": "user@example.com"
+        },
+        "status": "OWNED"
+      },
+      "creation_time": "2019-08-24T14:15:22Z",
+      "display_name": "string",
+      "id": 0,
+      "installation_info": {
+        "contract_id": "string",
+        "customer_id": "string"
+      },
+      "licence": {
+        "activation_time": "2019-08-24T14:15:22Z",
+        "bound_mac_address": "string",
+        "code": "string",
+        "expiration_time": "2019-08-24T14:15:22Z",
+        "id": 0
+      },
+      "location": {
+        "latitude": "string",
+        "longitude": "string"
+      },
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
+      "status": {
+        "last_change": "2019-08-24T14:15:22Z",
+        "value": "ONLINE"
+      },
+      "team": {
+        "area": {
+          "id": 0
+        },
+        "id": 0,
+        "leader_id": 0,
+        "name": "string"
+      },
+      "timezone": "string",
+      "version": {
+        "agent": "string",
+        "package": "string"
+      }
+    },
+    "device": {
+      "authentication_status": "AUTHENTICATED",
+      "details": {
+        "firmware_version": "string",
+        "room": "string",
+        "snmp_read_community": "string",
+        "snmp_write_community": "string",
+        "zone": "string"
+      },
+      "display_name": "string",
+      "first_seen_on": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "importance": "VITAL",
+      "main_id": 0,
+      "os": {
+        "build": "string",
+        "name": "string",
+        "version": "string"
+      },
+      "protocol": "IP",
+      "type": {
+        "detected_id": 0,
+        "id": 0,
+        "label": "string"
+      },
+      "user_data": {
+        "model": "string",
+        "name": "string",
+        "type": 0,
+        "vendor": "string"
+      }
+    },
+    "monitoring_profile": {
+      "name": "string"
+    },
+    "state": {
+      "current": "string",
+      "previous": "string"
+    },
+    "variable": {
+      "creation_time": "2019-08-24T14:15:22Z",
+      "has_history": true,
+      "id": 0,
+      "label": "string",
+      "metric": "string",
+      "path": "string",
+      "previous_value": "string",
+      "unit": "string",
+      "value": "string",
+      "value_update_time": "2019-08-24T14:15:22Z"
+    }
+  },
+  "name": "monitoring_profile_state_changed",
+  "timestamp": "2019-08-24T14:15:22Z"
+}
+
+```
+
+*Triggered when a monitoring profile state changes*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|data|object|false|none|
+|» agent|[AgentBase](#schemaagentbase)|false|none|
+|» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
+|» monitoring_profile|object|false|none|
+|»» name|string|true|none|
+|» state|object|false|none|
+|»» current|string|false|none|
+|»» previous|string|false|none|
+|» variable|[DeviceVariable](#schemadevicevariable)|false|The representation of a device variable|
+|name|string|true|none|
+|timestamp|string(date-time)|true|The timestamp of the event|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|name|monitoring_profile_state_changed|
 
 <h2 id="tocSnetworkspeedsample">NetworkSpeedSample</h2>
 
