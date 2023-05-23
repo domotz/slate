@@ -14435,7 +14435,7 @@ func main() {
 
 <span class='dmt-method'>`POST /custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id}`</span>
 
-Execute a Custom Driver action on an associated device
+Execute a Custom Driver action on an associated device. The agent variables limit for Custom Drivers must not be exceeded.
 
 <h3>Curl</h3>
 
