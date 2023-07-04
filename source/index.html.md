@@ -13473,7 +13473,7 @@ const fetch = require('node-fetch');
 const inputBody = '{
   "address": "string",
   "name": "string",
-  "netmaks": "string"
+  "netmask": "string"
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -13564,7 +13564,7 @@ Creates a routed network
 {
   "address": "string",
   "name": "string",
-  "netmaks": "string"
+  "netmask": "string"
 }
 ```
 
@@ -21347,7 +21347,7 @@ Available macro functions</br>
 {
   "address": "string",
   "name": "string",
-  "netmaks": "string"
+  "netmask": "string"
 }
 
 ```
@@ -21358,7 +21358,7 @@ Available macro functions</br>
 |---|---|---|---|---|
 |address|string|true|none|
 |name|string|true|none|
-|netmaks|string|true|none|
+|netmask|string|true|none|
 
 <h2 id="tocSsnmpdomotzagenteye">SNMPDomotzAgentEye</h2>
 
