@@ -319,6 +319,9 @@
                     <a href="#countagentdeviceapplications" class="toc-h2 toc-link" data-title="countAgentDeviceApplications">countAgentDeviceApplications</a>
                   </li>
                   <li>
+                    <a href="#createexternalhost" class="toc-h2 toc-link" data-title="createExternalHost">createExternalHost</a>
+                  </li>
+                  <li>
                     <a href="#deletedevice" class="toc-h2 toc-link" data-title="deleteDevice">deleteDevice</a>
                   </li>
                   <li>
@@ -448,6 +451,12 @@
                   <li>
                     <a href="#getvariablehistory" class="toc-h2 toc-link" data-title="getVariableHistory">getVariableHistory</a>
                   </li>
+                  <li>
+                    <a href="#listagentvariables" class="toc-h2 toc-link" data-title="listAgentVariables">listAgentVariables</a>
+                  </li>
+                  <li>
+                    <a href="#countagentvariables" class="toc-h2 toc-link" data-title="countAgentVariables">countAgentVariables</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -518,6 +527,9 @@
                   </li>
                   <li>
                     <a href="#setagentipscanpolicy" class="toc-h2 toc-link" data-title="setAgentIPScanPolicy">setAgentIPScanPolicy</a>
+                  </li>
+                  <li>
+                    <a href="#createroutednetwork" class="toc-h2 toc-link" data-title="createRoutedNetwork">createRoutedNetwork</a>
                   </li>
               </ul>
           </li>
@@ -669,6 +681,9 @@
                     <a href="#tocSagentvpnconnection" class="toc-h2 toc-link" data-title="AgentVPNConnection">AgentVPNConnection</a>
                   </li>
                   <li>
+                    <a href="#tocSagentvariable" class="toc-h2 toc-link" data-title="AgentVariable">AgentVariable</a>
+                  </li>
+                  <li>
                     <a href="#tocSagentwanchangeevent" class="toc-h2 toc-link" data-title="AgentWANChangeEvent">AgentWANChangeEvent</a>
                   </li>
                   <li>
@@ -789,6 +804,9 @@
                     <a href="#tocSdummydevice" class="toc-h2 toc-link" data-title="DummyDevice">DummyDevice</a>
                   </li>
                   <li>
+                    <a href="#tocSexternalhost" class="toc-h2 toc-link" data-title="ExternalHost">ExternalHost</a>
+                  </li>
+                  <li>
                     <a href="#tocSexternalipdevice" class="toc-h2 toc-link" data-title="ExternalIpDevice">ExternalIpDevice</a>
                   </li>
                   <li>
@@ -814,6 +832,9 @@
                   </li>
                   <li>
                     <a href="#tocSnetworktopology" class="toc-h2 toc-link" data-title="NetworkTopology">NetworkTopology</a>
+                  </li>
+                  <li>
+                    <a href="#tocSroutednetwork" class="toc-h2 toc-link" data-title="RoutedNetwork">RoutedNetwork</a>
                   </li>
                   <li>
                     <a href="#tocSsnmpdomotzagenteye" class="toc-h2 toc-link" data-title="SNMPDomotzAgentEye">SNMPDomotzAgentEye</a>
@@ -5521,6 +5542,174 @@ download and in upload.</p>
 <td>integer</td>
 <td>int32</td>
 <td>Returns the application count</td>
+</tr>
+</tbody></table>
+<h2 id='createexternalhost'>createExternalHost</h2>
+<p><a id="opIdcreateExternalHost"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/external-host <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/external-host'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="s1">'{
+  "host": "string",
+  "name": "string"
+}'</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/external-host'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/agent/{agent_id}/device/external-host'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/external-host'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"Content-Type"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/agent/{agent_id}/device/external-host"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>POST /agent/{agent_id}/device/external-host</code></span></p>
+
+<p>Creates an external host</p>
+
+<blockquote>
+<p>Body parameter</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/external-host \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createexternalhost-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td><a href="#schemaexternalhost">ExternalHost</a></td>
+<td>true</td>
+<td>none</td>
+</tr>
+</tbody></table>
+
+<h3 id="createexternalhost-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>none</td>
+<td>None</td>
 </tr>
 </tbody></table>
 <h2 id='deletedevice'>deleteDevice</h2>
@@ -12308,6 +12497,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>year</td>
 </tr>
 <tr>
+<td>unit</td>
+<td>Hz</td>
+</tr>
+<tr>
 <td>variable_type</td>
 <td>monotone_rate</td>
 </tr>
@@ -12402,6 +12595,10 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <tr>
 <td>unit</td>
 <td>year</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>Hz</td>
 </tr>
 <tr>
 <td>variable_type</td>
@@ -14237,6 +14434,541 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>string</td>
 <td>true</td>
 <td>The sample value</td>
+</tr>
+</tbody></table>
+<h2 id='listagentvariables'>listAgentVariables</h2>
+<p><a id="opIdlistAgentVariables"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/variable <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/variable'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/variable'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/agent/{agent_id}/variable'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/variable'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"Accept"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/agent/{agent_id}/variable"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>GET /agent/{agent_id}/variable</code></span></p>
+
+<p>Retrieves the list of all agent variables of the agent</p>
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/variable \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listagentvariables-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+<tr>
+<td>page_size</td>
+<td>query</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100</td>
+</tr>
+<tr>
+<td>page_number</td>
+<td>query</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>The requested page number, 0-indexed. Default value is 0</td>
+</tr>
+<tr>
+<td>value</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Allows filtering by <code>value</code></td>
+</tr>
+<tr>
+<td>path</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Allows filtering by <code>path</code></td>
+</tr>
+<tr>
+<td>sort_by</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Allows ordering by <code>path</code>, <code>id</code>, <code>value</code>, <code>label</code>, <code>value_update_time</code>, <code>creation_time</code></td>
+</tr>
+<tr>
+<td>sorting_direction</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>The default is <code>asc</code></td>
+</tr>
+<tr>
+<td>has_history</td>
+<td>query</td>
+<td>boolean</td>
+<td>false</td>
+<td>Allows filtering by <code>has_history</code> field</td>
+</tr>
+<tr>
+<td>metric</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Allows filtering by <code>metric</code></td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-19'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sort_by</td>
+<td>path</td>
+</tr>
+<tr>
+<td>sort_by</td>
+<td>id</td>
+</tr>
+<tr>
+<td>sort_by</td>
+<td>value</td>
+</tr>
+<tr>
+<td>sort_by</td>
+<td>label</td>
+</tr>
+<tr>
+<td>sort_by</td>
+<td>value_update_time</td>
+</tr>
+<tr>
+<td>sort_by</td>
+<td>creation_time</td>
+</tr>
+<tr>
+<td>sorting_direction</td>
+<td>asc</td>
+</tr>
+<tr>
+<td>sorting_direction</td>
+<td>desc</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_history"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metric"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_update_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h3 id="listagentvariables-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>The list of all agent variables of the agent</td>
+<td>Inline</td>
+</tr>
+</tbody></table>
+
+<h3 id="listagentvariables-responseschema">Response Schema</h3>
+
+<p>Status Code <strong>200</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>[<a href="#schemaagentvariable">AgentVariable</a>]</td>
+<td>false</td>
+<td>[The representation of an agent variable]</td>
+</tr>
+<tr>
+<td>» creation_time</td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>The creation time of the variable</td>
+</tr>
+<tr>
+<td>» has_history</td>
+<td>boolean</td>
+<td>true</td>
+<td>If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a></td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>The ID of the variable</td>
+</tr>
+<tr>
+<td>» label</td>
+<td>string</td>
+<td>false</td>
+<td>The label</td>
+</tr>
+<tr>
+<td>» metric</td>
+<td>string</td>
+<td>false</td>
+<td>The metric</td>
+</tr>
+<tr>
+<td>» path</td>
+<td>string</td>
+<td>true</td>
+<td>The variable path</td>
+</tr>
+<tr>
+<td>» previous_value</td>
+<td>string</td>
+<td>false</td>
+<td>The previous value of the variable</td>
+</tr>
+<tr>
+<td>» unit</td>
+<td>string</td>
+<td>false</td>
+<td>The unit of measurement</td>
+</tr>
+<tr>
+<td>» value</td>
+<td>string</td>
+<td>false</td>
+<td>The variable value</td>
+</tr>
+<tr>
+<td>» value_update_time</td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>The update time of the variable value</td>
+</tr>
+</tbody></table>
+<h2 id='countagentvariables'>countAgentVariables</h2>
+<p><a id="opIdcountAgentVariables"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X HEAD <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/variable <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/variable'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'head'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/variable'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'HEAD'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/agent/{agent_id}/variable'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">head</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/variable'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"HEAD"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/agent/{agent_id}/variable"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>HEAD /agent/{agent_id}/variable</code></span></p>
+
+<p>Returns the agent variables count of the agent</p>
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/variable \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="countagentvariables-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+<tr>
+<td>value</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Allows filtering by <code>value</code></td>
+</tr>
+<tr>
+<td>path</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Allows filtering by <code>path</code></td>
+</tr>
+<tr>
+<td>has_history</td>
+<td>query</td>
+<td>boolean</td>
+<td>false</td>
+<td>Allows filtering by <code>has_history</code> field</td>
+</tr>
+<tr>
+<td>metric</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Allows filtering by <code>metric</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="countagentvariables-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
+<td>The agent variables count</td>
+<td>None</td>
+</tr>
+</tbody></table>
+<h3 id='response-headers-6'>Response Headers</h3>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Header</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>X-Entities-Count</td>
+<td>integer</td>
+<td>int32</td>
+<td>The agent variables count</td>
 </tr>
 </tbody></table>
 
@@ -17038,6 +17770,176 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>None</td>
 </tr>
 </tbody></table>
+<h2 id='createroutednetwork'>createRoutedNetwork</h2>
+<p><a id="opIdcreateRoutedNetwork"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/network/routed <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Api-Key: API_KEY'</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/network/routed'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="s1">'{
+  "address": "string",
+  "name": "string",
+  "netmaks": "string"
+}'</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span><span class="p">:</span><span class="s1">'API_KEY'</span>
+
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/network/routed'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/agent/{agent_id}/network/routed'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/network/routed'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+       </span><span class="s">"bytes"</span><span class="x">
+       </span><span class="s">"net/http"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+        </span><span class="s">"Content-Type"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
+        </span><span class="s">"X-Api-Key"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"API_KEY"</span><span class="p">},</span><span class="x">
+
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/agent/{agent_id}/network/routed"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+
+    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
+    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+    </span><span class="c">// ...</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span></code></pre>
+<p><span class='dmt-method'><code>POST /agent/{agent_id}/network/routed</code></span></p>
+
+<p>Creates a routed network</p>
+
+<blockquote>
+<p>Body parameter</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"netmaks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/routed \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createroutednetwork-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agent_id</td>
+<td>path</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>Agent ID</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td><a href="#schemaroutednetwork">RoutedNetwork</a></td>
+<td>true</td>
+<td>none</td>
+</tr>
+</tbody></table>
+
+<h3 id="createroutednetwork-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>none</td>
+<td>None</td>
+</tr>
+</tbody></table>
 
 <h1 id="domotz-public-api-company">company</h1>
 <h2 id='moveagent'>moveAgent</h2>
@@ -19742,7 +20644,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The number of variables used by this Custom Driver association</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-19'>Enumerated Values</h4>
+<h4 id='enumerated-values-20'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21453,7 +22355,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-20'>Enumerated Values</h4>
+<h4 id='enumerated-values-21'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -21780,7 +22682,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-21'>Enumerated Values</h4>
+<h4 id='enumerated-values-22'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22149,7 +23051,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The agent event type</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-22'>Enumerated Values</h4>
+<h4 id='enumerated-values-23'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22232,7 +23134,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>Rules can be expressed as lists of case-insensitive strings representing the names of the interfaces to be matched. The <code>*</code> wildcard can be used to match variable parts of the interface name. Example: <code>[&quot;eth*&quot;, &quot;tun0&quot;]</code></td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-23'>Enumerated Values</h4>
+<h4 id='enumerated-values-24'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22424,7 +23326,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-24'>Enumerated Values</h4>
+<h4 id='enumerated-values-25'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22562,7 +23464,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-25'>Enumerated Values</h4>
+<h4 id='enumerated-values-26'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22739,7 +23641,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-26'>Enumerated Values</h4>
+<h4 id='enumerated-values-27'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -22868,7 +23770,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-27'>Enumerated Values</h4>
+<h4 id='enumerated-values-28'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23016,7 +23918,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The status of the vpn connection</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-28'>Enumerated Values</h4>
+<h4 id='enumerated-values-29'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23074,7 +23976,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The duration in hours of the connection.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-29'>Enumerated Values</h4>
+<h4 id='enumerated-values-30'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23088,6 +23990,95 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <tr>
 <td>routing_policy</td>
 <td>local</td>
+</tr>
+</tbody></table>
+
+<h2 id="tocSagentvariable">AgentVariable</h2>
+
+<p><a id="schemaagentvariable"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"has_history"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"metric"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"previous_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value_update_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><em>The representation of an agent variable</em></p>
+<h3 id='properties-17'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>creation_time</td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>The creation time of the variable</td>
+</tr>
+<tr>
+<td>has_history</td>
+<td>boolean</td>
+<td>true</td>
+<td>If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a></td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer(int32)</td>
+<td>true</td>
+<td>The ID of the variable</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>false</td>
+<td>The label</td>
+</tr>
+<tr>
+<td>metric</td>
+<td>string</td>
+<td>false</td>
+<td>The metric</td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>true</td>
+<td>The variable path</td>
+</tr>
+<tr>
+<td>previous_value</td>
+<td>string</td>
+<td>false</td>
+<td>The previous value of the variable</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>string</td>
+<td>false</td>
+<td>The unit of measurement</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>false</td>
+<td>The variable value</td>
+</tr>
+<tr>
+<td>value_update_time</td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>The update time of the variable value</td>
 </tr>
 </tbody></table>
 
@@ -23176,7 +24167,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Triggered when ISP or Public IP address changes</em></p>
-<h3 id='properties-17'>Properties</h3>
+<h3 id='properties-18'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23324,7 +24315,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-30'>Enumerated Values</h4>
+<h4 id='enumerated-values-31'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23351,7 +24342,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-18'>Properties</h3>
+</span></code></pre><h3 id='properties-19'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23405,7 +24396,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"alert_profile_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-19'>Properties</h3>
+</span></code></pre><h3 id='properties-20'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23430,7 +24421,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-20'>Properties</h3>
+</span></code></pre><h3 id='properties-21'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23474,7 +24465,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-21'>Properties</h3>
+</span></code></pre><h3 id='properties-22'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23549,7 +24540,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Represents an area of the Company</em></p>
-<h3 id='properties-22'>Properties</h3>
+<h3 id='properties-23'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23580,7 +24571,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-23'>Properties</h3>
+</span></code></pre><h3 id='properties-24'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23615,7 +24606,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-24'>Properties</h3>
+</span></code></pre><h3 id='properties-25'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23661,7 +24652,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The protocol wrapped by the connection:  </br>- <em>http/https</em>: the <code>link</code> field in the reply will contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. If the protocol is <code>https</code> the device&#39;s certificate will be accepted without checks and its information ignored (our server will act as a proxy). </br>- <em>tcp</em>: the <code>link</code> field will be in the form <code>tcp://{host}:{port}</code>. Any connection established (e.g. with <code>telnet</code>  or <code>ssh</code>) on these coordinates will be securely forwarded to the requested <code>port</code> of the device.  </br>- <em>ssh</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects. </br>- <em>rdp</em>: the <code>link</code> field will  contain an <code>https</code> URL. A browser or a similar user agent must be used: the client must have cookies enabled and the capability of following 302 redirects.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-31'>Enumerated Values</h4>
+<h4 id='enumerated-values-32'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23707,7 +24698,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>A Custom Driver that can be applied on devices</em></p>
-<h3 id='properties-25'>Properties</h3>
+<h3 id='properties-26'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23775,7 +24766,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>An association between a Custom Driver and a device</em></p>
-<h3 id='properties-26'>Properties</h3>
+<h3 id='properties-27'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23827,7 +24818,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>The number of variables used by this Custom Driver association</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-32'>Enumerated Values</h4>
+<h4 id='enumerated-values-33'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -23857,7 +24848,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Properties for associating a Custom Driver and a device</em></p>
-<h3 id='properties-27'>Properties</h3>
+<h3 id='properties-28'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23902,7 +24893,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>The outcome of applying a Custom Driver to a device</em></p>
-<h3 id='properties-28'>Properties</h3>
+<h3 id='properties-29'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -23955,7 +24946,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>Detailed information for a Custom Driver that can be applied on devices</em></p>
-<h3 id='properties-29'>Properties</h3>
+<h3 id='properties-30'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -24077,7 +25068,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 </span></code></pre>
 <p><em>The result of a Custom Driver execution command</em></p>
-<h3 id='properties-30'>Properties</h3>
+<h3 id='properties-31'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -24117,7 +25108,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>Outcome from the Custom Driver Execution</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-33'>Enumerated Values</h4>
+<h4 id='enumerated-values-34'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -24337,7 +25328,7 @@ Allowed values are:</br> </p>
 <p><code>get_oid_index()</code></br>
 <code>It can only be applied on synthetic columns (the ones with no oid), it returns the oid index of each row.</code></br>
 *</p>
-<h3 id='properties-31'>Properties</h3>
+<h3 id='properties-32'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -24563,7 +25554,7 @@ Allowed values are:</br> </p>
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-34'>Enumerated Values</h4>
+<h4 id='enumerated-values-35'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -24659,6 +25650,10 @@ Allowed values are:</br> </p>
 <td>year</td>
 </tr>
 <tr>
+<td>unit</td>
+<td>Hz</td>
+</tr>
+<tr>
 <td>variable_type</td>
 <td>monotone_rate</td>
 </tr>
@@ -24755,6 +25750,10 @@ Allowed values are:</br> </p>
 <td>year</td>
 </tr>
 <tr>
+<td>unit</td>
+<td>Hz</td>
+</tr>
+<tr>
 <td>variable_type</td>
 <td>monotone_rate</td>
 </tr>
@@ -24779,7 +25778,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>A device type, detected by the Domotz device identification feature</em></p>
-<h3 id='properties-32'>Properties</h3>
+<h3 id='properties-33'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -24838,7 +25837,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>The list of applications of a device</em></p>
-<h3 id='properties-33'>Properties</h3>
+<h3 id='properties-34'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -24921,7 +25920,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>A device type, either set by the user or as identified by the Domotz system</em></p>
-<h3 id='properties-34'>Properties</h3>
+<h3 id='properties-35'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -25051,7 +26050,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when the device configuration changes</em></p>
-<h3 id='properties-35'>Properties</h3>
+<h3 id='properties-36'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -25103,7 +26102,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-35'>Enumerated Values</h4>
+<h4 id='enumerated-values-36'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25211,7 +26210,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when the device configuration becomes different from the startup one</em></p>
-<h3 id='properties-36'>Properties</h3>
+<h3 id='properties-37'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -25263,7 +26262,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-36'>Enumerated Values</h4>
+<h4 id='enumerated-values-37'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25286,7 +26285,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"ttl_hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-37'>Properties</h3>
+</span></code></pre><h3 id='properties-38'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -25320,7 +26319,7 @@ Allowed values are:</br> </p>
 <td>The duration in hours of the connection.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-37'>Enumerated Values</h4>
+<h4 id='enumerated-values-38'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25358,7 +26357,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-38'>Properties</h3>
+</span></code></pre><h3 id='properties-39'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -25386,7 +26385,7 @@ Allowed values are:</br> </p>
 <td>username</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-38'>Enumerated Values</h4>
+<h4 id='enumerated-values-39'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25506,7 +26505,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when a new device appears on the network</em></p>
-<h3 id='properties-39'>Properties</h3>
+<h3 id='properties-40'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -25558,7 +26557,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-39'>Enumerated Values</h4>
+<h4 id='enumerated-values-40'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25580,7 +26579,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-40'>Properties</h3>
+</span></code></pre><h3 id='properties-41'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -25704,7 +26703,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when a device does not respond to a ping</em></p>
-<h3 id='properties-41'>Properties</h3>
+<h3 id='properties-42'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -25756,7 +26755,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-40'>Enumerated Values</h4>
+<h4 id='enumerated-values-41'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25785,7 +26784,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP_CHANGE"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-42'>Properties</h3>
+</span></code></pre><h3 id='properties-43'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -25825,7 +26824,7 @@ Allowed values are:</br> </p>
 <td>The device event type</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-41'>Enumerated Values</h4>
+<h4 id='enumerated-values-42'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -25951,7 +26950,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when the device IP address changes</em></p>
-<h3 id='properties-43'>Properties</h3>
+<h3 id='properties-44'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -26015,7 +27014,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-42'>Enumerated Values</h4>
+<h4 id='enumerated-values-43'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -26039,7 +27038,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>A device inventory field</em></p>
-<h3 id='properties-44'>Properties</h3>
+<h3 id='properties-45'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -26078,7 +27077,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"software_reboot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-45'>Properties</h3>
+</span></code></pre><h3 id='properties-46'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -26125,7 +27124,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-46'>Properties</h3>
+</span></code></pre><h3 id='properties-47'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -26276,7 +27275,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when the Round-Trip-Delay values of a device exceeds the defined thresholds</em></p>
-<h3 id='properties-47'>Properties</h3>
+<h3 id='properties-48'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -26370,7 +27369,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-43'>Enumerated Values</h4>
+<h4 id='enumerated-values-44'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -26405,7 +27404,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-48'>Properties</h3>
+</span></code></pre><h3 id='properties-49'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -26562,7 +27561,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when the status of an SNMP value changes</em></p>
-<h3 id='properties-49'>Properties</h3>
+<h3 id='properties-50'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -26632,7 +27631,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-44'>Enumerated Values</h4>
+<h4 id='enumerated-values-45'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -26653,7 +27652,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"write"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-50'>Properties</h3>
+</span></code></pre><h3 id='properties-51'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -26772,7 +27771,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when the status of a device changes</em></p>
-<h3 id='properties-51'>Properties</h3>
+<h3 id='properties-52'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -26830,7 +27829,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-45'>Enumerated Values</h4>
+<h4 id='enumerated-values-46'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -26952,7 +27951,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when the status of a monitored TCP service changes</em></p>
-<h3 id='properties-52'>Properties</h3>
+<h3 id='properties-53'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -27022,7 +28021,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-46'>Enumerated Values</h4>
+<h4 id='enumerated-values-47'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -27059,7 +28058,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-53'>Properties</h3>
+</span></code></pre><h3 id='properties-54'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -27130,7 +28129,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>The representation of a device variable</em></p>
-<h3 id='properties-54'>Properties</h3>
+<h3 id='properties-55'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -27215,7 +28214,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Information about Domotz Sensors current usage and limits</em></p>
-<h3 id='properties-55'>Properties</h3>
+<h3 id='properties-56'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -27293,7 +28292,7 @@ Allowed values are:</br> </p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-56'>Properties</h3>
+</span></code></pre><h3 id='properties-57'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -27327,6 +28326,37 @@ Allowed values are:</br> </p>
 <td>object</td>
 <td>false</td>
 <td>A device that has no network access whatsoever and cannot be discovered or interacted with by      the agent.    A user can create a Dummy Device to attach it to a power outlet so that it is easier to remember which port controls the device</td>
+</tr>
+</tbody></table>
+
+<h2 id="tocSexternalhost">ExternalHost</h2>
+
+<p><a id="schemaexternalhost"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='properties-58'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>host</td>
+<td>string</td>
+<td>true</td>
+<td>Hostname or IP Address</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>Device Name</td>
 </tr>
 </tbody></table>
 
@@ -27388,7 +28418,7 @@ Allowed values are:</br> </p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-57'>Properties</h3>
+</span></code></pre><h3 id='properties-59'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -27542,7 +28572,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when a new feature is discovered on a device</em></p>
-<h3 id='properties-58'>Properties</h3>
+<h3 id='properties-60'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -27612,7 +28642,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-47'>Enumerated Values</h4>
+<h4 id='enumerated-values-48'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -27639,7 +28669,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-59'>Properties</h3>
+</span></code></pre><h3 id='properties-61'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -27748,7 +28778,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-60'>Properties</h3>
+</span></code></pre><h3 id='properties-62'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -27844,7 +28874,7 @@ Allowed values are:</br> </p>
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-48'>Enumerated Values</h4>
+<h4 id='enumerated-values-49'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -27935,7 +28965,7 @@ Allowed values are:</br> </p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-61'>Properties</h3>
+</span></code></pre><h3 id='properties-63'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -28139,7 +29169,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-62'>Properties</h3>
+</span></code></pre><h3 id='properties-64'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -28324,7 +29354,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Triggered when a monitoring profile state changes</em></p>
-<h3 id='properties-63'>Properties</h3>
+<h3 id='properties-65'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28400,7 +29430,7 @@ Allowed values are:</br> </p>
 <td>The timestamp of the event</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-49'>Enumerated Values</h4>
+<h4 id='enumerated-values-50'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -28426,7 +29456,7 @@ Allowed values are:</br> </p>
 </span></code></pre>
 <p><em>A Network Speed Sample is the result of the measurement of the Internet download and upload
      speed, in bits per second, taken by the Agent</em></p>
-<h3 id='properties-64'>Properties</h3>
+<h3 id='properties-66'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28461,7 +29491,7 @@ Allowed values are:</br> </p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-65'>Properties</h3>
+</span></code></pre><h3 id='properties-67'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28490,6 +29520,44 @@ Allowed values are:</br> </p>
 </tr>
 </tbody></table>
 
+<h2 id="tocSroutednetwork">RoutedNetwork</h2>
+
+<p><a id="schemaroutednetwork"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"netmaks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='properties-68'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>netmaks</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocSsnmpdomotzagenteye">SNMPDomotzAgentEye</h2>
 
 <p><a id="schemasnmpdomotzagenteye"></a></p>
@@ -28504,7 +29572,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Information about a configured SNMP Domotz Sensor</em></p>
-<h3 id='properties-66'>Properties</h3>
+<h3 id='properties-69'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28550,7 +29618,7 @@ Allowed values are:</br> </p>
 <td>The type of the OID</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-50'>Enumerated Values</h4>
+<h4 id='enumerated-values-51'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -28615,7 +29683,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>The SNMP authentication setting of a device</em></p>
-<h3 id='properties-67'>Properties</h3>
+<h3 id='properties-70'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28673,7 +29741,7 @@ Allowed values are:</br> </p>
 <td>The configured SNMP version</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-51'>Enumerated Values</h4>
+<h4 id='enumerated-values-52'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -28735,7 +29803,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Information about a configured SNMP Domotz Sensor</em></p>
-<h3 id='properties-68'>Properties</h3>
+<h3 id='properties-71'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -28779,101 +29847,6 @@ Allowed values are:</br> </p>
 <td>string</td>
 <td>true</td>
 <td>The value retrieved on the OID</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td>true</td>
-<td>The name of the Domotz Sensors</td>
-</tr>
-<tr>
-<td>oid</td>
-<td>string</td>
-<td>true</td>
-<td>The OID string</td>
-</tr>
-<tr>
-<td>value_type</td>
-<td>string</td>
-<td>true</td>
-<td>The type of the OID</td>
-</tr>
-</tbody></table>
-<h4 id='enumerated-values-52'>Enumerated Values</h4>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>category</td>
-<td>OTHER</td>
-</tr>
-<tr>
-<td>category</td>
-<td>CONSUMABLE</td>
-</tr>
-<tr>
-<td>category</td>
-<td>CPU</td>
-</tr>
-<tr>
-<td>category</td>
-<td>DISK_SPACE</td>
-</tr>
-<tr>
-<td>category</td>
-<td>MEMORY</td>
-</tr>
-<tr>
-<td>category</td>
-<td>NETWORK_TRAFFIC</td>
-</tr>
-<tr>
-<td>category</td>
-<td>TEMPERATURE</td>
-</tr>
-<tr>
-<td>value_type</td>
-<td>STRING</td>
-</tr>
-<tr>
-<td>value_type</td>
-<td>NUMERIC</td>
-</tr>
-<tr>
-<td>value_type</td>
-<td>ENUM</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSsnmpdomotzeyecreation">SNMPDomotzEyeCreation</h2>
-
-<p><a id="schemasnmpdomotzeyecreation"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTHER"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STRING"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<p><em>SNMP Domotz Sensor Data</em></p>
-<h3 id='properties-69'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>category</td>
-<td>string</td>
-<td>true</td>
-<td>The category of the OID</td>
 </tr>
 <tr>
 <td>name</td>
@@ -28943,6 +29916,101 @@ Allowed values are:</br> </p>
 </tr>
 </tbody></table>
 
+<h2 id="tocSsnmpdomotzeyecreation">SNMPDomotzEyeCreation</h2>
+
+<p><a id="schemasnmpdomotzeyecreation"></a></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTHER"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STRING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><em>SNMP Domotz Sensor Data</em></p>
+<h3 id='properties-72'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>string</td>
+<td>true</td>
+<td>The category of the OID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>The name of the Domotz Sensors</td>
+</tr>
+<tr>
+<td>oid</td>
+<td>string</td>
+<td>true</td>
+<td>The OID string</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>string</td>
+<td>true</td>
+<td>The type of the OID</td>
+</tr>
+</tbody></table>
+<h4 id='enumerated-values-54'>Enumerated Values</h4>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>OTHER</td>
+</tr>
+<tr>
+<td>category</td>
+<td>CONSUMABLE</td>
+</tr>
+<tr>
+<td>category</td>
+<td>CPU</td>
+</tr>
+<tr>
+<td>category</td>
+<td>DISK_SPACE</td>
+</tr>
+<tr>
+<td>category</td>
+<td>MEMORY</td>
+</tr>
+<tr>
+<td>category</td>
+<td>NETWORK_TRAFFIC</td>
+</tr>
+<tr>
+<td>category</td>
+<td>TEMPERATURE</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>NUMERIC</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>ENUM</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocSsnmpdomotzeyetrigger">SNMPDomotzEyeTrigger</h2>
 
 <p><a id="schemasnmpdomotzeyetrigger"></a></p>
@@ -28962,7 +30030,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Information about a trigger</em></p>
-<h3 id='properties-70'>Properties</h3>
+<h3 id='properties-73'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -29033,7 +30101,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Information about a trigger function</em></p>
-<h3 id='properties-71'>Properties</h3>
+<h3 id='properties-74'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -29067,7 +30135,7 @@ Allowed values are:</br> </p>
 <td>The type of the operands</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-54'>Enumerated Values</h4>
+<h4 id='enumerated-values-55'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -29095,7 +30163,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>SNMP Trigger Alert</em></p>
-<h3 id='properties-72'>Properties</h3>
+<h3 id='properties-75'>Properties</h3>
 <p><em>None</em></p>
 
 <h2 id="tocSsnmpdomotzsnmptriggercreation">SNMPDomotzSnmpTriggerCreation</h2>
@@ -29111,7 +30179,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>SNMP Trigger</em></p>
-<h3 id='properties-73'>Properties</h3>
+<h3 id='properties-76'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -29207,7 +30275,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>SNMP Preconfigured Sensor</em></p>
-<h3 id='properties-74'>Properties</h3>
+<h3 id='properties-77'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -29445,7 +30513,7 @@ Allowed values are:</br> </p>
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-55'>Enumerated Values</h4>
+<h4 id='enumerated-values-56'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -29541,6 +30609,10 @@ Allowed values are:</br> </p>
 <td>year</td>
 </tr>
 <tr>
+<td>unit</td>
+<td>Hz</td>
+</tr>
+<tr>
 <td>variable_type</td>
 <td>monotone_rate</td>
 </tr>
@@ -29637,6 +30709,10 @@ Allowed values are:</br> </p>
 <td>year</td>
 </tr>
 <tr>
+<td>unit</td>
+<td>Hz</td>
+</tr>
+<tr>
 <td>variable_type</td>
 <td>monotone_rate</td>
 </tr>
@@ -29655,7 +30731,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>SNMP Preconfigured Sensor</em></p>
-<h3 id='properties-75'>Properties</h3>
+<h3 id='properties-78'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -29703,7 +30779,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>SNMP Preconfigured Sensor</em></p>
-<h3 id='properties-76'>Properties</h3>
+<h3 id='properties-79'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -29779,7 +30855,7 @@ Allowed values are:</br> </p>
 <td>none</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-56'>Enumerated Values</h4>
+<h4 id='enumerated-values-57'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -29864,6 +30940,10 @@ Allowed values are:</br> </p>
 </tr>
 <tr>
 <td>unit</td>
+<td>Hz</td>
+</tr>
+<tr>
+<td>unit</td>
 <td>%</td>
 </tr>
 <tr>
@@ -29939,6 +31019,10 @@ Allowed values are:</br> </p>
 <td>year</td>
 </tr>
 <tr>
+<td>unit</td>
+<td>Hz</td>
+</tr>
+<tr>
 <td>variable_type</td>
 <td>monotone_rate</td>
 </tr>
@@ -30009,7 +31093,7 @@ Allowed values are:</br> </p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-77'>Properties</h3>
+</span></code></pre><h3 id='properties-80'>Properties</h3>
 <p><em>allOf</em></p>
 
 <table><thead>
@@ -30095,7 +31179,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Information about a configured TCP Domotz Sensor</em></p>
-<h3 id='properties-78'>Properties</h3>
+<h3 id='properties-81'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -30135,7 +31219,7 @@ Allowed values are:</br> </p>
 <td>The status of the TCP service</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-57'>Enumerated Values</h4>
+<h4 id='enumerated-values-58'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -30161,7 +31245,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>TCP Domotz Sensor Data</em></p>
-<h3 id='properties-79'>Properties</h3>
+<h3 id='properties-82'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -30188,7 +31272,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Represents a team of the Company</em></p>
-<h3 id='properties-80'>Properties</h3>
+<h3 id='properties-83'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -30227,7 +31311,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>Team Creation under specified Area</em></p>
-<h3 id='properties-81'>Properties</h3>
+<h3 id='properties-84'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -30282,7 +31366,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-82'>Properties</h3>
+</span></code></pre><h3 id='properties-85'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -30313,7 +31397,7 @@ Allowed values are:</br> </p>
   </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='properties-83'>Properties</h3>
+</span></code></pre><h3 id='properties-86'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -30345,7 +31429,7 @@ Allowed values are:</br> </p>
 
 </span></code></pre>
 <p><em>DTO Used for creating/updating Inventory fields</em></p>
-<h3 id='properties-84'>Properties</h3>
+<h3 id='properties-87'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>

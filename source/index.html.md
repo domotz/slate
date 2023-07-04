@@ -3270,10 +3270,11 @@ Returns all the devices of an agent
 ```json
 [
   {
-    "authentication_status": "AUTHENTICATED",
+    "authentication_status": "NO_AUTHENTICATION",
     "details": {
       "firmware_version": "string",
       "room": "string",
+      "serial": "string",
       "snmp_read_community": "string",
       "snmp_write_community": "string",
       "zone": "string"
@@ -3316,8 +3317,8 @@ Returns all the devices of an agent
 
 |Property|Value|
 |---|---|
-|authentication_status|AUTHENTICATED|
 |authentication_status|NO_AUTHENTICATION|
+|authentication_status|AUTHENTICATED|
 |authentication_status|PENDING|
 |authentication_status|REQUIRED|
 |authentication_status|WRONG_CREDENTIALS|
@@ -3661,6 +3662,161 @@ Counts the applications of all devices belonging to the agent
 |---|---|---|---|---|
 |204|X-Entities-Count|integer|int32|Returns the application count|
 
+## createExternalHost
+
+<a id="opIdcreateExternalHost"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/external-host \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/external-host',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "host": "string",
+  "name": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/external-host',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/external-host', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/external-host',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/external-host", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/external-host`</span>
+
+Creates an external host
+
+> Body parameter
+
+```json
+{
+  "host": "string",
+  "name": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/external-host \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createexternalhost-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|body|body|[ExternalHost](#schemaexternalhost)|true|none|
+
+<h3 id="createexternalhost-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
 ## deleteDevice
 
 <a id="opIddeleteDevice"></a>
@@ -3940,10 +4096,11 @@ Returns the details of a device
 
 ```json
 {
-  "authentication_status": "AUTHENTICATED",
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "room": "string",
+    "serial": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
     "zone": "string"
@@ -3985,8 +4142,8 @@ Returns the details of a device
 
 |Property|Value|
 |---|---|
-|authentication_status|AUTHENTICATED|
 |authentication_status|NO_AUTHENTICATION|
+|authentication_status|AUTHENTICATED|
 |authentication_status|PENDING|
 |authentication_status|REQUIRED|
 |authentication_status|WRONG_CREDENTIALS|
@@ -8046,6 +8203,182 @@ Deletes the TCP Domotz Sensor
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## testSNMPPreconfiguredSensor
+
+<a id="opIdtestSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test`</span>
+
+Returns the output of the SNMP Preconfigured Sensor tested on the device given
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/preconfigured-sensor/snmp/{preconfigured_sensor_id}/test \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="testsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|preconfigured_sensor_id|path|integer(int32)|true|Preconfigured Sensor ID|
+
+> Example responses
+
+> 201 Response
+
+```json
+{
+  "scalars": [
+    {
+      "name": "string",
+      "unit": "%",
+      "value": "string"
+    }
+  ],
+  "table": {
+    "columns": [
+      "string"
+    ],
+    "rows": [
+      {
+        "cells": [
+          {
+            "unit": "%",
+            "value": "string",
+            "variable_type": "monotone_rate"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+<h3 id="testsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|[SNMPPreconfiguredSensorTest](#schemasnmppreconfiguredsensortest)|
+
 ## eyesUsageInfo
 
 <a id="opIdeyesUsageInfo"></a>
@@ -8202,6 +8535,1138 @@ Retrieves information about Domotz Sensors usage and limits
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A data structure containing information about current Domotz Sensors usage and limits|[DomotzEyesUsageInformation](#schemadomotzeyesusageinformation)|
+
+## createSNMPPreconfiguredSensor
+
+<a id="opIdcreateSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/custom-preconfigured-sensor/snmp \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "display_name": "string",
+  "name": "string",
+  "scalars": [
+    {
+      "display_name": "string",
+      "filters": {
+        "allow": {
+          "op_equal": "string",
+          "op_in": [
+            "string"
+          ]
+        }
+      },
+      "hidden": true,
+      "oid": "string",
+      "save_history": "ALWAYS",
+      "scalar_id": "string",
+      "transformer": {
+        "function": "string",
+        "parameters": [
+          "string"
+        ]
+      },
+      "unit": "%",
+      "variable_type": "monotone_rate"
+    }
+  ],
+  "table": {
+    "columns": [
+      {
+        "column_id": "string",
+        "display_name": "string",
+        "filters": {
+          "allow": {
+            "op_equal": "string",
+            "op_in": [
+              "string"
+            ]
+          }
+        },
+        "hidden": true,
+        "index": 0,
+        "save_history": "ALWAYS",
+        "transformer": {
+          "function": "string",
+          "parameters": [
+            "string"
+          ]
+        },
+        "unit": "%",
+        "variable_type": "monotone_rate"
+      }
+    ],
+    "display_name": "string",
+    "oid": "string",
+    "table_id": "string"
+  }
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /custom-preconfigured-sensor/snmp`</span>
+
+Create or updates a custom SNMP Preconfigured Sensor. If the SNMP Preconfigured Sensor is bound to a device it cannot be updated.
+
+> Body parameter
+
+```json
+{
+  "display_name": "string",
+  "name": "string",
+  "scalars": [
+    {
+      "display_name": "string",
+      "filters": {
+        "allow": {
+          "op_equal": "string",
+          "op_in": [
+            "string"
+          ]
+        }
+      },
+      "hidden": true,
+      "oid": "string",
+      "save_history": "ALWAYS",
+      "scalar_id": "string",
+      "transformer": {
+        "function": "string",
+        "parameters": [
+          "string"
+        ]
+      },
+      "unit": "%",
+      "variable_type": "monotone_rate"
+    }
+  ],
+  "table": {
+    "columns": [
+      {
+        "column_id": "string",
+        "display_name": "string",
+        "filters": {
+          "allow": {
+            "op_equal": "string",
+            "op_in": [
+              "string"
+            ]
+          }
+        },
+        "hidden": true,
+        "index": 0,
+        "save_history": "ALWAYS",
+        "transformer": {
+          "function": "string",
+          "parameters": [
+            "string"
+          ]
+        },
+        "unit": "%",
+        "variable_type": "monotone_rate"
+      }
+    ],
+    "display_name": "string",
+    "oid": "string",
+    "table_id": "string"
+  }
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[CustomSNMPPreconfiguredSensor](#schemacustomsnmppreconfiguredsensor)|true|none|
+
+<h3 id="createsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
+## deleteCustomSNMPPreconfiguredSensor
+
+<a id="opIddeleteCustomSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /custom-preconfigured-sensor/snmp/{preconfigured_sensor_id}`</span>
+
+Delete a custom SNMP Preconfigured Sensor
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-preconfigured-sensor/snmp/{preconfigured_sensor_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deletecustomsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|preconfigured_sensor_id|path|integer(int32)|true|Preconfigured Sensor ID|
+
+<h3 id="deletecustomsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## listSNMPPreconfiguredSensor
+
+<a id="opIdlistSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/preconfigured-sensor/snmp \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/preconfigured-sensor/snmp',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/preconfigured-sensor/snmp',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/preconfigured-sensor/snmp', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/preconfigured-sensor/snmp',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/preconfigured-sensor/snmp", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /preconfigured-sensor/snmp`</span>
+
+Returns the list of SNMP Preconfigured Sensors
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "custom": true,
+    "display_name": "string",
+    "id": 0,
+    "name": "string",
+    "scalars": [
+      {
+        "display_name": "string",
+        "filters": {
+          "allow": {
+            "op_equal": "string",
+            "op_in": [
+              "string"
+            ]
+          }
+        },
+        "hidden": true,
+        "oid": "string",
+        "save_history": "ALWAYS",
+        "scalar_id": "string",
+        "transformer": {
+          "function": "string",
+          "parameters": [
+            "string"
+          ]
+        },
+        "unit": "%",
+        "variable_type": "monotone_rate"
+      }
+    ],
+    "table": {
+      "columns": [
+        {
+          "column_id": "string",
+          "display_name": "string",
+          "filters": {
+            "allow": {
+              "op_equal": "string",
+              "op_in": [
+                "string"
+              ]
+            }
+          },
+          "hidden": true,
+          "index": 0,
+          "save_history": "ALWAYS",
+          "transformer": {
+            "function": "string",
+            "parameters": [
+              "string"
+            ]
+          },
+          "unit": "%",
+          "variable_type": "monotone_rate"
+        }
+      ],
+      "display_name": "string",
+      "oid": "string",
+      "table_id": "string"
+    }
+  }
+]
+```
+
+<h3 id="listsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+<h3 id="listsnmppreconfiguredsensor-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[SNMPPreconfiguredSensor](#schemasnmppreconfiguredsensor)]|false|[SNMP Preconfigured Sensor]|
+|» custom|boolean|false|none|
+|» display_name|string|true|The display name of the SNMP Preconfigured Sensor|
+|» id|integer(int32)|true|none|
+|» name|string|true|The ID of the SNMP Preconfigured Sensor. The ID will be used to name the variables created using the preconfigured sensor|
+|» scalars|[object]|false|none|
+|»» display_name|string|true|none|
+|»» filters|object|false|none|
+|»»» allow|object|false|none|
+|»»»» op_equal|string|false|none|
+|»»»» op_in|[string]|false|none|
+|»»» hidden|boolean|false|none|
+|»»» oid|string|true|none|
+|»»» save_history|string|false|none|
+|»»» scalar_id|string|true|none|
+|»»» transformer|object|false|none|
+|»»»» function|string|true|none|
+|»»»» parameters|[string]|true|none|
+|»»» unit|string|false|none|
+|»»» variable_type|string|false|none|
+|»» table|object|false|none|
+|»»» columns|[object]|false|none|
+|»»»» column_id|string|true|none|
+|»»»» display_name|string|true|none|
+|»»»» filters|object|false|none|
+|»»»»» allow|object|false|none|
+|»»»»»» op_equal|string|false|none|
+|»»»»»» op_in|[string]|false|none|
+|»»»»» hidden|boolean|false|none|
+|»»»»» index|integer(int32)|false|The index of the column in the table|
+|»»»»» save_history|string|false|none|
+|»»»»» transformer|object|false|none|
+|»»»»»» function|string|true|none|
+|»»»»»» parameters|[string]|true|none|
+|»»»»» unit|string|false|none|
+|»»»»» variable_type|string|false|none|
+|»»»» display_name|string|true|none|
+|»»»» oid|string|true|none|
+|»»»» table_id|string|true|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|save_history|ALWAYS|
+|save_history|NEVER|
+|save_history|ON_CHANGE|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|req/h|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|unit|Hz|
+|variable_type|monotone_rate|
+|variable_type|rate|
+|save_history|ALWAYS|
+|save_history|NEVER|
+|save_history|ON_CHANGE|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|req/h|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|unit|Hz|
+|variable_type|monotone_rate|
+|variable_type|rate|
+
+## getSNMPPreconfiguredSensorDeviceBinding
+
+<a id="opIdgetSNMPPreconfiguredSensorDeviceBinding"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/preconfigured-sensor/snmp/binding/agent/{agent_id}/device/{device_id} \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/preconfigured-sensor/snmp/binding/agent/{agent_id}/device/{device_id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/preconfigured-sensor/snmp/binding/agent/{agent_id}/device/{device_id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/preconfigured-sensor/snmp/binding/agent/{agent_id}/device/{device_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/preconfigured-sensor/snmp/binding/agent/{agent_id}/device/{device_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/preconfigured-sensor/snmp/binding/agent/{agent_id}/device/{device_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /preconfigured-sensor/snmp/binding/agent/{agent_id}/device/{device_id}`</span>
+
+Get the list of SNMP Preconfigured Sensor bound to the device
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/preconfigured-sensor/snmp/binding/agent/{agent_id}/device/{device_id} \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getsnmppreconfiguredsensordevicebinding-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "preconfigured_sensor_id": 0
+  }
+]
+```
+
+<h3 id="getsnmppreconfiguredsensordevicebinding-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+<h3 id="getsnmppreconfiguredsensordevicebinding-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[SNMPPreconfiguredSensorBinded](#schemasnmppreconfiguredsensorbinded)]|false|[SNMP Preconfigured Sensor]|
+|» preconfigured_sensor_id|integer(int32)|false|none|
+
+## unbindSNMPPreconfiguredSensor
+
+<a id="opIdunbindSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}`</span>
+
+Unbinds the SNMP Preconfigured Sensor from the device
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="unbindsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|preconfigured_sensor_id|path|integer(int32)|true|Preconfigured Sensor ID|
+
+<h3 id="unbindsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## bindSNMPPreconfiguredSensor
+
+<a id="opIdbindSNMPPreconfiguredSensor"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id}`</span>
+
+Binds an SNMP Preconfigured Sensor to a device given
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/preconfigured-sensor/snmp/{preconfigured_sensor_id}/binding/agent/{agent_id}/device/{device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="bindsnmppreconfiguredsensor-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|preconfigured_sensor_id|path|integer(int32)|true|Preconfigured Sensor ID|
+
+<h3 id="bindsnmppreconfiguredsensor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
 
 <h1 id="domotz-public-api-variables">variables</h1>
 
@@ -9072,6 +10537,353 @@ Status Code **200**
 |*anonymous*|[[VariableHistorySample](#schemavariablehistorysample)]|false|none|
 |» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
 |» value|string|true|The sample value|
+
+## listAgentVariables
+
+<a id="opIdlistAgentVariables"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/variable \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/variable',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/variable',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/variable', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/variable',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/variable", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/variable`</span>
+
+Retrieves the list of all agent variables of the agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/variable \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listagentvariables-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|page_size|query|integer(int32)|false|The maximum number of items to return. Min value is 1. Max value is 1000. Default value is 100|
+|page_number|query|integer(int32)|false|The requested page number, 0-indexed. Default value is 0|
+|value|query|string|false|Allows filtering by `value`|
+|path|query|string|false|Allows filtering by `path`|
+|sort_by|query|string|false|Allows ordering by `path`, `id`, `value`, `label`, `value_update_time`, `creation_time`|
+|sorting_direction|query|string|false|The default is `asc`|
+|has_history|query|boolean|false|Allows filtering by `has_history` field|
+|metric|query|string|false|Allows filtering by `metric`|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|sort_by|path|
+|sort_by|id|
+|sort_by|value|
+|sort_by|label|
+|sort_by|value_update_time|
+|sort_by|creation_time|
+|sorting_direction|asc|
+|sorting_direction|desc|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "creation_time": "2019-08-24T14:15:22Z",
+    "has_history": true,
+    "id": 0,
+    "label": "string",
+    "metric": "string",
+    "path": "string",
+    "previous_value": "string",
+    "unit": "string",
+    "value": "string",
+    "value_update_time": "2019-08-24T14:15:22Z"
+  }
+]
+```
+
+<h3 id="listagentvariables-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of all agent variables of the agent|Inline|
+
+<h3 id="listagentvariables-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[AgentVariable](#schemaagentvariable)]|false|[The representation of an agent variable]|
+|» creation_time|string(date-time)|false|The creation time of the variable|
+|» has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
+|» id|integer(int32)|true|The ID of the variable|
+|» label|string|false|The label|
+|» metric|string|false|The metric|
+|» path|string|true|The variable path|
+|» previous_value|string|false|The previous value of the variable|
+|» unit|string|false|The unit of measurement|
+|» value|string|false|The variable value|
+|» value_update_time|string(date-time)|false|The update time of the variable value|
+
+## countAgentVariables
+
+<a id="opIdcountAgentVariables"></a>
+
+> Code samples
+
+```shell
+curl -X HEAD {baseURL}/public-api/v1/agent/{agent_id}/variable \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/variable',
+  method: 'head',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/variable',
+{
+  method: 'HEAD',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.head('{baseURL}/public-api/v1/agent/{agent_id}/variable', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.head '{baseURL}/public-api/v1/agent/{agent_id}/variable',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("HEAD", "{baseURL}/public-api/v1/agent/{agent_id}/variable", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`HEAD /agent/{agent_id}/variable`</span>
+
+Returns the agent variables count of the agent
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X HEAD</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/variable \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="countagentvariables-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|value|query|string|false|Allows filtering by `value`|
+|path|query|string|false|Allows filtering by `path`|
+|has_history|query|boolean|false|Allows filtering by `has_history` field|
+|metric|query|string|false|Allows filtering by `metric`|
+
+<h3 id="countagentvariables-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|The agent variables count|None|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|204|X-Entities-Count|integer|int32|The agent variables count|
 
 <h1 id="domotz-public-api-inventory">inventory</h1>
 
@@ -11623,6 +13435,163 @@ Updates the current IP address scan policy. The list of IP addresses provided in
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## createRoutedNetwork
+
+<a id="opIdcreateRoutedNetwork"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/network/routed \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/routed',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "address": "string",
+  "name": "string",
+  "netmaks": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/routed',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/network/routed', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/network/routed',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/network/routed", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/network/routed`</span>
+
+Creates a routed network
+
+> Body parameter
+
+```json
+{
+  "address": "string",
+  "name": "string",
+  "netmaks": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/routed \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createroutednetwork-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|body|body|[RoutedNetwork](#schemaroutednetwork)|true|none|
+
+<h3 id="createroutednetwork-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
 
 <h1 id="domotz-public-api-company">company</h1>
 
@@ -15278,10 +17247,11 @@ Returns the User information
 
 ```json
 {
-  "authentication_status": "AUTHENTICATED",
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "room": "string",
+    "serial": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
     "zone": "string"
@@ -15322,6 +17292,7 @@ Returns the User information
 |details|object|false|DeviceDetails|
 |» firmware_version|string|false|none|
 |» room|string|false|none|
+|» serial|string|false|none|
 |» snmp_read_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
 |» snmp_write_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
 |» zone|string|false|none|
@@ -15349,8 +17320,8 @@ Returns the User information
 
 |Property|Value|
 |---|---|
-|authentication_status|AUTHENTICATED|
 |authentication_status|NO_AUTHENTICATION|
+|authentication_status|AUTHENTICATED|
 |authentication_status|PENDING|
 |authentication_status|REQUIRED|
 |authentication_status|WRONG_CREDENTIALS|
@@ -16178,6 +18149,43 @@ Returns the User information
 |routing_policy|global|
 |routing_policy|local|
 
+<h2 id="tocSagentvariable">AgentVariable</h2>
+
+<a id="schemaagentvariable"></a>
+
+```json
+{
+  "creation_time": "2019-08-24T14:15:22Z",
+  "has_history": true,
+  "id": 0,
+  "label": "string",
+  "metric": "string",
+  "path": "string",
+  "previous_value": "string",
+  "unit": "string",
+  "value": "string",
+  "value_update_time": "2019-08-24T14:15:22Z"
+}
+
+```
+
+*The representation of an agent variable*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|creation_time|string(date-time)|false|The creation time of the variable|
+|has_history|boolean|true|If true the history of the variable can be retrieved with <a href='#getvariablehistory'> getVariableHistory</a>|
+|id|integer(int32)|true|The ID of the variable|
+|label|string|false|The label|
+|metric|string|false|The metric|
+|path|string|true|The variable path|
+|previous_value|string|false|The previous value of the variable|
+|unit|string|false|The unit of measurement|
+|value|string|false|The variable value|
+|value_update_time|string(date-time)|false|The update time of the variable value|
+
 <h2 id="tocSagentwanchangeevent">AgentWANChangeEvent</h2>
 
 <a id="schemaagentwanchangeevent"></a>
@@ -16692,6 +18700,305 @@ Returns the User information
 |outcome|failure|
 |outcome|undefined|
 
+<h2 id="tocScustomsnmppreconfiguredsensor">CustomSNMPPreconfiguredSensor</h2>
+
+<a id="schemacustomsnmppreconfiguredsensor"></a>
+
+```json
+{
+  "display_name": "string",
+  "name": "string",
+  "scalars": [
+    {
+      "display_name": "string",
+      "filters": {
+        "allow": {
+          "op_equal": "string",
+          "op_in": [
+            "string"
+          ]
+        }
+      },
+      "hidden": true,
+      "oid": "string",
+      "save_history": "ALWAYS",
+      "scalar_id": "string",
+      "transformer": {
+        "function": "string",
+        "parameters": [
+          "string"
+        ]
+      },
+      "unit": "%",
+      "variable_type": "monotone_rate"
+    }
+  ],
+  "table": {
+    "columns": [
+      {
+        "column_id": "string",
+        "display_name": "string",
+        "filters": {
+          "allow": {
+            "op_equal": "string",
+            "op_in": [
+              "string"
+            ]
+          }
+        },
+        "hidden": true,
+        "index": 0,
+        "save_history": "ALWAYS",
+        "transformer": {
+          "function": "string",
+          "parameters": [
+            "string"
+          ]
+        },
+        "unit": "%",
+        "variable_type": "monotone_rate"
+      }
+    ],
+    "display_name": "string",
+    "oid": "string",
+    "table_id": "string"
+  }
+}
+
+```
+
+*A Custom Preconfigured sensor is defined providing a 
+list of scalars or a table.
+Scalars and tables cannot be defined at the same time. The lists of scalars 
+and columns in a table define the OIDs that will be retrieved to compose the preconfigured sensor. 
+For each retrieved item the `transformer` defines how the data must be processed. The `transformer` can 
+process the data using a macro function. In this case it can refer to other retrieved fields by their key
+</br>A field can be marked as `hidden` if you are not interested in collecting the raw value for a scalar or a column. 
+Hidden fields can be used as input for macros in the `transformer` fields.
+The results of a `transformer` function can be filtered to eliminate unwanted results using the `filters`
+ field. `op_in` and `op_equal` cannot be defined at the same time.
+
+Each preconfigured sensor scalar or column has an `unit` field which defines the unit of measure of the given quantity. </br>
+Allowed values are:</br>
+
+    PERCENTAGE = "%"
+    TEMPERATURE_C = "C"
+    TEMPERATURE_F = "F"
+
+    VOLT = "V"
+    WATT = "W"
+    AMPERES = "A"
+
+    BIT_PER_SECOND = "b/s"
+    BYTE_PER_SECOND = "B/s"
+    REVOLUTIONS_PER_MINUTE = "RPM"
+    BYTE = "B"
+    BIT = "b"
+
+    MILLISECOND = "ms"
+    SECOND = "second"
+    MINUTE = "minute"
+    HOUR = "hour"
+    DAY = "day"
+    MONTH = "month"
+    YEAR = "year"
+    
+Each preconfigured sensor scalar or column has a `variable_type` in order to display the value correctly.</br>
+Allowed values are:</br>
+
+    monotone_rate: calculate the rate of change per second of the value for increasing values
+    rate: calculate the rate of change per second of the value
+    number: it is only for visualization
+    string: it is only for visualization
+    datetime: it is only for visualization
+    boolean: it is only for visualization
+    
+If it is not explicitly defined, the `variable_type` field is automatically determined.</br>
+`variable_type` must be explicitly defined for monotone rate and rate.</br>
+
+Each preconfigured sensor scalar or column has a `save_history` field which defines the policy for storing historical data.</br>
+Allowed values are:</br> 
+
+    ON_CHANGE
+    ALWAYS
+    NEVER
+
+It is recommended to always specify this field. If it is not explicitly defined, defaults will be used depending on the type of the output value. </br>
+
+A macro function is passed to the transformer with the following syntax:</br>
+
+`{` </br>
+` "function": "function_name",`</br>
+` "parameters": ["param_1", "param_2", "param_3", ...]`</br>
+`}`</br>
+
+the function will be evaluated as `function_name(param1, param2, param3, ...)` </br>
+
+Allowed parameters are:</br>
+
+` "#VALUE" returning the value from the oid in the current scalar/column`</br>
+` "#<key>" referencing the "key" field of another scalar/column and returning the value from its OID`</br>
+` a constant`</br>
+
+Available macro functions</br>
+
+`capacity_percentage(level, capacity)`</br>
+`level="34", capacity="80" -> result="42.5"`</br>
+
+`printer_capacity_percentage(level, capacity)`</br>
+`level="34", capacity="80" -> result="42.5"`</br>
+
+`remaining_percentage(level, capacity)`</br>
+`level="34", capacity="80" -> result="57.5"`</br>
+
+`parse_to_byte(value)`</br>
+`value="1987Kb" -> result=254336`</br>
+`value="1987kB" -> result=2034688`</br>
+`value="1.61 TB" -> result=1770213720719`</br>
+
+`hex_string_to_dec(value)`</br>
+`value="FF" -> result="255"`</br>
+
+`format_mac_address(value, separator)`</br>
+`value="a b c d" -> result="a:b:c:d"` </br>
+`value="a-b-c-d", separator="-" -> result="a:b:c:d"` </br>
+`separator is optional field with default value " "`</br>
+
+`add(first_member, second_member, round_to_decimal)`</br>
+`first_member="34", second_member="30" -> result="64.0"`</br>
+`round_to_decimal is optional field with default value 1`</br>
+
+`subtract(first_member, second_member, round_to_decimal)`</br>
+`first_member="34", second_member="30" -> result="4.0"`</br>
+`round_to_decimal is optional field with default value 1`</br>
+
+`multiply(first_member, second_member, round_to_decimal)`</br>
+`first_member="192", second_member="0.1" -> result="19.2"` </br>
+`round_to_decimal is optional field with default value 1`</br>
+
+`divide(numerator, denominator, round_to_decimal)`</br>
+`numerator="192", denominator="20" -> result="9.6"` </br>
+`round_to_decimal is optional field with default value 1`</br>
+
+`concat(value1, value2, separator)`</br>
+`value1="A", value2="B", separator=" | " -> result="A | B"`</br>
+`value1="A", value2="B" -> result="AB"`</br>
+`separator is optional field with default value ""`</br>
+
+`reg_exp(original_value, pattern)`</br>
+`original_value="/dev/md15, mounted on: /.mount/packages/mnt/jweb-ex32-07f41cd8/jail/var/jweb-app/jweb-ex-app", pattern="^(.*?)\, mounted on" -> result="/dev/md15"`</br>
+
+`parse_date(date, input_format)`</br>
+`date="Fri, Jun 09 2023 02:36:11 PM", input_format="%a, %b %d %Y %I:%M:%S %p" -> result="2023-06-09T14:36:11+00:00Z"`</br>
+`To create the 'input_format' string, refer to the datetime documentation https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior`</br>
+`input_format is optional field with default value "%Y-%m-%d %H:%M:%S"`</br>
+
+`date_diff_from_now(date, input_format, timezone)`</br>
+`date="Fri, Jun 09 2023 02:36:11 PM", input_format="%a, %b %d %Y %I:%M:%S %p"  with unit='day'-> result="5"`</br>
+`Specify the desired unit for the output in the 'unit' field of the preconfigured_sensor. Allowed values are: day, hour,  minute, second`</br>
+`To create the 'input_format' string, refer to the datetime documentation https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior`</br>
+`timezone is optional field with default value "UTC"`</br>
+
+`get_oid_index()`</br>
+`It can only be applied on synthetic columns (the ones with no oid), it returns the oid index of each row.`</br>
+*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|display_name|string|true|The display name of the SNMP Preconfigured Sensor|
+|name|string|true|The ID of the SNMP Preconfigured Sensor. The ID will be used to name the variables created using the preconfigured sensor|
+|scalars|[object]|false|none|
+|» display_name|string|true|none|
+|» filters|object|false|none|
+|»» allow|object|false|none|
+|»»» op_equal|string|false|none|
+|»»» op_in|[string]|false|none|
+|»» hidden|boolean|false|none|
+|»» oid|string|true|none|
+|»» save_history|string|false|none|
+|»» scalar_id|string|true|none|
+|»» transformer|object|false|none|
+|»»» function|string|true|none|
+|»»» parameters|[string]|true|none|
+|»» unit|string|false|none|
+|»» variable_type|string|false|none|
+|» table|object|false|none|
+|»» columns|[object]|false|none|
+|»»» column_id|string|true|none|
+|»»» display_name|string|true|none|
+|»»» filters|object|false|none|
+|»»»» allow|object|false|none|
+|»»»»» op_equal|string|false|none|
+|»»»»» op_in|[string]|false|none|
+|»»»» hidden|boolean|false|none|
+|»»»» index|integer(int32)|false|The index of the column in the table|
+|»»»» save_history|string|false|none|
+|»»»» transformer|object|false|none|
+|»»»»» function|string|true|none|
+|»»»»» parameters|[string]|true|none|
+|»»»» unit|string|false|none|
+|»»»» variable_type|string|false|none|
+|»»» display_name|string|true|none|
+|»»» oid|string|true|none|
+|»»» table_id|string|true|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|save_history|ALWAYS|
+|save_history|NEVER|
+|save_history|ON_CHANGE|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|req/h|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|unit|Hz|
+|variable_type|monotone_rate|
+|variable_type|rate|
+|save_history|ALWAYS|
+|save_history|NEVER|
+|save_history|ON_CHANGE|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|req/h|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|unit|Hz|
+|variable_type|monotone_rate|
+|variable_type|rate|
+
 <h2 id="tocSdetecteddevicetype">DetectedDeviceType</h2>
 
 <a id="schemadetecteddevicetype"></a>
@@ -16840,10 +19147,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -16956,10 +19264,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -17135,10 +19444,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -17272,10 +19582,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -17427,10 +19738,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -17624,10 +19936,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -17789,10 +20102,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -17930,10 +20244,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -18050,10 +20365,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -18223,10 +20539,11 @@ Returns the User information
 
 ```json
 {
-  "authentication_status": "AUTHENTICATED",
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "room": "string",
+    "serial": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
     "zone": "string"
@@ -18271,16 +20588,36 @@ Returns the User information
 |---|---|---|---|---|
 |*anonymous*|object|false|A device that has no network access whatsoever and cannot be discovered or interacted with by      the agent.    A user can create a Dummy Device to attach it to a power outlet so that it is easier to remember which port controls the device|
 
+<h2 id="tocSexternalhost">ExternalHost</h2>
+
+<a id="schemaexternalhost"></a>
+
+```json
+{
+  "host": "string",
+  "name": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|host|string|true|Hostname or IP Address|
+|name|string|true|Device Name|
+
 <h2 id="tocSexternalipdevice">ExternalIpDevice</h2>
 
 <a id="schemaexternalipdevice"></a>
 
 ```json
 {
-  "authentication_status": "AUTHENTICATED",
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "room": "string",
+    "serial": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
     "zone": "string"
@@ -18406,10 +20743,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -18510,10 +20848,11 @@ Returns the User information
 
 ```json
 {
-  "authentication_status": "AUTHENTICATED",
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "room": "string",
+    "serial": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
     "zone": "string"
@@ -18600,10 +20939,11 @@ Returns the User information
 
 ```json
 {
-  "authentication_status": "AUTHENTICATED",
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "room": "string",
+    "serial": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
     "zone": "string"
@@ -18745,10 +21085,11 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -18868,10 +21209,11 @@ Returns the User information
       }
     },
     "device": {
-      "authentication_status": "AUTHENTICATED",
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "room": "string",
+        "serial": "string",
         "snmp_read_community": "string",
         "snmp_write_community": "string",
         "zone": "string"
@@ -18996,6 +21338,27 @@ Returns the User information
 |edges|[object]|true|The list of edges. Each item contains the IDs of the connected devices.|
 |» from|integer(int32)|true|none|
 |» to|integer(int32)|true|none|
+
+<h2 id="tocSroutednetwork">RoutedNetwork</h2>
+
+<a id="schemaroutednetwork"></a>
+
+```json
+{
+  "address": "string",
+  "name": "string",
+  "netmaks": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|address|string|true|none|
+|name|string|true|none|
+|netmaks|string|true|none|
 
 <h2 id="tocSsnmpdomotzagenteye">SNMPDomotzAgentEye</h2>
 
@@ -19287,16 +21650,303 @@ Returns the User information
 |name|string|true|The name of the trigger|
 |operands|[string]|true|The operands for the function|
 
+<h2 id="tocSsnmppreconfiguredsensor">SNMPPreconfiguredSensor</h2>
+
+<a id="schemasnmppreconfiguredsensor"></a>
+
+```json
+{
+  "custom": true,
+  "display_name": "string",
+  "id": 0,
+  "name": "string",
+  "scalars": [
+    {
+      "display_name": "string",
+      "filters": {
+        "allow": {
+          "op_equal": "string",
+          "op_in": [
+            "string"
+          ]
+        }
+      },
+      "hidden": true,
+      "oid": "string",
+      "save_history": "ALWAYS",
+      "scalar_id": "string",
+      "transformer": {
+        "function": "string",
+        "parameters": [
+          "string"
+        ]
+      },
+      "unit": "%",
+      "variable_type": "monotone_rate"
+    }
+  ],
+  "table": {
+    "columns": [
+      {
+        "column_id": "string",
+        "display_name": "string",
+        "filters": {
+          "allow": {
+            "op_equal": "string",
+            "op_in": [
+              "string"
+            ]
+          }
+        },
+        "hidden": true,
+        "index": 0,
+        "save_history": "ALWAYS",
+        "transformer": {
+          "function": "string",
+          "parameters": [
+            "string"
+          ]
+        },
+        "unit": "%",
+        "variable_type": "monotone_rate"
+      }
+    ],
+    "display_name": "string",
+    "oid": "string",
+    "table_id": "string"
+  }
+}
+
+```
+
+*SNMP Preconfigured Sensor*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|custom|boolean|false|none|
+|display_name|string|true|The display name of the SNMP Preconfigured Sensor|
+|id|integer(int32)|true|none|
+|name|string|true|The ID of the SNMP Preconfigured Sensor. The ID will be used to name the variables created using the preconfigured sensor|
+|scalars|[object]|false|none|
+|» display_name|string|true|none|
+|» filters|object|false|none|
+|»» allow|object|false|none|
+|»»» op_equal|string|false|none|
+|»»» op_in|[string]|false|none|
+|»» hidden|boolean|false|none|
+|»» oid|string|true|none|
+|»» save_history|string|false|none|
+|»» scalar_id|string|true|none|
+|»» transformer|object|false|none|
+|»»» function|string|true|none|
+|»»» parameters|[string]|true|none|
+|»» unit|string|false|none|
+|»» variable_type|string|false|none|
+|» table|object|false|none|
+|»» columns|[object]|false|none|
+|»»» column_id|string|true|none|
+|»»» display_name|string|true|none|
+|»»» filters|object|false|none|
+|»»»» allow|object|false|none|
+|»»»»» op_equal|string|false|none|
+|»»»»» op_in|[string]|false|none|
+|»»»» hidden|boolean|false|none|
+|»»»» index|integer(int32)|false|The index of the column in the table|
+|»»»» save_history|string|false|none|
+|»»»» transformer|object|false|none|
+|»»»»» function|string|true|none|
+|»»»»» parameters|[string]|true|none|
+|»»»» unit|string|false|none|
+|»»»» variable_type|string|false|none|
+|»»» display_name|string|true|none|
+|»»» oid|string|true|none|
+|»»» table_id|string|true|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|save_history|ALWAYS|
+|save_history|NEVER|
+|save_history|ON_CHANGE|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|req/h|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|unit|Hz|
+|variable_type|monotone_rate|
+|variable_type|rate|
+|save_history|ALWAYS|
+|save_history|NEVER|
+|save_history|ON_CHANGE|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|req/h|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|unit|Hz|
+|variable_type|monotone_rate|
+|variable_type|rate|
+
+<h2 id="tocSsnmppreconfiguredsensorbinded">SNMPPreconfiguredSensorBinded</h2>
+
+<a id="schemasnmppreconfiguredsensorbinded"></a>
+
+```json
+{
+  "preconfigured_sensor_id": 0
+}
+
+```
+
+*SNMP Preconfigured Sensor*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|preconfigured_sensor_id|integer(int32)|false|none|
+
+<h2 id="tocSsnmppreconfiguredsensortest">SNMPPreconfiguredSensorTest</h2>
+
+<a id="schemasnmppreconfiguredsensortest"></a>
+
+```json
+{
+  "scalars": [
+    {
+      "name": "string",
+      "unit": "%",
+      "value": "string"
+    }
+  ],
+  "table": {
+    "columns": [
+      "string"
+    ],
+    "rows": [
+      {
+        "cells": [
+          {
+            "unit": "%",
+            "value": "string",
+            "variable_type": "monotone_rate"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+*SNMP Preconfigured Sensor*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|scalars|[object]|false|none|
+|» name|string|false|none|
+|» unit|string|false|none|
+|» value|string|false|none|
+|table|object|false|none|
+|» columns|[string]|false|none|
+|» rows|[object]|false|none|
+|»» cells|[object]|false|none|
+|»»» unit|string|false|none|
+|»»» value|string|false|none|
+|»»» variable_type|string|false|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|req/h|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|unit|Hz|
+|unit|%|
+|unit|C|
+|unit|F|
+|unit|V|
+|unit|W|
+|unit|A|
+|unit|b/s|
+|unit|B/s|
+|unit|RPM|
+|unit|B|
+|unit|b|
+|unit|req/h|
+|unit|ms|
+|unit|second|
+|unit|minute|
+|unit|hour|
+|unit|day|
+|unit|month|
+|unit|year|
+|unit|Hz|
+|variable_type|monotone_rate|
+|variable_type|rate|
+
 <h2 id="tocSsubnetipdevice">SubnetIpDevice</h2>
 
 <a id="schemasubnetipdevice"></a>
 
 ```json
 {
-  "authentication_status": "AUTHENTICATED",
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "room": "string",
+    "serial": "string",
     "snmp_read_community": "string",
     "snmp_write_community": "string",
     "zone": "string"
