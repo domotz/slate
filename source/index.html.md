@@ -3662,6 +3662,161 @@ Counts the applications of all devices belonging to the agent
 |---|---|---|---|---|
 |204|X-Entities-Count|integer|int32|Returns the application count|
 
+## createExternalHost
+
+<a id="opIdcreateExternalHost"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/external-host \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/external-host',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "host": "string",
+  "name": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/external-host',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/external-host', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/external-host',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/external-host", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/external-host`</span>
+
+Creates an external host
+
+> Body parameter
+
+```json
+{
+  "host": "string",
+  "name": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/external-host \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createexternalhost-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|body|body|[ExternalHost](#schemaexternalhost)|true|none|
+
+<h3 id="createexternalhost-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
 ## deleteDevice
 
 <a id="opIddeleteDevice"></a>
@@ -11973,6 +12128,163 @@ Updates the current IP address scan policy. The list of IP addresses provided in
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## createRoutedNetwork
+
+<a id="opIdcreateRoutedNetwork"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/network/routed \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/routed',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "address": "string",
+  "name": "string",
+  "netmask": 0
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/routed',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/network/routed', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/network/routed',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/network/routed", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/network/routed`</span>
+
+Creates a routed network
+
+> Body parameter
+
+```json
+{
+  "address": "string",
+  "name": "string",
+  "netmask": 0
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/routed \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createroutednetwork-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|body|body|[RoutedNetwork](#schemaroutednetwork)|true|none|
+
+<h3 id="createroutednetwork-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
+
 <h1 id="domotz-public-api-company">company</h1>
 
 ## moveAgent
@@ -18669,6 +18981,25 @@ Returns the User information
 |---|---|---|---|---|
 |*anonymous*|object|false|A device that has no network access whatsoever and cannot be discovered or interacted with by      the agent.    A user can create a Dummy Device to attach it to a power outlet so that it is easier to remember which port controls the device|
 
+<h2 id="tocSexternalhost">ExternalHost</h2>
+
+<a id="schemaexternalhost"></a>
+
+```json
+{
+  "host": "string",
+  "name": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|host|string|true|Hostname or IP Address|
+|name|string|true|Device Name|
+
 <h2 id="tocSexternalipdevice">ExternalIpDevice</h2>
 
 <a id="schemaexternalipdevice"></a>
@@ -19400,6 +19731,27 @@ Returns the User information
 |edges|[object]|true|The list of edges. Each item contains the IDs of the connected devices.|
 |» from|integer(int32)|true|none|
 |» to|integer(int32)|true|none|
+
+<h2 id="tocSroutednetwork">RoutedNetwork</h2>
+
+<a id="schemaroutednetwork"></a>
+
+```json
+{
+  "address": "string",
+  "name": "string",
+  "netmask": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|address|string|true|none|
+|name|string|true|none|
+|netmask|integer(int32)|true|none|
 
 <h2 id="tocSsnmpdomotzagenteye">SNMPDomotzAgentEye</h2>
 
