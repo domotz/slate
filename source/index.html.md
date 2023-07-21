@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.10.0</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.10.1</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -9577,6 +9577,174 @@ Returns the agent variables count of the agent
 |---|---|---|---|---|
 |204|X-Entities-Count|integer|int32|The agent variables count|
 
+## getAgentVariableHistory
+
+<a id="opIdgetAgentVariableHistory"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/variable/{variable_id}/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/variable/{variable_id}/history',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/variable/{variable_id}/history',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/variable/{variable_id}/history', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/variable/{variable_id}/history',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/variable/{variable_id}/history", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/variable/{variable_id}/history`</span>
+
+Returns the agent variable history
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/variable/{variable_id}/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentvariablehistory-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|variable_id|path|integer(int32)|true|Variable ID|
+|from|query|string(date-time)|false|The start time of the time series. Default value is one week|
+|to|query|string(date-time)|false|The end time of the time series. Default value is now|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "timestamp": "2019-08-24T14:15:22Z",
+    "value": "string"
+  }
+]
+```
+
+<h3 id="getagentvariablehistory-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The agent variable's history, a list of dictionaries, each composed by the timestamp (a datetime) and the value (a string)|Inline|
+
+<h3 id="getagentvariablehistory-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[VariableHistorySample](#schemavariablehistorysample)]|false|none|
+|» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
+|» value|string|true|The sample value|
+
 <h1 id="domotz-public-api-inventory">inventory</h1>
 
 ## getDeviceInventory
@@ -14410,6 +14578,11 @@ Retrieves the list of available Custom Drivers
 ```json
 [
   {
+    "code_inspection": {
+      "has_independent_variables": true,
+      "has_parameters": true,
+      "has_table": true
+    },
     "description": "string",
     "device_ids": [
       0
@@ -14436,6 +14609,10 @@ Status Code **200**
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |*anonymous*|[[CustomDriver](#schemacustomdriver)]|false|[A Custom Driver that can be applied on devices]|
+|» code_inspection|object|true|Result of the Custom Driver code analysis|
+|»» has_independent_variables|boolean|true|True if the Custom Driver creates independent variables on execution|
+|»» has_parameters|boolean|true|True if the Custom Driver uses parameters during execution|
+|»» has_table|boolean|true|True if the Custom Driver creates a variable table on execution|
 |» description|string|false|Description of the Custom Driver|
 |» device_ids|[integer]|true|List of the device IDs the Custom Driver is applied on|
 |» id|integer(int32)|true|The identifier of the Custom Driver|
@@ -14777,6 +14954,11 @@ Returns details of a Custom Driver
     }
   ],
   "code": "string",
+  "code_inspection": {
+    "has_independent_variables": true,
+    "has_parameters": true,
+    "has_table": true
+  },
   "description": "string",
   "errors": [
     {
@@ -14789,6 +14971,15 @@ Returns details of a Custom Driver
   "is_valid": true,
   "minimal_sample_period": 0,
   "name": "string",
+  "parameters": [
+    {
+      "default_value": null,
+      "description": "string",
+      "id": 0,
+      "name": "string",
+      "value_type": "STRING"
+    }
+  ],
   "requires_credentials": true
 }
 ```
@@ -14840,6 +15031,12 @@ const inputBody = '{
     "password": "string",
     "username": "string"
   },
+  "parameters": [
+    {
+      "custom_driver_parameter_id": 0,
+      "value": null
+    }
+  ],
   "sample_period": 0
 }';
 const headers = {
@@ -14937,6 +15134,12 @@ Apply a Custom Driver to a device
     "password": "string",
     "username": "string"
   },
+  "parameters": [
+    {
+      "custom_driver_parameter_id": 0,
+      "value": null
+    }
+  ],
   "sample_period": 0
 }
 ```
@@ -17188,6 +17391,11 @@ Returns the User information
 
 ```json
 {
+  "code_inspection": {
+    "has_independent_variables": true,
+    "has_parameters": true,
+    "has_table": true
+  },
   "description": "string",
   "device_ids": [
     0
@@ -17207,6 +17415,10 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
+|code_inspection|object|true|Result of the Custom Driver code analysis|
+|» has_independent_variables|boolean|true|True if the Custom Driver creates independent variables on execution|
+|» has_parameters|boolean|true|True if the Custom Driver uses parameters during execution|
+|» has_table|boolean|true|True if the Custom Driver creates a variable table on execution|
 |description|string|false|Description of the Custom Driver|
 |device_ids|[integer]|true|List of the device IDs the Custom Driver is applied on|
 |id|integer(int32)|true|The identifier of the Custom Driver|
@@ -17263,6 +17475,12 @@ Returns the User information
     "password": "string",
     "username": "string"
   },
+  "parameters": [
+    {
+      "custom_driver_parameter_id": 0,
+      "value": null
+    }
+  ],
   "sample_period": 0
 }
 
@@ -17277,6 +17495,9 @@ Returns the User information
 |credentials|object|false|The credentials for the Custom Driver (with scope CUSTOM_DRIVER_MANAGEMENT). Only required if the driver requires credentials, and there are none saved for the device|
 |» password|string|true|password|
 |» username|string|true|username|
+|parameters|[object]|false|A list of parameters to be used for the association. Only required if the Custom Driver uses parameters. Parameters with default values at the driver level can be skipped.|
+|» custom_driver_parameter_id|integer(int32)|true|The id of the parameter on the driver level|
+|» value|any|false|Value of the parameter for the association. Its type can be either a float, a string or a list based on its value_type. The following restrictions apply based on the value type:  <ul><li>STRING: maximum 100 characters</li><li>LIST: maximum 50 items, maximum 100 characters each</li></ul>|
 |sample_period|integer(int32)|false|The sampling interval of the Custom Driver (in seconds). Must be one of [300, 600, 900, 1800, 3600, 7200, 21600, 43200, 86400] and equal to or greater than the minimal_sample_period of the Custom Driver.  Default value is the minimal_sample_period of the Custom Driver|
 
 <h2 id="tocScustomdriverassociationcreationresult">CustomDriverAssociationCreationResult</h2>
@@ -17315,6 +17536,11 @@ Returns the User information
     }
   ],
   "code": "string",
+  "code_inspection": {
+    "has_independent_variables": true,
+    "has_parameters": true,
+    "has_table": true
+  },
   "description": "string",
   "errors": [
     {
@@ -17327,6 +17553,15 @@ Returns the User information
   "is_valid": true,
   "minimal_sample_period": 0,
   "name": "string",
+  "parameters": [
+    {
+      "default_value": null,
+      "description": "string",
+      "id": 0,
+      "name": "string",
+      "value_type": "STRING"
+    }
+  ],
   "requires_credentials": true
 }
 
@@ -17344,6 +17579,10 @@ Returns the User information
 |» label|string|true|The label of the action, shown as the button label in the ui when the driver is applied to a device|
 |» line|integer(int32)|true|Line number of the function declaration for the action|
 |code|string|true|The source code of the driver|
+|code_inspection|object|true|Result of the Custom Driver code analysis|
+|» has_independent_variables|boolean|true|True if the Custom Driver creates independent variables on execution|
+|» has_parameters|boolean|true|True if the Custom Driver uses parameters during execution|
+|» has_table|boolean|true|True if the Custom Driver creates a variable table on execution|
 |description|string|false|Description of the Custom Driver|
 |errors|[object]|false|A list of errors in this drivers's code. Only returned if the driver's code is invalid and cannot be executed|
 |» line|integer(int32)|false|The line number in the code that raised the error.|
@@ -17353,7 +17592,21 @@ Returns the User information
 |is_valid|boolean|true|True if the Custom Driver has valid code, False otherwise|
 |minimal_sample_period|integer(int32)|true|The minimal sampling interval of the Custom Driver (in seconds)|
 |name|string|true|Name of the Custom Driver|
+|parameters|[object]|false|A list of parameters used by this Custom Driver. Only returned if the driver has parameters defined|
+|» default_value|any|false|Default value of the parameter. Its type can be either a float, a string or a list based on its value_type.|
+|» description|string|false|Description of the parameter|
+|» id|integer(int32)|true|Unique id|
+|» name|string|true|The identifier by which the parameter is called in the driver script|
+|» value_type|string|true|Value type of the parameter. Numbers are treated as floats, list items are treated as strings|
 |requires_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|value_type|STRING|
+|value_type|NUMBER|
+|value_type|LIST|
 
 <h2 id="tocScustomdriverexecutionresult">CustomDriverExecutionResult</h2>
 
