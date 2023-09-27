@@ -7933,7 +7933,7 @@ download and in upload.</p>
 <td>path</td>
 <td>string</td>
 <td>true</td>
-<td>The field to update - for the type and valid values see the description of the corresponding output parameter</td>
+<td>The field to update - for the type and valid values see the description of the corresponding output parameter <a href="#tocSabstractdevice">here</a></td>
 </tr>
 <tr>
 <td>body</td>
@@ -7977,6 +7977,10 @@ download and in upload.</p>
 <tr>
 <td>field</td>
 <td>details/zone</td>
+</tr>
+<tr>
+<td>field</td>
+<td>details/serial</td>
 </tr>
 </tbody></table>
 
@@ -21118,7 +21122,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>» serial</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
+<td>Set to null to reset and allow the automatically discovered serial number to be used for device</td>
 </tr>
 <tr>
 <td>» snmp_read_community</td>
@@ -27830,6 +27834,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
         </span><span class="s2">"package"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -27912,6 +27917,12 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <tr>
 <td>» agent</td>
 <td><a href="#schemaagentbase">AgentBase</a></td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» details</td>
+<td>object</td>
 <td>false</td>
 <td>none</td>
 </tr>

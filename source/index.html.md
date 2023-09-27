@@ -5709,7 +5709,7 @@ Changes a field of the device or one of its details
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|field|path|string|true|The field to update - for the type and valid values see the description of the corresponding output parameter|
+|field|path|string|true|The field to update - for the type and valid values see the description of the corresponding output parameter <a href="#tocSabstractdevice">here</a>|
 |body|body|string|true|The value that the field will change to|
 
 #### Enumerated Values
@@ -5723,6 +5723,7 @@ Changes a field of the device or one of its details
 |field|user_data/vendor|
 |field|details/room|
 |field|details/zone|
+|field|details/serial|
 
 <h3 id="editdevice-responses">Responses</h3>
 
@@ -16522,7 +16523,7 @@ Returns the User information
 |details|object|false|DeviceDetails|
 |» firmware_version|string|false|none|
 |» room|string|false|none|
-|» serial|string|false|none|
+|» serial|string|false|Set to null to reset and allow the automatically discovered serial number to be used for device|
 |» snmp_read_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
 |» snmp_write_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
 |» zone|string|false|none|
@@ -20250,6 +20251,7 @@ Returns the User information
         "package": "string"
       }
     },
+    "details": {},
     "device": {
       "authentication_status": "NO_AUTHENTICATION",
       "details": {
@@ -20322,6 +20324,7 @@ Returns the User information
 |---|---|---|---|---|
 |data|object|false|none|
 |» agent|[AgentBase](#schemaagentbase)|false|none|
+|» details|object|false|none|
 |» device|[AbstractDevice](#schemaabstractdevice)|false|Base abstract class for all devices|
 |» metric|string|true|none|
 |» monitoring_profile|object|false|none|
