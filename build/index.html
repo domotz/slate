@@ -16859,7 +16859,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span></code></pre>
 <p><span class='dmt-method'><code>PUT /agent/{agent_id}/ownership/team/{team_id}</code></span></p>
 
-<p>Moves an agent under the control of a different team</p>
+<p>Moves an agent under the control of a different team. Note: This API is restricted to users on the Enterprise Plan. Please contact <a href="mailto:sales@domotz.com">sales@domotz.com</a> to learn more.</p>
 
 <h3>Curl</h3>
 
@@ -17015,7 +17015,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /area</code></span></p>
 
-<p>Returns all the areas of a Company</p>
+<p>Returns all the areas of a Company. Note: This API is restricted to users on the Enterprise Plan. Please contact <a href="mailto:sales@domotz.com">sales@domotz.com</a> to learn more.</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -17177,7 +17177,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /area/{area_id}/team</code></span></p>
 
-<p>Returns all the teams of an Area</p>
+<p>Returns all the teams of an Area. Note: This API is restricted to users on the Enterprise Plan. Please contact <a href="mailto:sales@domotz.com">sales@domotz.com</a> to learn more.</p>
 
 <h3>Curl</h3>
 
@@ -17380,7 +17380,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span></code></pre>
 <p><span class='dmt-method'><code>POST /area/{area_id}/team</code></span></p>
 
-<p>Creates a new Team</p>
+<p>Creates a new Team. Note: This API is restricted to users on the Enterprise Plan. Please contact <a href="mailto:sales@domotz.com">sales@domotz.com</a> to learn more.</p>
 
 <blockquote>
 <p>Body parameter</p>
@@ -28597,12 +28597,36 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>SHA</td>
 </tr>
 <tr>
+<td>authentication_protocol</td>
+<td>SHA-224</td>
+</tr>
+<tr>
+<td>authentication_protocol</td>
+<td>SHA-256</td>
+</tr>
+<tr>
+<td>authentication_protocol</td>
+<td>SHA-384</td>
+</tr>
+<tr>
+<td>authentication_protocol</td>
+<td>SHA-512</td>
+</tr>
+<tr>
 <td>encryption_protocol</td>
 <td>DES</td>
 </tr>
 <tr>
 <td>encryption_protocol</td>
 <td>AES</td>
+</tr>
+<tr>
+<td>encryption_protocol</td>
+<td>AES-256B</td>
+</tr>
+<tr>
+<td>encryption_protocol</td>
+<td>AES-256R</td>
 </tr>
 <tr>
 <td>version</td>

@@ -11075,16 +11075,16 @@ Take a snapshot of the camera. Internally, a device connection is established.Cu
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A binary image|string|
 
-<h1 id="domotz-public-api-topology">topology</h1>
+<h1 id="domotz-public-api-networking">networking</h1>
 
-## getNetworkTopology
+## getAgentIPConflicts
 
-<a id="opIdgetNetworkTopology"></a>
+<a id="opIdgetAgentIPConflicts"></a>
 
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/network-topology \
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/ip-conflict \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -11098,7 +11098,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/network-topology',
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/ip-conflict',
   method: 'get',
 
   headers: headers,
@@ -11118,7 +11118,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/network-topology',
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/ip-conflict',
 {
   method: 'GET',
 
@@ -11139,7 +11139,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/network-topology', params={
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/ip-conflict', params={
 
 }, headers = headers)
 
@@ -11156,7 +11156,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/network-topology',
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/ip-conflict',
   params: {
   }, headers: headers
 
@@ -11181,7 +11181,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/network-topology", data)
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/ip-conflict", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -11191,15 +11191,15 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`GET /agent/{agent_id}/network-topology`</span>
+<span class='dmt-method'>`GET /agent/{agent_id}/ip-conflict`</span>
 
-Returns the agent's network topology
+Returns the list of active IP conflicts on an agent
 
 <h3>Curl</h3>
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network-topology \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/ip-conflict \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -11207,7 +11207,7 @@ Returns the agent's network topology
 </code>
 </p>
 
-<h3 id="getnetworktopology-parameters">Parameters</h3>
+<h3 id="getagentipconflicts-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -11218,23 +11218,36 @@ Returns the agent's network topology
 > 200 Response
 
 ```json
-{
-  "edges": [
-    {
-      "from": 0,
-      "to": 0
-    }
-  ]
-}
+[
+  {
+    "conflicting_devices": [
+      {
+        "id": 0,
+        "mac": "string"
+      }
+    ],
+    "ip": "string"
+  }
+]
 ```
 
-<h3 id="getnetworktopology-responses">Responses</h3>
+<h3 id="getagentipconflicts-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[NetworkTopology](#schemanetworktopology)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-<h1 id="domotz-public-api-networking">networking</h1>
+<h3 id="getagentipconflicts-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[AgentIpConflict](#schemaagentipconflict)]|false|none|
+|» conflicting_devices|[object]|false|none|
+|»» id|integer(int32)|false|none|
+|»» mac|string|false|none|
+|» ip|string|false|none|
 
 ## setDHCPDeviceDiscovery
 
@@ -12607,6 +12620,165 @@ Creates a routed network
 |---|---|---|---|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
 
+<h1 id="domotz-public-api-topology">topology</h1>
+
+## getNetworkTopology
+
+<a id="opIdgetNetworkTopology"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/network-topology \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network-topology',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network-topology',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/network-topology', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/network-topology',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/network-topology", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/network-topology`</span>
+
+Returns the agent's network topology
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network-topology \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getnetworktopology-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "edges": [
+    {
+      "from": 0,
+      "to": 0
+    }
+  ]
+}
+```
+
+<h3 id="getnetworktopology-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[NetworkTopology](#schemanetworktopology)|
+
 <h1 id="domotz-public-api-company">company</h1>
 
 ## moveAgent
@@ -12719,7 +12891,7 @@ func main() {
 
 <span class='dmt-method'>`PUT /agent/{agent_id}/ownership/team/{team_id}`</span>
 
-Moves an agent under the control of a different team
+Moves an agent under the control of a different team. Note: This API is restricted to users on the Enterprise Plan. Please contact <a href="mailto:sales@domotz.com">sales@domotz.com</a> to learn more.
 
 <h3>Curl</h3>
 
@@ -12861,7 +13033,7 @@ func main() {
 
 <span class='dmt-method'>`GET /area`</span>
 
-Returns all the areas of a Company
+Returns all the areas of a Company. Note: This API is restricted to users on the Enterprise Plan. Please contact <a href="mailto:sales@domotz.com">sales@domotz.com</a> to learn more.
 
 > Example responses
 
@@ -13008,7 +13180,7 @@ func main() {
 
 <span class='dmt-method'>`GET /area/{area_id}/team`</span>
 
-Returns all the teams of an Area
+Returns all the teams of an Area. Note: This API is restricted to users on the Enterprise Plan. Please contact <a href="mailto:sales@domotz.com">sales@domotz.com</a> to learn more.
 
 <h3>Curl</h3>
 
@@ -13182,7 +13354,7 @@ func main() {
 
 <span class='dmt-method'>`POST /area/{area_id}/team`</span>
 
-Creates a new Team
+Creates a new Team. Note: This API is restricted to users on the Enterprise Plan. Please contact <a href="mailto:sales@domotz.com">sales@domotz.com</a> to learn more.
 
 > Body parameter
 
@@ -16898,6 +17070,32 @@ Returns the User information
 |policy|allow|
 |policy|deny|
 
+<h2 id="tocSagentipconflict">AgentIpConflict</h2>
+
+<a id="schemaagentipconflict"></a>
+
+```json
+{
+  "conflicting_devices": [
+    {
+      "id": 0,
+      "mac": "string"
+    }
+  ],
+  "ip": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|conflicting_devices|[object]|false|none|
+|» id|integer(int32)|false|none|
+|» mac|string|false|none|
+|ip|string|false|none|
+
 <h2 id="tocSagentlanchangeevent">AgentLANChangeEvent</h2>
 
 <a id="schemaagentlanchangeevent"></a>
@@ -20497,8 +20695,14 @@ Returns the User information
 |---|---|
 |authentication_protocol|MD5|
 |authentication_protocol|SHA|
+|authentication_protocol|SHA-224|
+|authentication_protocol|SHA-256|
+|authentication_protocol|SHA-384|
+|authentication_protocol|SHA-512|
 |encryption_protocol|DES|
 |encryption_protocol|AES|
+|encryption_protocol|AES-256B|
+|encryption_protocol|AES-256R|
 |version|V2|
 |version|V1|
 |version|V3_AUTH_PRIV|
