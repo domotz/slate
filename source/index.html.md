@@ -2704,7 +2704,7 @@ Status Code **200**
 |---|---|---|---|---|
 |*anonymous*|[[ActivityLog](#schemaactivitylog)]|false|[An activity log item]|
 |» description|string|true|Description of the event|
-|» details|object|false|Additional details of the event. ASDA ASWD|
+|» details|object|false|Additional details of the event.|
 |» device_id|integer(int32)|false|Device that triggered the event (if applicable)|
 |» timestamp|string(date-time)|true|Timestamp of the event|
 |» type|string|true|Type of the event|
@@ -16997,7 +16997,7 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |description|string|true|Description of the event|
-|details|object|false|Additional details of the event. ASDA ASWD|
+|details|object|false|Additional details of the event.|
 |device_id|integer(int32)|false|Device that triggered the event (if applicable)|
 |timestamp|string(date-time)|true|Timestamp of the event|
 |type|string|true|Type of the event|
