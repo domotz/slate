@@ -11802,6 +11802,488 @@ Enable/disable the Agent DHCP Device Discovery
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## deleteAgentExternalHostScanPolicy
+
+<a id="opIddeleteAgentExternalHostScanPolicy"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/network/external-host-scan-policy`</span>
+
+Restore the external host scan policy to default.
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteagentexternalhostscanpolicy-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+<h3 id="deleteagentexternalhostscanpolicy-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## getAgentExternalHostScanPolicy
+
+<a id="opIdgetAgentExternalHostScanPolicy"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/network/external-host-scan-policy`</span>
+
+Returns the current external host scan policy.
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getagentexternalhostscanpolicy-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "icmp": {
+    "enabled": true
+  },
+  "tcp_ack": {
+    "enabled": true,
+    "ports": [
+      0
+    ]
+  },
+  "tcp_syn": {
+    "enabled": true,
+    "ports": [
+      0
+    ]
+  }
+}
+```
+
+<h3 id="getagentexternalhostscanpolicy-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The external host scan policy.|[AgentExternalHostScanPolicy](#schemaagentexternalhostscanpolicy)|
+
+## setAgentExternalHostScanPolicy
+
+<a id="opIdsetAgentExternalHostScanPolicy"></a>
+
+> Code samples
+
+```shell
+curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "icmp": {
+    "enabled": true
+  },
+  "tcp_ack": {
+    "enabled": true,
+    "ports": [
+      0
+    ]
+  },
+  "tcp_syn": {
+    "enabled": true,
+    "ports": [
+      0
+    ]
+  }
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/network/external-host-scan-policy`</span>
+
+Updates the current external host scan policy. It is possible to enable/disable each one of the three available methods (ICMP, TCP-SYN, TCP-ACK). For TCP-SYN and TCP-ACK is mandatory to specify a set of TCP ports. If a method is not specified in the payload of the request, it will be configured as disabled
+
+> Body parameter
+
+```json
+{
+  "icmp": {
+    "enabled": true
+  },
+  "tcp_ack": {
+    "enabled": true,
+    "ports": [
+      0
+    ]
+  },
+  "tcp_syn": {
+    "enabled": true,
+    "ports": [
+      0
+    ]
+  }
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/external-host-scan-policy \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="setagentexternalhostscanpolicy-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|body|body|[AgentExternalHostScanPolicy](#schemaagentexternalhostscanpolicy)|true|The external host scan policy to be applied|
+
+<h3 id="setagentexternalhostscanpolicy-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 ## getAgentInterfaces
 
 <a id="opIdgetAgentInterfaces"></a>
@@ -12668,7 +13150,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/network/ip-scan-policy`</span>
 
-Returns the current IP addresses management policy. A set of IP addresses to be always scanned can be specified in the `forced_ip_addresses` array. 
+Returns the current IP addresses management policy. It is possible to specify a set of IP addresses in the `forced_ip_addresses` field array or a set of IP address ranges in the `forced_ip_ranges` field array to be always scanned.
 
 <h3>Curl</h3>
 
@@ -12696,6 +13178,12 @@ Returns the current IP addresses management policy. A set of IP addresses to be 
 {
   "forced_ip_addresses": [
     "string"
+  ],
+  "forced_ip_ranges": [
+    {
+      "end": "string",
+      "start": "string"
+    }
   ]
 }
 ```
@@ -12743,6 +13231,12 @@ const fetch = require('node-fetch');
 const inputBody = '{
   "forced_ip_addresses": [
     "string"
+  ],
+  "forced_ip_ranges": [
+    {
+      "end": "string",
+      "start": "string"
+    }
   ]
 }';
 const headers = {
@@ -12826,7 +13320,7 @@ func main() {
 
 <span class='dmt-method'>`PUT /agent/{agent_id}/network/ip-scan-policy`</span>
 
-Updates the current IP address scan policy. The list of IP addresses provided in `forced_ip_addresses` will be scanned regardless of the automatic discovery settings of the agent.
+Updates the current IP address scan policy. The list of IP addresses provided in `forced_ip_addresses` and the list of IP address ranges provided in `forced_ip_ranges` will be scanned regardless of the automatic discovery settings of the agent.
 
 > Body parameter
 
@@ -12834,6 +13328,12 @@ Updates the current IP address scan policy. The list of IP addresses provided in
 {
   "forced_ip_addresses": [
     "string"
+  ],
+  "forced_ip_ranges": [
+    {
+      "end": "string",
+      "start": "string"
+    }
   ]
 }
 ```
@@ -17456,6 +17956,44 @@ Returns the User information
 |value|string|false|The variable value|
 |value_update_time|string(date-time)|false|The update time of the variable value|
 
+<h2 id="tocSagentexternalhostscanpolicy">AgentExternalHostScanPolicy</h2>
+
+<a id="schemaagentexternalhostscanpolicy"></a>
+
+```json
+{
+  "icmp": {
+    "enabled": true
+  },
+  "tcp_ack": {
+    "enabled": true,
+    "ports": [
+      0
+    ]
+  },
+  "tcp_syn": {
+    "enabled": true,
+    "ports": [
+      0
+    ]
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|icmp|object|false|none|
+|» enabled|boolean|true|Enable/disable this scan method|
+|tcp_ack|object|false|none|
+|» enabled|boolean|true|Enable/disable this scan method. The agent sends a TCP packet with only the acknowledgement (ACK) flag set, and a responding reset (RST) packet from the host reveals its presence.|
+|» ports|[integer]|true|The list of TCP port to be scanned with this method. The list cannot be empty if this method is enabled|
+|tcp_syn|object|false|none|
+|» enabled|boolean|true|Enable or disable this scan method. The agent sends a SYN packet to the target host and waits for a response. If the target responds with a SYN/ACK packet or an RST packet, the host is considered up.|
+|» ports|[integer]|true|The list of TCP port to be scanned with this method. The list cannot be empty if this method is enabled|
+
 <h2 id="tocSagenthistory">AgentHistory</h2>
 
 <a id="schemaagenthistory"></a>
@@ -17492,6 +18030,12 @@ Returns the User information
 {
   "forced_ip_addresses": [
     "string"
+  ],
+  "forced_ip_ranges": [
+    {
+      "end": "string",
+      "start": "string"
+    }
   ]
 }
 
@@ -17502,6 +18046,9 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |forced_ip_addresses|[string]|true|The list of IP addresses always checked by the agent. By default the list is empty and the agent performs hosts discovery automatically. The addresses must be expressed in dotted decimal notation and must belong to private networks (see <a href='https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml/'>iana-ipv4-special-registry</a>)|
+|forced_ip_ranges|[object]|true|The list of IP address ranges always checked by the agent. By default the list is empty and the agent performs hosts discovery automatically. The addresses must be expressed in dotted decimal notation and must belong to private networks (see <a href='https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml/'>iana-ipv4-special-registry</a>)|
+|» end|string|true|192.168.1.10|
+|» start|string|true|192.168.1.1|
 
 <h2 id="tocSagentinterfacespolicy">AgentInterfacesPolicy</h2>
 
