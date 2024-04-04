@@ -3532,6 +3532,7 @@ Returns all the devices of an agent
       "version": "string"
     },
     "protocol": "IP",
+    "snmp_status": "CHECKING",
     "type": {
       "detected_id": 0,
       "id": 0,
@@ -3569,6 +3570,10 @@ Returns all the devices of an agent
 |protocol|IP|
 |protocol|DUMMY|
 |protocol|IP_EXTERNAL|
+|snmp_status|CHECKING|
+|snmp_status|NOT_FOUND|
+|snmp_status|NOT_AUTHENTICATED|
+|snmp_status|AUTHENTICATED|
 |status|ONLINE|
 |status|OFFLINE|
 |status|DOWN|
@@ -4358,6 +4363,7 @@ Returns the details of a device
     "version": "string"
   },
   "protocol": "IP",
+  "snmp_status": "CHECKING",
   "type": {
     "detected_id": 0,
     "id": 0,
@@ -4394,6 +4400,10 @@ Returns the details of a device
 |protocol|IP|
 |protocol|DUMMY|
 |protocol|IP_EXTERNAL|
+|snmp_status|CHECKING|
+|snmp_status|NOT_FOUND|
+|snmp_status|NOT_AUTHENTICATED|
+|snmp_status|AUTHENTICATED|
 |status|ONLINE|
 |status|OFFLINE|
 |status|DOWN|
@@ -17570,6 +17580,7 @@ Returns the User information
     "version": "string"
   },
   "protocol": "IP",
+  "snmp_status": "CHECKING",
   "type": {
     "detected_id": 0,
     "id": 0,
@@ -17609,6 +17620,7 @@ Returns the User information
 |» name|string|false|none|
 |» version|string|false|none|
 |protocol|string|true|none|
+|snmp_status|string|false|Get the status of SNMP service for the device <ul> <li> *CHECKING*:  Indicates that Domotz is currently verifying the SNMP status on the device. This is a transient state. </li><li> *NOT_FOUND*: This status indicates that the SNMP service could not be found on the device. </li><li> *NOT_AUTHENTICATED*: This status occurs when the SNMP service is detected as active, but Domotz is unable to retrieve data  from it. This is most likely due to incorrect community strings or credentials. </li><li> *AUTHENTICATED*:  This status indicates that Domotz is successfully reading SNMP data from the device. </li></ul>|
 |type|object|false|The device type, if recognised by domotz|
 |» detected_id|integer(int32)|false|none|
 |» id|integer(int32)|false|none|
@@ -17633,6 +17645,10 @@ Returns the User information
 |protocol|IP|
 |protocol|DUMMY|
 |protocol|IP_EXTERNAL|
+|snmp_status|CHECKING|
+|snmp_status|NOT_FOUND|
+|snmp_status|NOT_AUTHENTICATED|
+|snmp_status|AUTHENTICATED|
 
 <h2 id="tocSactivitylog">ActivityLog</h2>
 
@@ -19416,6 +19432,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -19533,6 +19550,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -19713,6 +19731,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -19851,6 +19870,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -20007,6 +20027,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -20205,6 +20226,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -20371,6 +20393,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -20513,6 +20536,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -20634,6 +20658,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -20838,6 +20863,7 @@ Returns the User information
     "version": "string"
   },
   "protocol": "IP",
+  "snmp_status": "CHECKING",
   "type": {
     "detected_id": 0,
     "id": 0,
@@ -20912,6 +20938,7 @@ Returns the User information
     "version": "string"
   },
   "protocol": "IP",
+  "snmp_status": "CHECKING",
   "type": {
     "detected_id": 0,
     "id": 0,
@@ -21042,6 +21069,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -21147,6 +21175,7 @@ Returns the User information
     "version": "string"
   },
   "protocol": "IP",
+  "snmp_status": "CHECKING",
   "type": {
     "detected_id": 0,
     "id": 0,
@@ -21238,6 +21267,7 @@ Returns the User information
     "version": "string"
   },
   "protocol": "IP",
+  "snmp_status": "CHECKING",
   "type": {
     "detected_id": 0,
     "id": 0,
@@ -21384,6 +21414,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -21509,6 +21540,7 @@ Returns the User information
         "version": "string"
       },
       "protocol": "IP",
+      "snmp_status": "CHECKING",
       "type": {
         "detected_id": 0,
         "id": 0,
@@ -21972,6 +22004,7 @@ Returns the User information
     "version": "string"
   },
   "protocol": "IP",
+  "snmp_status": "CHECKING",
   "type": {
     "detected_id": 0,
     "id": 0,
