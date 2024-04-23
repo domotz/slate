@@ -15827,7 +15827,8 @@ Retrieves the list of available Custom Drivers
     "is_valid": true,
     "minimal_sample_period": 0,
     "name": "string",
-    "requires_credentials": true
+    "requires_credentials": true,
+    "type": "GENERIC"
   }
 ]
 ```
@@ -15856,6 +15857,14 @@ Status Code **200**
 |» minimal_sample_period|integer(int32)|true|The minimal sampling interval of the Custom Driver (in seconds)|
 |» name|string|true|Name of the Custom Driver|
 |» requires_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
+|» type|string|true|The Custom Driver type.  Driver usage differs between types such as data collection and/or available actions|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|type|GENERIC|
+|type|CONFIGURATION_MANAGEMENT|
 
 ## listCustomDriverAssociations
 
@@ -16234,7 +16243,8 @@ Returns details of a Custom Driver
       "value_type": "STRING"
     }
   ],
-  "requires_credentials": true
+  "requires_credentials": true,
+  "type": "GENERIC"
 }
 ```
 
@@ -18962,7 +18972,8 @@ Returns the User information
   "is_valid": true,
   "minimal_sample_period": 0,
   "name": "string",
-  "requires_credentials": true
+  "requires_credentials": true,
+  "type": "GENERIC"
 }
 
 ```
@@ -18984,6 +18995,14 @@ Returns the User information
 |minimal_sample_period|integer(int32)|true|The minimal sampling interval of the Custom Driver (in seconds)|
 |name|string|true|Name of the Custom Driver|
 |requires_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
+|type|string|true|The Custom Driver type.  Driver usage differs between types such as data collection and/or available actions|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|type|GENERIC|
+|type|CONFIGURATION_MANAGEMENT|
 
 <h2 id="tocScustomdriverassociation">CustomDriverAssociation</h2>
 
@@ -19164,7 +19183,8 @@ Returns the User information
       "value_type": "STRING"
     }
   ],
-  "requires_credentials": true
+  "requires_credentials": true,
+  "type": "GENERIC"
 }
 
 ```
@@ -19201,6 +19221,7 @@ Returns the User information
 |» name|string|true|The identifier by which the parameter is called in the driver script|
 |» value_type|string|true|Value type of the parameter. Numbers are treated as floats, list items are treated as strings|
 |requires_credentials|boolean|true|True if the Custom Driver requires credentials to run, False otherwise|
+|type|string|true|The Custom Driver type.  Driver usage differs between types such as data collection and/or available actions|
 
 #### Enumerated Values
 
@@ -19209,6 +19230,8 @@ Returns the User information
 |value_type|STRING|
 |value_type|NUMBER|
 |value_type|LIST|
+|type|GENERIC|
+|type|CONFIGURATION_MANAGEMENT|
 
 <h2 id="tocScustomdriverexecutionresult">CustomDriverExecutionResult</h2>
 
