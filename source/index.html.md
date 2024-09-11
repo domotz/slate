@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.12.1</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.12.3</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -5194,6 +5194,769 @@ Sets the device credentials to perform extended discovery. This operation will a
 |body|body|[DeviceCredentials](#schemadevicecredentials)|true|device credentials payload|
 
 <h3 id="setcredentials-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## getDeviceOutlets
+
+<a id="opIdgetDeviceOutlets"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/power-outlet`</span>
+
+Returns a list of the power outlets discovered on the device
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getdeviceoutlets-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "can_write": true,
+    "custom_name": "string",
+    "device_id": 0,
+    "id": 0,
+    "links": [
+      0
+    ],
+    "name": "string",
+    "power": "ON"
+  }
+]
+```
+
+<h3 id="getdeviceoutlets-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A list of outlet objects|Inline|
+
+<h3 id="getdeviceoutlets-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceOutlet](#schemadeviceoutlet)]|false|[Power outlet of a device]|
+|» can_write|boolean|true|True if power actions can be executed on the outlet|
+|» custom_name|string|false|Name of the outlet assigned by the user|
+|» device_id|integer(int32)|true|Unique identifier of the device the outlet belongs to|
+|» id|integer(int32)|true|Unique identifier of the outlet|
+|» links|[integer]|true|List of device ids attached to the outlet|
+|» name|string|true|Name of the outlet discovered automatically|
+|» power|string|true|The current power state of the outlet|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|power|ON|
+|power|OFF|
+|power|unknown|
+
+## updateDeviceOutlet
+
+<a id="opIdupdateDeviceOutlet"></a>
+
+> Code samples
+
+```shell
+curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "custom_name": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}`</span>
+
+Update the power outlet with the specified custom name
+
+> Body parameter
+
+```json
+{
+  "custom_name": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id} \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="updatedeviceoutlet-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|power_outlet_id|path|string|true|Outlet ID|
+|body|body|[DeviceOutletUpdate](#schemadeviceoutletupdate)|false|none|
+
+<h3 id="updatedeviceoutlet-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## triggerOutletAction
+
+<a id="opIdtriggerOutletAction"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/action/{action} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/action/{action}',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/action/{action}',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/action/{action}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/action/{action}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/action/{action}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/action/{action}`</span>
+
+Trigger an action on a power outlet
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/action/{action} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="triggeroutletaction-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|power_outlet_id|path|string|true|Outlet ID|
+|action|path|string|true|Action to perform on the outlet|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|action|on|
+|action|off|
+|action|cycle|
+
+<h3 id="triggeroutletaction-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|202|[Accepted](https://tools.ietf.org/html/rfc7231#section-6.3.3)|none|None|
+
+## detachDeviceFromOutlet
+
+<a id="opIddetachDeviceFromOutlet"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}`</span>
+
+Detach a device from a power outlet
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="detachdevicefromoutlet-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|power_outlet_id|path|string|true|Outlet ID|
+|attached_device_id|path|integer(int32)|true|Device ID|
+
+<h3 id="detachdevicefromoutlet-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## attachDeviceToOutlet
+
+<a id="opIdattachDeviceToOutlet"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id}`</span>
+
+Attach a device to a power outlet
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/power-outlet/{power_outlet_id}/attach/{attached_device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="attachdevicetooutlet-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|power_outlet_id|path|string|true|Outlet ID|
+|attached_device_id|path|integer(int32)|true|Device ID|
+
+<h3 id="attachdevicetooutlet-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -20121,6 +20884,66 @@ Returns the User information
 |creation_time|string(date-time)|false|none|
 |key|string|true|The name of the field, unique in the Inventory|
 |value|string|true|none|
+
+<h2 id="tocSdeviceoutlet">DeviceOutlet</h2>
+
+<a id="schemadeviceoutlet"></a>
+
+```json
+{
+  "can_write": true,
+  "custom_name": "string",
+  "device_id": 0,
+  "id": 0,
+  "links": [
+    0
+  ],
+  "name": "string",
+  "power": "ON"
+}
+
+```
+
+*Power outlet of a device*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|can_write|boolean|true|True if power actions can be executed on the outlet|
+|custom_name|string|false|Name of the outlet assigned by the user|
+|device_id|integer(int32)|true|Unique identifier of the device the outlet belongs to|
+|id|integer(int32)|true|Unique identifier of the outlet|
+|links|[integer]|true|List of device ids attached to the outlet|
+|name|string|true|Name of the outlet discovered automatically|
+|power|string|true|The current power state of the outlet|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|power|ON|
+|power|OFF|
+|power|unknown|
+
+<h2 id="tocSdeviceoutletupdate">DeviceOutletUpdate</h2>
+
+<a id="schemadeviceoutletupdate"></a>
+
+```json
+{
+  "custom_name": "string"
+}
+
+```
+
+*Outlet update data*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|custom_name|string|false|Custom name to assign to the outlet|
 
 <h2 id="tocSdevicepoweraction">DevicePowerAction</h2>
 
