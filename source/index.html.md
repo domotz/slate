@@ -5346,7 +5346,7 @@ Returns a list of the power outlets discovered on the device
     "can_write": true,
     "custom_name": "string",
     "device_id": 0,
-    "id": 0,
+    "id": "string",
     "links": [
       0
     ],
@@ -5372,7 +5372,7 @@ Status Code **200**
 |» can_write|boolean|true|True if power actions can be executed on the outlet|
 |» custom_name|string|false|Name of the outlet assigned by the user|
 |» device_id|integer(int32)|true|Unique identifier of the device the outlet belongs to|
-|» id|integer(int32)|true|Unique identifier of the outlet|
+|» id|string|true|Unique identifier of the outlet|
 |» links|[integer]|true|List of device ids attached to the outlet|
 |» name|string|true|Name of the outlet discovered automatically|
 |» power|string|true|The current power state of the outlet|
@@ -20894,7 +20894,7 @@ Returns the User information
   "can_write": true,
   "custom_name": "string",
   "device_id": 0,
-  "id": 0,
+  "id": "string",
   "links": [
     0
   ],
@@ -20913,7 +20913,7 @@ Returns the User information
 |can_write|boolean|true|True if power actions can be executed on the outlet|
 |custom_name|string|false|Name of the outlet assigned by the user|
 |device_id|integer(int32)|true|Unique identifier of the device the outlet belongs to|
-|id|integer(int32)|true|Unique identifier of the outlet|
+|id|string|true|Unique identifier of the outlet|
 |links|[integer]|true|List of device ids attached to the outlet|
 |name|string|true|Name of the outlet discovered automatically|
 |power|string|true|The current power state of the outlet|
