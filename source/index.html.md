@@ -231,6 +231,10 @@ Returns the agents list
     "version": {
       "agent": "string",
       "package": "string"
+    },
+    "wan_info": {
+      "hostname": "string",
+      "ip": "string"
     }
   }
 ]
@@ -285,6 +289,9 @@ Status Code **200**
 |» version|object|false|none|
 |»» agent|string|false|none|
 |»» package|string|false|none|
+|» wan_info|object|false|none|
+|»» hostname|string|false|none|
+|»» ip|string|false|none|
 
 #### Enumerated Values
 
@@ -761,6 +768,10 @@ Returns the details of an agent
   "version": {
     "agent": "string",
     "package": "string"
+  },
+  "wan_info": {
+    "hostname": "string",
+    "ip": "string"
   },
   "listen_on": "string"
 }
@@ -18535,6 +18546,10 @@ Returns the User information
   "version": {
     "agent": "string",
     "package": "string"
+  },
+  "wan_info": {
+    "hostname": "string",
+    "ip": "string"
   }
 }
 
@@ -18580,6 +18595,9 @@ Returns the User information
 |version|object|false|none|
 |» agent|string|false|none|
 |» package|string|false|none|
+|wan_info|object|false|none|
+|» hostname|string|false|none|
+|» ip|string|false|none|
 
 #### Enumerated Values
 
@@ -18644,6 +18662,10 @@ Returns the User information
     "agent": "string",
     "package": "string"
   },
+  "wan_info": {
+    "hostname": "string",
+    "ip": "string"
+  },
   "listen_on": "string"
 }
 
@@ -18666,6 +18688,9 @@ Returns the User information
 |» location|object|false|none|
 |»» latitude|string|false|none|
 |»» longitude|string|false|none|
+|» wan_info|object|false|none|
+|»» hostname|string|false|none|
+|»» ip|string|false|none|
 
 <h2 id="tocSagentdeviceapplication">AgentDeviceApplication</h2>
 
@@ -18946,6 +18971,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -19056,6 +19085,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -19149,6 +19182,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -19248,6 +19285,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -19465,6 +19506,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -20194,6 +20239,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -20312,6 +20361,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -20493,6 +20546,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -20632,6 +20689,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -20789,6 +20850,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -21048,6 +21113,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -21215,6 +21284,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -21358,6 +21431,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -21480,6 +21557,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -21891,6 +21972,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -22236,6 +22321,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "agent_id": 0,
@@ -22362,6 +22451,10 @@ Returns the User information
       "version": {
         "agent": "string",
         "package": "string"
+      },
+      "wan_info": {
+        "hostname": "string",
+        "ip": "string"
       }
     },
     "details": {},
