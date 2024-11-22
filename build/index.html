@@ -5508,9 +5508,9 @@ download and in upload.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5569,26 +5569,6 @@ download and in upload.</p>
 <th>Value</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>authentication_status</td>
-<td>NO_AUTHENTICATION</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>AUTHENTICATED</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>PENDING</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>REQUIRED</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>WRONG_CREDENTIALS</td>
-</tr>
 <tr>
 <td>importance</td>
 <td>VITAL</td>
@@ -6566,9 +6546,9 @@ download and in upload.</p>
 <p>200 Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6626,26 +6606,6 @@ download and in upload.</p>
 <th>Value</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>authentication_status</td>
-<td>NO_AUTHENTICATION</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>AUTHENTICATED</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>PENDING</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>REQUIRED</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>WRONG_CREDENTIALS</td>
-</tr>
 <tr>
 <td>importance</td>
 <td>VITAL</td>
@@ -9524,6 +9484,10 @@ download and in upload.</p>
 <tr>
 <td>field</td>
 <td>details/serial</td>
+</tr>
+<tr>
+<td>field</td>
+<td>details/notes</td>
 </tr>
 </tbody></table>
 
@@ -23521,9 +23485,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p><a id="schemaabstractdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -23567,12 +23531,6 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 </thead><tbody>
 <tr>
-<td>authentication_status</td>
-<td>string</td>
-<td>false</td>
-<td>When defined the device requires authentication info to perform extended discovery <ul> <li> <em>REQUIRED</em>: the device requires authentication, extended discovery is locked </li><li> <em>PENDING</em>: credentials have been submitted but not verified yet </li><li> <em>WRONG_CREDENTIALS</em>: device authentication failed </li><li> <em>AUTHENTICATED</em>: device authentication succeeded </li></ul></td>
-</tr>
-<tr>
 <td>details</td>
 <td>object</td>
 <td>false</td>
@@ -23580,6 +23538,12 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </tr>
 <tr>
 <td>» firmware_version</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» notes</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
@@ -23678,7 +23642,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>snmp_status</td>
 <td>string</td>
 <td>false</td>
-<td>Get the status of SNMP service for the device <ul> <li> <em>CHECKING</em>:  Indicates that Domotz is currently verifying the SNMP status on the device. This is a transient state. </li><li> <em>NOT_FOUND</em>: This status indicates that the SNMP service could not be found on the device. </li><li> <em>NOT_AUTHENTICATED</em>: This status occurs when the SNMP service is detected as active, but Domotz is unable to retrieve data  from it. This is most likely due to incorrect community strings or credentials. </li><li> <em>AUTHENTICATED</em>:  This status indicates that Domotz is successfully reading SNMP data from the device. </li></ul></td>
+<td>Get the status of SNMP service for the device <ul> <li> <em>CHECKING</em>:  Indicates that Domotz is currently verifying the SNMP status on the device. This is a transient state. </li><li> <em>NOT_FOUND</em>: This status indicates that the SNMP service could not be found on the device. </li><li> <em>NOT_AUTHENTICATED</em>: This status occurs when the SNMP service is detected as active, but Domotz is unable to retrieve data from it. This is most likely due to incorrect community strings or credentials. </li><li> <em>AUTHENTICATED</em>:  This status indicates that Domotz is successfully reading SNMP data from the device. </li></ul></td>
 </tr>
 <tr>
 <td>type</td>
@@ -23742,26 +23706,6 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <th>Value</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>authentication_status</td>
-<td>NO_AUTHENTICATION</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>AUTHENTICATED</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>PENDING</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>REQUIRED</td>
-</tr>
-<tr>
-<td>authentication_status</td>
-<td>WRONG_CREDENTIALS</td>
-</tr>
 <tr>
 <td>importance</td>
 <td>VITAL</td>
@@ -27478,9 +27422,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -27643,9 +27587,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -27943,9 +27887,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -28146,9 +28090,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -28392,9 +28336,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -28835,9 +28779,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -29132,9 +29076,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -29349,9 +29293,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -29529,9 +29473,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -29946,9 +29890,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p><a id="schemadummydevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -30013,7 +29957,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td><em>anonymous</em></td>
 <td>object</td>
 <td>false</td>
-<td>A device that has no network access whatsoever and cannot be discovered or interacted with by      the agent.    A user can create a Dummy Device to attach it to a power outlet so that it is easier to remember which port controls the device</td>
+<td>A device that has no network access whatsoever and cannot be discovered or interacted with by      the agent.   A user can create a Dummy Device to attach it to a power outlet so that it is easier to remember which port controls the device</td>
 </tr>
 </tbody></table>
 
@@ -30052,9 +29996,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p><a id="schemaexternalipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -30140,7 +30084,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td><em>anonymous</em></td>
 <td>object</td>
 <td>false</td>
-<td>A device added by the means of &#39;Advanced Monitoring&#39;: it is an IP device manually added by  the user, no discoveries are done over it, just periodical ping to see whether it is reachable</td>
+<td>A device added by the means of &#39;Advanced Monitoring&#39;: it is an IP device manually added by the user, no discoveries are done over it, just periodical ping to see whether it is reachable</td>
 </tr>
 <tr>
 <td>» names</td>
@@ -30221,9 +30165,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -30422,9 +30366,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p><a id="schemaipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -30598,9 +30542,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p><a id="schemalocalipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -30823,9 +30767,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -31002,9 +30946,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -31978,9 +31922,9 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p><a id="schemasubnetipdevice"></a></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"authentication_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_AUTHENTICATION"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"snmp_read_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -32069,7 +32013,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td><em>anonymous</em></td>
 <td>object</td>
 <td>false</td>
-<td>A device automatically discovered by the agent that exists in an IP subnet defined by the user.  The agent reaches the device through a Level 3 switch or similar device, so it cannot get the MAC address or other  level 2 information, such as DHCP lease data</td>
+<td>A device automatically discovered by the agent that exists in an IP subnet defined by the user.  The agent reaches the device through a Level 3 switch or similar device, so it cannot get the MAC address or other level 2 information, such as DHCP lease data</td>
 </tr>
 <tr>
 <td>» names</td>

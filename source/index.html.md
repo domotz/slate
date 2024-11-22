@@ -3523,9 +3523,9 @@ Returns all the devices of an agent
 ```json
 [
   {
-    "authentication_status": "NO_AUTHENTICATION",
     "details": {
       "firmware_version": "string",
+      "notes": "string",
       "room": "string",
       "serial": "string",
       "snmp_read_community": "string",
@@ -3571,11 +3571,6 @@ Returns all the devices of an agent
 
 |Property|Value|
 |---|---|
-|authentication_status|NO_AUTHENTICATION|
-|authentication_status|AUTHENTICATED|
-|authentication_status|PENDING|
-|authentication_status|REQUIRED|
-|authentication_status|WRONG_CREDENTIALS|
 |importance|VITAL|
 |importance|FLOATING|
 |protocol|IP|
@@ -4354,9 +4349,9 @@ Returns the details of a device
 
 ```json
 {
-  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
+    "notes": "string",
     "room": "string",
     "serial": "string",
     "snmp_read_community": "string",
@@ -4401,11 +4396,6 @@ Returns the details of a device
 
 |Property|Value|
 |---|---|
-|authentication_status|NO_AUTHENTICATION|
-|authentication_status|AUTHENTICATED|
-|authentication_status|PENDING|
-|authentication_status|REQUIRED|
-|authentication_status|WRONG_CREDENTIALS|
 |importance|VITAL|
 |importance|FLOATING|
 |protocol|IP|
@@ -6750,6 +6740,7 @@ Changes a field of the device or one of its details
 |field|details/room|
 |field|details/zone|
 |field|details/serial|
+|field|details/notes|
 
 <h3 id="editdevice-responses">Responses</h3>
 
@@ -18344,9 +18335,9 @@ Returns the User information
 
 ```json
 {
-  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
+    "notes": "string",
     "room": "string",
     "serial": "string",
     "snmp_read_community": "string",
@@ -18386,9 +18377,9 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|authentication_status|string|false|When defined the device requires authentication info to perform extended discovery <ul> <li> *REQUIRED*: the device requires authentication, extended discovery is locked </li><li> *PENDING*: credentials have been submitted but not verified yet </li><li> *WRONG_CREDENTIALS*: device authentication failed </li><li> *AUTHENTICATED*: device authentication succeeded </li></ul>|
 |details|object|false|DeviceDetails|
 |» firmware_version|string|false|none|
+|» notes|string|false|none|
 |» room|string|false|none|
 |» serial|string|false|Set to null to reset and allow the automatically discovered serial number to be used for device|
 |» snmp_read_community|string|false|Deprecated. Please use <a href='#getsnmpauthentication'> getSNMPAuthentication </a>|
@@ -18404,7 +18395,7 @@ Returns the User information
 |» name|string|false|none|
 |» version|string|false|none|
 |protocol|string|true|none|
-|snmp_status|string|false|Get the status of SNMP service for the device <ul> <li> *CHECKING*:  Indicates that Domotz is currently verifying the SNMP status on the device. This is a transient state. </li><li> *NOT_FOUND*: This status indicates that the SNMP service could not be found on the device. </li><li> *NOT_AUTHENTICATED*: This status occurs when the SNMP service is detected as active, but Domotz is unable to retrieve data  from it. This is most likely due to incorrect community strings or credentials. </li><li> *AUTHENTICATED*:  This status indicates that Domotz is successfully reading SNMP data from the device. </li></ul>|
+|snmp_status|string|false|Get the status of SNMP service for the device <ul> <li> *CHECKING*:  Indicates that Domotz is currently verifying the SNMP status on the device. This is a transient state. </li><li> *NOT_FOUND*: This status indicates that the SNMP service could not be found on the device. </li><li> *NOT_AUTHENTICATED*: This status occurs when the SNMP service is detected as active, but Domotz is unable to retrieve data from it. This is most likely due to incorrect community strings or credentials. </li><li> *AUTHENTICATED*:  This status indicates that Domotz is successfully reading SNMP data from the device. </li></ul>|
 |type|object|false|The device type, if recognised by domotz|
 |» detected_id|integer(int32)|false|none|
 |» id|integer(int32)|false|none|
@@ -18419,11 +18410,6 @@ Returns the User information
 
 |Property|Value|
 |---|---|
-|authentication_status|NO_AUTHENTICATION|
-|authentication_status|AUTHENTICATED|
-|authentication_status|PENDING|
-|authentication_status|REQUIRED|
-|authentication_status|WRONG_CREDENTIALS|
 |importance|VITAL|
 |importance|FLOATING|
 |protocol|IP|
@@ -20247,9 +20233,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -20369,9 +20355,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -20554,9 +20540,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -20697,9 +20683,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -20858,9 +20844,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -21121,9 +21107,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -21292,9 +21278,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -21439,9 +21425,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -21565,9 +21551,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -21770,9 +21756,9 @@ Returns the User information
 
 ```json
 {
-  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
+    "notes": "string",
     "room": "string",
     "serial": "string",
     "snmp_read_community": "string",
@@ -21818,7 +21804,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|object|false|A device that has no network access whatsoever and cannot be discovered or interacted with by      the agent.    A user can create a Dummy Device to attach it to a power outlet so that it is easier to remember which port controls the device|
+|*anonymous*|object|false|A device that has no network access whatsoever and cannot be discovered or interacted with by      the agent.   A user can create a Dummy Device to attach it to a power outlet so that it is easier to remember which port controls the device|
 
 <h2 id="tocSexternalhost">ExternalHost</h2>
 
@@ -21845,9 +21831,9 @@ Returns the User information
 
 ```json
 {
-  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
+    "notes": "string",
     "room": "string",
     "serial": "string",
     "snmp_read_community": "string",
@@ -21914,7 +21900,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|object|false|A device added by the means of 'Advanced Monitoring': it is an IP device manually added by  the user, no discoveries are done over it, just periodical ping to see whether it is reachable|
+|*anonymous*|object|false|A device added by the means of 'Advanced Monitoring': it is an IP device manually added by the user, no discoveries are done over it, just periodical ping to see whether it is reachable|
 |» names|object|false|none|
 |»» host|string|false|none|
 |»» inspection|string|false|none|
@@ -21980,9 +21966,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -22086,9 +22072,9 @@ Returns the User information
 
 ```json
 {
-  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
+    "notes": "string",
     "room": "string",
     "serial": "string",
     "snmp_read_community": "string",
@@ -22178,9 +22164,9 @@ Returns the User information
 
 ```json
 {
-  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
+    "notes": "string",
     "room": "string",
     "serial": "string",
     "snmp_read_community": "string",
@@ -22329,9 +22315,9 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -22459,9 +22445,9 @@ Returns the User information
     },
     "details": {},
     "device": {
-      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
+        "notes": "string",
         "room": "string",
         "serial": "string",
         "snmp_read_community": "string",
@@ -22923,9 +22909,9 @@ Returns the User information
 
 ```json
 {
-  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
+    "notes": "string",
     "room": "string",
     "serial": "string",
     "snmp_read_community": "string",
@@ -22995,7 +22981,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|object|false|A device automatically discovered by the agent that exists in an IP subnet defined by the user.  The agent reaches the device through a Level 3 switch or similar device, so it cannot get the MAC address or other  level 2 information, such as DHCP lease data|
+|*anonymous*|object|false|A device automatically discovered by the agent that exists in an IP subnet defined by the user.  The agent reaches the device through a Level 3 switch or similar device, so it cannot get the MAC address or other level 2 information, such as DHCP lease data|
 |» names|object|false|none|
 |»» bonjour|string|false|none|
 |»» host|string|false|none|
