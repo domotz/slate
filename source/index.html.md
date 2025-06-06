@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.12.3</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.12.4</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -3523,6 +3523,7 @@ Returns all the devices of an agent
 ```json
 [
   {
+    "authentication_status": "NO_AUTHENTICATION",
     "details": {
       "firmware_version": "string",
       "notes": "string",
@@ -3571,6 +3572,11 @@ Returns all the devices of an agent
 
 |Property|Value|
 |---|---|
+|authentication_status|NO_AUTHENTICATION|
+|authentication_status|AUTHENTICATED|
+|authentication_status|PENDING|
+|authentication_status|REQUIRED|
+|authentication_status|WRONG_CREDENTIALS|
 |importance|VITAL|
 |importance|FLOATING|
 |protocol|IP|
@@ -4349,6 +4355,7 @@ Returns the details of a device
 
 ```json
 {
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "notes": "string",
@@ -4396,6 +4403,11 @@ Returns the details of a device
 
 |Property|Value|
 |---|---|
+|authentication_status|NO_AUTHENTICATION|
+|authentication_status|AUTHENTICATED|
+|authentication_status|PENDING|
+|authentication_status|REQUIRED|
+|authentication_status|WRONG_CREDENTIALS|
 |importance|VITAL|
 |importance|FLOATING|
 |protocol|IP|
@@ -16831,6 +16843,141 @@ Status Code **200**
 |status|ENABLED|
 |status|DISABLED|
 
+## reEnableCustomDriverAssociations
+
+<a id="opIdreEnableCustomDriverAssociations"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/custom-driver/association/re-enable \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/custom-driver/association/re-enable',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/custom-driver/association/re-enable',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/custom-driver/association/re-enable', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/custom-driver/association/re-enable',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/custom-driver/association/re-enable", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /custom-driver/association/re-enable`</span>
+
+Re-enable all disabled Custom Drivers for the current user
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-driver/association/re-enable \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="reenablecustomdriverassociations-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|include_unrecoverable|query|boolean|false|If true, will also re-enable associations that the system has determined unable to recover (e.g. due to missing credentials). Defaults to false.|
+
+<h3 id="reenablecustomdriverassociations-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 ## getCustomDriver
 
 <a id="opIdgetCustomDriver"></a>
@@ -18335,6 +18482,7 @@ Returns the User information
 
 ```json
 {
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "notes": "string",
@@ -18377,6 +18525,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
+|authentication_status|string|false|When defined the device requires authentication info to perform extended discovery <ul> <li> *REQUIRED*: the device requires authentication, extended discovery is locked </li><li> *PENDING*: credentials have been submitted but not verified yet </li><li> *WRONG_CREDENTIALS*: device authentication failed </li><li> *AUTHENTICATED*: device authentication succeeded </li></ul>|
 |details|object|false|DeviceDetails|
 |» firmware_version|string|false|none|
 |» notes|string|false|none|
@@ -18410,6 +18559,11 @@ Returns the User information
 
 |Property|Value|
 |---|---|
+|authentication_status|NO_AUTHENTICATION|
+|authentication_status|AUTHENTICATED|
+|authentication_status|PENDING|
+|authentication_status|REQUIRED|
+|authentication_status|WRONG_CREDENTIALS|
 |importance|VITAL|
 |importance|FLOATING|
 |protocol|IP|
@@ -20233,6 +20387,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -20355,6 +20510,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -20540,6 +20696,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -20683,6 +20840,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -20844,6 +21002,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -21107,6 +21266,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -21278,6 +21438,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -21425,6 +21586,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -21551,6 +21713,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -21756,6 +21919,7 @@ Returns the User information
 
 ```json
 {
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "notes": "string",
@@ -21831,6 +21995,7 @@ Returns the User information
 
 ```json
 {
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "notes": "string",
@@ -21966,6 +22131,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -22072,6 +22238,7 @@ Returns the User information
 
 ```json
 {
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "notes": "string",
@@ -22164,6 +22331,7 @@ Returns the User information
 
 ```json
 {
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "notes": "string",
@@ -22315,6 +22483,7 @@ Returns the User information
     },
     "agent_id": 0,
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -22445,6 +22614,7 @@ Returns the User information
     },
     "details": {},
     "device": {
+      "authentication_status": "NO_AUTHENTICATION",
       "details": {
         "firmware_version": "string",
         "notes": "string",
@@ -22909,6 +23079,7 @@ Returns the User information
 
 ```json
 {
+  "authentication_status": "NO_AUTHENTICATION",
   "details": {
     "firmware_version": "string",
     "notes": "string",
