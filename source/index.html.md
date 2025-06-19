@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.12.4</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.12.5</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -16592,6 +16592,9 @@ Retrieves the list of available Custom Drivers
 [
   {
     "code_inspection": {
+      "data_saving_functions": [
+        "string"
+      ],
       "has_independent_variables": true,
       "has_parameters": true,
       "has_table": true
@@ -16624,6 +16627,7 @@ Status Code **200**
 |---|---|---|---|---|
 |*anonymous*|[[CustomDriver](#schemacustomdriver)]|false|[A Custom Driver that can be applied on devices]|
 |» code_inspection|object|true|Result of the Custom Driver code analysis|
+|»» data_saving_functions|[string]|true|A list of functions of the {CUSTOM_DRIVER} that save data. Only a one of these can be executed on the same device at a time.|
 |»» has_independent_variables|boolean|true|True if the Custom Driver creates independent variables on execution|
 |»» has_parameters|boolean|true|True if the Custom Driver uses parameters during execution|
 |»» has_table|boolean|true|True if the Custom Driver creates a variable table on execution|
@@ -17130,6 +17134,9 @@ Returns details of a Custom Driver
   ],
   "code": "string",
   "code_inspection": {
+    "data_saving_functions": [
+      "string"
+    ],
     "has_independent_variables": true,
     "has_parameters": true,
     "has_table": true
@@ -17367,6 +17374,7 @@ Apply a Custom Driver to a device
 
 ```shell
 curl -X POST {baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id} \
+  -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -17374,6 +17382,7 @@ curl -X POST {baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{age
 
 ```javascript
 var headers = {
+  'Content-Type':'application/json',
   'Accept':'application/json',
   'X-Api-Key':'API_KEY'
 
@@ -17393,8 +17402,11 @@ $.ajax({
 
 ```javascript--nodejs
 const fetch = require('node-fetch');
-
+const inputBody = '{
+  "test": true
+}';
 const headers = {
+  'Content-Type':'application/json',
   'Accept':'application/json',
   'X-Api-Key':'API_KEY'
 
@@ -17403,7 +17415,7 @@ const headers = {
 fetch('{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id}',
 {
   method: 'POST',
-
+  body: inputBody,
   headers: headers
 })
 .then(function(res) {
@@ -17417,6 +17429,7 @@ fetch('{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}
 ```python
 import requests
 headers = {
+  'Content-Type': 'application/json',
   'Accept': 'application/json',
   'X-Api-Key': 'API_KEY'
 }
@@ -17434,6 +17447,7 @@ require 'rest-client'
 require 'json'
 
 headers = {
+  'Content-Type' => 'application/json',
   'Accept' => 'application/json',
   'X-Api-Key' => 'API_KEY'
 }
@@ -17457,6 +17471,7 @@ import (
 func main() {
 
     headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
         "Accept": []string{"application/json"},
         "X-Api-Key": []string{"API_KEY"},
         
@@ -17477,11 +17492,20 @@ func main() {
 
 Execute a Custom Driver action on an associated device. The agent variables limit for Custom Drivers must not be exceeded.
 
+> Body parameter
+
+```json
+{
+  "test": true
+}
+```
+
 <h3>Curl</h3>
 
 <p class="dmt-code-block">
 <code>
 <span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/custom-driver/{custom_driver_id}/agent/{agent_id}/device/{device_id}/execute/{action_id} \
+  -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -17496,7 +17520,8 @@ Execute a Custom Driver action on an associated device. The agent variables limi
 |custom_driver_id|path|integer(int32)|true|Custom Driver ID|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
-|action_id|path|integer(int32)|true|Custom Driver Action id. Valid range 1-30|
+|action_id|path|string|true|Custom Driver Action id. Valid range 1-30 or get-status|
+|body|body|[CustomDriverExecutionOptions](#schemacustomdriverexecutionoptions)|false|none|
 
 > Example responses
 
@@ -19908,6 +19933,9 @@ Returns the User information
 ```json
 {
   "code_inspection": {
+    "data_saving_functions": [
+      "string"
+    ],
     "has_independent_variables": true,
     "has_parameters": true,
     "has_table": true
@@ -19933,6 +19961,7 @@ Returns the User information
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |code_inspection|object|true|Result of the Custom Driver code analysis|
+|» data_saving_functions|[string]|true|A list of functions of the {CUSTOM_DRIVER} that save data. Only a one of these can be executed on the same device at a time.|
 |» has_independent_variables|boolean|true|True if the Custom Driver creates independent variables on execution|
 |» has_parameters|boolean|true|True if the Custom Driver uses parameters during execution|
 |» has_table|boolean|true|True if the Custom Driver creates a variable table on execution|
@@ -20106,6 +20135,9 @@ Returns the User information
   ],
   "code": "string",
   "code_inspection": {
+    "data_saving_functions": [
+      "string"
+    ],
     "has_independent_variables": true,
     "has_parameters": true,
     "has_table": true
@@ -20150,11 +20182,12 @@ Returns the User information
 |» line|integer(int32)|true|Line number of the function declaration for the action|
 |code|string|true|The source code of the driver|
 |code_inspection|object|true|Result of the Custom Driver code analysis|
+|» data_saving_functions|[string]|true|A list of functions of the {CUSTOM_DRIVER} that save data. Only a one of these can be executed on the same device at a time.|
 |» has_independent_variables|boolean|true|True if the Custom Driver creates independent variables on execution|
 |» has_parameters|boolean|true|True if the Custom Driver uses parameters during execution|
 |» has_table|boolean|true|True if the Custom Driver creates a variable table on execution|
 |description|string|false|Description of the Custom Driver|
-|errors|[object]|false|A list of errors in this drivers's code. Only returned if the driver's code is invalid and cannot be executed|
+|errors|[object]|false|A list of errors in this driver's code. Only returned if the driver's code is invalid and cannot be executed|
 |» line|integer(int32)|false|The line number in the code that raised the error.|
 |» message|string|false|Error message|
 |» type|string|true|Type of the error|
@@ -20180,6 +20213,25 @@ Returns the User information
 |value_type|LIST|
 |type|GENERIC|
 |type|CONFIGURATION_MANAGEMENT|
+
+<h2 id="tocScustomdriverexecutionoptions">CustomDriverExecutionOptions</h2>
+
+<a id="schemacustomdriverexecutionoptions"></a>
+
+```json
+{
+  "test": true
+}
+
+```
+
+*Options provided to a Custom Driver execution command*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|test|boolean|false|If false, the Custom Driver variables will be persisted in history. Defaults to true|
 
 <h2 id="tocScustomdriverexecutionresult">CustomDriverExecutionResult</h2>
 
