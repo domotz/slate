@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.12.4</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.12.5</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -20187,7 +20187,7 @@ Returns the User information
 |» has_parameters|boolean|true|True if the Custom Driver uses parameters during execution|
 |» has_table|boolean|true|True if the Custom Driver creates a variable table on execution|
 |description|string|false|Description of the Custom Driver|
-|errors|[object]|false|A list of errors in this drivers' code. Only returned if the driver's code is invalid and cannot be executed|
+|errors|[object]|false|A list of errors in this driver's code. Only returned if the driver's code is invalid and cannot be executed|
 |» line|integer(int32)|false|The line number in the code that raised the error.|
 |» message|string|false|Error message|
 |» type|string|true|Type of the error|
@@ -20231,7 +20231,7 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|test|boolean|false|Determines whether the Custom Driver variables will be persisted in history. Defaults to false|
+|test|boolean|false|If false, the Custom Driver variables will be persisted in history. Defaults to true|
 
 <h2 id="tocScustomdriverexecutionresult">CustomDriverExecutionResult</h2>
 
