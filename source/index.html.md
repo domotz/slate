@@ -6760,6 +6760,347 @@ Changes a field of the device or one of its details
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## getDeviceProfiles
+
+<a id="opIdgetDeviceProfiles"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/device-profile \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/device-profile',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/device-profile',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/device-profile', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/device-profile',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/device-profile", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /device-profile`</span>
+
+Returns the list of the device profiles created by the user
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "creation_time": "2019-08-24T14:15:22Z",
+    "description": "string",
+    "id": 0,
+    "last_modified": "2019-08-24T14:15:22Z",
+    "modified_by": {
+      "id": 0,
+      "name": "string"
+    },
+    "modules": [
+      {
+        "configuration": {},
+        "creation_time": "2019-08-24T14:15:22Z",
+        "id": 0,
+        "is_active": true,
+        "last_modified": "2019-08-24T14:15:22Z",
+        "module_type": "SNMP_PRECONFIGURED_SENSOR"
+      }
+    ],
+    "name": "string"
+  }
+]
+```
+
+<h3 id="getdeviceprofiles-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of the device profiles created by the user|Inline|
+
+<h3 id="getdeviceprofiles-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceProfile](#schemadeviceprofile)]|false|none|
+|» creation_time|string(date-time)|true|The time the sample was reported to Domotz|
+|» description|string|true|none|
+|» id|integer(int32)|true|none|
+|» last_modified|string(date-time)|true|The time the sample was reported to Domotz|
+|» modified_by|object|true|none|
+|»» id|integer(int32)|false|none|
+|»» name|string|false|none|
+|» modules|[object]|true|none|
+|»» configuration|object|true|none|
+|»» creation_time|string(date-time)|true|The time the sample was reported to Domotz|
+|»» id|integer(int32)|true|none|
+|»» is_active|boolean|true|none|
+|»» last_modified|string(date-time)|true|The time the sample was reported to Domotz|
+|»» module_type|string|true|none|
+|» name|string|true|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|module_type|SNMP_PRECONFIGURED_SENSOR|
+|module_type|INFO|
+
+## applyDeviceProfile
+
+<a id="opIdapplyDeviceProfile"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/device-profile/{device_profile_id}/apply \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/device-profile/{device_profile_id}/apply',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "device_ids": [
+    0
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/device-profile/{device_profile_id}/apply',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/device-profile/{device_profile_id}/apply', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/device-profile/{device_profile_id}/apply',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/device-profile/{device_profile_id}/apply", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /device-profile/{device_profile_id}/apply`</span>
+
+Apply a device profile to a set of devices identified by their ids and/or by a custom filter id
+
+> Body parameter
+
+```json
+{
+  "device_ids": [
+    0
+  ]
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/device-profile/{device_profile_id}/apply \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="applydeviceprofile-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|device_profile_id|path|integer(int32)|true|Device Profile ID|
+|body|body|[DeviceProfileApplyRequest](#schemadeviceprofileapplyrequest)|true|none|
+
+<h3 id="applydeviceprofile-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 <h1 id="domotz-public-api-snmp-tcp-sensors">SNMP/TCP SENSORS</h1>
 
 ## listAgentEyesSNMP
@@ -21229,6 +21570,81 @@ Returns the User information
 |off|boolean|false|Indicates that the device can be powered off. Available if the device is connected to one or more PDU. <br><br> In the latter case the operation will be performed on all available PDUs.<br><br> If there no PDU but there is one POE connection, the operation will still be available through that connection.<br><br>|
 |on|boolean|false|Indicates that the device can be powered on. Available if the device is connected to one or more PDU. <br><br> In the latter case the operation will be performed on all available PDUs.<br><br> If there is no PDU but there is one POE connection, the operation will still available through that connection.|
 |software_reboot|boolean|false|Indicates that software reboot on the device is possible.<br><br> The operation availability depends on the device.|
+
+<h2 id="tocSdeviceprofile">DeviceProfile</h2>
+
+<a id="schemadeviceprofile"></a>
+
+```json
+{
+  "creation_time": "2019-08-24T14:15:22Z",
+  "description": "string",
+  "id": 0,
+  "last_modified": "2019-08-24T14:15:22Z",
+  "modified_by": {
+    "id": 0,
+    "name": "string"
+  },
+  "modules": [
+    {
+      "configuration": {},
+      "creation_time": "2019-08-24T14:15:22Z",
+      "id": 0,
+      "is_active": true,
+      "last_modified": "2019-08-24T14:15:22Z",
+      "module_type": "SNMP_PRECONFIGURED_SENSOR"
+    }
+  ],
+  "name": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|creation_time|string(date-time)|true|The time the sample was reported to Domotz|
+|description|string|true|none|
+|id|integer(int32)|true|none|
+|last_modified|string(date-time)|true|The time the sample was reported to Domotz|
+|modified_by|object|true|none|
+|» id|integer(int32)|false|none|
+|» name|string|false|none|
+|modules|[object]|true|none|
+|» configuration|object|true|none|
+|» creation_time|string(date-time)|true|The time the sample was reported to Domotz|
+|» id|integer(int32)|true|none|
+|» is_active|boolean|true|none|
+|» last_modified|string(date-time)|true|The time the sample was reported to Domotz|
+|» module_type|string|true|none|
+|name|string|true|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|module_type|SNMP_PRECONFIGURED_SENSOR|
+|module_type|INFO|
+
+<h2 id="tocSdeviceprofileapplyrequest">DeviceProfileApplyRequest</h2>
+
+<a id="schemadeviceprofileapplyrequest"></a>
+
+```json
+{
+  "device_ids": [
+    0
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|device_ids|[integer]|true|The list of device ids on which to apply the device profile|
 
 <h2 id="tocSdevicertdhistorysample">DeviceRTDHistorySample</h2>
 
