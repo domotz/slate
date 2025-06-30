@@ -6876,7 +6876,7 @@ func main() {
 
 <span class='dmt-method'>`GET /device-profile`</span>
 
-Returns the list of the device profiles created by the user
+Returns the list of the available device profiles
 
 > Example responses
 
@@ -6895,7 +6895,6 @@ Returns the list of the device profiles created by the user
     },
     "modules": [
       {
-        "configuration": {},
         "creation_time": "2019-08-24T14:15:22Z",
         "id": 0,
         "is_active": true,
@@ -6912,7 +6911,7 @@ Returns the list of the device profiles created by the user
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of the device profiles created by the user|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of the available device profiles|Inline|
 
 <h3 id="getdeviceprofiles-responseschema">Response Schema</h3>
 
@@ -6921,21 +6920,20 @@ Status Code **200**
 |Name|Type|Required|Description|
 |---|---|---|---|---|
 |*anonymous*|[[DeviceProfile](#schemadeviceprofile)]|false|none|
-|» creation_time|string(date-time)|true|The time the sample was reported to Domotz|
-|» description|string|true|none|
-|» id|integer(int32)|true|none|
-|» last_modified|string(date-time)|true|The time the sample was reported to Domotz|
-|» modified_by|object|true|none|
-|»» id|integer(int32)|false|none|
-|»» name|string|false|none|
-|» modules|[object]|true|none|
-|»» configuration|object|true|none|
-|»» creation_time|string(date-time)|true|The time the sample was reported to Domotz|
-|»» id|integer(int32)|true|none|
-|»» is_active|boolean|true|none|
-|»» last_modified|string(date-time)|true|The time the sample was reported to Domotz|
-|»» module_type|string|true|none|
-|» name|string|true|none|
+|» creation_time|string(date-time)|true|The time the device profile was created|
+|» description|string|true|Device profile description|
+|» id|integer(int32)|true|Device profile id|
+|» last_modified|string(date-time)|true|The last time the device profile was edited|
+|» modified_by|object|true|The user that edited the device profile|
+|»» id|integer(int32)|false|User id|
+|»» name|string|false|Username|
+|» modules|[object]|true|The list of modules associated to the device profile|
+|»» creation_time|string(date-time)|true|The time the device profile module was added|
+|»» id|integer(int32)|true|Module id|
+|»» is_active|boolean|true|Module status|
+|»» last_modified|string(date-time)|true|The last time the device profile module was edited|
+|»» module_type|string|true|Module type|
+|» name|string|true|Device profile name|
 
 #### Enumerated Values
 
@@ -7064,7 +7062,7 @@ func main() {
 
 <span class='dmt-method'>`POST /device-profile/{device_profile_id}/apply`</span>
 
-Apply a device profile to a set of devices identified by their ids and/or by a custom filter id
+Applies a device profile to a set of devices
 
 > Body parameter
 
@@ -21587,7 +21585,6 @@ Returns the User information
   },
   "modules": [
     {
-      "configuration": {},
       "creation_time": "2019-08-24T14:15:22Z",
       "id": 0,
       "is_active": true,
@@ -21604,21 +21601,20 @@ Returns the User information
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|creation_time|string(date-time)|true|The time the sample was reported to Domotz|
-|description|string|true|none|
-|id|integer(int32)|true|none|
-|last_modified|string(date-time)|true|The time the sample was reported to Domotz|
-|modified_by|object|true|none|
-|» id|integer(int32)|false|none|
-|» name|string|false|none|
-|modules|[object]|true|none|
-|» configuration|object|true|none|
-|» creation_time|string(date-time)|true|The time the sample was reported to Domotz|
-|» id|integer(int32)|true|none|
-|» is_active|boolean|true|none|
-|» last_modified|string(date-time)|true|The time the sample was reported to Domotz|
-|» module_type|string|true|none|
-|name|string|true|none|
+|creation_time|string(date-time)|true|The time the device profile was created|
+|description|string|true|Device profile description|
+|id|integer(int32)|true|Device profile id|
+|last_modified|string(date-time)|true|The last time the device profile was edited|
+|modified_by|object|true|The user that edited the device profile|
+|» id|integer(int32)|false|User id|
+|» name|string|false|Username|
+|modules|[object]|true|The list of modules associated to the device profile|
+|» creation_time|string(date-time)|true|The time the device profile module was added|
+|» id|integer(int32)|true|Module id|
+|» is_active|boolean|true|Module status|
+|» last_modified|string(date-time)|true|The last time the device profile module was edited|
+|» module_type|string|true|Module type|
+|name|string|true|Device profile name|
 
 #### Enumerated Values
 
