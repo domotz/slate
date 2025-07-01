@@ -6760,9 +6760,9 @@ Changes a field of the device or one of its details
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
-## getDeviceProfiles
+## listDeviceProfiles
 
-<a id="opIdgetDeviceProfiles"></a>
+<a id="opIdlistDeviceProfiles"></a>
 
 > Code samples
 
@@ -6907,13 +6907,13 @@ Returns the list of the available device profiles
 ]
 ```
 
-<h3 id="getdeviceprofiles-responses">Responses</h3>
+<h3 id="listdeviceprofiles-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of the available device profiles|Inline|
 
-<h3 id="getdeviceprofiles-responseschema">Response Schema</h3>
+<h3 id="listdeviceprofiles-responseschema">Response Schema</h3>
 
 Status Code **200**
 
