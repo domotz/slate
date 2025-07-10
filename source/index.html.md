@@ -6899,7 +6899,7 @@ Returns the list of the available device profiles
         "id": 0,
         "is_active": true,
         "last_modified": "2019-08-24T14:15:22Z",
-        "module_type": "SNMP_PRECONFIGURED_SENSOR"
+        "module_type": "INFO"
       }
     ],
     "name": "string"
@@ -6939,8 +6939,10 @@ Status Code **200**
 
 |Property|Value|
 |---|---|
-|module_type|SNMP_PRECONFIGURED_SENSOR|
 |module_type|INFO|
+|module_type|SHARED_ALERT|
+|module_type|SNMP_CUSTOM_OID|
+|module_type|SNMP_PRECONFIGURED_SENSOR|
 
 ## applyDeviceProfile
 
@@ -21589,7 +21591,7 @@ Returns the User information
       "id": 0,
       "is_active": true,
       "last_modified": "2019-08-24T14:15:22Z",
-      "module_type": "SNMP_PRECONFIGURED_SENSOR"
+      "module_type": "INFO"
     }
   ],
   "name": "string"
@@ -21620,8 +21622,10 @@ Returns the User information
 
 |Property|Value|
 |---|---|
-|module_type|SNMP_PRECONFIGURED_SENSOR|
 |module_type|INFO|
+|module_type|SHARED_ALERT|
+|module_type|SNMP_CUSTOM_OID|
+|module_type|SNMP_PRECONFIGURED_SENSOR|
 
 <h2 id="tocSdeviceprofileapplyrequest">DeviceProfileApplyRequest</h2>
 
