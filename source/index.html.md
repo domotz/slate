@@ -11274,7 +11274,7 @@ Status Code **200**
 |» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
 |» value|string|true|The sample value|
 
-<h1 id="domotz-public-api-device-configurations">device configurations</h1>
+<h1 id="domotz-public-api-configuration-management">Configuration Management</h1>
 
 ## backupDeviceConfigurationCommand
 
