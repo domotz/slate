@@ -11283,7 +11283,7 @@ Status Code **200**
 > Code samples
 
 ```shell
-curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration \
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup \
   -H 'X-Api-Key: API_KEY'
 
 ```
@@ -11295,7 +11295,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration',
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup',
   method: 'post',
 
   headers: headers,
@@ -11314,7 +11314,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration',
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup',
 {
   method: 'POST',
 
@@ -11334,7 +11334,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration', params={
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup', params={
 
 }, headers = headers)
 
@@ -11350,7 +11350,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration',
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup',
   params: {
   }, headers: headers
 
@@ -11374,7 +11374,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration", data)
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -11384,7 +11384,7 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/configuration`</span>
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/configuration-management/backup`</span>
 
 Sends a command to backup a device configuration
 
@@ -11392,7 +11392,7 @@ Sends a command to backup a device configuration
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -11419,7 +11419,7 @@ Sends a command to backup a device configuration
 > Code samples
 
 ```shell
-curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history \
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
@@ -11433,7 +11433,7 @@ var headers = {
 };
 
 $.ajax({
-  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history',
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
   method: 'get',
 
   headers: headers,
@@ -11453,7 +11453,7 @@ const headers = {
 
 };
 
-fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history',
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
 {
   method: 'GET',
 
@@ -11474,7 +11474,7 @@ headers = {
   'X-Api-Key': 'API_KEY'
 }
 
-r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history', params={
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history', params={
 
 }, headers = headers)
 
@@ -11491,7 +11491,7 @@ headers = {
   'X-Api-Key' => 'API_KEY'
 }
 
-result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history',
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
   params: {
   }, headers: headers
 
@@ -11516,7 +11516,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history", data)
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -11526,7 +11526,7 @@ func main() {
 
 ```
 
-<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/configuration-history`</span>
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/configuration-management/history`</span>
 
 Retrieves the list of available device configuration details
 
@@ -11534,7 +11534,7 @@ Retrieves the list of available device configuration details
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 

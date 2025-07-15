@@ -15610,7 +15610,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/configuration <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/configuration-management/backup <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -15619,7 +15619,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -15635,7 +15635,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
 
@@ -15652,7 +15652,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -15665,7 +15665,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -15686,7 +15686,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -15695,7 +15695,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span><span class="p">}</span><span class="x">
 
 </span></code></pre>
-<p><span class='dmt-method'><code>POST /agent/{agent_id}/device/{device_id}/configuration</code></span></p>
+<p><span class='dmt-method'><code>POST /agent/{agent_id}/device/{device_id}/configuration-management/backup</code></span></p>
 
 <p>Sends a command to backup a device configuration</p>
 
@@ -15703,7 +15703,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration \
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup \
   -H 'X-Api-Key: API_KEY'
 
 </span>
@@ -15760,7 +15760,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/configuration-history <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="o">{</span>baseURL<span class="o">}</span>/public-api/v1/agent/<span class="o">{</span>agent_id<span class="o">}</span>/device/<span class="o">{</span>device_id<span class="o">}</span>/configuration-management/history <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Api-Key: API_KEY'</span>
 
@@ -15771,7 +15771,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -15788,7 +15788,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -15806,7 +15806,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
@@ -15820,7 +15820,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'API_KEY'</span>
 <span class="p">}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -15842,7 +15842,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
     </span><span class="p">}</span><span class="x">
 
     </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="s">"{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
     </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
 
     </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
@@ -15851,7 +15851,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 </span><span class="p">}</span><span class="x">
 
 </span></code></pre>
-<p><span class='dmt-method'><code>GET /agent/{agent_id}/device/{device_id}/configuration-history</code></span></p>
+<p><span class='dmt-method'><code>GET /agent/{agent_id}/device/{device_id}/configuration-management/history</code></span></p>
 
 <p>Retrieves the list of available device configuration details</p>
 
@@ -15859,7 +15859,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 
 <p class="dmt-code-block">
 <code>
-<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-history \
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history \
   -H 'Accept: application/json' \
   -H 'X-Api-Key: API_KEY'
 
