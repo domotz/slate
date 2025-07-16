@@ -11276,9 +11276,9 @@ Status Code **200**
 
 <h1 id="domotz-public-api-configuration-management">Configuration Management</h1>
 
-## backupDeviceConfigurationCommand
+## backupDeviceConfiguration
 
-<a id="opIdbackupDeviceConfigurationCommand"></a>
+<a id="opIdbackupDeviceConfiguration"></a>
 
 > Code samples
 
@@ -11399,14 +11399,14 @@ Sends a command to backup a device configuration
 </code>
 </p>
 
-<h3 id="backupdeviceconfigurationcommand-parameters">Parameters</h3>
+<h3 id="backupdeviceconfiguration-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |device_id|path|integer(int32)|true|Device ID|
 
-<h3 id="backupdeviceconfigurationcommand-responses">Responses</h3>
+<h3 id="backupdeviceconfiguration-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
