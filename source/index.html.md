@@ -11274,6 +11274,314 @@ Status Code **200**
 |» timestamp|string(date-time)|true|The time the sample was reported to Domotz|
 |» value|string|true|The sample value|
 
+<h1 id="domotz-public-api-configuration-management">Configuration Management</h1>
+
+## backupDeviceConfigurationCommand
+
+<a id="opIdbackupDeviceConfigurationCommand"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/configuration-management/backup`</span>
+
+Sends a command to backup a device configuration
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/backup \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="backupdeviceconfigurationcommand-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+<h3 id="backupdeviceconfigurationcommand-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|202|[Accepted](https://tools.ietf.org/html/rfc7231#section-6.3.3)|Command has been sent|None|
+
+## deviceConfigurationHistoryList
+
+<a id="opIddeviceConfigurationHistoryList"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/configuration-management/history`</span>
+
+Retrieves the list of available device configuration details
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deviceconfigurationhistorylist-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "label": "string",
+    "running_md5": "string",
+    "startup_md5": "string",
+    "timestamp": "string"
+  }
+]
+```
+
+<h3 id="deviceconfigurationhistorylist-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of saved device configurations|Inline|
+
+<h3 id="deviceconfigurationhistorylist-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[DeviceConfiguration](#schemadeviceconfiguration)]|false|[A backed up device configuration]|
+|» label|string|true|Human readable configuration label|
+|» running_md5|string|true|MD5 hash of the running configuration|
+|» startup_md5|string|true|MD5 hash of the startup configuration|
+|» timestamp|string|true|Timestamp of when the backup was made in ISO format (%Y-%m-%dT%H:%M:%S%z)|
+
 <h1 id="domotz-public-api-inventory">inventory</h1>
 
 ## getDeviceInventory
@@ -20718,6 +21026,31 @@ Returns the User information
 |identifier|string|false|The name of the type|
 |label|string|false|A human-readable short description of the type|
 |vital|boolean|false|Whether a device of this type will be marked as `VITAL` as soon as recognised|
+
+<h2 id="tocSdeviceconfiguration">DeviceConfiguration</h2>
+
+<a id="schemadeviceconfiguration"></a>
+
+```json
+{
+  "label": "string",
+  "running_md5": "string",
+  "startup_md5": "string",
+  "timestamp": "string"
+}
+
+```
+
+*A backed up device configuration*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|label|string|true|Human readable configuration label|
+|running_md5|string|true|MD5 hash of the running configuration|
+|startup_md5|string|true|MD5 hash of the startup configuration|
+|timestamp|string|true|Timestamp of when the backup was made in ISO format (%Y-%m-%dT%H:%M:%S%z)|
 
 <h2 id="tocSdeviceconfigurationchangeevent">DeviceConfigurationChangeEvent</h2>
 
