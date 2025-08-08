@@ -11576,11 +11576,170 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|*anonymous*|[[DeviceConfiguration](#schemadeviceconfiguration)]|false|[A backed up device configuration]|
+|*anonymous*|[[DeviceConfigurationMetadata](#schemadeviceconfigurationmetadata)]|false|[A backed up device configuration metadata]|
 |» label|string|true|Human readable configuration label|
 |» running_md5|string|true|MD5 hash of the running configuration|
-|» startup_md5|string|true|MD5 hash of the startup configuration|
+|» startup_md5|string|false|MD5 hash of the startup configuration|
 |» timestamp|string|true|Timestamp of when the backup was made in ISO format (%Y-%m-%dT%H:%M:%S%z)|
+
+## getDeviceConfiguration
+
+<a id="opIdgetDeviceConfiguration"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history/{configuration_timestamp}?)?) \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history/{configuration_timestamp}?)',
+  method: 'get',
+  data: '?)',
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history/{configuration_timestamp}?)?)',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history/{configuration_timestamp}?)', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history/{configuration_timestamp}?)',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history/{configuration_timestamp}?)", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/configuration-management/history/{configuration_timestamp}?)`</span>
+
+Retrieves the a device configuration entry
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history/{configuration_timestamp}?)?) \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="getdeviceconfiguration-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|configuration_timestamp|path|string|true|Configuration timestamp ("latest" or YYYY-MM-DDTHH:MM:SS+00:00)|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "label": "string",
+  "running_md5": "string",
+  "startup_md5": "string",
+  "timestamp": "string",
+  "running": "string",
+  "startup": "string"
+}
+```
+
+<h3 id="getdeviceconfiguration-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The device's configuration|[DeviceConfiguration](#schemadeviceconfiguration)|
 
 <h1 id="domotz-public-api-inventory">inventory</h1>
 
@@ -21036,21 +21195,28 @@ Returns the User information
   "label": "string",
   "running_md5": "string",
   "startup_md5": "string",
-  "timestamp": "string"
+  "timestamp": "string",
+  "running": "string",
+  "startup": "string"
 }
 
 ```
 
-*A backed up device configuration*
-
 ### Properties
+
+*allOf*
 
 |Name|Type|Required|Description|
 |---|---|---|---|---|
-|label|string|true|Human readable configuration label|
-|running_md5|string|true|MD5 hash of the running configuration|
-|startup_md5|string|true|MD5 hash of the startup configuration|
-|timestamp|string|true|Timestamp of when the backup was made in ISO format (%Y-%m-%dT%H:%M:%S%z)|
+|*anonymous*|[DeviceConfigurationMetadata](#schemadeviceconfigurationmetadata)|false|A backed up device configuration metadata|
+
+*and*
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|object|false|A device configuration|
+|» running|string|true|The running configuration|
+|» startup|string|false|The startup configuration, skipped if not saved or if it is the same as the running configuration|
 
 <h2 id="tocSdeviceconfigurationchangeevent">DeviceConfigurationChangeEvent</h2>
 
@@ -21174,6 +21340,31 @@ Returns the User information
 |Property|Value|
 |---|---|
 |name|device_configuration_change|
+
+<h2 id="tocSdeviceconfigurationmetadata">DeviceConfigurationMetadata</h2>
+
+<a id="schemadeviceconfigurationmetadata"></a>
+
+```json
+{
+  "label": "string",
+  "running_md5": "string",
+  "startup_md5": "string",
+  "timestamp": "string"
+}
+
+```
+
+*A backed up device configuration metadata*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|label|string|true|Human readable configuration label|
+|running_md5|string|true|MD5 hash of the running configuration|
+|startup_md5|string|false|MD5 hash of the startup configuration|
+|timestamp|string|true|Timestamp of when the backup was made in ISO format (%Y-%m-%dT%H:%M:%S%z)|
 
 <h2 id="tocSdeviceconfigurationmisalignmentevent">DeviceConfigurationMisalignmentEvent</h2>
 
