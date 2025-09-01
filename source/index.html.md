@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.13.0</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.14.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -3515,6 +3515,7 @@ Returns all the devices of an agent. On per-device licensing agents, only the ma
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |show_hidden|query|boolean|false|Whether to include hidden devices in the returned list|
+|show_excluded|query|boolean|false|Whether to include excluded devices in the returned list. Default is True|
 
 > Example responses
 
@@ -3537,6 +3538,7 @@ Returns all the devices of an agent. On per-device licensing agents, only the ma
     "first_seen_on": "2019-08-24T14:15:22Z",
     "id": 0,
     "importance": "VITAL",
+    "is_excluded": true,
     "main_id": 0,
     "os": {
       "build": "string",
@@ -4565,6 +4567,7 @@ Returns the details of a device
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -19680,6 +19683,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -19722,6 +19726,7 @@ Returns the User information
 |first_seen_on|string(date-time)|false|none|
 |id|integer(int32)|true|none|
 |importance|string|false|none|
+|is_excluded|boolean|false|When true, the Domotz Collector is ignoring the device for all the automatic operations.The Domotz Collector will scan one time the device after its IP address change.|
 |main_id|integer(int32)|false|In a clustered configuration, the main device id|
 |os|object|false|DeviceOS|
 |» build|string|false|none|
@@ -21644,6 +21649,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -21792,6 +21798,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -21978,6 +21985,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -22122,6 +22130,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -22284,6 +22293,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -22648,6 +22658,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -22820,6 +22831,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -22968,6 +22980,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -23095,6 +23108,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -23301,6 +23315,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -23377,6 +23392,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -23513,6 +23529,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -23620,6 +23637,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -23713,6 +23731,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -23865,6 +23884,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -24048,6 +24068,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -24513,6 +24534,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
