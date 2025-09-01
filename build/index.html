@@ -224,7 +224,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#domotz-public-api" class="toc-h1 toc-link" data-title="Domotz Public API v1.13.0">Domotz Public API v1.13.0</a>
+            <a href="#domotz-public-api" class="toc-h1 toc-link" data-title="Domotz Public API v1.14.0">Domotz Public API v1.14.0</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#the-domotz-public-api" class="toc-h2 toc-link" data-title="The Domotz Public API">The Domotz Public API</a>
@@ -990,7 +990,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="domotz-public-api">Domotz Public API v1.13.0</h1>
+        <h1 id="domotz-public-api">Domotz Public API v1.14.0</h1>
 
 <blockquote>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
@@ -3960,7 +3960,7 @@
 </span></code></pre>
 <p><span class='dmt-method'><code>GET /agent/{agent_id}/history/network/speed</code></span></p>
 
-<p>Returns the time series of the Internet Speed measurements taken from the agent, both in 
+<p>Returns the time series of the Internet Speed measurements taken from the agent, both in
 download and in upload.</p>
 
 <h3>Curl</h3>
@@ -5549,6 +5549,13 @@ download and in upload.</p>
 <td>false</td>
 <td>Whether to include hidden devices in the returned list</td>
 </tr>
+<tr>
+<td>show_excluded</td>
+<td>query</td>
+<td>boolean</td>
+<td>false</td>
+<td>Whether to include excluded devices in the returned list. Default is True</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -5572,6 +5579,7 @@ download and in upload.</p>
     </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6918,6 +6926,7 @@ download and in upload.</p>
   </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -12476,8 +12485,8 @@ download and in upload.</p>
 
 <p>Creates a new SNMP Trigger for the sensor. </p>
 
-<p>For instance, to receive a notification when the value of the sensor is above a threshold x, it is required to add a trigger specifying the function_id = 2 (is greater than) and the operand value equals to [x]. 
-The function_id value can be retrieved with the listEyesSNMPTriggerFunction call. 
+<p>For instance, to receive a notification when the value of the sensor is above a threshold x, it is required to add a trigger specifying the function_id = 2 (is greater than) and the operand value equals to [x].
+The function_id value can be retrieved with the listEyesSNMPTriggerFunction call.
 To activate the alert, it is required to call createEyeSNMPTriggerAlert after the trigger creation.</p>
 
 <blockquote>
@@ -25222,6 +25231,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -25331,6 +25341,12 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
 <td>string</td>
 <td>false</td>
 <td>none</td>
+</tr>
+<tr>
+<td>is_excluded</td>
+<td>boolean</td>
+<td>false</td>
+<td>When true, the Domotz Collector is ignoring the device for all the automatic operations.The Domotz Collector will scan one time the device after its IP address change.</td>
 </tr>
 <tr>
 <td>main_id</td>
@@ -29291,6 +29307,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -29504,6 +29521,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -29805,6 +29823,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -30009,6 +30028,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -30256,6 +30276,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -30913,6 +30934,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -31211,6 +31233,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -31429,6 +31452,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -31610,6 +31634,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -32028,6 +32053,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -32135,6 +32161,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -32305,6 +32332,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -32507,6 +32535,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -32684,6 +32713,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -32910,6 +32940,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -33216,6 +33247,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
       </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -34193,6 +34225,7 @@ To activate the alert, it is required to call createEyeSNMPTriggerAlert after th
   </span><span class="s2">"first_seen_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-24T14:15:22Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"importance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VITAL"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"main_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"os"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
