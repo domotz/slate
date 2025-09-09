@@ -12420,6 +12420,164 @@ Status Code **200**
 |» startup_md5|string|false|MD5 hash of the startup configuration|
 |» timestamp|string|true|Timestamp of when the backup was made in ISO format (%Y-%m-%dT%H:%M:%S%z)|
 
+## createDeviceConfiguration
+
+<a id="opIdcreateDeviceConfiguration"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "label": "string",
+  "running": "string",
+  "startup": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/configuration-management/history`</span>
+
+Creates a device configuration backup in the configuration history
+
+> Body parameter
+
+```json
+{
+  "label": "string",
+  "running": "string",
+  "startup": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createdeviceconfiguration-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|body|body|[DeviceConfigurationCreate](#schemadeviceconfigurationcreate)|true|none|
+
+<h3 id="createdeviceconfiguration-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|202|[Accepted](https://tools.ietf.org/html/rfc7231#section-6.3.3)|Configuration backup has been created|None|
+
 ## getDeviceConfiguration
 
 <a id="opIdgetDeviceConfiguration"></a>
@@ -22181,6 +22339,29 @@ Returns the User information
 |Property|Value|
 |---|---|
 |name|device_configuration_change|
+
+<h2 id="tocSdeviceconfigurationcreate">DeviceConfigurationCreate</h2>
+
+<a id="schemadeviceconfigurationcreate"></a>
+
+```json
+{
+  "label": "string",
+  "running": "string",
+  "startup": "string"
+}
+
+```
+
+*Device configuration data to create a backup*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|label|string|true|Human readable configuration label|
+|running|string|true|Base64 encoded running configuration|
+|startup|string|false|Optional base64 encoded startup configuration|
 
 <h2 id="tocSdeviceconfigurationmetadata">DeviceConfigurationMetadata</h2>
 
