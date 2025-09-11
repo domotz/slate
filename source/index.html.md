@@ -15,7 +15,7 @@ headingLevel: 2
 
 ---
 
-<h1 id="domotz-public-api">Domotz Public API v1.13.0</h1>
+<h1 id="domotz-public-api">Domotz Public API v1.14.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -3495,7 +3495,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device`</span>
 
-Returns all the devices of an agent
+Returns all the devices of an agent. On per-device licensing agents, only the managed devices are included.
 
 <h3>Curl</h3>
 
@@ -3515,6 +3515,7 @@ Returns all the devices of an agent
 |---|---|---|---|---|
 |agent_id|path|integer(int32)|true|Agent ID|
 |show_hidden|query|boolean|false|Whether to include hidden devices in the returned list|
+|show_excluded|query|boolean|false|Whether to include excluded devices in the returned list. Default is True|
 
 > Example responses
 
@@ -3537,6 +3538,7 @@ Returns all the devices of an agent
     "first_seen_on": "2019-08-24T14:15:22Z",
     "id": 0,
     "importance": "VITAL",
+    "is_excluded": true,
     "main_id": 0,
     "os": {
       "build": "string",
@@ -4076,6 +4078,202 @@ Creates an external host
 |---|---|---|---|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|None|
 
+## listUnmanagedDevices
+
+<a id="opIdlistUnmanagedDevices"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/device/monitoring-state/unmanaged \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/monitoring-state/unmanaged',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/monitoring-state/unmanaged',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/device/monitoring-state/unmanaged', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/device/monitoring-state/unmanaged',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/device/monitoring-state/unmanaged", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/device/monitoring-state/unmanaged`</span>
+
+Retrieves the list of unmanaged devices for a specific agent. This endpoint returns a limited set of data to support per-device licensing flows. The list of managed devices can be retrieved using the listDevices API.
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/monitoring-state/unmanaged \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listunmanageddevices-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "display_name": "string",
+    "first_seen_on": "2019-08-24T14:15:22Z",
+    "id": 0,
+    "ip_addresses": [
+      "string"
+    ],
+    "mac": "string",
+    "model": "string",
+    "protocol": "IP",
+    "type": {
+      "detected_id": 0,
+      "id": 0,
+      "label": "string"
+    },
+    "vendor": "string"
+  }
+]
+```
+
+<h3 id="listunmanageddevices-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of all unmanaged devices in the Agent's monitored networks|Inline|
+
+<h3 id="listunmanageddevices-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|*anonymous*|[[MinimalDevice](#schemaminimaldevice)]|false|[A minimal representation of a device, containing only the most essential fields.]|
+|» display_name|string|true|none|
+|» first_seen_on|string(date-time)|false|none|
+|» id|integer(int32)|true|none|
+|» ip_addresses|[string]|false|none|
+|» mac|string|false|none|
+|» model|string|false|none|
+|» protocol|string|true|none|
+|» type|object|false|The device type, if recognised by domotz|
+|»» detected_id|integer(int32)|false|none|
+|»» id|integer(int32)|false|none|
+|»» label|string|false|none|
+|» vendor|string|false|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|protocol|IP|
+|protocol|DUMMY|
+|protocol|IP_EXTERNAL|
+
 ## deleteDevice
 
 <a id="opIddeleteDevice"></a>
@@ -4369,6 +4567,7 @@ Returns the details of a device
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -5207,6 +5406,160 @@ Sets the device credentials to perform extended discovery. This operation will a
 |body|body|[DeviceCredentials](#schemadevicecredentials)|true|device credentials payload|
 
 <h3 id="setcredentials-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## updateDeviceMonitoringState
+
+<a id="opIdupdateDeviceMonitoringState"></a>
+
+> Code samples
+
+```shell
+curl -X PUT {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/monitoring-state \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/monitoring-state',
+  method: 'put',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "monitoring_state": "MANAGED"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/monitoring-state',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.put('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/monitoring-state', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.put '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/monitoring-state',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PUT", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/monitoring-state", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`PUT /agent/{agent_id}/device/{device_id}/monitoring-state`</span>
+
+Sets the monitoring state of a device to either managed or unmanaged. This endpoint is available only for agents using per-device licensing
+
+> Body parameter
+
+```json
+{
+  "monitoring_state": "MANAGED"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X PUT</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/monitoring-state \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="updatedevicemonitoringstate-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|body|body|[DeviceMonitoringState](#schemadevicemonitoringstate)|true|The value that the device monitoring state will assume|
+
+<h3 id="updatedevicemonitoringstate-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -6760,6 +7113,490 @@ Changes a field of the device or one of its details
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
 
+## listExcludedDevices
+
+<a id="opIdlistExcludedDevices"></a>
+
+> Code samples
+
+```shell
+curl -X GET {baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.get('{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.get '{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`GET /agent/{agent_id}/network/excluded-device`</span>
+
+Returns all the excluded devices of a Collector, i.e., devices present in Device Blacklist section
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X GET</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device \
+  -H 'Accept: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="listexcludeddevices-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "authentication_status": "NO_AUTHENTICATION",
+    "details": {
+      "firmware_version": "string",
+      "notes": "string",
+      "room": "string",
+      "serial": "string",
+      "snmp_read_community": "string",
+      "snmp_write_community": "string",
+      "zone": "string"
+    },
+    "display_name": "string",
+    "first_seen_on": "2019-08-24T14:15:22Z",
+    "id": 0,
+    "importance": "VITAL",
+    "is_excluded": true,
+    "main_id": 0,
+    "os": {
+      "build": "string",
+      "name": "string",
+      "version": "string"
+    },
+    "protocol": "IP",
+    "snmp_status": "CHECKING",
+    "type": {
+      "detected_id": 0,
+      "id": 0,
+      "label": "string"
+    },
+    "user_data": {
+      "model": "string",
+      "name": "string",
+      "type": 0,
+      "vendor": "string"
+    }
+  }
+]
+```
+
+<h3 id="listexcludeddevices-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The list of all devices excluded from Collector monitoring|Inline|
+
+<h3 id="listexcludeddevices-responseschema">Response Schema</h3>
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|authentication_status|NO_AUTHENTICATION|
+|authentication_status|AUTHENTICATED|
+|authentication_status|PENDING|
+|authentication_status|REQUIRED|
+|authentication_status|WRONG_CREDENTIALS|
+|importance|VITAL|
+|importance|FLOATING|
+|protocol|IP|
+|protocol|DUMMY|
+|protocol|IP_EXTERNAL|
+|snmp_status|CHECKING|
+|snmp_status|NOT_FOUND|
+|snmp_status|NOT_AUTHENTICATED|
+|snmp_status|AUTHENTICATED|
+|status|ONLINE|
+|status|OFFLINE|
+|status|DOWN|
+|status|HIDDEN|
+
+## deleteExcludedDevice
+
+<a id="opIddeleteExcludedDevice"></a>
+
+> Code samples
+
+```shell
+curl -X DELETE {baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.delete('{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.delete '{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`DELETE /agent/{agent_id}/network/excluded-device/{device_id}`</span>
+
+Removes a device from the excluded devices list
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X DELETE</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="deleteexcludeddevice-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+<h3 id="deleteexcludeddevice-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+## addExcludedDevice
+
+<a id="opIdaddExcludedDevice"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id}',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id}',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/network/excluded-device/{device_id}`</span>
+
+Excludes a device from Collector monitoring
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/network/excluded-device/{device_id} \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="addexcludeddevice-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+
+<h3 id="addexcludeddevice-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
 ## listDeviceProfiles
 
 <a id="opIdlistDeviceProfiles"></a>
@@ -6943,6 +7780,7 @@ Status Code **200**
 |module_type|SHARED_ALERT|
 |module_type|SNMP_CUSTOM_OID|
 |module_type|SNMP_PRECONFIGURED_SENSOR|
+|module_type|TCP_SENSOR|
 
 ## applyDeviceProfile
 
@@ -11581,6 +12419,164 @@ Status Code **200**
 |» running_md5|string|true|MD5 hash of the running configuration|
 |» startup_md5|string|false|MD5 hash of the startup configuration|
 |» timestamp|string|true|Timestamp of when the backup was made in ISO format (%Y-%m-%dT%H:%M:%S%z)|
+
+## createDeviceConfiguration
+
+<a id="opIdcreateDeviceConfiguration"></a>
+
+> Code samples
+
+```shell
+curl -X POST {baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+$.ajax({
+  url: '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = '{
+  "label": "string",
+  "running": "string",
+  "startup": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'X-Api-Key':'API_KEY'
+
+};
+
+fetch('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'X-Api-Key': 'API_KEY'
+}
+
+r = requests.post('{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'X-Api-Key' => 'API_KEY'
+}
+
+result = RestClient.post '{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "X-Api-Key": []string{"API_KEY"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+<span class='dmt-method'>`POST /agent/{agent_id}/device/{device_id}/configuration-management/history`</span>
+
+Creates a device configuration backup in the configuration history
+
+> Body parameter
+
+```json
+{
+  "label": "string",
+  "running": "string",
+  "startup": "string"
+}
+```
+
+<h3>Curl</h3>
+
+<p class="dmt-code-block">
+<code>
+<span class="dmt-command">curl -X POST</span> <span class="dmt-url">{baseURL}/public-api/v1/agent/{agent_id}/device/{device_id}/configuration-management/history \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: API_KEY'
+
+</span>
+</code>
+</p>
+
+<h3 id="createdeviceconfiguration-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|agent_id|path|integer(int32)|true|Agent ID|
+|device_id|path|integer(int32)|true|Device ID|
+|body|body|[DeviceConfigurationCreate](#schemadeviceconfigurationcreate)|true|none|
+
+<h3 id="createdeviceconfiguration-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|202|[Accepted](https://tools.ietf.org/html/rfc7231#section-6.3.3)|Configuration backup has been created|None|
 
 ## getDeviceConfiguration
 
@@ -19329,6 +20325,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -19371,6 +20368,7 @@ Returns the User information
 |first_seen_on|string(date-time)|false|none|
 |id|integer(int32)|true|none|
 |importance|string|false|none|
+|is_excluded|boolean|false|When true, the Domotz Collector is ignoring the device for all the automatic operations. The Domotz Collector will scan one time the device after its IP address change. An excluded device is listed on Device Blacklist section on webapp.|
 |main_id|integer(int32)|false|In a clustered configuration, the main device id|
 |os|object|false|DeviceOS|
 |» build|string|false|none|
@@ -21293,6 +22291,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -21340,6 +22339,29 @@ Returns the User information
 |Property|Value|
 |---|---|
 |name|device_configuration_change|
+
+<h2 id="tocSdeviceconfigurationcreate">DeviceConfigurationCreate</h2>
+
+<a id="schemadeviceconfigurationcreate"></a>
+
+```json
+{
+  "label": "string",
+  "running": "string",
+  "startup": "string"
+}
+
+```
+
+*Device configuration data to create a backup*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|label|string|true|Human readable configuration label|
+|running|string|true|Base64 encoded running configuration|
+|startup|string|false|Optional base64 encoded startup configuration|
 
 <h2 id="tocSdeviceconfigurationmetadata">DeviceConfigurationMetadata</h2>
 
@@ -21441,6 +22463,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -21627,6 +22650,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -21771,6 +22795,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -21933,6 +22958,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -22011,6 +23037,30 @@ Returns the User information
 |creation_time|string(date-time)|false|none|
 |key|string|true|The name of the field, unique in the Inventory|
 |value|string|true|none|
+
+<h2 id="tocSdevicemonitoringstate">DeviceMonitoringState</h2>
+
+<a id="schemadevicemonitoringstate"></a>
+
+```json
+{
+  "monitoring_state": "MANAGED"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|monitoring_state|string|true|The value that the device monitoring state will assume|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|monitoring_state|MANAGED|
+|monitoring_state|UNMANAGED|
 
 <h2 id="tocSdeviceoutlet">DeviceOutlet</h2>
 
@@ -22150,6 +23200,7 @@ Returns the User information
 |module_type|SHARED_ALERT|
 |module_type|SNMP_CUSTOM_OID|
 |module_type|SNMP_PRECONFIGURED_SENSOR|
+|module_type|TCP_SENSOR|
 
 <h2 id="tocSdeviceprofileapplyrequest">DeviceProfileApplyRequest</h2>
 
@@ -22272,6 +23323,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -22444,6 +23496,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -22592,6 +23645,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -22719,6 +23773,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -22925,6 +23980,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -23001,6 +24057,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -23137,6 +24194,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -23244,6 +24302,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -23337,6 +24396,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
@@ -23489,6 +24549,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -23544,6 +24605,58 @@ Returns the User information
 |»» value|object|false|none|
 |»»» data|object|false|none|
 |»»»» mib|[string]|false|The discovered MIB|
+
+<h2 id="tocSminimaldevice">MinimalDevice</h2>
+
+<a id="schemaminimaldevice"></a>
+
+```json
+{
+  "display_name": "string",
+  "first_seen_on": "2019-08-24T14:15:22Z",
+  "id": 0,
+  "ip_addresses": [
+    "string"
+  ],
+  "mac": "string",
+  "model": "string",
+  "protocol": "IP",
+  "type": {
+    "detected_id": 0,
+    "id": 0,
+    "label": "string"
+  },
+  "vendor": "string"
+}
+
+```
+
+*A minimal representation of a device, containing only the most essential fields.*
+
+### Properties
+
+|Name|Type|Required|Description|
+|---|---|---|---|---|
+|display_name|string|true|none|
+|first_seen_on|string(date-time)|false|none|
+|id|integer(int32)|true|none|
+|ip_addresses|[string]|false|none|
+|mac|string|false|none|
+|model|string|false|none|
+|protocol|string|true|none|
+|type|object|false|The device type, if recognised by domotz|
+|» detected_id|integer(int32)|false|none|
+|» id|integer(int32)|false|none|
+|» label|string|false|none|
+|vendor|string|false|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|protocol|IP|
+|protocol|DUMMY|
+|protocol|IP_EXTERNAL|
 
 <h2 id="tocSmonitoringprofilestatechanged">MonitoringProfileStateChanged</h2>
 
@@ -23620,6 +24733,7 @@ Returns the User information
       "first_seen_on": "2019-08-24T14:15:22Z",
       "id": 0,
       "importance": "VITAL",
+      "is_excluded": true,
       "main_id": 0,
       "os": {
         "build": "string",
@@ -24085,6 +25199,7 @@ Returns the User information
   "first_seen_on": "2019-08-24T14:15:22Z",
   "id": 0,
   "importance": "VITAL",
+  "is_excluded": true,
   "main_id": 0,
   "os": {
     "build": "string",
