@@ -3540,6 +3540,10 @@ Returns all the devices of an agent. On per-device licensing agents, only the ma
     "importance": "VITAL",
     "is_excluded": true,
     "main_id": 0,
+    "organization": {
+      "id": 0,
+      "name": "string"
+    },
     "os": {
       "build": "string",
       "name": "string",
@@ -4569,6 +4573,10 @@ Returns the details of a device
   "importance": "VITAL",
   "is_excluded": true,
   "main_id": 0,
+  "organization": {
+    "id": 0,
+    "name": "string"
+  },
   "os": {
     "build": "string",
     "name": "string",
@@ -7272,6 +7280,10 @@ Returns all the excluded devices of a Collector, i.e., devices present in Device
     "importance": "VITAL",
     "is_excluded": true,
     "main_id": 0,
+    "organization": {
+      "id": 0,
+      "name": "string"
+    },
     "os": {
       "build": "string",
       "name": "string",
@@ -7732,6 +7744,7 @@ Returns the list of the available device profiles
     },
     "modules": [
       {
+        "apply_mode": "REPLACE",
         "creation_time": "2019-08-24T14:15:22Z",
         "id": 0,
         "is_active": true,
@@ -7765,6 +7778,7 @@ Status Code **200**
 |»» id|integer(int32)|false|User id|
 |»» name|string|false|Username|
 |» modules|[object]|true|The list of modules associated to the device profile|
+|»» apply_mode|string|true|the mode used to apply the module configuration|
 |»» creation_time|string(date-time)|true|The time the device profile module was added|
 |»» id|integer(int32)|true|Module id|
 |»» is_active|boolean|true|Module status|
@@ -7776,6 +7790,8 @@ Status Code **200**
 
 |Property|Value|
 |---|---|
+|apply_mode|REPLACE|
+|apply_mode|ADDITIVE|
 |module_type|INFO|
 |module_type|SHARED_ALERT|
 |module_type|SNMP_CUSTOM_OID|
@@ -12694,7 +12710,7 @@ func main() {
 
 <span class='dmt-method'>`GET /agent/{agent_id}/device/{device_id}/configuration-management/history/{configuration_timestamp}?)`</span>
 
-Retrieves the a device configuration entry
+Retrieves a device configuration entry
 
 <h3>Curl</h3>
 
@@ -20327,6 +20343,10 @@ Returns the User information
   "importance": "VITAL",
   "is_excluded": true,
   "main_id": 0,
+  "organization": {
+    "id": 0,
+    "name": "string"
+  },
   "os": {
     "build": "string",
     "name": "string",
@@ -20370,6 +20390,9 @@ Returns the User information
 |importance|string|false|none|
 |is_excluded|boolean|false|When true, the Domotz Collector is ignoring the device for all the automatic operations. The Domotz Collector will scan one time the device after its IP address change. An excluded device is listed on Device Blacklist section on webapp.|
 |main_id|integer(int32)|false|In a clustered configuration, the main device id|
+|organization|object|false|none|
+|» id|integer(int32)|false|none|
+|» name|string|false|none|
 |os|object|false|DeviceOS|
 |» build|string|false|none|
 |» name|string|false|none|
@@ -22293,6 +22316,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -22465,6 +22492,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -22652,6 +22683,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -22797,6 +22832,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -22960,6 +22999,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -23161,6 +23204,7 @@ Returns the User information
   },
   "modules": [
     {
+      "apply_mode": "REPLACE",
       "creation_time": "2019-08-24T14:15:22Z",
       "id": 0,
       "is_active": true,
@@ -23185,6 +23229,7 @@ Returns the User information
 |» id|integer(int32)|false|User id|
 |» name|string|false|Username|
 |modules|[object]|true|The list of modules associated to the device profile|
+|» apply_mode|string|true|the mode used to apply the module configuration|
 |» creation_time|string(date-time)|true|The time the device profile module was added|
 |» id|integer(int32)|true|Module id|
 |» is_active|boolean|true|Module status|
@@ -23196,6 +23241,8 @@ Returns the User information
 
 |Property|Value|
 |---|---|
+|apply_mode|REPLACE|
+|apply_mode|ADDITIVE|
 |module_type|INFO|
 |module_type|SHARED_ALERT|
 |module_type|SNMP_CUSTOM_OID|
@@ -23325,6 +23372,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -23498,6 +23549,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -23647,6 +23702,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -23775,6 +23834,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -23982,6 +24045,10 @@ Returns the User information
   "importance": "VITAL",
   "is_excluded": true,
   "main_id": 0,
+  "organization": {
+    "id": 0,
+    "name": "string"
+  },
   "os": {
     "build": "string",
     "name": "string",
@@ -24059,6 +24126,10 @@ Returns the User information
   "importance": "VITAL",
   "is_excluded": true,
   "main_id": 0,
+  "organization": {
+    "id": 0,
+    "name": "string"
+  },
   "os": {
     "build": "string",
     "name": "string",
@@ -24196,6 +24267,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -24304,6 +24379,10 @@ Returns the User information
   "importance": "VITAL",
   "is_excluded": true,
   "main_id": 0,
+  "organization": {
+    "id": 0,
+    "name": "string"
+  },
   "os": {
     "build": "string",
     "name": "string",
@@ -24398,6 +24477,10 @@ Returns the User information
   "importance": "VITAL",
   "is_excluded": true,
   "main_id": 0,
+  "organization": {
+    "id": 0,
+    "name": "string"
+  },
   "os": {
     "build": "string",
     "name": "string",
@@ -24551,6 +24634,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -24735,6 +24822,10 @@ Returns the User information
       "importance": "VITAL",
       "is_excluded": true,
       "main_id": 0,
+      "organization": {
+        "id": 0,
+        "name": "string"
+      },
       "os": {
         "build": "string",
         "name": "string",
@@ -25201,6 +25292,10 @@ Returns the User information
   "importance": "VITAL",
   "is_excluded": true,
   "main_id": 0,
+  "organization": {
+    "id": 0,
+    "name": "string"
+  },
   "os": {
     "build": "string",
     "name": "string",
